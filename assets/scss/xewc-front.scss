@@ -1,0 +1,109 @@
+/*
+ * XEWC Front CSS
+ * File Description: The main stylesheet of this plugins for main design part.
+ */
+.search_form_shortcode {
+    button {
+        width: 188px;
+        font-size: 14px;
+        line-height: 22px;
+        min-height: 43px;
+    }
+    .xewc-ajax-search, 
+    .xewc-products-search-results {
+        width: calc(100% - 198px);
+        margin-right: 10px;
+        display: inline-block;
+        img {
+            width: 40px;
+            height: 40px;
+            float: left;
+        }
+        .xewc-productss-search.results-list {
+            display: inline-block;
+            background: #fff;
+            background-color: #fff;
+            box-shadow: 0 3px 5px 0 #e0e0e0;
+            border-radius: 3px;
+            margin-bottom: 50px;
+            -webkit-transition: .3s;
+            transition: .3s;
+            margin: 0;
+            padding: 20px 20px 10px;
+            width: 100%;
+            li {
+                display: inline-block;
+                width: 100%;
+                margin: 0 0 10px;
+                a {
+                    text-decoration: none;
+                    font-size: 18px;
+                }
+                .pack-thumb {
+                    // display: inline-flex;
+                    img {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+.woocommerce {
+    .product {
+        .add_to_cart_button {
+            margin-right: 6px;
+        }
+        a.added_to_cart.wc-forward {
+            background: inherit;
+        }
+    }
+    .products {
+        .inner{
+            span.category a {
+                margin-right: 6px;
+            }
+            .content {
+                a {
+                    margin-right: 6px;
+                }
+            }
+        } 
+        
+    }
+    .columns-4{
+        li:nth-child(4),
+        li:nth-child(8),
+        li:nth-child(12) {
+            margin-right: 0 !important;
+        }
+    } 
+    .columns-3{
+        li:nth-child(3),
+        li:nth-child(6),
+        li:nth-child(9),
+        li:nth-child(12) {
+            margin-right: 0 !important;
+        }
+    } 
+    .columns-2{
+        li:nth-child(2),
+        li:nth-child(4),
+        li:nth-child(6) {
+            margin-right: 0 !important;
+        }
+    } 
+    .xewc-pagination{
+        ul.page-numbers {
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline-block;
+                padding-right: 20px;
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
