@@ -1,5 +1,5 @@
 /*
- * XEWC Front CSS
+ * WPEW Front CSS
  * File Description: The main stylesheet of this plugins for main design part.
  */
 .search_form_shortcode {
@@ -9,8 +9,8 @@
         line-height: 22px;
         min-height: 43px;
     }
-    .xewc-ajax-search, 
-    .xewc-products-search-results {
+    .wpew-ajax-search, 
+    .wpew-products-search-results {
         width: calc(100% - 198px);
         margin-right: 10px;
         display: inline-block;
@@ -19,7 +19,7 @@
             height: 40px;
             float: left;
         }
-        .xewc-productss-search.results-list {
+        .wpew-productss-search.results-list {
             display: inline-block;
             background: #fff;
             background-color: #fff;
@@ -93,7 +93,7 @@
             margin-right: 0 !important;
         }
     } 
-    .xewc-pagination{
+    .wpew-pagination{
         ul.page-numbers {
             margin: 0;
             padding: 0;

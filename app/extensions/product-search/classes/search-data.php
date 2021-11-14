@@ -20,7 +20,7 @@ if(isset($_POST['raw_data'])){
 
     if(!empty($row_data)){
         if($search_data->have_posts()){
-            $output .= '<ul class="xewc-productss-search results-list">';
+            $output .= '<ul class="wpew-productss-search results-list">';
             while ($search_data->have_posts()): $search_data->the_post();
                 $output .= '<li>';
                     $output .= '<div class="pack-thumb">';

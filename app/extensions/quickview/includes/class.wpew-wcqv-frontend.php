@@ -2,27 +2,27 @@
 /**
  * Frontend class
  *
- * @author  XEWC
- * @package XEWC WooCommerce Quick View
+ * @author  WPEW
+ * @package WPEW WooCommerce Quick View
  * @version 1.0.0
  */
 
-defined( 'XEWC_QUICK_VIEW' ) || exit; // Exit if accessed directly.
+defined( 'WPEW_QUICK_VIEW' ) || exit; // Exit if accessed directly.
 
-if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
+if ( ! class_exists( 'WPEW_QUICK_VIEW_Frontend' ) ) {
 	/**
 	 * Admin class.
 	 * The class manage all the Frontend behaviors.
 	 *
 	 * @since 1.0.0
 	 */
-	class XEWC_QUICK_VIEW_Frontend {
+	class WPEW_QUICK_VIEW_Frontend {
 
 		/**
 		 * Single instance of the class
 		 *
 		 * @since 1.0.0
-		 * @var XEWC_QUICK_VIEW_Frontend
+		 * @var WPEW_QUICK_VIEW_Frontend
 		 */
 		protected static $instance;
 
@@ -32,13 +32,13 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * @since 1.0.0
 		 * @var string
 		 */
-		public $version = XEWC_QUICK_VIEW_VERSION;
+		public $version = WPEW_QUICK_VIEW_VERSION;
 
 		/**
 		 * Returns single instance of the class
 		 *
 		 * @since 1.0.0
-		 * @return XEWC_QUICK_VIEW_Frontend
+		 * @return WPEW_QUICK_VIEW_Frontend
 		 */
 		public static function get_instance() {
 			if ( is_null( self::$instance ) ) {
@@ -59,23 +59,23 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles_scripts' ) );
 
 			// Enqueue gift card script.
-			if ( defined( 'XEWC_YWGC_FILE' ) ) {
+			if ( defined( 'WPEW_YWGC_FILE' ) ) {
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_gift_card_script' ) );
 			}
 
 			// Quick view AJAX.
-			add_action( 'wp_ajax_xewc_load_product_quick_view', array( $this, 'xewc_load_product_quick_view_ajax' ) );
-			add_action( 'wp_ajax_nopriv_xewc_load_product_quick_view', array( $this, 'xewc_load_product_quick_view_ajax' ) );
+			add_action( 'wp_ajax_wpew_load_product_quick_view', array( $this, 'wpew_load_product_quick_view_ajax' ) );
+			add_action( 'wp_ajax_nopriv_wpew_load_product_quick_view', array( $this, 'wpew_load_product_quick_view_ajax' ) );
 
 			// Load modal template.
-			add_action( 'wp_footer', array( $this, 'xewc_quick_view' ) );
+			add_action( 'wp_footer', array( $this, 'wpew_quick_view' ) );
 
 			// Load action for product template.
-			$this->xewc_quick_view_action_template();
+			$this->wpew_quick_view_action_template();
 			// Add quick view button.
 			add_action( 'init', array( $this, 'add_button' ) );
 
-			add_shortcode( 'xewc_quick_view', array( $this, 'quick_view_shortcode' ) );
+			add_shortcode( 'wpew_quick_view', array( $this, 'quick_view_shortcode' ) );
 			add_filter( 'woocommerce_add_to_cart_form_action', array( $this, 'avoid_redirect_to_single_page' ), 10, 1 );
 		}
 
@@ -90,49 +90,49 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-			wp_register_script( 'xewc-wcqv-frontend', XEWC_QUICK_VIEW_ASSETS_URL . '/js/frontend' . $suffix . '.js', array( 'jquery' ), $this->version, true );
-			wp_enqueue_script( 'xewc-wcqv-frontend' );
-			wp_enqueue_style( 'xewc-quick-view', XEWC_QUICK_VIEW_ASSETS_URL . '/css/xewc-quick-view.css', array(), $this->version );
+			wp_register_script( 'wpew-wcqv-frontend', WPEW_QUICK_VIEW_ASSETS_URL . '/js/frontend' . $suffix . '.js', array( 'jquery' ), $this->version, true );
+			wp_enqueue_script( 'wpew-wcqv-frontend' );
+			wp_enqueue_style( 'wpew-quick-view', WPEW_QUICK_VIEW_ASSETS_URL . '/css/wpew-quick-view.css', array(), $this->version );
 
 			$background_modal  = get_option( 'wp_button_bg_color', '#ffffff' );
 			$close_color       = get_option( 'wp_close_button_color', '#cdcdcd' );
 			$close_color_hover = get_option( 'wp_close_button_hover_color', '#ff0000' );
 
 			$inline_style = "
-				#xewc-quick-view-modal .xewc-wcqv-main{background:{$background_modal};}
-				#xewc-quick-view-close{color:{$close_color};}
-				#xewc-quick-view-close:hover{color:{$close_color_hover};}";
+				#wpew-quick-view-modal .wpew-wcqv-main{background:{$background_modal};}
+				#wpew-quick-view-close{color:{$close_color};}
+				#wpew-quick-view-close:hover{color:{$close_color_hover};}";
 
-			wp_add_inline_style( 'xewc-quick-view', $inline_style );
+			wp_add_inline_style( 'wpew-quick-view', $inline_style );
 		}
 
 
 		/**
-		 * Enqueue scripts for XEWC WooCommerce Gift Cards
+		 * Enqueue scripts for WPEW WooCommerce Gift Cards
 		 *
 		 * @access public
 		 * @since  1.0.0
 		 * @return void
 		 */
 		public function enqueue_gift_card_script() {
-			if ( ! wp_script_is( 'xewc-frontend' ) && apply_filters( 'xewc_load_gift_card_script_pages_for_quick_view', is_shop() ) && version_compare( XEWC_YWGC_VERSION, '3.0.0', '<' ) ) {
-				wp_register_script( 'xewc-frontend', XEWC_YWGC_URL . 'assets/js/' . xewc_load_js_file( 'xewc-frontend.js' ), array( 'jquery', 'woocommerce' ), XEWC_YWGC_VERSION, true );
-				wp_enqueue_script( 'xewc-frontend' );
-			} elseif ( ! wp_script_is( 'xewc-frontend' ) && apply_filters( 'xewc_load_gift_card_script_pages_for_quick_view', is_shop() ) ) {
-				wp_register_script( 'xewc-frontend', XEWC_YWGC_URL . 'assets/js/' . xewc_load_js_file( 'xewc-frontend.js' ), array( 'jquery', 'woocommerce', 'jquery-ui-datepicker', 'accounting' ), XEWC_YWGC_VERSION, true );
+			if ( ! wp_script_is( 'wpew-frontend' ) && apply_filters( 'wpew_load_gift_card_script_pages_for_quick_view', is_shop() ) && version_compare( WPEW_YWGC_VERSION, '3.0.0', '<' ) ) {
+				wp_register_script( 'wpew-frontend', WPEW_YWGC_URL . 'assets/js/' . wpew_load_js_file( 'wpew-frontend.js' ), array( 'jquery', 'woocommerce' ), WPEW_YWGC_VERSION, true );
+				wp_enqueue_script( 'wpew-frontend' );
+			} elseif ( ! wp_script_is( 'wpew-frontend' ) && apply_filters( 'wpew_load_gift_card_script_pages_for_quick_view', is_shop() ) ) {
+				wp_register_script( 'wpew-frontend', WPEW_YWGC_URL . 'assets/js/' . wpew_load_js_file( 'wpew-frontend.js' ), array( 'jquery', 'woocommerce', 'jquery-ui-datepicker', 'accounting' ), WPEW_YWGC_VERSION, true );
 
 				wp_localize_script(
-					'xewc-frontend',
-					'xewc_data',
+					'wpew-frontend',
+					'wpew_data',
 					array(
-						'loader'        => apply_filters( 'xewc_gift_cards_loader', XEWC_YWGC_ASSETS_URL . '/images/loading.gif' ),
+						'loader'        => apply_filters( 'wpew_gift_cards_loader', WPEW_YWGC_ASSETS_URL . '/images/loading.gif' ),
 						'ajax_url'      => admin_url( 'admin-ajax.php' ),
 						'wc_ajax_url'   => WC_AJAX::get_endpoint( '%%endpoint%%' ),
-						'notice_target' => apply_filters( 'xewc_xewc_gift_card_notice_target', 'div.woocommerce' ),
+						'notice_target' => apply_filters( 'wpew_wpew_gift_card_notice_target', 'div.woocommerce' ),
 					)
 				);
 
-				wp_enqueue_script( 'xewc-frontend' );
+				wp_enqueue_script( 'wpew-frontend' );
 			}
 		}
 
@@ -144,23 +144,23 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 */
 		public function add_button() {
 			if ( $this->is_proteo_add_to_cart_hover() ) {
-				add_action( 'xewc_proteo_products_loop_add_to_cart_actions', array( $this, 'xewc_add_quick_view_button' ), 55 );
+				add_action( 'wpew_proteo_products_loop_add_to_cart_actions', array( $this, 'wpew_add_quick_view_button' ), 55 );
 			} else {
-				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'xewc_add_quick_view_button' ), 15 );
+				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'wpew_add_quick_view_button' ), 15 );
 			}
 
-			add_action( 'xewc_wcwl_table_after_product_name', array( $this, 'add_quick_view_button_wishlist' ), 15 );
+			add_action( 'wpew_wcwl_table_after_product_name', array( $this, 'add_quick_view_button_wishlist' ), 15 );
 		}
 
 
 		/**
-		 * Check if current theme is XEWC Proteo and if the add to cart button is visible on image hover
+		 * Check if current theme is WPEW Proteo and if the add to cart button is visible on image hover
 		 *
 		 * @since 1.0.0
 		 * @return boolean
 		 */
 		public function is_proteo_add_to_cart_hover() {
-			return defined( 'XEWC_PROTEO_VERSION' ) && 'hover' === get_theme_mod( 'xewc_proteo_products_loop_add_to_cart_position', 'classic' );
+			return defined( 'WPEW_PROTEO_VERSION' ) && 'hover' === get_theme_mod( 'wpew_proteo_products_loop_add_to_cart_position', 'classic' );
 		}
 
 		/**
@@ -173,7 +173,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * @param boolean        $return     True to return, false to echo.
 		 * @return string|void
 		 */
-		public function xewc_add_quick_view_button( $product_id = 0, $label = '', $return = false ) {
+		public function wpew_add_quick_view_button( $product_id = 0, $label = '', $return = false ) {
 
 			global $product;
 
@@ -181,7 +181,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 				$product_id = $product->get_id();
 			}
 
-			if ( ! apply_filters( 'xewc_quickview_show_quick_view_button', true, $product_id ) ) {
+			if ( ! apply_filters( 'wpew_quickview_show_quick_view_button', true, $product_id ) ) {
 				return;
 			}
 
@@ -191,8 +191,8 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 					$label = $this->get_button_label();
 				}
 
-				$button = '<a href="#" class="button xewc-wcqv-button" data-product_id="' . esc_attr( $product_id ) . '">' . $label . '</a>';
-				$button = apply_filters( 'xewc_add_quick_view_button_html', $button, $label, $product );
+				$button = '<a href="#" class="button wpew-wcqv-button" data-product_id="' . esc_attr( $product_id ) . '">' . $label . '</a>';
+				$button = apply_filters( 'wpew_add_quick_view_button_html', $button, $label, $product );
 			}
 
 			if ( $return ) {
@@ -206,12 +206,12 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * Add quick view button in wishlist
 		 *
 		 * @since 1.0.0
-		 * @param XEWC_WCWL_Wishlist_Item $item THe wishlist item.
+		 * @param WPEW_WCWL_Wishlist_Item $item THe wishlist item.
 		 * @return string|void
 		 */
 		public function add_quick_view_button_wishlist( $item ) {
-			if ( $item instanceof XEWC_WCWL_Wishlist_Item ) {
-				$this->xewc_add_quick_view_button( $item->get_product_id() );
+			if ( $item instanceof WPEW_WCWL_Wishlist_Item ) {
+				$this->wpew_add_quick_view_button( $item->get_product_id() );
 			}
 		}
 
@@ -222,7 +222,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * @since  1.0.0
 		 * @return bool
 		 */
-		public function xewc_woocommerce_quick_view() {
+		public function wpew_woocommerce_quick_view() {
 
 			wp_enqueue_script( 'wc-add-to-cart-variation' );
 			if ( version_compare( WC()->version, '3.0.0', '>=' ) ) {
@@ -240,18 +240,18 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 			}
 
 			// Enqueue WC Color and Label Variations style and script.
-			wp_enqueue_script( 'xewc_wccl_frontend' );
-			wp_enqueue_style( 'xewc_wccl_frontend' );
+			wp_enqueue_script( 'wpew_wccl_frontend' );
+			wp_enqueue_style( 'wpew_wccl_frontend' );
 
 			// Allow user to load custom style and scripts!
-			do_action( 'xewc_quick_view_custom_style_scripts' );
+			do_action( 'wpew_quick_view_custom_style_scripts' );
 
 			wp_localize_script(
-				'xewc-wcqv-frontend',
-				'xewc_qv',
+				'wpew-wcqv-frontend',
+				'wpew_qv',
 				array(
 					'ajaxurl' => admin_url( 'admin-ajax.php', 'relative' ),
-					'loader'  => apply_filters( 'xewc_quick_view_loader_gif', XEWC_QUICK_VIEW_ASSETS_URL . '/image/qv-loader.gif' ),
+					'loader'  => apply_filters( 'wpew_quick_view_loader_gif', WPEW_QUICK_VIEW_ASSETS_URL . '/image/qv-loader.gif' ),
 					'lang'    => defined( 'ICL_LANGUAGE_CODE' ) ? ICL_LANGUAGE_CODE : '',
 				)
 			);
@@ -266,7 +266,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * @since  1.0.0
 		 * @return void
 		 */
-		public function xewc_load_product_quick_view_ajax() {
+		public function wpew_load_product_quick_view_ajax() {
 			// phpcs:disable WordPress.Security.NonceVerification.Recommended
 			if ( ! isset( $_REQUEST['product_id'] ) ) {
 				die();
@@ -291,14 +291,14 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 			// Remove product thumbnails gallery.
 			remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
 			// Change template for variable products.
-			if ( isset( $GLOBALS['xewc_wccl'] ) ) {
-				$GLOBALS['xewc_wccl']->obj = new XEWC_WCCL_Frontend();
-				$GLOBALS['xewc_wccl']->obj->override();
-			}elseif( defined( 'XEWC_WCCL_PREMIUM' ) && XEWC_WCCL_PREMIUM && class_exists( 'XEWC_WCCL_Frontend' ) ) {
-				$attributes = XEWC_WCCL_Frontend()->create_attributes_json( $product_id, true );
+			if ( isset( $GLOBALS['wpew_wccl'] ) ) {
+				$GLOBALS['wpew_wccl']->obj = new WPEW_WCCL_Frontend();
+				$GLOBALS['wpew_wccl']->obj->override();
+			}elseif( defined( 'WPEW_WCCL_PREMIUM' ) && WPEW_WCCL_PREMIUM && class_exists( 'WPEW_WCCL_Frontend' ) ) {
+				$attributes = WPEW_WCCL_Frontend()->create_attributes_json( $product_id, true );
 			}
 			ob_start();
-			wc_get_template( 'xewc-quick-view-content.php', array(), '', XEWC_QUICK_VIEW_DIR_PATH . 'templates/' );
+			wc_get_template( 'wpew-quick-view-content.php', array(), '', WPEW_QUICK_VIEW_DIR_PATH . 'templates/' );
 			$html = ob_get_contents();  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			ob_end_clean();
 
@@ -320,9 +320,9 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * @since  1.0.0
 		 * @return void
 		 */
-		public function xewc_quick_view() {
-			$this->xewc_woocommerce_quick_view();
-			wc_get_template( 'xewc-quick-view.php', array(), '', XEWC_QUICK_VIEW_DIR_PATH . 'templates/' );
+		public function wpew_quick_view() {
+			$this->wpew_woocommerce_quick_view();
+			wc_get_template( 'wpew-quick-view.php', array(), '', WPEW_QUICK_VIEW_DIR_PATH . 'templates/' );
 		}
 
 		/**
@@ -332,19 +332,19 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * @since  1.0.0
 		 * @return void
 		 */
-		public function xewc_quick_view_action_template() {
+		public function wpew_quick_view_action_template() {
 
 			// Image.
-			add_action( 'xewc_quickview_product_image', 'woocommerce_show_product_sale_flash', 10 );
-			add_action( 'xewc_quickview_product_image', 'woocommerce_show_product_images', 20 );
+			add_action( 'wpew_quickview_product_image', 'woocommerce_show_product_sale_flash', 10 );
+			add_action( 'wpew_quickview_product_image', 'woocommerce_show_product_images', 20 );
 
 			// Summary.
-			add_action( 'xewc_quickview_product_summary', 'woocommerce_template_single_title', 5 );
-			add_action( 'xewc_quickview_product_summary', 'woocommerce_template_single_rating', 10 );
-			add_action( 'xewc_quickview_product_summary', 'woocommerce_template_single_price', 15 );
-			add_action( 'xewc_quickview_product_summary', 'woocommerce_template_single_excerpt', 20 );
-			add_action( 'xewc_quickview_product_summary', 'woocommerce_template_single_add_to_cart', 25 );
-			add_action( 'xewc_quickview_product_summary', 'woocommerce_template_single_meta', 30 );
+			add_action( 'wpew_quickview_product_summary', 'woocommerce_template_single_title', 5 );
+			add_action( 'wpew_quickview_product_summary', 'woocommerce_template_single_rating', 10 );
+			add_action( 'wpew_quickview_product_summary', 'woocommerce_template_single_price', 15 );
+			add_action( 'wpew_quickview_product_summary', 'woocommerce_template_single_excerpt', 20 );
+			add_action( 'wpew_quickview_product_summary', 'woocommerce_template_single_add_to_cart', 25 );
+			add_action( 'wpew_quickview_product_summary', 'woocommerce_template_single_meta', 30 );
 		}
 
 		/**
@@ -355,9 +355,9 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 */
 		public function get_button_label() {
 			$label = get_option( 'btn_quick_view' );
-			$label = call_user_func( '__', $label, 'xewc' );
+			$label = call_user_func( '__', $label, 'wpew' );
 
-			return apply_filters( 'xewc_quickview_button_label', esc_html( $label ) );
+			return apply_filters( 'wpew_quickview_button_label', esc_html( $label ) );
 		}
 
 		/**
@@ -380,7 +380,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 
 			extract( $atts ); // phpcs:ignore
 
-			return $this->xewc_add_quick_view_button( intval( $product_id ), $label, true );
+			return $this->wpew_add_quick_view_button( intval( $product_id ), $label, true );
 		}
 
 		/**
@@ -390,8 +390,8 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * @since  1.0.0
 		 * @return bool
 		 */
-		public function xewc_is_quick_view() {
-			return ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'xewc_load_product_quick_view' === $_REQUEST['action'] );
+		public function wpew_is_quick_view() {
+			return ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && 'wpew_load_product_quick_view' === $_REQUEST['action'] );
 		}
 
 		/**
@@ -402,7 +402,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 		 * @return string
 		 */
 		public function avoid_redirect_to_single_page( $value ) {
-			if ( $this->xewc_is_quick_view() ) {
+			if ( $this->wpew_is_quick_view() ) {
 				return '';
 			}
 			return $value;
@@ -410,11 +410,11 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW_Frontend' ) ) {
 	}
 }
 /**
- * Unique access to instance of XEWC_QUICK_VIEW_Frontend class
+ * Unique access to instance of WPEW_QUICK_VIEW_Frontend class
  *
  * @since 1.0.0
- * @return XEWC_QUICK_VIEW_Frontend
+ * @return WPEW_QUICK_VIEW_Frontend
  */
-function XEWC_QUICK_VIEW_Frontend() { // phpcs:ignore
-	return XEWC_QUICK_VIEW_Frontend::get_instance();
+function WPEW_QUICK_VIEW_Frontend() { // phpcs:ignore
+	return WPEW_QUICK_VIEW_Frontend::get_instance();
 }

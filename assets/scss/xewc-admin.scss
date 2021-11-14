@@ -1,5 +1,5 @@
 /*
-* XEWC admin CSS
+* WPEW admin CSS
 * File Description: The main stylesheet of this plugins for main design part.
 */
 
@@ -9,17 +9,17 @@
 * Shortcode CSS 
 * --------------------------- */
 
-.xewc-settings-panel{
+.wpew-settings-panel{
     margin-top: 20px;
     padding: 0;
     display: flex;
-    .xewc-tabs-content {
+    .wpew-tabs-content {
         max-height: 700px;
         overflow-y: scroll;
         background-color: #ffffff;
         box-shadow: 0 15px 25px #f0f0f1;
     }
-    .xewc-main-setting-table {
+    .wpew-main-setting-table {
         margin: 0;
         th {
             width: 280px;
@@ -56,7 +56,7 @@
 /*
 * Extensions List css
 *------------------------------ */ 
-.wp-xewc-extensions-list {
+.wp-wpew-extensions-list {
     .plugin-card-top{
         min-height: 98px;
     }

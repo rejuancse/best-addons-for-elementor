@@ -2,12 +2,12 @@
 /**
  * Quick view content.
  *
- * @author  XEWC
- * @package XEWC WooCommerce Quick View
+ * @author  WPEW
+ * @package WPEW WooCommerce Quick View
  * @version 1.0.0
  */
 
-defined( 'XEWC_QUICK_VIEW' ) || exit; // Exit if accessed directly.
+defined( 'WPEW_QUICK_VIEW' ) || exit; // Exit if accessed directly.
 
 while ( have_posts() ) :
 	the_post();
@@ -17,11 +17,11 @@ while ( have_posts() ) :
 
 		<div id="product-<?php the_ID(); ?>" <?php post_class( 'product' ); ?>>
 
-			<?php do_action( 'xewc_quickview_product_image' ); ?>
+			<?php do_action( 'wpew_quickview_product_image' ); ?>
 
 			<div class="summary entry-summary">
 				<div class="summary-content">
-					<?php do_action( 'xewc_quickview_product_summary' ); ?>
+					<?php do_action( 'wpew_quickview_product_summary' ); ?>
 				</div>
 			</div>
 

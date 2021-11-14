@@ -1,13 +1,13 @@
 <?php
-namespace XEWC;
+namespace WPEW;
 
 defined( 'ABSPATH' ) || exit;
 
 class Functions {
 
     public function generator( $arr ){
-        require_once XEWC_DIR_PATH . 'settings/Generator.php';
-        $generator = new \XEWC\settings\Settings_Generator();
+        require_once WPEW_DIR_PATH . 'settings/Generator.php';
+        $generator = new \WPEW\settings\Settings_Generator();
         $generator->generator( $arr );
     }
 
@@ -28,7 +28,7 @@ class Functions {
     }
 
     public function is_free(){
-        if (is_plugin_active('xewc-pro/xewc-pro.php')) {
+        if (is_plugin_active('wpew-pro/wpew-pro.php')) {
             return false;
         } else {
             return true;
@@ -72,18 +72,18 @@ class Functions {
         return $pages;
     }
 
-    public function wc_version($version = '3.0'){
-        if (class_exists('WooCommerce')) {
-            if (version_compare(WC()->version, $version, ">=")) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // public function wc_version($version = '3.0'){
+    //     if (class_exists('elementor')) {
+    //         if (version_compare(WC()->version, $version, ">=")) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
     
-    public function is_woocommerce(){
-        $vendor = get_option('vendor_type', 'woocommerce');
-        if( $vendor == 'woocommerce' ){
+    public function is_elementor(){
+        $vendor = get_option('vendor_type', 'elementor');
+        if( $vendor == 'elementor' ){
             return true;
         }else{
             return false;
@@ -92,16 +92,16 @@ class Functions {
     
     public function get_screen_id(){
         $screen_ids = array(
-            'toplevel_page_xewc',
+            'toplevel_page_wpew',
         );
-        return apply_filters('xewc_screen_id', $screen_ids);
+        return apply_filters('wpew_screen_id', $screen_ids);
     }
     
     public function get_addon_config($addon_field = null){
         if ( ! $addon_field){
             return false;
         }
-        $extensionsConfig = maybe_unserialize(get_option('xewc_extensions_config'));
+        $extensionsConfig = maybe_unserialize(get_option('wpew_extensions_config'));
         if (isset($extensionsConfig[$addon_field])){
             return $extensionsConfig[$addon_field];
         }
@@ -141,7 +141,7 @@ class Functions {
 	function get_pagination($page_numb, $max_page) {
 		$html = '';
 		$big = 999999999; // need an unlikely integer
-		$html .= '<div class="xewc-pagination">';
+		$html .= '<div class="wpew-pagination">';
 		$html .= paginate_links(array(
 			'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
 			'format' => '?paged=%#%',

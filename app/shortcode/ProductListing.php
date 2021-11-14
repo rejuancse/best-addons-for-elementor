@@ -1,5 +1,5 @@
 <?php
-namespace XEWC\shortcode;
+namespace WPEW\shortcode;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -14,7 +14,7 @@ class Product_Listing {
 		$order = get_option( 'wp_product_list_order', 'desc' );
         $post_limit = get_option( 'wp_number_of_product', 9 );
 		$column_number = get_option( 'wp_number_of_coulmn', 4 );
-		$category = get_option( 'wp_xewc_product_category', false );
+		$category = get_option( 'wp_wpew_product_category', false );
 		$page_numb = max(1, get_query_var('paged'));
 		
         $atts = shortcode_atts( array(
@@ -67,7 +67,7 @@ class Product_Listing {
 					<?php wp_reset_query(); ?>
 				<?php endif; ?>
 			</ul>
-			<?php echo xewc_function()->get_pagination($page_numb, $query->max_num_pages); ?>
+			<?php echo wpew_function()->get_pagination($page_numb, $query->max_num_pages); ?>
         </div>
         <?php
 		$output = ob_get_contents();

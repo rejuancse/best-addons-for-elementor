@@ -1,5 +1,5 @@
 <?php
-namespace XEWC\settings;
+namespace WPEW\settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,35 +9,45 @@ class Admin_Menu {
         add_action('admin_menu', array($this, 'register_menu_page' ));
     }
     /**
-     * XEWC Menu Option Page
+     * WPEW Menu Option Page
      */
     public function register_menu_page(){
         add_menu_page( 
-            'X-Extensions',
-            'X-Extensions',
+            'Elementor Widgets',
+            'Elementor Widgets',
             'manage_options',
-            'xewc',
+            'wpew',
             '',
             'dashicons-xing', 
             null
         );
 
-        $addon_pro =  __('Extensions', 'xewc');
-        if( !defined('XEWC_PRO_FILE') ){
-            $addon_pro = __('Extensions <span class="dashicons dashicons-star-filled" style="color:#ef450b"/>', 'xewc');
-        }
+        $addon_pro =  __('Widgets', 'wpew');
+
         add_submenu_page(
-            'xewc',
-            __('Extensions', 'xewc'),
+            'wpew',
+            __('Widgets', 'wpew'),
             $addon_pro,
             'manage_options',
-            'xewc',
-            array( $this, 'xewc_manage_extensions' )
+            'wpew',
+            array( $this, 'wpew_manage_widgets' )
         );
+
+        add_submenu_page('wpew', __('Tools', 'wpew'), __('Tools', 'wpew'), 'manage_options', 'wpew-tools', array($this, 'wpew_tools') );
+
+        add_submenu_page( 'wpew', __( 'Get Pro', 'wpew' ), __( '<span class="dashicons dashicons-awards wpew-get-pro-text"></span> Get Pro', 'wpew' ), 'manage_options', 'wpew-get-pro', array($this, 'wpew_get_pro') );
     }
     
     // Addon Listing
-    public function xewc_manage_extensions() {
-        include XEWC_DIR_PATH.'settings/view/Addons.php';
+    public function wpew_manage_widgets() {
+        include WPEW_DIR_PATH.'app/settings/view/Addons.php';
     }
+
+    public function wpew_tools(){
+		include WPEW_DIR_PATH.'app/settings/view/pages/tools.php';	
+	}
+
+    public function wpew_get_pro(){
+		include WPEW_DIR_PATH.'app/settings/view/pages/get-pro.php';
+	}
 }

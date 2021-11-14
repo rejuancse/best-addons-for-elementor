@@ -8,22 +8,22 @@ $arr =  array(
         'id'        => 'wp_product_search_image',
         'type'      => 'checkbox',
         'value'     => 'true',
-        'label'     => __('Enable Search Image','xewc'),
-        'desc'      => __('Enable WooCommerce product search image on load.','xewc'),
+        'label'     => __('Enable Search Image','wpew'),
+        'desc'      => __('Enable WooCommerce product search image on load.','wpew'),
     ),
     array(
         'id'        => 'wp_product_search_btn_off',
         'type'      => 'checkbox',
         'value'     => 'true',
-        'label'     => __('Enable Search Button','xewc'),
-        'desc'      => __('Enable WooCommerce product search button.','xewc'),
+        'label'     => __('Enable Search Button','wpew'),
+        'desc'      => __('Enable WooCommerce product search button.','wpew'),
     ),
 
     // #Save Function
     array(
-        'id'        => 'wp_xewc_search_admin_tab',
+        'id'        => 'wp_wpew_search_admin_tab',
         'type'      => 'hidden',
         'value'     => 'tab_style',
     ),
 );
-xewc_function()->generator( $arr );
+wpew_function()->generator( $arr );

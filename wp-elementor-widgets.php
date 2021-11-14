@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: X-Extensions for WooCommerce
- * Description: Woocommerce extensions plugin
+ * Plugin Name: WP Elementor Widgets for Elementor
+ * Description: Simple Elementor Widgets
  * Version: 1.0.0
  * Author: Rejuan Ahamed
- * Text Domain: xewc
+ * Text Domain: wpew
  * Domain Path: /languages/
  *
  * @package UserRegistration
@@ -28,27 +28,27 @@ if( !function_exists('is_plugin_active_for_network') ){
 * @Directory Path
 * @Plugin Base Name
 */
-define('XEWC_FILE', __FILE__);
-define('XEWC_VERSION', '1.0.0');
-define('XEWC_DIR_URL', plugin_dir_url( XEWC_FILE ));
-define('XEWC_DIR_PATH', plugin_dir_path( XEWC_FILE ));
-define('XEWC_BASENAME', plugin_basename( XEWC_FILE ));
+define('WPEW_FILE', __FILE__);
+define('WPEW_VERSION', '1.0.0');
+define('WPEW_DIR_URL', plugin_dir_url( WPEW_FILE ));
+define('WPEW_DIR_PATH', plugin_dir_path( WPEW_FILE ));
+define('WPEW_BASENAME', plugin_basename( WPEW_FILE ));
 /**
 * Load Text Domain Language
 */
-add_action('init', 'xewc_language_load');
-function xewc_language_load(){
-    load_plugin_textdomain('xewc', false, basename(dirname( XEWC_FILE )).'/languages/');
+add_action('init', 'wpew_language_load');
+function wpew_language_load(){
+    load_plugin_textdomain('wpew', false, basename(dirname( WPEW_FILE )).'/languages/');
 }
 
-if (!function_exists('xewc_function')) {
-    function xewc_function() {
-        require_once XEWC_DIR_PATH . 'app/includes/Functions.php';
-        return new \XEWC\Functions();
+if (!function_exists('wpew_function')) {
+    function wpew_function() {
+        require_once WPEW_DIR_PATH . 'app/includes/Functions.php';
+        return new \WPEW\Functions();
     }
 }
 
-if (!class_exists( 'XEWC_Extensions' )) {
-    require_once XEWC_DIR_PATH . 'app/includes/XEWC.php';
-    new \XEWC\XEWC_Extensions();
+if (!class_exists( 'WPEW_Elementor' )) {
+    require_once WPEW_DIR_PATH . 'app/includes/WPEW.php';
+    new \WPEW\WPEW_Elementor();
 }

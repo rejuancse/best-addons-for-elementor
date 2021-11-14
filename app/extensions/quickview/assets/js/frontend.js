@@ -2,22 +2,22 @@
  * frontend.js
  *
  * @author Rejuan Ahamed
- * @package XEWC WooCommerce Quick View
+ * @package WPEW WooCommerce Quick View
  * @version 1.0.0
  */
 
 jQuery(document).ready(function($){
     "use strict";
 
-    if( typeof xewc_qv === 'undefined' ) {
+    if( typeof wpew_qv === 'undefined' ) {
         return;
     }
 
-    var qv_modal    = $(document).find( '#xewc-quick-view-modal' ),
-        qv_overlay  = qv_modal.find( '.xewc-quick-view-overlay'),
-        qv_content  = qv_modal.find( '#xewc-quick-view-content' ),
-        qv_close    = qv_modal.find( '#xewc-quick-view-close' ),
-        qv_wrapper  = qv_modal.find( '.xewc-wcqv-wrapper'),
+    var qv_modal    = $(document).find( '#wpew-quick-view-modal' ),
+        qv_overlay  = qv_modal.find( '.wpew-quick-view-overlay'),
+        qv_content  = qv_modal.find( '#wpew-quick-view-content' ),
+        qv_close    = qv_modal.find( '#wpew-quick-view-close' ),
+        qv_wrapper  = qv_modal.find( '.wpew-wcqv-wrapper'),
         qv_wrapper_w = qv_wrapper.width(),
         qv_wrapper_h = qv_wrapper.height(),
         center_modal = function() {
@@ -40,21 +40,21 @@ jQuery(document).ready(function($){
      *MAIN BUTTON OPEN
      ==================*/
 
-    $.fn.xewc_quick_view = function() {
+    $.fn.wpew_quick_view = function() {
 
-        $(document).off( 'click', '.xewc-wcqv-button' ).on( 'click', '.xewc-wcqv-button', function(e){
+        $(document).off( 'click', '.wpew-wcqv-button' ).on( 'click', '.wpew-wcqv-button', function(e){
             e.preventDefault();
 
             var t           = $(this),
                 product_id  = t.data( 'product_id' ),
                 is_blocked  = false;
 
-            if ( typeof xewc_qv.loader !== 'undefined' ) {
+            if ( typeof wpew_qv.loader !== 'undefined' ) {
                 is_blocked = true;
                 t.block({
                     message: null,
                     overlayCSS  : {
-                        background: '#fff url(' + xewc_qv.loader + ') no-repeat center',
+                        background: '#fff url(' + wpew_qv.loader + ') no-repeat center',
                         opacity   : 0.5,
                         cursor    : 'none'
                     }
@@ -78,11 +78,11 @@ jQuery(document).ready(function($){
     var ajax_call = function( t, product_id, is_blocked ) {
 
         $.ajax({
-            url: xewc_qv.ajaxurl,
+            url: wpew_qv.ajaxurl,
             data: {
-                action: 'xewc_load_product_quick_view',
+                action: 'wpew_load_product_quick_view',
                 product_id: product_id,
-                lang: xewc_qv.lang,
+                lang: wpew_qv.lang,
 				context: 'frontend',
             },
             dataType: 'json',
@@ -96,12 +96,12 @@ jQuery(document).ready(function($){
                 form_variation.each( function() {
                     $( this ).wc_variation_form();
                     // add Color and Label Integration
-                    if( typeof $.fn.xewc_wccl !== 'undefined' ) {
-                        $(this).xewc_wccl();
+                    if( typeof $.fn.wpew_wccl !== 'undefined' ) {
+                        $(this).wpew_wccl();
                     }
-                    else if( typeof $.xewc_wccl != 'undefined' && data.prod_attr ) {
+                    else if( typeof $.wpew_wccl != 'undefined' && data.prod_attr ) {
 						
-                        $.xewc_wccl( data.prod_attr );
+                        $.wpew_wccl( data.prod_attr );
                     }
                 });
 
@@ -164,11 +164,11 @@ jQuery(document).ready(function($){
     $( window ).on( 'resize', center_modal );
 
     // START
-    $.fn.xewc_quick_view();
+    $.fn.wpew_quick_view();
 
-    $( document ).on( 'xewc_infs_adding_elem xewc-wcan-ajax-filtered', function(){
+    $( document ).on( 'wpew_infs_adding_elem wpew-wcan-ajax-filtered', function(){
         // RESTART
-        $.fn.xewc_quick_view();
+        $.fn.wpew_quick_view();
     });
 
 });

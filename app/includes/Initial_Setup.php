@@ -1,5 +1,5 @@
 <?php
-namespace XEWC;
+namespace WPEW;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,17 +9,17 @@ if (! class_exists('Initial_Setup')) {
 
         public function __construct() {
             add_action( 'admin_init', array( $this, 'initial_compatibility_check') );
-            add_action('wp_ajax_install_woocommerce_plugin',        array($this, 'install_woocommerce_plugin'));
-            add_action('admin_action_activate_woocommerce_free',    array($this, 'activate_woocommerce_free'));
+            add_action('wp_ajax_install_elementor_plugin',        array($this, 'install_elementor_plugin'));
+            add_action('admin_action_activate_elementor_free',    array($this, 'activate_elementor_free'));
         }
 
         public function initial_compatibility_check() {
-            if (version_compare(XEWC_VERSION, '1.0.0', '>')) {
-                $option_check = get_option('xewc_show_description');
+            if (version_compare( WPEW_VERSION, '1.0.0', '>')) {
+                $option_check = get_option('wpew_show_description');
                 if($option_check != 'true' && $option_check != 'false'){
                     $default_value = array(
-                        'xewc_show_description' => 'true',
-                        'xewc_show_terms_and_conditions' => 'true'
+                        'wpew_show_description' => 'true',
+                        'wpew_show_terms_and_conditions' => 'true'
                     );
                     foreach ($default_value as $key => $value ) {
                         update_option( $key , $value );
@@ -32,7 +32,7 @@ if (! class_exists('Initial_Setup')) {
          * Do some task during plugin activation
          */
         public function initial_plugin_activation() {
-            if (get_option('wp_xewc_is_used')) { // Check is plugin used before or not
+            if (get_option('wp_wpew_is_used')) { // Check is plugin used before or not
                 return false;
             }
             self::update_option();
@@ -43,9 +43,9 @@ if (! class_exists('Initial_Setup')) {
          */
         public function update_option() {
             $init_setup_data = array(
-                'wp_xewc_is_used' => XEWC_VERSION,
-                'vendor_type' => 'woocommerce',
-                'xewc_show_description' => 'true',
+                'wp_wpew_is_used' => WPEW_VERSION,
+                'vendor_type' => 'elementor',
+                'wpew_show_description' => 'true',
             );
 
             foreach ($init_setup_data as $key => $value ) {
@@ -76,7 +76,7 @@ if (! class_exists('Initial_Setup')) {
         }
 
         /**
-         * Deactivation Hook For Xwoo
+         * Deactivation Hook For WPEW
          */
         public function initial_plugin_deactivation(){
 
@@ -85,34 +85,34 @@ if (! class_exists('Initial_Setup')) {
         public function activation_css() {
             ?>
             <style type="text/css">
-                .xewc-install-notice{
+                .wpew-install-notice{
                     padding: 20px;
                 }
-                .xewc-install-notice-inner{
+                .wpew-install-notice-inner{
                     display: flex;
                     align-items: center;
                 }
-                .xewc-install-notice-inner .button{
+                .wpew-install-notice-inner .button{
                     padding: 5px 30px;
                     height: auto;
                     line-height: 20px;
                     text-transform: capitalize;
                 }
-                .xewc-install-notice-content{
+                .wpew-install-notice-content{
                     flex-grow: 1;
                     padding-left: 20px;
                     padding-right: 20px;
                 }
-                .xewc-install-notice-icon img{
+                .wpew-install-notice-icon img{
                     width: 64px;
                     border-radius: 4px;
                     display: block;
                 }
-                .xewc-install-notice-content h2{
+                .wpew-install-notice-content h2{
                     margin-top: 0;
                     margin-bottom: 5px;
                 }
-                .xewc-install-notice-content p{
+                .wpew-install-notice-content p{
                     margin-top: 0;
                     margin-bottom: 0px;
                     padding: 0;
@@ -122,19 +122,19 @@ if (! class_exists('Initial_Setup')) {
             <script type="text/javascript">
                 jQuery(document).ready(function($){
                     'use strict';
-                    $(document).on('click', '.install-xewc-button', function(e){
+                    $(document).on('click', '.install-wpew-button', function(e){
                         e.preventDefault();
                         var $btn = $(this);
                         $.ajax({
                             type: 'POST',
                             url: ajaxurl,
-                            data: {install_plugin: 'woocommerce', action: 'install_woocommerce_plugin'},
+                            data: {install_plugin: 'elementor', action: 'install_elementor_plugin'},
                             beforeSend: function(){
                                 $btn.addClass('updating-message');
                             },
                             success: function (data) {
-                                $('.install-xewc-button').remove();
-                                $('#xewc_install_msg').html(data);
+                                $('.install-wpew-button').remove();
+                                $('#wpew_install_msg').html(data);
                             },
                             complete: function () {
                                 $btn.removeClass('updating-message');
@@ -146,30 +146,30 @@ if (! class_exists('Initial_Setup')) {
             <?php
         }
         /**
-         * Show notice if there is no woocommerce
+         * Show notice if there is no elementor
          */
         public function free_plugin_installed_but_inactive_notice(){
             $this->activation_css();
             ?>
-            <div class="notice notice-error xewc-install-notice">
-                <div class="xewc-install-notice-inner">
-                    <div class="xewc-install-notice-icon">
-                        <img src="<?php echo XEWC_DIR_URL.'assets/images/woocommerce-icon.png'; ?>" alt="logo" />
+            <div class="notice notice-error wpew-install-notice">
+                <div class="wpew-install-notice-inner">
+                    <div class="wpew-install-notice-icon">
+                        <img src="<?php echo WPEW_DIR_URL.'assets/images/elementor-icon.png'; ?>" alt="logo" />
                     </div>
-                    <div class="xewc-install-notice-content">
-                        <h2><?php _e('Thanks for using X-Extensions for WooCommerce', 'xewc'); ?></h2>
+                    <div class="wpew-install-notice-content">
+                        <h2><?php _e('Thanks for using WP Elementor Widgets for Elementor', 'wpew'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
-                                __('You must have','xewc'), 
-                                'https://wordpress.org/plugins/woocommerce/', 
-                                __('WooCommerce','xewc'), 
-                                __('installed and activated on this website in order to use WP Xwoo.','xewc')
+                                __('You must have','wpew'), 
+                                'https://wordpress.org/plugins/elementor/', 
+                                __('elementor','wpew'), 
+                                __('installed and activated on this website in order to use WP WPEW.','wpew')
                             );
                         ?>
                     </div>
-                    <div class="xewc-install-notice-button">
-                        <a  class="button button-primary" href="<?php echo add_query_arg(array('action' => 'activate_woocommerce_free'), admin_url()); ?>"><?php _e('Activate WooCommerce', 'xewc'); ?></a>
+                    <div class="wpew-install-notice-button">
+                        <a  class="button button-primary" href="<?php echo add_query_arg(array('action' => 'activate_elementor_free'), admin_url()); ?>"><?php _e('Activate Elementor', 'wpew'); ?></a>
                     </div>
                 </div>
             </div>
@@ -180,39 +180,39 @@ if (! class_exists('Initial_Setup')) {
             include( ABSPATH . 'wp-admin/includes/plugin-install.php' );
             $this->activation_css();
             ?>
-            <div class="notice notice-error xewc-install-notice">
-                <div class="xewc-install-notice-inner">
-                    <div class="xewc-install-notice-icon">
-                        <img src="<?php echo XEWC_DIR_URL.'assets/images/woocommerce-icon.png'; ?>" alt="logo" />
+            <div class="notice notice-error wpew-install-notice">
+                <div class="wpew-install-notice-inner">
+                    <div class="wpew-install-notice-icon">
+                        <img src="<?php echo WPEW_DIR_URL.'assets/images/elementor-icon.png'; ?>" alt="logo" />
                     </div>
-                    <div class="xewc-install-notice-content">
-                        <h2><?php _e('Thanks for using X-Extensions for WooCommerce Plugins', 'xewc'); ?></h2>
+                    <div class="wpew-install-notice-content">
+                        <h2><?php _e('Thanks for using WP Elementor Widgets for Elementor Plugins', 'wpew'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
-                                __('You must have','xewc'), 
-                                'https://wordpress.org/plugins/woocommerce/', 
-                                __('WooCommerce','xewc'), 
-                                __('installed and activated on this website in order to use XEWC.','xewc')
+                                __('You must have','wpew'), 
+                                'https://wordpress.org/plugins/elementor/', 
+                                __('elementor','wpew'), 
+                                __('installed and activated on this website in order to use WPEW.','wpew')
                             );
                         ?>
                     </div>
-                    <div class="xewc-install-notice-button">
-                        <a class="install-xewc-button button button-primary" data-slug="woocommerce" href="<?php echo add_query_arg(array('action' => 'install_woocommerce_free'), admin_url()); ?>"><?php _e('Install WooCommerce', 'xewc'); ?></a>
+                    <div class="wpew-install-notice-button">
+                        <a class="install-wpew-button button button-primary" data-slug="elementor" href="<?php echo add_query_arg(array('action' => 'install_elementor_free'), admin_url()); ?>"><?php _e('Install Elementor', 'wpew'); ?></a>
                     </div>
                 </div>
-                <div id="xewc_install_msg"></div>
+                <div id="wpew_install_msg"></div>
             </div>
             <?php
         }
 
-        public function activate_woocommerce_free() {
-            activate_plugin('woocommerce/woocommerce.php' );
-            wp_redirect(admin_url('admin.php?page=xewc'));
+        public function activate_elementor_free() {
+            activate_plugin('elementor/elementor.php' );
+            wp_redirect(admin_url('admin.php?page=wpew'));
 		    exit();
         }
 
-        public function install_woocommerce_plugin(){
+        public function install_elementor_plugin(){
             include(ABSPATH . 'wp-admin/includes/plugin-install.php');
             include(ABSPATH . 'wp-admin/includes/class-wp-upgrader.php');
     
@@ -223,7 +223,7 @@ if (! class_exists('Initial_Setup')) {
                 include( ABSPATH . 'wp-admin/includes/class-plugin-installer-skin.php' );
             }
     
-            $plugin = 'woocommerce';
+            $plugin = 'elementor';
     
             $api = plugins_api( 'plugin_information', array(
                 'slug' => $plugin,
@@ -259,10 +259,10 @@ if (! class_exists('Initial_Setup')) {
         public static function wc_low_version(){
             printf(
                 '<div class="notice notice-error is-dismissible"><p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p></div>', 
-                __('Your','xewc'), 
-                'https://wordpress.org/plugins/woocommerce/', 
-                __('WooCommerce','xewc'), 
-                __('version is below then 3.0, please update.','xewc') 
+                __('Your','wpew'), 
+                'https://wordpress.org/plugins/elementor/', 
+                __('elementor','wpew'), 
+                __('version is below then 3.0, please update.','wpew') 
             );
         }
     }

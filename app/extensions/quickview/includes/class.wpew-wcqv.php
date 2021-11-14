@@ -2,26 +2,26 @@
 /**
  * Main class
  *
- * @author  XEWC
- * @package XEWC WooCommerce Quick View
+ * @author  WPEW
+ * @package WPEW WooCommerce Quick View
  * @version 1.0.0
  */
 
-defined( 'XEWC_QUICK_VIEW' ) || exit; // Exit if accessed directly.
+defined( 'WPEW_QUICK_VIEW' ) || exit; // Exit if accessed directly.
 
-if ( ! class_exists( 'XEWC_QUICK_VIEW' ) ) {
+if ( ! class_exists( 'WPEW_QUICK_VIEW' ) ) {
 	/**
-	 * XEWC WooCommerce Quick View
+	 * WPEW WooCommerce Quick View
 	 *
 	 * @since 1.0.0
 	 */
-	class XEWC_QUICK_VIEW {
+	class WPEW_QUICK_VIEW {
 
 		/**
 		 * Single instance of the class
 		 *
 		 * @since 1.0.0
-		 * @var XEWC_QUICK_VIEW
+		 * @var WPEW_QUICK_VIEW
 		 */
 		protected static $instance;
 
@@ -31,7 +31,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW' ) ) {
 		 * @since 1.0.0
 		 * @var string
 		 */
-		public $version = XEWC_QUICK_VIEW_VERSION;
+		public $version = WPEW_QUICK_VIEW_VERSION;
 
 		/**
 		 * Plugin object
@@ -45,7 +45,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW' ) ) {
 		 * Returns single instance of the class
 		 *
 		 * @since 1.0.0
-		 * @return XEWC_QUICK_VIEW
+		 * @return WPEW_QUICK_VIEW
 		 */
 		public static function get_instance() {
 			if ( is_null( self::$instance ) ) {
@@ -63,8 +63,8 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW' ) ) {
 		public function __construct() {
 			if ( $this->can_load() ) {
 				if ( $this->load_frontend() ) {
-					require_once 'class.xewc-wcqv-frontend.php';
-					XEWC_QUICK_VIEW_Frontend();
+					require_once 'class.wpew-wcqv-frontend.php';
+					WPEW_QUICK_VIEW_Frontend();
 				}
 			}
 		}
@@ -101,7 +101,7 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW' ) ) {
 		 */
 		public function is_admin() {
 			$is_ajax = ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['context'] ) && 'frontend' === $_REQUEST['context'] );
-			return apply_filters( 'xewc_quickview_is_admin', is_admin() && ! $is_ajax );
+			return apply_filters( 'wpew_quickview_is_admin', is_admin() && ! $is_ajax );
 		}
 
 		/**
@@ -111,24 +111,24 @@ if ( ! class_exists( 'XEWC_QUICK_VIEW' ) ) {
 		 * @return boolean
 		 */
 		public function load_frontend() {
-			$addonConfig = xewc_function()->get_addon_config( XEWC_QUICK_VIEW_BASE_NAME );
-			$isEnable = (bool) xewc_function()->avalue_dot( 'is_enable', $addonConfig );
+			$addonConfig = wpew_function()->get_addon_config( WPEW_QUICK_VIEW_BASE_NAME );
+			$isEnable = (bool) wpew_function()->avalue_dot( 'is_enable', $addonConfig );
 			if ( $isEnable ) {
 				$enable           = get_option( 'wp_quick_view', 'true' ) === 'true';
 				$enable_on_mobile = get_option( 'mobile_quick_view', 'true' ) === 'true';
 				$is_mobile        = wp_is_mobile();
-				return apply_filters( 'xewc_quickview_load_frontend', ( ! $is_mobile && $enable ) || ( $is_mobile && $enable_on_mobile ) );
+				return apply_filters( 'wpew_quickview_load_frontend', ( ! $is_mobile && $enable ) || ( $is_mobile && $enable_on_mobile ) );
 			}
 		}
 	}
 }
 
 /**
- * Unique access to instance of XEWC_QUICK_VIEW class
+ * Unique access to instance of WPEW_QUICK_VIEW class
  *
  * @since 1.0.0
- * @return XEWC_QUICK_VIEW
+ * @return WPEW_QUICK_VIEW
  */
-function XEWC_QUICK_VIEW() { // phpcs:ignore
-	return XEWC_QUICK_VIEW::get_instance();
+function WPEW_QUICK_VIEW() { // phpcs:ignore
+	return WPEW_QUICK_VIEW::get_instance();
 }
