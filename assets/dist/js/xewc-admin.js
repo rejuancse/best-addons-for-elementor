@@ -1,2 +1,0 @@
-jQuery(document).ready((function(e){e(".wpew-color-field").wpColorPicker(),e(document).on("change",".wpew_extensions_list_item",(function(o){var a=e(this),n=a.prop("checked")?1:0,c=a.attr("name");e.ajax({url:ajaxurl,type:"POST",data:{isEnable:n,addonFieldName:c,action:"wpew_addon_enable_disable"},success:function(e){e.success}})}))}));
-//# sourceMappingURL=wpew-admin.js.map

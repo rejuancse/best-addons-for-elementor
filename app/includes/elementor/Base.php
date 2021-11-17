@@ -78,7 +78,7 @@ class Base {
         wp_enqueue_style( 'wpew-admin', WPEW_DIR_URL .'assets/css/wpew-admin.css', false, WPEW_VERSION );
         
         #js
-        wp_enqueue_script( 'wpew-jquery-scripts', WPEW_DIR_URL .'assets/dist/js/wpew-admin.js', array('jquery','wp-color-picker'), WPEW_VERSION, true );
+        wp_enqueue_script( 'wpew-jquery-scripts', WPEW_DIR_URL .'assets/js/wpew-admin.js', array('jquery','wp-color-picker'), WPEW_VERSION, true );
     }
 
     /**
@@ -92,7 +92,7 @@ class Base {
         #JS
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-ui-datepicker', array( 'jquery' ) );
-        wp_enqueue_script( 'wp-wpew-front', WPEW_DIR_URL .'assets/dist/js/wpew-front.js', array('jquery'), WPEW_VERSION, true);
+        wp_enqueue_script( 'wp-wpew-front', WPEW_DIR_URL .'assets/js/wpew-front.js', array('jquery'), WPEW_VERSION, true);
         wp_localize_script( 'wp-wpew-front', 'wpew_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
         wp_enqueue_media();
     }

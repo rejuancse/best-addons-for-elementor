@@ -2,9 +2,7 @@
 <div class="wrap">
 	<h2><?php _e('WP Elementor Widgets Lite Status', 'wpew'); ?></h2>
 
-	<?php
-	$environment      = \TUTOR\Admin::get_environment_info();
-	?>
+	<?php $environment  = \TUTOR\Admin::get_environment_info(); ?>
 
 	<table class="tutor_status_table widefat" cellspacing="0" id="status">
 		<thead>
@@ -119,7 +117,6 @@
 
 		</tbody>
 	</table>
-
 
 	<table class="tutor_status_table widefat" cellspacing="0">
 		<thead>
@@ -278,5 +275,4 @@
 		</tr>
 		</tbody>
 	</table>
-
 </div>
