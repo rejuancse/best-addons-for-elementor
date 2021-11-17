@@ -34,7 +34,8 @@ class WPEW_Extensions {
             __('Product Quick View', 'wpew'), 
             'manage_options', 
             'wpew-quick-view', 
-            array($this, 'wpew_quick_view_func')
+            array($this, 'wpew_quick_view_func'),
+            2
         );
     }
 
@@ -51,7 +52,7 @@ class WPEW_Extensions {
         <form id="wpew" role="form" method="post" action="">
             <?php
             //Load tab file
-            include_once WPEW_DIR_PATH.'extensions/quickview/classes/quick-view-tab.php';
+            include_once WPEW_DIR_PATH.'app/extensions/quickview/classes/quick-view-tab.php';
             
             wp_nonce_field( 'wp_settings_page_action', 'wp_settings_page_nonce_field' );
             submit_button( null, 'primary', 'wp_admin_settings_submit_btn' );

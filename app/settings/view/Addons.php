@@ -1,57 +1,38 @@
-<div class="wrap">
-    <div class="wp-wpew-extensions-list">
-        <h1 class="addon-list-heading"><?php _e('WP Elementor Widgets for Elementor', 'wpew'); ?></h1>
-        <br class="clear">
-		<?php
-            $extensions = apply_filters('wpew_extensions_lists_config', array());
-            if (is_array($extensions) && count($extensions)){
-                ?>
-                <div class="wp-list-table widefat plugin-install">
-                    <div id="the-list">
-                        <?php
-                        foreach ( $extensions as $basName => $addon ) {
+<div class="wp-wpew-extensions-list">
+    <h1 class="addon-list-heading">
+        <?php _e('WP Elementor Widgets for Elementor', 'wpew'); ?>
+    </h1>
+    
+    <?php
+    $extensions = apply_filters('wpew_extensions_lists_config', array());
+    if (is_array($extensions) && count($extensions)){
+        ?>
+        <div class="wp-list-table widefat plugin-install">
+            <?php
+            foreach ( $extensions as $basName => $addon ) {
+                $addonConfig = wpew_function()->get_addon_config($basName);
+                $isEnable = (bool)wpew_function()->avalue_dot('is_enable', $addonConfig); ?>
 
-                            $addonConfig = wpew_function()->get_addon_config($basName);
-                            $isEnable = (bool)wpew_function()->avalue_dot('is_enable', $addonConfig);
+                <div class="plugin-card">
+                    <div class="name column-name">
+                        <h2><?php echo $addon['name']; ?></h2>
+                        <p><?php echo $addon['description']; ?></p>
+                    </div>
 
-                            $thumbnailURL =  WPEW_DIR_URL.'assets/images/wpew-plugin.png';
-                            if (file_exists($addon['path'].'assets/images/thumbnail.png') ){
-                                $thumbnailURL = $addon['url'].'assets/images/thumbnail.png';
-                            } elseif (file_exists($addon['path'].'assets/images/thumbnail.svg')){
-                                $thumbnailURL = $addon['url'].'assets/images/thumbnail.svg';
-                            }
-                            ?>
-                            <div class="plugin-card">
-                                <div class="plugin-card-top">
-                                    <div class="name column-name">
-                                        <h3>
-                                            <?php
-                                            echo $addon['name']; 
-                                            echo "<img src='{$thumbnailURL}' class='plugin-icon' alt=''>";
-                                            ?>
-                                        </h3>
-                                    </div>
-                                    <div class="action-links">
-                                        <ul class="plugin-action-buttons">
-                                            <li>
-                                                <label class="btn-switch">
-                                                    <input type="checkbox" class="wpew_extensions_list_item" value="1" name="<?php echo $basName; ?>" <?php checked(true, $isEnable) ?> />
-                                                    <div class="btn-slider btn-round"></div>
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="desc column-description">
-                                        <p><?php echo $addon['description']; ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
+                    <div class="action-links">
+                        <ul class="plugin-action-buttons">
+                            <li>
+                                <label class="btn-switch">
+                                    <input type="checkbox" class="wpew_extensions_list_item" value="1" name="<?php echo $basName; ?>" <?php checked(true, $isEnable) ?> />
+                                    <div class="btn-slider btn-round"></div>
+                                </label>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <br class="clear">
-                <?php
-            }
-		?>
-    </div>
+            <?php } ?>
+        </div>
+        <?php
+    }
+    ?>
 </div>

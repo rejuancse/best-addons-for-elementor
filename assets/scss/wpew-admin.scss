@@ -57,9 +57,6 @@
 * Extensions List css
 *------------------------------ */ 
 .wp-wpew-extensions-list {
-    .plugin-card-top{
-        min-height: 98px;
-    }
     .plugin-icon{
         width: 64px;
         height: 64px;
@@ -79,8 +76,37 @@
         }
     } 
     .plugin-card {
+        min-height: 60px;
+        position: relative;
+        padding: 20px 5px 20px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .action-links {
+            position: inherit;
+            top: inherit;
+            right: 20px;
+            width: 120px;
+        }
+        h3, h2 {
+            margin: 0;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        p {
+            margin: 0;
+        }
         .name, .desc {
-            margin-left: 84px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        ul {
+            margin-bottom: 0;
+            li {
+                margin-bottom: 0;
+            }
         }
     }
     .btn-switch {

@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 class Functions {
 
     public function generator( $arr ){
-        require_once WPEW_DIR_PATH . 'settings/Generator.php';
+        require_once WPEW_DIR_PATH . 'app/settings/Generator.php';
         $generator = new \WPEW\settings\Settings_Generator();
         $generator->generator( $arr );
     }

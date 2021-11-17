@@ -16,7 +16,7 @@ final class WPEW_Elementor {
 
 	function __construct() {
 		$this->includes_core();
-		$this->include_shortcode();
+		// $this->include_shortcode();
 		$this->include_extensions();
 		$this->initial_activation();
 		do_action('wpew_before_load');
@@ -33,39 +33,32 @@ final class WPEW_Elementor {
 
 	//Checking Vendor
 	public function run() {
-		// if( wpew_function()->is_elementor() ) {
-			$initial_setup = new \WPEW\Initial_Setup();
-			if ( in_array( 'elementor/elementor.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || is_plugin_active_for_network( 'elementor/elementor.php' ) ) {
-				// if ( wpew_function()->wc_version() ) {
-					require_once WPEW_DIR_PATH.'app/includes/elementor/Base.php';
-					new \WPEW\elementor\Base();
-				// } else {
-				// 	add_action( 'admin_notices', array( $initial_setup , 'wc_low_version' ) );
-				// 	deactivate_plugins( plugin_basename( __FILE__ ) );
-				// }
-			} else {
-				$cf_file = WP_PLUGIN_DIR.'/elementor/elementor.php';
-				if (file_exists($cf_file) && ! is_plugin_active('elementor/elementor.php')) {
-					add_action( 'admin_notices', array($initial_setup, 'free_plugin_installed_but_inactive_notice') );
-				} elseif ( ! file_exists($cf_file) ) {
-					add_action( 'admin_notices', array($initial_setup, 'free_plugin_not_installed') );
-				}
+		$initial_setup = new \WPEW\Initial_Setup();
+		if ( in_array( 'elementor/elementor.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || is_plugin_active_for_network( 'elementor/elementor.php' ) ) {
+			require_once WPEW_DIR_PATH.'app/includes/elementor/Base.php';
+			new \WPEW\elementor\Base();
+		} else {
+			$cf_file = WP_PLUGIN_DIR.'/elementor/elementor.php';
+			if (file_exists($cf_file) && ! is_plugin_active('elementor/elementor.php')) {
+				add_action( 'admin_notices', array($initial_setup, 'free_plugin_installed_but_inactive_notice') );
+			} elseif ( ! file_exists($cf_file) ) {
+				add_action( 'admin_notices', array($initial_setup, 'free_plugin_not_installed') );
 			}
-		// }
+		}
 	}
 	
 	// Include Shortcode
-	public function include_shortcode() {
-		if( class_exists( 'WooCommerce' ) ){
-			include_once WPEW_DIR_PATH.'app/shortcode/ProductListing.php';
-			include_once WPEW_DIR_PATH.'app/shortcode/ProductSearch.php';
-			$wpew_product_listing = new \WPEW\shortcode\Product_Listing();
-			$wpew_product_search = new \WPEW\shortcode\Product_Search();
+	// public function include_shortcode() {
+	// 	if( class_exists( 'WooCommerce' ) ){
+	// 		include_once WPEW_DIR_PATH.'app/shortcode/ProductListing.php';
+	// 		include_once WPEW_DIR_PATH.'app/shortcode/ProductSearch.php';
+	// 		$wpew_product_listing = new \WPEW\shortcode\Product_Listing();
+	// 		$wpew_product_search = new \WPEW\shortcode\Product_Search();
 	
-			//require file for compatibility
-			require_once WPEW_DIR_PATH.'app/includes/compatibility/Shortcodes.php';
-		}
-	}
+	// 		//require file for compatibility
+	// 		require_once WPEW_DIR_PATH.'app/includes/compatibility/Shortcodes.php';
+	// 	}
+	// }
 
 	// Include Addons directory
 	public function include_extensions() {

@@ -26,7 +26,7 @@ function wpew_product_listing_config( $config ) {
 }
 
 $addonConfig = wpew_function()->get_addon_config( WPEW_PRODUCT_BASE_NAME );
-$isEnable = (bool) wpew_function()->avalue_dot( 'is_enable', $addonConfig );
-if ( $isEnable ) {
-	include_once 'classes/Init.php';
-}
+// $isEnable = (bool) wpew_function()->avalue_dot( 'is_enable', $addonConfig );
+// if ( $isEnable ) {
+// 	include_once 'classes/Init.php';
+// }
