@@ -33,8 +33,6 @@ class Admin_Menu {
             array( $this, 'wpew_manage_widgets' )
         );
 
-        add_submenu_page('wpew', __('Tools', 'wpew'), __('Tools', 'wpew'), 'manage_options', 'wpew-tools', array($this, 'wpew_tools') );
-
         add_submenu_page( 'wpew', __( 'Get Pro', 'wpew' ), __( '<span class="dashicons dashicons-awards wpew-get-pro-text"></span> Get Pro', 'wpew' ), 'manage_options', 'wpew-get-pro', array($this, 'wpew_get_pro') );
     }
     
@@ -42,10 +40,6 @@ class Admin_Menu {
     public function wpew_manage_widgets() {
         include WPEW_DIR_PATH.'app/settings/view/Addons.php';
     }
-
-    public function wpew_tools(){
-		include WPEW_DIR_PATH.'app/settings/view/pages/tools.php';	
-	}
 
     public function wpew_get_pro(){
 		include WPEW_DIR_PATH.'app/settings/view/pages/get-pro.php';
