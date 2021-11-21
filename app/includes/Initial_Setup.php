@@ -145,6 +145,7 @@ if (! class_exists('Initial_Setup')) {
             </script>
             <?php
         }
+        
         /**
          * Show notice if there is no elementor
          */

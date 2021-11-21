@@ -72,6 +72,10 @@ class Functions {
         return $pages;
     }
 
+    // public function include_wpew_widgets() {
+	// 	include_once WPEW_DIR_PATH.'app/includes/elementor/elementor-core.php';
+	// }
+
     // public function wc_version($version = '3.0'){
     //     if (class_exists('elementor')) {
     //         if (version_compare(WC()->version, $version, ">=")) {
@@ -136,23 +140,6 @@ class Functions {
 		}
 		return $url;
 	}
-
-    // Pagination
-	function get_pagination($page_numb, $max_page) {
-		$html = '';
-		$big = 999999999; // need an unlikely integer
-		$html .= '<div class="wpew-pagination">';
-		$html .= paginate_links(array(
-			'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-			'format' => '?paged=%#%',
-			'current' => $page_numb,
-			'total' => $max_page,
-			'type' => 'list',
-			'after_page_number' => '',
-		));
-		$html .= '</div>';
-		return $html;
-    }
 
     function limit_word_text($text, $limit) {
         if ( $this->mb_str_word_count($text, 0) > $limit ) {

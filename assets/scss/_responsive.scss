@@ -1,0 +1,30 @@
+@media only screen and (min-width: 768px) {
+    .intro {
+        margin: 5em auto 3em;
+    }
+}
+@media only screen and (min-width: 1170px) {
+    .intro {
+        margin: 6em auto 3em;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .headline {
+        font-size: 4.4rem;
+        font-weight: 300;
+    }
+}
+@media only screen and (min-width: 1170px) {
+    .headline {
+        font-size: 6rem;
+    }
+}
+
+
+@media only screen and (min-width: 1170px) {
+    #carbonads-container,
+    #ui8ads-container {
+        display: block;
+    }
+}

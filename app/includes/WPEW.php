@@ -16,7 +16,7 @@ final class WPEW_Elementor {
 
 	function __construct() {
 		$this->includes_core();
-		// $this->include_shortcode();
+		// $this->include_wpew_widgets();
 		$this->include_extensions();
 		$this->initial_activation();
 		do_action('wpew_before_load');
@@ -37,7 +37,7 @@ final class WPEW_Elementor {
 		if ( in_array( 'elementor/elementor.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || is_plugin_active_for_network( 'elementor/elementor.php' ) ) {
 			require_once WPEW_DIR_PATH.'app/includes/elementor/Base.php';
 			new \WPEW\elementor\Base();
-		} else {
+		} else { 
 			$cf_file = WP_PLUGIN_DIR.'/elementor/elementor.php';
 			if (file_exists($cf_file) && ! is_plugin_active('elementor/elementor.php')) {
 				add_action( 'admin_notices', array($initial_setup, 'free_plugin_installed_but_inactive_notice') );
@@ -48,16 +48,8 @@ final class WPEW_Elementor {
 	}
 	
 	// Include Shortcode
-	// public function include_shortcode() {
-	// 	if( class_exists( 'WooCommerce' ) ){
-	// 		include_once WPEW_DIR_PATH.'app/shortcode/ProductListing.php';
-	// 		include_once WPEW_DIR_PATH.'app/shortcode/ProductSearch.php';
-	// 		$wpew_product_listing = new \WPEW\shortcode\Product_Listing();
-	// 		$wpew_product_search = new \WPEW\shortcode\Product_Search();
-	
-	// 		//require file for compatibility
-	// 		require_once WPEW_DIR_PATH.'app/includes/compatibility/Shortcodes.php';
-	// 	}
+	// public function include_wpew_widgets() {
+	// 	include_once WPEW_DIR_PATH.'app/includes/elementor/elementor-core.php';
 	// }
 
 	// Include Addons directory

@@ -52,3 +52,5 @@ if (!class_exists( 'WPEW_Elementor' )) {
     require_once WPEW_DIR_PATH . 'app/includes/WPEW.php';
     new \WPEW\WPEW_Elementor();
 }
+
+require WPEW_DIR_PATH.'app/includes/elementor/elementor-core.php';
