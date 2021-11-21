@@ -16,7 +16,6 @@
                 <div class="plugin-card">
                     <div class="name column-name">
                         <h2><?php echo $addon['name']; ?></h2>
-                        <p><?php echo $addon['description']; ?></p>
                     </div>
 
                     <div class="action-links">
