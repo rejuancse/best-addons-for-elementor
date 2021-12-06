@@ -33,6 +33,7 @@ define('WPEW_VERSION', '1.0.0');
 define('WPEW_DIR_URL', plugin_dir_url( WPEW_FILE ));
 define('WPEW_DIR_PATH', plugin_dir_path( WPEW_FILE ));
 define('WPEW_BASENAME', plugin_basename( WPEW_FILE ));
+
 /**
 * Load Text Domain Language
 */

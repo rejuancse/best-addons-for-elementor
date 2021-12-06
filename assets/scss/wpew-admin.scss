@@ -8,7 +8,30 @@
 /* --------------------------
 * Shortcode CSS 
 * --------------------------- */
-
+.plugin-card:nth-child(3n+1) {
+    clear: initial;
+}
+.plugin-card:nth-child(4n+1) {
+    clear: initial;
+}
+.plugin-card {
+    width: 23.7%
+}
+.plugin-card:nth-child(3n) {
+    margin-right: 8px;
+}
+.plugin-card:nth-child(odd) {
+    clear: initial;
+    margin-left: 8px;
+}
+.plugin-card:nth-child(4n+1) {
+    clear: initial;
+    margin-left: 8px;
+}
+.plugin-card:nth-child(3n+1) {
+    clear: initial;
+    margin-left: 8px;
+}
 .wpew-settings-panel{
     margin-top: 20px;
     padding: 0;
@@ -91,8 +114,10 @@
         }
         h3, h2 {
             margin: 0;
-            font-size: 18px;
+            font-size: 14px;
             line-height: 30px;
+            font-family: 'Roboto';
+            font-weight: 400;
         }
         p {
             margin: 0;

@@ -15,11 +15,14 @@ add_action('elementor/init','wpew_elementor_init');
 
 // 
 function add_new_elements() {
+
     $widgets_lists = array_filter(glob(WPEW_DIR_PATH.'app/includes/elementor/widgets/*'));
+
     if (count($widgets_lists) > 0) {
         foreach( $widgets_lists as $key => $value ) {
             $addon_dir_name = str_replace(dirname($value).'/', '', $value);
             $file_name = WPEW_DIR_PATH . 'app/includes/elementor/widgets/'.$addon_dir_name.'';
+
             if ( file_exists($file_name) ) {
                 include_once $file_name;
             }

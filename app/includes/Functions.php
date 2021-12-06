@@ -124,7 +124,7 @@ class Functions {
             if (isset($value[$dotKey])){
                 $value = $value[$dotKey];
             }else{
-                return false;
+                return true;
             }
         }
         return $value;

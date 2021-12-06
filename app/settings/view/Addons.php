@@ -8,10 +8,11 @@
     if (is_array($extensions) && count($extensions)){
         ?>
         <div class="wp-list-table widefat plugin-install">
+
             <?php
             foreach ( $extensions as $basName => $addon ) {
                 $addonConfig = wpew_function()->get_addon_config($basName);
-                $isEnable = (bool)wpew_function()->avalue_dot('is_enable', $addonConfig); ?>
+                $isEnable = wpew_function()->avalue_dot('is_enable', $addonConfig); ?>
 
                 <div class="plugin-card">
                     <div class="name column-name">
@@ -29,6 +30,7 @@
                         </ul>
                     </div>
                 </div>
+
             <?php } ?>
         </div>
         <?php
