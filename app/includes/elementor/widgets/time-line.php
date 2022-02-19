@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Shop_Banner extends Widget_Base {
+class Widget_Time_Line extends Widget_Base {
 	public function get_name() {
-		return 'shop-banner';
+		return 'time-line';
 	}
 
 	public function get_title() {
-		return __( 'Shop Banner', 'wpew' );
+		return __( 'Time Line', 'wpew' );
 	}
 
 	public function get_icon() {
@@ -241,30 +241,82 @@ class Widget_Shop_Banner extends Widget_Base {
 		$shop_button_url = $settings['shop_button_url']; ?>
 
 
-		<div class="banner_one">
-			<?php if( !empty( $settings['image'] ) ){ ?>
-            	<div class="thumb"><img src="<?php echo $settings['image']['url']; ?>" alt="2.jpg"></div>
-			<?php } ?>
+		<section class="timeline-area">
+            <div class="time-line-row pos-reletive">
 
-            <div class="details style2">
+                <div class="timeline-row"></div>
 
-				<?php if( ! empty($sales) ) { ?>
-              		<p class="para"><?php echo $sales; ?></p>
-				<?php } ?>
-				
-				<?php if( !empty($sales_offer) || !empty ($highlight_text) ) { ?>
-              		<h2 class="title"><?php echo $sales_offer; ?> <span class="text-thm2"><?php echo $highlight_text; ?></span></h2>
-				<?php } ?>
+				<?php for($a=0; $a<=5; $a++) { ?>
+					<?php if($a%2==0){ ?>
+						<div class="timeline-col-6"> 
+							<div class="timeline-left-content timeline-text-right">
+									<div class="timeline-description">
+										<h6>Co-Founder</h6>
+										<p>Communist political parties</p>
+									</div>
+							</div>
+						</div>
 
-				<?php if( !empty( $shop_button_url )) { ?>
-              		<a href="<?php echo $shop_button_url; ?>" class="shop_btn style2"><?php echo $shop_button_name; ?></a>
-				<?php } ?>
+						<div class="timeline-col-6">
+							<div class="timeline-right-content text-left">
+									<div class="timeline-date">
+										<p>18 March, 2011</p>
+									</div>
+							</div>
+						</div>
+					<?php }else{ ?>
+						<div class="timeline-col-6"> 
+							<div class="timeline-left-content timeline-text-right">
+									<div class="timeline-date">
+										<p>28 June, 2011</p>
+									</div>
+							</div>
+						</div>
+
+						<div class="timeline-col-6">
+							<div class="timeline-right-content text-left">
+									<div class="timeline-description">
+										<h6>Sub-Editor</h6>
+										<p>Communist political parties</p>
+									</div>
+							</div>
+						</div>
+					<?php } ?>
+				<?php } ?> 
+
+					<?php for($a=0; $a<=5; $a++) { break; ?>
+						<div class="timeline-col-6"> 
+							<div class="timeline-left-content timeline-text-right">
+									<div class="timeline-description">
+										<h6>Co-Founder</h6>
+										<p>Communist political parties</p>
+									</div>
+
+									<div class="timeline-date">
+										<p>28 June, 2011</p>
+									</div>
+							</div>
+						</div>
+
+						<div class="timeline-col-6">
+							<div class="timeline-right-content text-left">
+									<div class="timeline-date">
+										<p>18 March, 2011</p>
+									</div>
+									<div class="timeline-description">
+										<h6>Sub-Editor</h6>
+										<p>Communist political parties</p>
+									</div>
+							</div>
+						</div>
+					<?php } ?> 
+
             </div>
-        </div>
+        </section>
 
 		<?php 
     }
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Shop_Banner() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_Time_Line() );
