@@ -28,98 +28,49 @@ class Widget_Time_Line extends Widget_Base {
             ]
         );
 
-		$this->add_control(
-			'image',
+
+		$repeater = new \Elementor\Repeater();
+
+        $repeater->add_control(
+			'timeline_title',
 			[
-				'label' => esc_html__( 'Choose Image', 'plugin-name' ),
-				'type' => \Elementor\Controls_Manager::MEDIA,
-				'default' => [
-					'url' => \Elementor\Utils::get_placeholder_image_src(),
-				],
-			]
+				'label' => __( 'Timeline Title', 'wpew' ),
+				'type' => Controls_Manager::TEXT,
+                'default'   => 'Co-Founder',   
+            ]
 		);
 
-		$this->add_control(
-            'sales',
-            [
-                'label' => __( 'Seasonal Sales', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter your sales name', 'wpew' ),
-                'default' => __( 'Seasonal Sales', 'wpew' ),
-            ]
-        );
-
-		$this->add_control(
-            'sales_offer',
-            [
-                'label' => __( 'Sales Offers', 'wpew' ),
-                'type' => Controls_Manager::TEXTAREA,
-                'label_block' => true,
-                'placeholder' => __( 'Enter your offer', 'wpew' ),
-                'default' => __( 'Up To Breads', 'wpew' ),
-            ]
-        );
-
-		$this->add_control(
-            'highlight_text',
-            [
-                'label' => __( 'Highlight Text', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter your Highlight text', 'wpew' ),
-                'default' => __( '50% Off', 'wpew' ),
-            ]
-        );
-
-		$this->add_control(
-            'shop_button_name',
-            [
-                'label' => __( 'Shop Button Name', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter your button name', 'wpew' ),
-                'default' => __( 'Shop Now', 'wpew' ),
-            ]
-        );
-
-        $this->add_control(
-            'shop_button_url', 
-            [
-                'label' => __( 'Shop Button URL', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter your url', 'wpew' ),
-                'default' => __( '#', 'wpew' ),
-            ]
-        );
-
-		$this->add_responsive_control(
-			'align',
+        $repeater->add_control(
+			'timeline_intro',
 			[
-				'label' => esc_html__( 'Alignment', 'wpew' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__( 'Left', 'wpew' ),
-						'icon' => 'eicon-text-align-left',
+				'label' => __( 'Timeline Intro', 'wpew' ),
+				'type' => Controls_Manager::TEXTAREA,
+				'default' => __( 'Lorem ipsum dolor sit amet', 'wpew' ),
+            ]
+		);
+
+		$repeater->add_control(
+			'timeline_datetime',
+			[
+				'label' => __( 'Timeline date Intro', 'wpew' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => __( '18 March, 2021', 'wpew' ),
+            ]
+		);
+
+
+		$this->add_control(
+			'timeline_list',
+			[
+				'label' => esc_html__( 'Timeline List', 'wpew' ),
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'timeline_title' => esc_html__( 'Co-Founder', 'wpew' ),
+						'timeline_intro' => 'Lorem ipsum dolor sit amet',
+						'timeline_datetime' => '18 March, 2021'
 					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'wpew' ),
-						'icon' => 'eicon-text-align-center',
-					],
-					'right' => [
-						'title' => esc_html__( 'Right', 'wpew' ),
-						'icon' => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpew' ),
-						'icon' => 'eicon-text-align-justify',
-					],
-				],
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -135,85 +86,96 @@ class Widget_Time_Line extends Widget_Base {
 			]
 		);
 
-		# Seasonal Sales
+		# Timeline Title
 		$this->add_control(
-			'seasonal_sales',
+			'timeline_title',
 			[
-				'label'		=> __( 'Sales Text Color', 'wpew' ),
+				'label'		=> __( 'Timeline Title Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .banner_one .details .para' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-description h6' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-description:hover:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-date:hover:after' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
 
-		# Title Sales
+		# Timeline Intro
 		$this->add_control(
-			'title_sales',
+			'timeline_intro',
 			[
-				'label'		=> __( 'Sales Title Color', 'wpew' ),
+				'label'		=> __( 'Timeline Intro Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .banner_one .details .title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-description p' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-		# Shop Now btn
+		# Timeline Datetime
 		$this->add_control(
-			'shopnow_btn_color',
+			'timeline_datetime',
 			[
-				'label'		=> __( 'Shop Now Button Color', 'wpew' ),
+				'label'		=> __( 'Timeline Datetime Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .shop_btn' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .shop_btn:before' => 'background-color: {{VALUE}};',
-
-					
+					'{{WRAPPER}} .timeline-date p' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
+		# Timeline Row 
 		$this->add_control(
-			'shopnow_btn_hover_color',
+			'timeline_row',
 			[
-				'label'		=> __( 'Shop Now Button Hover Color', 'wpew' ),
+				'label'		=> __( 'Timeline Line Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .shop_btn:hover' => 'color: {{VALUE}};',
-
-					
+					'{{WRAPPER}} .timeline-row' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-row:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-row:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-description::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-description::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .timeline-date::after' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
 
+
+		# Timeline Title Typography
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Sales Text Typography', 'wpew' ),
-				'name' 		=> 'sales_typography',
-				'selector' 	=> '{{WRAPPER}} .banner_one .details .para',
-			]
-		);
-
-		# Title Sales Typography
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Sales Title Typography', 'wpew' ),
+				'label'		=> __( 'Timeline Title Typography', 'wpew' ),
 				'name' 		=> 'title_typography',
-				'selector' 	=> '{{WRAPPER}} .banner_one .details .title',
+				'selector' 	=> '{{WRAPPER}} .timeline-description h6',
 			]
 		);
 
-        $this->add_group_control(
+		
+
+		# Timeline Intro Typography
+		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Button Typography', 'wpew' ),
-				'name' 		=> 'btn_typography',
-				'selector' 	=> '{{WRAPPER}} .shop_btn',
+				'label'		=> __( 'Timeline Intro Typography', 'wpew' ),
+				'name' 		=> 'intro_typography',
+				'selector' 	=> '{{WRAPPER}} .timeline-description p',
 			]
 		);
+
+
+
+		# Timeline Datetime Typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Timeline Datetime Typography', 'wpew' ),
+				'name' 		=> 'datetime_typography',
+				'selector' 	=> '{{WRAPPER}} .timeline-date p',
+			]
+		);
+
 
         $this->add_responsive_control(
             'text_margin',
@@ -228,31 +190,32 @@ class Widget_Time_Line extends Widget_Base {
             ]
         );
 		$this->end_controls_section();
-		# Title Section end 1
-
 	}
 
 	protected function render( ) {
 		$settings = $this->get_settings();
-		$sales = $settings['sales'];
-		$sales_offer = $settings['sales_offer'];
-		$highlight_text = $settings['highlight_text'];
-		$shop_button_name = $settings['shop_button_name'];
-		$shop_button_url = $settings['shop_button_url']; ?>
+		$timeline_list = $settings['timeline_list'];
+		?>
 
 
 		<section class="timeline-area">
             <div class="time-line-row pos-reletive">
 
                 <div class="timeline-row"></div>
-
-				<?php for($a=0; $a<=5; $a++) { ?>
-					<?php if($a%2==0){ ?>
+				
+				<?php $counter = 0 ?>
+				<?php foreach($timeline_list as $value) { ?>
+					<?php if($counter%2==0){ ?>
 						<div class="timeline-col-6"> 
 							<div class="timeline-left-content timeline-text-right">
 									<div class="timeline-description">
-										<h6>Co-Founder</h6>
-										<p>Communist political parties</p>
+										<?php if($value['timeline_title']) { ?>
+											<h6> <?php echo $value['timeline_title'] ?> </h6>
+										<?php } ?>
+
+										<?php if($value['timeline_intro']) { ?>
+											<p> <?php echo $value['timeline_intro'] ?> </p>
+										<?php } ?>
 									</div>
 							</div>
 						</div>
@@ -260,7 +223,9 @@ class Widget_Time_Line extends Widget_Base {
 						<div class="timeline-col-6">
 							<div class="timeline-right-content text-left">
 									<div class="timeline-date">
-										<p>18 March, 2011</p>
+										<?php if($value['timeline_datetime']) { ?>
+											<p> <?php echo $value['timeline_datetime'] ?> </p>
+										<?php } ?>
 									</div>
 							</div>
 						</div>
@@ -268,7 +233,9 @@ class Widget_Time_Line extends Widget_Base {
 						<div class="timeline-col-6"> 
 							<div class="timeline-left-content timeline-text-right">
 									<div class="timeline-date">
-										<p>28 June, 2011</p>
+									    <?php if($value['timeline_datetime']) { ?>
+											<p> <?php echo $value['timeline_datetime'] ?> </p>
+										<?php } ?>
 									</div>
 							</div>
 						</div>
@@ -276,41 +243,19 @@ class Widget_Time_Line extends Widget_Base {
 						<div class="timeline-col-6">
 							<div class="timeline-right-content text-left">
 									<div class="timeline-description">
-										<h6>Sub-Editor</h6>
-										<p>Communist political parties</p>
+										<?php if($value['timeline_title']) { ?>
+											<h6> <?php echo $value['timeline_title'] ?> </h6>
+										<?php } ?>
+
+										<?php if($value['timeline_intro']) { ?>
+											<p> <?php echo $value['timeline_intro'] ?> </p>
+										<?php } ?>
 									</div>
 							</div>
 						</div>
 					<?php } ?>
+					<?php $counter++ ?>
 				<?php } ?> 
-
-					<?php for($a=0; $a<=5; $a++) { break; ?>
-						<div class="timeline-col-6"> 
-							<div class="timeline-left-content timeline-text-right">
-									<div class="timeline-description">
-										<h6>Co-Founder</h6>
-										<p>Communist political parties</p>
-									</div>
-
-									<div class="timeline-date">
-										<p>28 June, 2011</p>
-									</div>
-							</div>
-						</div>
-
-						<div class="timeline-col-6">
-							<div class="timeline-right-content text-left">
-									<div class="timeline-date">
-										<p>18 March, 2011</p>
-									</div>
-									<div class="timeline-description">
-										<h6>Sub-Editor</h6>
-										<p>Communist political parties</p>
-									</div>
-							</div>
-						</div>
-					<?php } ?> 
-
             </div>
         </section>
 

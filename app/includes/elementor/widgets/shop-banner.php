@@ -135,18 +135,6 @@ class Widget_Shop_Banner extends Widget_Base {
 			]
 		);
 
-		# Seasonal Sales
-		$this->add_control(
-			'seasonal_sales',
-			[
-				'label'		=> __( 'Sales Text Color', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .banner_one .details .para' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
 		# Title Sales
 		$this->add_control(
 			'title_sales',
