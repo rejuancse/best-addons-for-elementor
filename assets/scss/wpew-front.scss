@@ -1547,3 +1547,36 @@
     padding-right: 15px;
     padding-left: 15px;
 }
+
+// Button Group
+.bg-btn-group{
+    display: flex;
+    width: 100%;
+    background-color: white;
+}
+
+.btn-design{
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    background-color: #515c40;
+    border: 1px solid;
+    padding: 10px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.btn-design:hover{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    text-align: center;
+    background-color: white;
+    border: 1px solid;
+    padding: 10px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
