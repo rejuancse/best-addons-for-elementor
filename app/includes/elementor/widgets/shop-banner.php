@@ -158,6 +158,43 @@ class Widget_Shop_Banner extends Widget_Base {
 
 		# Style
 		$this->start_controls_section(
+			'section_banner_image',
+			[
+				'label' 	=> __( 'Banner Image', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'banner_image_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .banner_one .thumb' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		# Seasonal Sales
+		$this->add_control(
+			'banner_image_bgColor',
+			[
+				'label'		=> __( 'Image overlay color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .banner_one .details' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+
+		# Banner Section
+		$this->start_controls_section(
 			'section_banner_style',
 			[
 				'label' 	=> __( 'Banner Section', 'wpew' ),
@@ -206,7 +243,6 @@ class Widget_Shop_Banner extends Widget_Base {
 			]
 		);
 
-
 		# Banner Title
 		$this->add_control(
 			'banner_title',
@@ -228,6 +264,7 @@ class Widget_Shop_Banner extends Widget_Base {
 				],
 			]
 		);
+
 		# Title Sales Typography
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -235,6 +272,28 @@ class Widget_Shop_Banner extends Widget_Base {
 				'label'		=> __( 'Sales Title Typography', 'wpew' ),
 				'name' 		=> 'title_typography',
 				'selector' 	=> '{{WRAPPER}} .banner_one .details .title',
+			]
+		);
+
+		# Highlight
+		$this->add_control(
+			'highlight_title',
+			[
+				'label'		=> __( 'Highlight Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .banner_one .details .title .text-thm2' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Title Sales Typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Highlight Text Typography', 'wpew' ),
+				'name' 		=> 'highlight_typography',
+				'selector' 	=> '{{WRAPPER}} .banner_one .details .title .text-thm2',
 			]
 		);
 
@@ -273,8 +332,6 @@ class Widget_Shop_Banner extends Widget_Base {
 
 		$this->end_controls_section();
 		# Title Section end 1
-
-
 
 		# Shop Now btn Style
 		$this->start_controls_section(
@@ -333,7 +390,6 @@ class Widget_Shop_Banner extends Widget_Base {
 		$highlight_text = $settings['highlight_text'];
 		$shop_button_name = $settings['shop_button_name'];
 		$shop_button_url = $settings['shop_button_url']; ?>
-
 
 		<div class="banner_one">
 			<?php if( !empty( $settings['image'] ) ){ ?>
