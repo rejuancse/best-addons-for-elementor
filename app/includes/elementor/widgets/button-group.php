@@ -66,8 +66,6 @@ class Widget_WPQX_Button_Group extends Widget_Base {
 			]
 		);
 
-      
-
         $this->end_controls_section();
         # Option End
 
