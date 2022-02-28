@@ -94,6 +94,34 @@ class Widget_Shop_Banner extends Widget_Base {
             ]
         );
 
+		// Vertical Align
+		$this->add_responsive_control(
+			'vertical_align',
+			[
+				'label' => esc_html__( 'Vertical Alignment', 'wpew' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'flex-start' => [
+						'title' => esc_html__( 'Top', 'wpew' ),
+						'icon' => 'eicon-justify-start-v', 
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpew' ),
+						'icon' => 'eicon-justify-space-between-v',
+					],
+					'flex-end' => [
+						'title' => esc_html__( 'Bottom', 'wpew' ),
+						'icon' => ' eicon-justify-end-v',
+					],
+				],
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .banner_one .details' => 'align-items: {{VALUE}};',
+				],
+			]
+		);
+
+		// Align
 		$this->add_responsive_control(
 			'align',
 			[
@@ -127,11 +155,65 @@ class Widget_Shop_Banner extends Widget_Base {
         $this->end_controls_section();
         # Option End
 
+
+		# Style
 		$this->start_controls_section(
-			'section_title_style',
+			'section_banner_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Banner Section', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		# Seasonal Sales
+		$this->add_control(
+			'seasonal_title_sales',
+			[
+				'label'		=> __( 'Seasonal Sales Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .banner_one .details .para' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Sales Text Typography', 'wpew' ),
+				'name' 		=> 'sales_typography',
+				'selector' 	=> '{{WRAPPER}} .banner_one .details .para',
+			]
+		);
+
+		$this->add_responsive_control(
+			'section_title_space',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .banner_one .details .para' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+
+		# Banner Title
+		$this->add_control(
+			'banner_title',
+			[
+				'label' => esc_html__( 'Banner Title', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -146,8 +228,63 @@ class Widget_Shop_Banner extends Widget_Base {
 				],
 			]
 		);
+		# Title Sales Typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Sales Title Typography', 'wpew' ),
+				'name' 		=> 'title_typography',
+				'selector' 	=> '{{WRAPPER}} .banner_one .details .title',
+			]
+		);
 
-		# Shop Now btn
+		$this->add_responsive_control(
+			'banner_title_space',
+			[
+				'label' => esc_html__( 'Title Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .banner_one .details .title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+            'banner_padding',
+            [
+                'label' 		=> __( 'Banner Padding', 'wpew' ),
+                'type' 			=> Controls_Manager::DIMENSIONS,
+                'size_units' 	=> [ 'px', 'em', '%' ],
+                'selectors' 	=> [
+                    '{{WRAPPER}} .banner_one .details' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' 	=> 'before',
+            ]
+        );
+
+		$this->end_controls_section();
+		# Title Section end 1
+
+
+
+		# Shop Now btn Style
+		$this->start_controls_section(
+			'section_btn_style',
+			[
+				'label' 	=> __( 'Button', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
 		$this->add_control(
 			'shopnow_btn_color',
 			[
@@ -178,43 +315,12 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Sales Text Typography', 'wpew' ),
-				'name' 		=> 'sales_typography',
-				'selector' 	=> '{{WRAPPER}} .banner_one .details .para',
-			]
-		);
-
-		# Title Sales Typography
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Sales Title Typography', 'wpew' ),
-				'name' 		=> 'title_typography',
-				'selector' 	=> '{{WRAPPER}} .banner_one .details .title',
-			]
-		);
-
-        $this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
 				'label'		=> __( 'Button Typography', 'wpew' ),
 				'name' 		=> 'btn_typography',
 				'selector' 	=> '{{WRAPPER}} .shop_btn',
 			]
 		);
 
-        $this->add_responsive_control(
-            'text_margin',
-            [
-                'label' 		=> __( 'Title Margin', 'wpew' ),
-                'type' 			=> Controls_Manager::DIMENSIONS,
-                'size_units' 	=> [ 'px', 'em', '%' ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .banner_one' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' 	=> 'before',
-            ]
-        );
 		$this->end_controls_section();
 		# Title Section end 1
 
@@ -234,19 +340,20 @@ class Widget_Shop_Banner extends Widget_Base {
             	<div class="thumb"><img src="<?php echo $settings['image']['url']; ?>" alt="2.jpg"></div>
 			<?php } ?>
 
-            <div class="details style2">
+            <div class="details">
+				<div class="content-wrap">
+					<?php if( ! empty($sales) ) { ?>
+						<p class="para"><?php echo $sales; ?></p>
+					<?php } ?>
+					
+					<?php if( !empty($sales_offer) || !empty ($highlight_text) ) { ?>
+						<h2 class="title"><?php echo $sales_offer; ?> <span class="text-thm2"><?php echo $highlight_text; ?></span></h2>
+					<?php } ?>
 
-				<?php if( ! empty($sales) ) { ?>
-              		<p class="para"><?php echo $sales; ?></p>
-				<?php } ?>
-				
-				<?php if( !empty($sales_offer) || !empty ($highlight_text) ) { ?>
-              		<h2 class="title"><?php echo $sales_offer; ?> <span class="text-thm2"><?php echo $highlight_text; ?></span></h2>
-				<?php } ?>
-
-				<?php if( !empty( $shop_button_url )) { ?>
-              		<a href="<?php echo $shop_button_url; ?>" class="shop_btn style2"><?php echo $shop_button_name; ?></a>
-				<?php } ?>
+					<?php if( !empty( $shop_button_url )) { ?>
+						<a href="<?php echo $shop_button_url; ?>" class="shop_btn"><?php echo $shop_button_name; ?></a>
+					<?php } ?>
+				</div>
             </div>
         </div>
 
