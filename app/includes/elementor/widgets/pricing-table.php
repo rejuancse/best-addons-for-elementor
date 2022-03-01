@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Kitolms_Pricing_Table extends Widget_Base {
+class Widget_WPEW_Pricing_Table extends Widget_Base {
 	public function get_name() {
-		return 'kitolms-pricing-table';
+		return 'wpew-pricing-table';
 	}
 
 	public function get_title() {
-		return __( 'Pricing Table', 'kitolms-core' );
+		return __( 'Pricing Table', 'wpew' );
 	}
 
 	public function get_icon() {	
@@ -24,20 +24,20 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Pricing Table', 'kitolms-core' ),
+				'label' => __( 'Pricing Table', 'wpew' ),
 			]
 		);
 
         $this->add_control(
             'pricing_plan',
             [
-                'label'     => __( 'Pricing Plan', 'kitolms-core' ),
+                'label'     => __( 'Pricing Plan', 'wpew' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'basic',
                 'options'   => [
-                        'basic' 	=> __( 'Basic', 'kitolms-core' ),
-                        'standard' 	=> __( 'Standard', 'kitolms-core' ),
-                        'platinum' 	=> __( 'Platinum', 'kitolms-core' ),
+                        'basic' 	=> __( 'Basic', 'wpew' ),
+                        'standard' 	=> __( 'Standard', 'wpew' ),
+                        'platinum' 	=> __( 'Platinum', 'wpew' ),
                     ],
             ]
         );
@@ -45,42 +45,42 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $this->add_control(
             'pricing_intro_text',
             [
-                'label' => __( 'Price intro text', 'kitolms-core' ),
+                'label' => __( 'Price intro text', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your pricing intro text', 'kitolms-core' ),
-                'default' => __( 'Best Value', 'kitolms-core' ),
+                'placeholder' => __( 'Enter your pricing intro text', 'wpew' ),
+                'default' => __( 'Best Value', 'wpew' ),
             ]
         ); 
 
         $this->add_control(
             'currency',
             [
-                'label' => __( 'Add your currency', 'kitolms-core' ),
+                'label' => __( 'Add your currency', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'kitolms-core' ),
+                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
                 'default' => '$',
             ]
         );
         $this->add_control(
             'price',
             [
-                'label' => __( 'Price', 'kitolms-core' ),
+                'label' => __( 'Price', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your price', 'kitolms-core' ),
+                'placeholder' => __( 'Enter your price', 'wpew' ),
                 'default' => '29',
             ]
         );
         $this->add_control(
             'plan_users',
             [
-                'label' => __( 'Pricing Plan users', 'kitolms-core' ),
+                'label' => __( 'Pricing Plan users', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your pricing plan users', 'kitolms-core' ),
-                'default' => __( 'per user, per month', 'kitolms-core' ),
+                'placeholder' => __( 'Enter your pricing plan users', 'wpew' ),
+                'default' => __( 'per user, per month', 'wpew' ),
             ]
         );
 
@@ -89,12 +89,12 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $repeater->add_control(
 			'features_enable',
 			[
-				'label' => __( 'Pricing Features', 'kitolms-core' ),
+				'label' => __( 'Pricing Features', 'wpew' ),
 				'type' => Controls_Manager::SELECT,
                 'default'   => 'show',
                 'options'   => [
-                        'show' 	=> __( 'Check', 'kitolms-core' ),
-                        'none' 	=> __( 'Cross', 'kitolms-core' ),
+                        'show' 	=> __( 'Show', 'wpew' ),
+                        'none' 	=> __( 'cross', 'wpew' ),
                     ],
                     
             ]
@@ -103,21 +103,21 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $repeater->add_control(
 			'features_intro',
 			[
-				'label' => __( 'Features Intro', 'kitolms-core' ),
+				'label' => __( 'Features Intro', 'wpew' ),
 				'type' => Controls_Manager::TEXTAREA,
-				'default' => __( '99.5% Uptime Guarantee', 'kitolms-core' ),
+				'default' => __( '99.5% Uptime Guarantee', 'wpew' ),
             ]
 		);
 
 		$this->add_control(
 			'pricing_table_list',
 			[
-				'label' => esc_html__( 'Accordion Items', 'kitolms-core' ),
+				'label' => esc_html__( 'Accordion Items', 'wpew' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'features_intro' => esc_html__( 'Lorem ipsum', 'kitolms-core' ),
+						'features_intro' => esc_html__( 'Lorem ipsum', 'wpew' ),
 						'features_enable' => 'show',
 					],
 				],
@@ -127,11 +127,22 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $this->add_control(
             'pricing_button',
             [
-                'label' => __( 'Button Name', 'kitolms-core' ),
+                'label' => __( 'Button Name', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your button name', 'kitolms-core' ),
-                'default' => __( 'Start Basic', 'kitolms-core' ),
+                'placeholder' => __( 'Enter your button name', 'wpew' ),
+                'default' => __( 'Start Basic', 'wpew' ),
+            ]
+        );
+
+		$this->add_control(
+            'pricing_button_url',
+            [
+                'label' => __( 'Button Name URL', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Enter your url', 'wpew' ),
+                'default' => '#',
             ]
         );
 
@@ -141,15 +152,49 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Pricing Table Style', 'kitolms-core' ),
+				'label' 	=> __( 'Pricing Table Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'pricing_table_bgcolor',
+			[
+				'label'		=> __( 'Table Background Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .wpew-pricing .pricing_wrap' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+		
+		$this->add_responsive_control(
+			'table_border',
+			[
+				'label' => esc_html__( 'Table Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .wpew-pricing .pricing_wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		# Table section style
+		$this->add_control(
+			'table_section_style',
+			[
+				'label' => esc_html__( 'Table Section Style', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
 			'pricing_table_color',
 			[
-				'label'		=> __( 'Text Color', 'kitolms-core' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .prt_price h2, 
@@ -163,7 +208,7 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'pricing_table_icon_color',
 			[
-				'label'		=> __( 'Icons Color', 'kitolms-core' ),
+				'label'		=> __( 'Icons Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .prt_body ul li:before' => 'color: {{VALUE}};',
@@ -174,7 +219,7 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'pricing_table_icon_bg_color',
 			[
-				'label'		=> __( 'Icons BG Color', 'kitolms-core' ),
+				'label'		=> __( 'Icons BG Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .prt_body ul li:before' => 'background: {{VALUE}};',
@@ -195,7 +240,7 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label' 	=> __( 'Button Style', 'kitolms-core' ),
+				'label' 	=> __( 'Button Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -213,14 +258,14 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'kitolms-core' ),
+				'label' => esc_html__( 'Normal', 'wpew' ),
 			]
 		);
 
 		$this->add_control(
 			'button_color',
 			[
-				'label'		=> __( 'Button Text Color', 'kitolms-core' ),
+				'label'		=> __( 'Button Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package' => 'color: {{VALUE}};',
@@ -230,7 +275,7 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'button_bg_color',
 			[
-				'label'		=> __( 'Button BG Color', 'kitolms-core' ),
+				'label'		=> __( 'Button BG Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package' => 'background: {{VALUE}};',
@@ -251,7 +296,7 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'kitolms-core' ),
+				'label' => esc_html__( 'Hover', 'wpew' ),
 			]
 		);
 
@@ -259,7 +304,7 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'button_text_hover_color',
 			[
-				'label'		=> __( 'Button Text Hover Color', 'kitolms-core' ),
+				'label'		=> __( 'Button Text Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package:hover' => 'color: {{VALUE}};',
@@ -271,7 +316,7 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
 			'button_bg_hover_color',
 			[
 				'label'		=> __( 'Button BG Hover
-                 Color', 'kitolms-core' ),
+                 Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package:hover' => 'background: {{VALUE}};',
@@ -282,7 +327,7 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'button_border_hover_color',
 			[
-				'label'		=> __( 'Button Border Hover Color', 'kitolms-core' ),
+				'label'		=> __( 'Button Border Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package:hover' => 'border-color: {{VALUE}};',
@@ -298,106 +343,41 @@ class Widget_Kitolms_Pricing_Table extends Widget_Base {
 	}
 
 	protected function render( ) {
-		$settings = $this->get_settings(); 
+		$settings = $this->get_settings_for_display(); 
         $pricing_plan = $settings['pricing_plan']; ?>
 
-        <div class="pricing_wrap <?php echo $pricing_plan; ?>">
-            <div class="prt_head">
-                <?php if($settings['pricing_intro_text']) { ?>
-                    <div class="recommended"><?php echo $settings['pricing_intro_text']; ?></div>
-                <?php } ?>
-                <h4><?php echo $pricing_plan; ?></h4>
-            </div>
-            <div class="prt_price">
-                <h2><span><?php echo $settings['currency']; ?></span><?php echo $settings['price']; ?></h2>
-                <span><?php echo $settings['plan_users']; ?></span>
-            </div>
-            <div class="prt_body">
-                <ul>
-                    <?php foreach ( $settings['pricing_table_list'] as $item ) : ?>	
-                        <?php $show = $item['features_enable']; ?>
-                        <li class="<?php echo esc_html($show); ?>"><?php echo $item['features_intro']; ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <div class="prt_footer">
-                <a href="#" class="btn choose_package <?php echo ($pricing_plan === 'standard') ? 'active' : ''; ?>"><?php echo $settings['pricing_button']; ?></a>
-            </div>
-        </div>
+        <div class="wpew-pricing">
+			<div class="pricing_wrap <?php echo $pricing_plan; ?>">
+				<div class="prt_head">
+					<?php if($settings['pricing_intro_text']) { ?>
+						<div class="recommended"><?php echo $settings['pricing_intro_text']; ?></div>
+					<?php } ?>
+					<h4><?php echo $pricing_plan; ?></h4>
+				</div>
+				<div class="prt_price">
+					<h2><span><?php echo $settings['currency']; ?></span><?php echo $settings['price']; ?></h2>
+					<span><?php echo $settings['plan_users']; ?></span>
+				</div>
+				<div class="prt_body">
+					<ul>
+						<?php foreach ( $settings['pricing_table_list'] as $item ) : ?>	
+							<?php $show = $item['features_enable']; ?>
+							<li class="<?php echo $show; ?>"><?php echo $item['features_intro']; ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 
+				<?php if( !empty($settings['pricing_button_url']) ) { ?>
+					<div class="prt_footer">
+						<a href="<?php echo $settings['pricing_button_url']; ?>" class="btn choose_package <?php echo ($pricing_plan === 'standard') ? 'active' : ''; ?>"><?php echo $settings['pricing_button']; ?></a>
+					</div>
+				<?php } ?>
 
-
-
-    
-		<div class="pricing pricing-palden">
-            <div class="pricing-item features-item ja-animate" data-animation="move-from-bottom" data-delay="item-0" style="min-height: 497px;">
-                <div class="pricing-deco">
-                    <!-- <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" x="0px" xml:space="preserve" y="0px">
-                        <path class="deco-layer deco-layer--1" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" fill="#FFFFFF" opacity="0.6"></path>
-                        <path class="deco-layer deco-layer--2" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" fill="#FFFFFF" opacity="0.6"></path>
-                        <path class="deco-layer deco-layer--3" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716H42.401L43.415,98.342z" fill="#FFFFFF" opacity="0.7"></path>
-                        <path class="deco-layer deco-layer--4" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" fill="#FFFFFF"></path>
-                    </svg> -->
-                    <div class="pricing-price"><span class="pricing-currency">$</span>29
-                        <span class="pricing-period">/ mo</span>
-                    </div>
-                    <h3 class="pricing-title">Freelance</h3>
-                </div>
-                <ul class="pricing-feature-list">
-                    <li class="pricing-feature">1 GB of space</li>
-                    <li class="pricing-feature">Support at $25/hour</li>
-                    <li class="pricing-feature">Limited cloud access</li>
-                </ul>
-                <button class="pricing-action">Choose plan</button>
-            </div>
-
-            <div class="pricing-item features-item ja-animate pricing__item--featured" data-animation="move-from-bottom" data-delay="item-1" style="min-height: 497px;">
-                <div class="pricing-deco" style="background: linear-gradient(135deg,#a93bfe,#584efd)">
-                    <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" x="0px" xml:space="preserve" y="0px">
-                        <path class="deco-layer deco-layer--1" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" fill="#FFFFFF" opacity="0.6"></path>
-                        <path class="deco-layer deco-layer--2" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" fill="#FFFFFF" opacity="0.6"></path>
-                        <path class="deco-layer deco-layer--3" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716H42.401L43.415,98.342z" fill="#FFFFFF" opacity="0.7"></path>
-                        <path class="deco-layer deco-layer--4" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" fill="#FFFFFF"></path>
-                    </svg>
-                    <div class="pricing-price"><span class="pricing-currency">$</span>59
-                        <span class="pricing-period">/ mo</span>
-                    </div>
-                    <h3 class="pricing-title">Business</h3>
-                </div>
-                <ul class="pricing-feature-list">
-                    <li class="pricing-feature">5 GB of space</li>
-                    <li class="pricing-feature">Support at $5/hour</li>
-                    <li class="pricing-feature">Full cloud access</li>
-                </ul>
-                <button class="pricing-action">Choose plan</button>
-            </div>
-
-            <div class="pricing-item features-item ja-animate" data-animation="move-from-bottom" data-delay="item-2" style="min-height: 497px;">
-                <div class="pricing-deco">
-                    <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" x="0px" xml:space="preserve" y="0px">
-                        <path class="deco-layer deco-layer--1" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" fill="#FFFFFF" opacity="0.6"></path>
-                        <path class="deco-layer deco-layer--2" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" fill="#FFFFFF" opacity="0.6"></path>
-                        <path class="deco-layer deco-layer--3" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716H42.401L43.415,98.342z" fill="#FFFFFF" opacity="0.7"></path>
-                        <path class="deco-layer deco-layer--4" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" fill="#FFFFFF"></path>
-                    </svg>
-                    <div class="pricing-price"><span class="pricing-currency">$</span>99
-                        <span class="pricing-period">/ mo</span>
-                    </div>
-                    <h3 class="pricing-title">Enterprise</h3>
-                </div>
-                <ul class="pricing-feature-list">
-                    <li class="pricing-feature">10 GB of space</li>
-                    <li class="pricing-feature">Support at $5/hour</li>
-                    <li class="pricing-feature">Full cloud access</li>
-                </ul>
-                <button class="pricing-action">Choose plan</button>
-            </div>
-        </div>
-    
-
+			</div>
+		</div>
 
 	<?php 
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Kitolms_Pricing_Table() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Pricing_Table() );
