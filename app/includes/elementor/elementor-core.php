@@ -33,3 +33,23 @@ function add_new_elements() {
     // require_once plugin_dir_path( __FILE__ ).'widgets/animated-headine.php';
 }
 add_action('elementor/widgets/widgets_registered','add_new_elements');
+
+
+# Category List
+if( !function_exists("wpew_all_category_list") ){
+    # List of Group
+    function wpew_all_category_list( $category ){
+        global $wpdb;
+        $sql = "SELECT * FROM `".$wpdb->prefix."term_taxonomy` INNER JOIN `".$wpdb->prefix."terms` ON `".$wpdb->prefix."term_taxonomy`.`term_taxonomy_id`=`".$wpdb->prefix."terms`.`term_id` AND `".$wpdb->prefix."term_taxonomy`.`taxonomy`='".$category."'";
+        $results = $wpdb->get_results( $sql );
+
+        $cat_list = array();
+        $cat_list['allpost'] = 'All Category';
+        if(is_array($results)){
+            foreach ($results as $value) {
+                $cat_list[$value->slug] = $value->name;
+            }
+        }
+        return $cat_list;
+    }
+}
