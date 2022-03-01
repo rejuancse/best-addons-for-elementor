@@ -28,7 +28,6 @@ class Widget_Time_Line extends Widget_Base {
             ]
         );
 
-
 		$repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
@@ -58,7 +57,6 @@ class Widget_Time_Line extends Widget_Base {
             ]
 		);
 
-
 		$this->add_control(
 			'timeline_list',
 			[
@@ -78,10 +76,12 @@ class Widget_Time_Line extends Widget_Base {
         $this->end_controls_section();
         # Option End
 
+
+		// Timeline Style
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Title Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -100,6 +100,48 @@ class Widget_Time_Line extends Widget_Base {
 			]
 		);
 
+		# Timeline Title Typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Timeline Title Typography', 'wpew' ),
+				'name' 		=> 'title_typography',
+				'selector' 	=> '{{WRAPPER}} .timeline-description h6',
+			]
+		);
+
+		$this->add_responsive_control(
+			'timeline_title_space',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .timeline-area .timeline-description h6' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		/**
+		 * Timeline Intro Style
+		 */
+		$this->add_control(
+			'timeline_intro_section',
+			[
+				'label' => esc_html__( 'Intro Text Style', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
 		# Timeline Intro
 		$this->add_control(
 			'timeline_intro',
@@ -109,6 +151,25 @@ class Widget_Time_Line extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .timeline-description p' => 'color: {{VALUE}};',
 				],
+			]
+		);
+
+		# Timeline Intro Typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Timeline Intro Typography', 'wpew' ),
+				'name' 		=> 'intro_typography',
+				'selector' 	=> '{{WRAPPER}} .timeline-description p',
+			]
+		);
+
+		$this->add_control(
+			'timeline_datetime_section',
+			[
+				'label' => esc_html__( 'Datetime Style', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -124,6 +185,24 @@ class Widget_Time_Line extends Widget_Base {
 			]
 		);
 
+		# Timeline Datetime Typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Timeline Datetime Typography', 'wpew' ),
+				'name' 		=> 'datetime_typography',
+				'selector' 	=> '{{WRAPPER}} .timeline-date p',
+			]
+		);
+
+		$this->add_control(
+			'timeline_style',
+			[
+				'label' => esc_html__( 'Timeline Style', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
 		# Timeline Row 
 		$this->add_control(
 			'timeline_row',
@@ -141,70 +220,19 @@ class Widget_Time_Line extends Widget_Base {
 			]
 		);
 
-
-		# Timeline Title Typography
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Timeline Title Typography', 'wpew' ),
-				'name' 		=> 'title_typography',
-				'selector' 	=> '{{WRAPPER}} .timeline-description h6',
-			]
-		);
-
-		
-
-		# Timeline Intro Typography
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Timeline Intro Typography', 'wpew' ),
-				'name' 		=> 'intro_typography',
-				'selector' 	=> '{{WRAPPER}} .timeline-description p',
-			]
-		);
-
-
-
-		# Timeline Datetime Typography
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Timeline Datetime Typography', 'wpew' ),
-				'name' 		=> 'datetime_typography',
-				'selector' 	=> '{{WRAPPER}} .timeline-date p',
-			]
-		);
-
-
-        $this->add_responsive_control(
-            'text_margin',
-            [
-                'label' 		=> __( 'Title Margin', 'wpew' ),
-                'type' 			=> Controls_Manager::DIMENSIONS,
-                'size_units' 	=> [ 'px', 'em', '%' ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .banner_one' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' 	=> 'before',
-            ]
-        );
 		$this->end_controls_section();
 	}
 
 	protected function render( ) {
 		$settings = $this->get_settings();
-		$timeline_list = $settings['timeline_list'];
-		?>
-
+		$timeline_list = $settings['timeline_list']; ?>
 
 		<section class="timeline-area">
             <div class="time-line-row pos-reletive">
-
                 <div class="timeline-row"></div>
-				
-				<?php $counter = 0 ?>
-				<?php foreach($timeline_list as $value) { ?>
+				<?php 
+				$counter = 0;
+				foreach($timeline_list as $value) { ?>
 					<?php if($counter%2==0){ ?>
 						<div class="timeline-col-6"> 
 							<div class="timeline-left-content timeline-text-right">
