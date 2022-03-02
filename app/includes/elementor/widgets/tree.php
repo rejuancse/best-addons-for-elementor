@@ -44,15 +44,70 @@ class Widget_WPEW_Tree extends Widget_Base {
             ]
         );
 
-		$repeater = new \Elementor\Repeater();
+
+
+		// $this->add_control(
+		// 	'list',
+		// 	[
+		// 		'label' => __( 'Repeater List', 'elementor' ),
+		// 		'type' => Controls_Manager::REPEATER,
+		// 		'fields' => [
+		// 			[
+		// 				'name' => 'list_title',
+		// 				'label' => __( 'Title', 'elementor' ),
+		// 				'type' => Controls_Manager::TEXT,
+		// 				'default' => __( 'List Title' , 'elementor' ),
+		// 				'label_block' => true,
+		// 			],
+		// 			[
+		// 				'name' => 'list_buttons',
+		// 				'label' => __( 'List Buttons', 'elementor' ),
+		// 				'type' => Controls_Manager::REPEATER,
+		// 				'fields' => [
+		// 					[
+		// 						'name' => 'button_text',
+		// 						'label' => __( 'Button Text', 'elementor' ),
+		// 						'type' => Controls_Manager::TEXT,
+		// 						'default' => __( 'Click' , 'elementor' ),
+		// 						'label_block' => true,
+		// 					],
+		// 				],
+		// 				'default' => [
+		// 					[
+		// 						'button_text' => __( 'Button #1', 'elementor' ),
+		// 					],
+		// 					[
+		// 						'button_text' => __( 'Button #2', 'elementor' ),
+		// 					],
+		// 				],
+		// 			],  
+		// 		],
+		// 		'default' => [
+		// 			[
+		// 				'list_title' => __( 'Title #1', 'elementor' ),
+		// 				'list_content' => __( 'Item content. Click the edit button to change this text.', 'elementor' ),
+		// 			],
+		// 			[
+		// 				'list_title' => __( 'Title #2', 'elementor' ),
+		// 				'list_content' => __( 'Item content. Click the edit button to change this text.', 'elementor' ),
+		// 			],
+		// 		],
+		// 		'title_field' => '{{{ list_title }}}',
+		// 	]
+		// );
+
+
+
+		$repeater = new \Elementor\Repeater();	
 
 		$repeater->add_control(
 			'tree_name',
 			[
 				'label' => __( 'Name of Tree', 'wpew' ),
-				'type' => Controls_Manager::TEXTAREA,
+				'type' => Controls_Manager::TEXT,
 				'default' 		=> __( 'Client | Project Base', 'wpew' ),
-            ]
+				'label_block' => true,
+            ],
 		);
 
 		$repeater->add_control(
@@ -61,15 +116,33 @@ class Widget_WPEW_Tree extends Widget_Base {
 				'label' => __( 'Custom URL', 'wpew' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => __( '#', 'wpew' ),
+				'label_block' => true,
             ]
 		);
 
 		$repeater->add_control(
-			'animation_name',
+			'child_tree',
 			[
-				'label' => __( 'Animation Name', 'wpew' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => __( 'slideInLeft', 'wpew' ),
+				'label' => __( 'Custom URL', 'wpew' ),
+				'type' => Controls_Manager::REPEATER,
+				'default' => __( '#', 'wpew' ),
+				'fields' => [
+					[
+						'name' => 'treebutton_text',
+						'label' => __( 'Button Text', 'elementor' ),
+						'type' => Controls_Manager::TEXT,
+						'default' => __( 'Click' , 'elementor' ),
+						'label_block' => true,
+					],
+				],
+				'default' => [
+					[
+						'button_text' => __( 'Button #1', 'elementor' ),
+					],
+					[
+						'button_text' => __( 'Button #2', 'elementor' ),
+					],
+				],
             ]
 		);
 
@@ -79,13 +152,13 @@ class Widget_WPEW_Tree extends Widget_Base {
 				'label' => esc_html__( 'Service Tree List', 'wpew' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
-				'default' => [
-					[
-						'custom_url' 			=> esc_html__( '#', 'wpew' ),
-						'animation_name' 	=> esc_html__( 'slideInLeft', 'wpew' ),
-						'tree_name' 	=> esc_html__( 'Client | Project Base', 'wpew' ),
-					],
-				],
+				// 'default' => [
+				// 	[
+				// 		'custom_url' 			=> esc_html__( '#', 'wpew' ),
+				// 		'tree_name' 	=> esc_html__( 'Client | Project Base', 'wpew' ),
+				// 		'child_tree' 	=> esc_html__( 'Client | Project Base', 'wpew' ),
+				// 	],
+				// ], 
 			]
 		);
 
@@ -97,17 +170,35 @@ class Widget_WPEW_Tree extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$service_tree = $settings['service_tree'];  
 		$service_list_tree = $settings['service_list_tree'];
+
 		
 		?>
 
 		<div class="tree">
 			<ul>
 				<li class="tree-header">
-					<a href="#" class="wow zoomIn"><?php echo $service_tree; ?></a>
+					<!-- <a href="#"> -->
+						<?php echo $service_tree; ?>
+					<!-- </a> -->
 					<ul>
 						<?php foreach ( $settings['service_list_tree'] as $item ) : ?>
-							<li class="top-level wow <?php echo $item['animation_name']; ?>">
-								<a href="<?php echo $item['custom_url']; ?>" class="btn"><?php echo $item['tree_name']; ?></a>
+							<li class="top-level">
+								<!-- <a href="<?php //echo $item['custom_url']; ?>" class="btn"> -->
+								<?php echo $item['tree_name']; ?>
+							<!-- </a> -->
+
+								<ul>
+									<?php foreach ( $item['child_tree'] as $value ) : ?>
+
+										<li class="top-level">
+											<!-- <a href="#" class="btn"> -->
+												<?php
+													echo $value['treebutton_text'];
+												?>
+											<!-- </a> -->
+										</li>
+									<?php endforeach; ?>
+								</ul>
 							</li>
 						<?php endforeach; ?>
 					</ul>
