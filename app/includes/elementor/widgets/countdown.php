@@ -217,13 +217,7 @@ class Widget_CountDown extends Widget_Base {
         <div class="main-title df db-414 tac-414 justify-content-center">
             <h2 class="">Deal of the Day</h2>
             <div class="deal_countdown">
-                <ul class="deal_counter bgc-thm" id="timer">
-                    <li class="list-inline-item"><span class="title">Ends in:</span></li>
-                    <li class="list-inline-item hours">21<span>Hours</span></li>
-                    <li class="list-inline-item"><span class="seperator">:</span></li>
-                    <li class="list-inline-item minutes">47<span>Minutes</span></li>
-                    <li class="list-inline-item"><span class="seperator">:</span></li>
-                    <li class="list-inline-item seconds">33<span>Seconds</span></li>
+                <ul class="deal_counter bgc-thm" id="timer" data-endtime="2 june 2022">
                 </ul>
             </div>
         </div>
