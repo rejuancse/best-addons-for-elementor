@@ -28,89 +28,52 @@ class Widget_Online_Delivery extends Widget_Base {
             ]
         );
 
+		# Title text field
         $this->add_control(
-            'headine_text',
+            'title_text',
             [
-                'label' => __( 'Headine Text', 'wpew' ),
+                'label' => __( 'Title Text', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter heading', 'wpew' ),
-                'default' => __( 'My favourite food is', 'wpew' ),
+                'placeholder' => __( 'Enter title text', 'wpew' ),
+                'default' => __( 'WHATSAPP ORDERING SERVICE PLACE YOUR ORDERS AT', 'wpew' ),
             ]
         );
+		
 
+		# Hotline text field
 		$this->add_control(
-            'animated_text',
+            'hotline_text',
             [
-                'label' => __( 'Animated Text', 'wpew' ),
-                'type' => Controls_Manager::TEXTAREA,
-                'label_block' => true,
-                'default' => __( 'Pizza Sushi Steak', 'wpew' ),
-				'description' => sprintf(
-					esc_html__( 'For animated text please use space or new line, For example, Pizza Sushi Steak', 'wpew' ),
-					'<code>',
-					'</code>'
-				),
-            ]
-        );
-
-		$this->add_control(
-            'headine_text2',
-            [
-                'label' => __( 'Headine Text2', 'wpew' ),
+                'label' => __( 'Hotline Text', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'wpew' ),
-                'default' => __( 'Course', 'wpew' ),
+                'placeholder' => __( 'Enter hotline', 'wpew' ),
+                'default' => __( '392 96 32', 'wpew' ),
             ]
         );
 
+		# Delivery image
 		$this->add_control(
-			'headine_size',
+			'delivery_image',
 			[
-				'label' => esc_html__( 'HTML Tag', 'wpew' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'h1' => 'H1',
-					'h2' => 'H2',
-					'h3' => 'H3',
-					'h4' => 'H4',
-					'h5' => 'H5',
-					'h6' => 'H6',
-					'div' => 'div',
-					'span' => 'span',
-					'p' => 'p',
+				'label' => esc_html__( 'Choose Image', 'plugin-name' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
 				],
-				'default' => 'h2',
 			]
 		);
 
-		$this->add_responsive_control(
-			'align',
+		# Icon
+		$this->add_control(
+			'icon',
 			[
-				'label' => esc_html__( 'Alignment', 'wpew' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__( 'Left', 'wpew' ),
-						'icon' => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'wpew' ),
-						'icon' => 'eicon-text-align-center',
-					],
-					'right' => [
-						'title' => esc_html__( 'Right', 'wpew' ),
-						'icon' => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpew' ),
-						'icon' => 'eicon-text-align-justify',
-					],
-				],
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+				'label' => esc_html__( 'Icon', 'plugin-name' ),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-star',
+					'library' => 'solid',
 				],
 			]
 		);
@@ -126,81 +89,40 @@ class Widget_Online_Delivery extends Widget_Base {
 			]
 		);
 
+		# Title Text Color
 		$this->add_control(
-            'animated_name',
-            [
-                'label'     => __( 'Animated Name', 'wpew' ),
-                'type'      => Controls_Manager::SELECT,
-                'default'   => 'clip is-full-width',
-                'options'   => [
-                        'clip is-full-width' 	=> __( 'Clip', 'wpew' ),
-                        'rotate-1' 	=> __( 'Rotate-1', 'wpew' ),
-                        'rotate-2' 	=> __( 'Rotate-2', 'wpew' ),
-                        'letters rotate-3' 	=> __( 'Letters Rotate-3', 'wpew' ),
-                        'letters type' 	=> __( 'Letters Type', 'wpew' ),
-                        'loading-bar' 	=> __( 'Loading Bar', 'wpew' ),
-                        'letters scale' 	=> __( 'Letters Scale', 'wpew' ),
-                        'slide' 	=> __( 'Slide', 'wpew' ),
-                        'zoom' 	=> __( 'Zoom', 'wpew' ),
-                        'push' 	=> __( 'Push', 'wpew' ),
-                    ],
-            ]
-        );
-
-		$this->add_control(
-			'animated_text_color',
+			'title_text_color',
 			[
-				'label'		=> __( 'Animated Text Color', 'wpew' ),
+				'label'		=> __( 'Title Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .animated-headine .headline .words-wrapper' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .online_delivery .title' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
+		# Hotline Text Color
 		$this->add_control(
-			'title_color',
+			'hotline_text_color',
 			[
-				'label'		=> __( 'Headine Text Color', 'wpew' ),
+				'label'		=> __( 'Hotline Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .online_delivery .text-thm' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-        $this->add_group_control(
+		# Timeline Title Typography
+		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'typography',
-				'selector' 	=> '{{WRAPPER}} .animated-headine .headline',
+				'label'		=> __( 'Timeline Title Typography', 'wpew' ),
+				'name' 		=> 'title_typography',
+				'selector' 	=> '{{WRAPPER}} .online_delivery h3',
 			]
 		);
 
-		$this->add_responsive_control(
-            'text_padding',
-            [
-                'label' 		=> __( 'Title Padding', 'wpew' ),
-                'type' 			=> Controls_Manager::DIMENSIONS,
-                'size_units' 	=> [ 'px', 'em', '%' ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .animated-headine .headline' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' 	=> 'before', 
-            ]
-        );
-        $this->add_responsive_control(
-            'text_margin',
-            [
-                'label' 		=> __( 'Title Margin', 'wpew' ),
-                'type' 			=> Controls_Manager::DIMENSIONS,
-                'size_units' 	=> [ 'px', 'em', '%' ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .animated-headine .headline' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' 	=> 'before',
-            ]
-        );
 		$this->end_controls_section();
 		# Title Section end 1
 
@@ -208,20 +130,23 @@ class Widget_Online_Delivery extends Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings();
-		$animated_text = $settings['animated_text'];
-		$animated_name = $settings['animated_name'];
-		$headine_size = $settings['headine_size'];
-
+		$title_text = $settings['title_text'];
+		$hotline_text = $settings['hotline_text'];
+		$delivery_image = $settings['delivery_image'];
 		?>
+
+		<!-- https://creativelayers.net/themes/freshen-html/images/shop-items/delivery.png -->
 
 		<div class="online_delivery text-center">
             <div class="delivery_bike">
-				<img src="https://creativelayers.net/themes/freshen-html/images/shop-items/delivery.png" alt="delivery.png">
+				<img src=<?php echo $delivery_image['url'] ?> alt="delivery.png">
 			</div>
             <h3 class="title text-thm2">
-				<span class="flaticon-whatsapp text-thm vam mr15"></span>
-				WHATSAPP ORDERING SERVICE PLACE YOUR ORDERS AT 
-				<span class="text-thm">392 96 32</span>
+				<span class="flaticon-whatsapp text-thm vam mr15">
+					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
+				</span>
+				<?php echo $title_text ?>
+				<span class="text-thm"> <?php echo $hotline_text ?> </span>
 			</h3>
         </div>
 
