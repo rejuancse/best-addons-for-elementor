@@ -1,0 +1,78 @@
+.countdown-wrap {
+    .style2 .deal_counter.bgc-thm {
+        background-color: transparent;
+    }
+
+    .style2 .deal_counter {
+        border-radius: 0px;
+        padding: 0;
+    }
+
+    .style2 .deal_counter.bgc-thm .list-inline-item {
+        background-color: #86BC42;
+        padding: 12px 20px;
+        border-radius: 3px;
+        text-align: center;
+        line-height: normal;
+        font-size: 34px;
+        margin: 0;
+        span {
+            display: block;
+            font-size: 13px;
+        }
+    }
+    
+    .deal_counter {
+        border-radius: 5px;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-top: 0;
+        padding: 10px 30px;
+        text-align: center;
+        width: auto;
+        display: inline-block;
+
+        .bgc-thm {
+            background-color: #86BC42;
+        }
+
+        
+
+        .list-inline-item {
+            display: inline-block;
+
+            .title {
+                color: #fff;
+                font-family: 'Lato';
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 14px;
+                letter-spacing: 0.1em;
+                text-align: left;
+                text-transform: uppercase;
+            }
+
+            span.seperator {
+                color: #fff;
+            }
+        }
+        .days,
+        .hours,
+        .minutes,
+        .seconds {
+            color: #fff;
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        &.bgc-thm {
+            background-color: #86BC42;
+        }
+    }
+}
+

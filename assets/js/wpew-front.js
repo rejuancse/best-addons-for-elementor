@@ -152,5 +152,38 @@ jQuery(document).ready(function($){
         $oldWord.removeClass('is-visible').addClass('is-hidden');
         $newWord.removeClass('is-hidden').addClass('is-visible');
     }
+
+    /**
+     * Countdown Script
+    **/
+    function makeTimer() {
+        //  var endTime = new Date("20 Dec 2022 9:56:00 GMT+01:00");  
+        var ending = jQuery("#timer").attr("data-endtime");
+        var endTime = new Date(ending);      
+        endTime = (Date.parse(endTime) / 1000);
+        var now = new Date();
+        now = (Date.parse(now) / 1000);
+        var timeLeft = endTime - now;
+        var days = Math.floor(timeLeft / 86400); 
+        var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+        var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));  
+        if(days < 0) { days = 0 }
+        if (hours < "10") { hours = "0" + hours; }
+        if (minutes < "10") { minutes = "0" + minutes; }
+        if (seconds < "10") { seconds = "0" + seconds; }
+        $(".days").html(days + "<span> Days</span>");
+        $(".hours").html(hours + "<span> Hours</span>");
+        $(".minutes").html(minutes + "<span> Min</span>");
+        $(".seconds").html(seconds + "<span> Sec</span>");
+    }
+    setInterval(function() { makeTimer(); }, 1000);
+      
   
 });
+
+
+
+
+
+

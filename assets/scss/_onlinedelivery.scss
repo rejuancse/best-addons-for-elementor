@@ -1,0 +1,38 @@
+.online_delivery {
+    background-color: #FAFAEB;
+    border: 1px dashed #86BC42;
+    padding: 40px 0;
+    position: relative;
+
+    .delivery_bike {
+        bottom: 15px;
+        left: 12px;
+        position: absolute;
+        width: 193px;
+    }
+
+    .title {
+        font-style: normal;
+        font-weight: 500;
+        line-height: 30px;
+        letter-spacing: 0em;
+        margin-bottom: 0;
+        text-align: right;
+        padding: 0 40px;
+    }
+
+    .mr15 {
+        margin-right: 15px;
+    }
+    
+    .text-thm {
+        color: #86BC42;
+    }
+    .vam {
+        vertical-align: middle;
+    }
+
+    .text-thm {
+        color: #86BC42;
+    }
+}

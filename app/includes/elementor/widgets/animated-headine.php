@@ -189,6 +189,7 @@ class Widget_Animated_Headine extends Widget_Base {
                 'separator' 	=> 'before', 
             ]
         );
+		
         $this->add_responsive_control(
             'text_margin',
             [

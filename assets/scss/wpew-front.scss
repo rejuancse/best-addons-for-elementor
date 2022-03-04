@@ -2,10 +2,16 @@
  * WPEW Front CSS
  * File Description: The main stylesheet of this plugins for main design part.
  */
-
+ 
+@import "breakpoint";
 @import "banner";
 @import "timeline";
 @import "pricingtable";
+@import "postblog";
+@import "onlinedelivery";
+@import "countdown";
+@import "photogallery";
+@import "tree";
  
  /*
  * Animated Headine
