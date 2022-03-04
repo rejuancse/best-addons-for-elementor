@@ -1,71 +1,53 @@
-.main-title {
-    position: relative;
-    margin-bottom: 25px;
-
-    &.df {
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-    }
-    
-    h2 {
-        color: #121212;
-        font-weight: 600;
-        line-height: 2.375rem;
-        margin-bottom: 10px;
-        margin-top: 0;
-        text-transform: uppercase;
-    }
-
+.countdown-wrap {
     .deal_counter {
-        border-radius: 30px;
+        border-radius: 5px;
         margin-bottom: 0;
-        margin-left: 20px;
-        margin-top: -5px;
-        padding: 9px 0;
+        margin-left: 0;
+        margin-top: 0;
+        padding: 10px 30px;
         text-align: center;
-        width: 210px;
+        width: auto;
+        display: inline-block;
+
         .bgc-thm {
             background-color: #86BC42 !important;
         }
+
         .list-inline-item {
             display: inline-block;
+
+            .title {
+                color: #fff;
+                font-family: 'Lato';
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 14px;
+                letter-spacing: 0.1em;
+                text-align: left;
+                text-transform: uppercase;
+            }
+
+            span.seperator {
+                color: #fff;
+            }
         }
-        .title {
+        .days,
+        .hours,
+        .minutes,
+        .seconds {
             color: #fff;
-            font-family: Lato;
-            font-size: 12px;
+            font-family: 'Lato';
+            font-size: 16px;
             font-style: normal;
             font-weight: 700;
-            line-height: 14px;
-            letter-spacing: 0.1em;
+            line-height: 24px;
+            letter-spacing: 0em;
             text-align: left;
-            text-transform: uppercase;
         }
-    }
-
-    .deal_counter .days, 
-    .deal_counter .hours, 
-    .deal_counter .minutes, 
-    .deal_counter .seconds {
-        color: #fff;
-        font-family: Lato;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 24px;
-        letter-spacing: 0em;
-        text-align: left;
-    }
-    
-
-    .justify-content-center {
-        justify-content: center!important;
-    }
-    .bgc-thm {
-        background-color: #86BC42 !important;
+        &.bgc-thm {
+            background-color: #86BC42;
+        }
     }
 }
 

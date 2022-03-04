@@ -153,75 +153,37 @@ jQuery(document).ready(function($){
         $newWord.removeClass('is-hidden').addClass('is-visible');
     }
 
-
-    
-    // CountDown
-    function myTimer() {
-        var ending = jQuery("#timer").attr("data-endtime"),
-            endTime = new Date(ending);
-        endTime = Date.parse(endTime) / 1000;
-      
+    /**
+     * Countdown Script
+    **/
+    function makeTimer() {
+        //  var endTime = new Date("20 Dec 2022 9:56:00 GMT+01:00");  
+        var ending = jQuery("#timer").attr("data-endtime");
+        var endTime = new Date(ending);      
+        endTime = (Date.parse(endTime) / 1000);
         var now = new Date();
-        now = Date.parse(now) / 1000;
-      
+        now = (Date.parse(now) / 1000);
         var timeLeft = endTime - now;
-      
-        var days = Math.floor(timeLeft / 86400);
-        var hours = Math.floor((timeLeft - days * 86400) / 3600);
-        var minutes = Math.floor((timeLeft - days * 86400 - hours * 3600) / 60);
-        var seconds = Math.floor(
-          timeLeft - days * 86400 - hours * 3600 - minutes * 60
-        );
-      
-        if (days < "10") {
-          days = "0" + days;
-        }
-        if (days < "1") {
-          days = "0";
-        }
-        if (hours < "10") {
-          hours = "0" + hours;
-        }
-        if (hours < "1") {
-          hours = "0";
-        }
-        if (minutes < "10") {
-          minutes = "0" + minutes;
-        }
-        if (minutes < "1") {
-          minutes = "0";
-        }
-        if (seconds < "10") {
-          seconds = "0" + seconds;
-        }
-        if (seconds < "1") {
-          seconds = "0";
-        }
-      
-        $("#timer").html(
-            "<li class='list-inline-item'><span class='title'>Ends in:</span></li>"+
-            "<li class='list-inline-item hours'>" +
-            days +
-            "</li><li class='list-inline-item'><span class='seperator'>:</span></li>" +
-            "<li class='list-inline-item hours'>" +
-            hours +
-            "</li><li class='list-inline-item'><span class='seperator'>:</span></li>" +
-            "<li class='list-inline-item minutes'>" +
-            minutes +
-            "</li><li class='list-inline-item'><span class='seperator'>:</span></li>" +
-            "<li class='list-inline-item seconds'>" +
-            seconds +
-            "</li>"
-        );
+        var days = Math.floor(timeLeft / 86400); 
+        var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+        var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));  
+        if(days < 0) { days = 0 }
+        if (hours < "10") { hours = "0" + hours; }
+        if (minutes < "10") { minutes = "0" + minutes; }
+        if (seconds < "10") { seconds = "0" + seconds; }
+        $(".days").html(days + "<span> Days</span>");
+        $(".hours").html(hours + "<span> Hours</span>");
+        $(".minutes").html(minutes + "<span> Min</span>");
+        $(".seconds").html(seconds + "<span> Sec</span>");
     }
-      
-    setInterval(function() {
-        myTimer();
-    }, 1000);
-      
+    setInterval(function() { makeTimer(); }, 1000);
       
   
 });
+
+
+
 
 
 
