@@ -1,4 +1,29 @@
 .countdown-wrap {
+    .style2 {
+        .deal_counter.bgc-thm {
+            background-color: transparent;
+        }
+        .deal_counter {
+            border-radius: 0px;
+            padding: 0;
+        }
+        .deal_counter.bgc-thm {
+            .list-inline-item {
+                background-color: #86BC42;
+                padding: 12px 20px;
+                border-radius: 3px;
+                text-align: center;
+                line-height: normal;
+                font-size: 34px;
+                margin: 0;
+                span {
+                    display: block;
+                    font-size: 13px;
+                }
+            }
+        } 
+    }
+    
     .deal_counter {
         border-radius: 5px;
         margin-bottom: 0;
@@ -10,7 +35,7 @@
         display: inline-block;
 
         .bgc-thm {
-            background-color: #86BC42 !important;
+            background-color: #86BC42;
         }
 
         .list-inline-item {

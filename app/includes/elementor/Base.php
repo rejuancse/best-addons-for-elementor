@@ -86,6 +86,7 @@ class Base {
      * @ Frontend
      */
     public function frontend_script(){
+        wp_enqueue_style( 'wpew-flaticon', WPEW_DIR_URL .'assets/css/flaticon.css', false, WPEW_VERSION );
         wp_enqueue_style( 'wpew-css-front', WPEW_DIR_URL .'assets/css/wpew-front.css', false, WPEW_VERSION );
         wp_enqueue_style( 'jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' );
          
