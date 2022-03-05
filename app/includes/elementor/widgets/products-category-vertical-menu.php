@@ -4,12 +4,13 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_Products_Category_Vertical_Menu extends Widget_Base {
+	
 	public function get_name() {
 		return 'products-category-vertical-menu';
 	}
 
 	public function get_title() {
-		return __( 'Products Category Vertical Menu', 'wpew' );
+		return __( 'Products Category Menu', 'wpew' );
 	}
 
 	public function get_icon() {	
@@ -24,79 +25,67 @@ class Widget_Products_Category_Vertical_Menu extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Category List', 'wpew' ),
+				'label' => __( 'Product Category List', 'wpew' ),
 			]
 		);
 
 		$this->add_control(
-			'photogallery',
-			[
-				'label' => esc_html__( 'Add Images', 'wpew' ),
-				'type' => Controls_Manager::GALLERY,
-				'default' => [],
-				'show_label' => false,
-				'dynamic' => [
-					'active' => true,
-				],
-			]
-		);
-
-		$this->add_control(
-            'gallery_column',
+            'category_heading',
             [
-                'label'     => __( 'Number of Column', 'wpew' ),
-                'type'      => Controls_Manager::SELECT,
-                'default'   => 4,
-                'options'   => [
-                        '12' 	=> __( 'One Column', 'wpew' ),
-                        '6' 	=> __( 'Two Column', 'wpew' ),
-                        '4' 	=> __( 'Three Column', 'wpew' ),
-                        '3' 	=> __( 'Four Column', 'wpew' ),
-                    ],
+                'label' => __( 'Category Heading', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'default' => __( 'ALL CATEGORIES', 'wpew' ),
             ]
         );
 
-		$this->add_responsive_control(
-			'gallery_border',
-			[
-				'label' => esc_html__( 'Border Radius', 'wpew' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors' => [
-					'{{WRAPPER}} .wpew-photo-gallery .popup-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+		$this->add_control(
+            'category_limit',
+            [
+                'label' 		=> __( 'Category Limit', 'wpew' ),
+                'type' 			=> Controls_Manager::NUMBER,
+                'label_block' 	=> true,
+                'default' 		=> '10',
+            ]
+        );
 
 		$this->add_control(
-			'image_overlay_color',
+			'category_order',
 			[
-				'label'		=> __( 'Background Overlay', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .wpew-photo-gallery .popup-image:before' => 'background: {{VALUE}};',
-				],
+				'label'     => __( 'Order', 'wpew' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'DESC',
+				'options'   => [
+						'DESC' 		=> __( 'Descending', 'wpew' ),
+						'ASC' 		=> __( 'Ascending', 'wpew' ),
+					],
 			]
-		);
+	  	);
 
 		$this->add_control(
-			'image_overlay_hover_color',
+			'category_orderby',
 			[
-				'label'		=> __( 'Background Hover Color', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .wpew-photo-gallery .popup-image:hover:before' => 'background: {{VALUE}};',
-				],
+				'label'     => __( 'Orderby', 'wpew' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'title',
+				'options'   => [
+						'title' 		=> __( 'Title', 'wpew' ),
+						'name' 		=> __( 'Name', 'wpew' ),
+						'date' 		=> __( 'Date', 'wpew' ),
+						'rand' 		=> __( 'Rand', 'wpew' ),
+					],
 			]
-		);
+	  	);
 
         $this->end_controls_section();
 	}
 
 	protected function render( ) {
 		$settings = $this->get_settings(); 
-
-		$gallery_column = $settings['gallery_column'];
+		$category_heading = $settings['category_heading'];
+		$category_limit = $settings['category_limit'];
+		$category_order = $settings['category_order'];
+		$category_orderby = $settings['category_orderby'];
 
 		?>
 
@@ -104,22 +93,31 @@ class Widget_Products_Category_Vertical_Menu extends Widget_Base {
 			<div id="mega-menu">
 				<div class="btn-mega">
 					<span class="pre_line"></span>
-					<span class="ctr_title"><?php echo esc_html('ALL CATEGORIES', 'freshen'); ?></span>
-					<i class="fa fa-angle-down icon"></i>
+					<span class="ctr_title"><?php echo $category_heading; ?></span>
+					<i class="flaticon-down-arrow icon"></i>
 				</div>
 				<ul class="menu">
 					<?php
-						$parent_terms = get_terms( 'product_cat', array( 'parent' => 0, 'orderby' => 'id', 'hide_empty' => true ) );  
+						$parent_terms = get_terms( 
+											'product_cat', 
+											array( 
+												'parent' => 0, 
+												'number' => $category_limit, 
+												'order' => $category_order, 
+												'orderby' => $category_orderby, 
+												'hide_empty' => true 
+											) 
+										);  
 						if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
 							foreach ( $parent_terms as $pterm ) { 
 								$url = get_term_link($pterm->slug, 'product_cat'); 
 								$flaticons = get_term_meta( $pterm->term_id, 'flaticon-list', true );
-								$offer_intro = get_term_meta( $pterm->term_id, 'freshen_offer_intro', true );
-								$offer_title = get_term_meta( $pterm->term_id, 'freshen_offer_title', true );
+								$offer_intro = get_term_meta( $pterm->term_id, 'wpew_offer_intro', true );
+								$offer_title = get_term_meta( $pterm->term_id, 'wpew_offer_title', true );
 								$image_id = get_term_meta( $pterm->term_id, 'image_id', true );
 								$image_url = wp_get_attachment_url( $image_id );
 
-								$terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'id', 'hide_empty' => true ) );?>
+								$terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );?>
 
 								<li>
 									<a class="<?php echo (!empty($terms) ? 'dropdown' : ''); ?>" href="<?php echo esc_url($url); ?>">
@@ -152,7 +150,7 @@ class Widget_Products_Category_Vertical_Menu extends Widget_Base {
 															<h3 class="title"><?php echo $offer_title; ?></h3>
 														</div>
 														<div class="show">
-															<a href="<?php echo esc_url($url); ?>"><?php echo esc_html_e('SHOP NOW', 'freshen'); ?></a>
+															<a href="<?php echo esc_url($url); ?>"><?php echo esc_html_e('SHOP NOW', 'wpew'); ?></a>
 														</div>
 													</div>
 												<?php } ?>

@@ -61,64 +61,57 @@ require WPEW_DIR_PATH.'app/includes/elementor/elementor-core.php';
 
 
 
+add_action( 'product_cat_add_form_fields', 'wpew_add_term_fields' );
 
-
-
-
-
-
-
-add_action( 'product_cat_add_form_fields', 'freshen_add_term_fields' );
-
-function freshen_add_term_fields( $taxonomy ) {
+function wpew_add_term_fields( $taxonomy ) {
 
 	echo '<div class="form-field">
-	<label for="freshen_offer_intro">Offer Intro</label>
-	<input type="text" name="freshen_offer_intro" id="freshen_offer_intro" />
+	<label for="wpew_offer_intro">Offer Intro</label>
+	<input type="text" name="wpew_offer_intro" id="wpew_offer_intro" />
 	<p>Product offer intro text</p>
 	</div>';
 
     echo '<div class="form-field">
-	<label for="freshen_offer_title">Offer Title</label>
-    <textarea name="freshen_offer_title" id="freshen_offer_title" rows="5" cols="40"></textarea>
+	<label for="wpew_offer_title">Offer Title</label>
+    <textarea name="wpew_offer_title" id="wpew_offer_title" rows="5" cols="40"></textarea>
 	<p>Product offer Title text</p>
 	</div>';
 
     echo '<div class="form-field term-group">
-        <label for="image_id">'.__('Offer Image', 'freshen').'</label>
+        <label for="image_id">'.__('Offer Image', 'wpew').'</label>
         <input type="hidden" id="image_id" name="image_id" class="custom_media_url" value="">
         <div id="image_wrapper"></div>
         <p>
-            <input type="button" class="button button-secondary taxonomy_media_button" id="taxonomy_media_button" name="taxonomy_media_button" value="'.__( 'Add Image', 'freshen' ).'">
-            <input type="button" class="button button-secondary taxonomy_media_remove" id="taxonomy_media_remove" name="taxonomy_media_remove" value="'.__( 'Remove Image', 'freshen' ).'">
+            <input type="button" class="button button-secondary taxonomy_media_button" id="taxonomy_media_button" name="taxonomy_media_button" value="'.__( 'Add Image', 'wpew' ).'">
+            <input type="button" class="button button-secondary taxonomy_media_remove" id="taxonomy_media_remove" name="taxonomy_media_remove" value="'.__( 'Remove Image', 'wpew' ).'">
         </p>
     </div>';
 }
 
-add_action( 'product_cat_edit_form_fields', 'misha_edit_term_fields', 10, 2 );
+add_action( 'product_cat_edit_form_fields', 'wpew_edit_term_fields', 10, 2 );
 
-function misha_edit_term_fields( $term, $taxonomy ) {
+function wpew_edit_term_fields( $term, $taxonomy ) {
 
-	$offer_intro = get_term_meta( $term->term_id, 'freshen_offer_intro', true );
-	$offer_title = get_term_meta( $term->term_id, 'freshen_offer_title', true );
+	$offer_intro = get_term_meta( $term->term_id, 'wpew_offer_intro', true );
+	$offer_title = get_term_meta( $term->term_id, 'wpew_offer_title', true );
 	$image_id = get_term_meta( $term->term_id, 'image_id', true );
 	
 	echo '<tr class="form-field">
         <th>
-            <label for="freshen_offer_intro">Offer Intro</label>
+            <label for="wpew_offer_intro">Offer Intro</label>
         </th>
         <td>
-            <input name="freshen_offer_intro" id="freshen_offer_intro" type="text" value="' . esc_attr( $offer_intro ) .'" />
+            <input name="wpew_offer_intro" id="wpew_offer_intro" type="text" value="' . esc_attr( $offer_intro ) .'" />
             <p class="description">Field description may go here.</p>
         </td>
 	</tr>';
 
     echo '<tr class="form-field">
         <th>
-            <label for="freshen_offer_title">Offer Title</label>
+            <label for="wpew_offer_title">Offer Title</label>
         </th>
         <td>
-            <textarea name="freshen_offer_title" id="freshen_offer_title" rows="5" cols="40">' . esc_attr( $offer_title ) .'</textarea>
+            <textarea name="wpew_offer_title" id="wpew_offer_title" rows="5" cols="40">' . esc_attr( $offer_title ) .'</textarea>
             <p class="description">Field description may go here.</p>
         </td>
 	</tr>';
@@ -126,7 +119,7 @@ function misha_edit_term_fields( $term, $taxonomy ) {
 
     echo '<tr class="form-field term-group-wrap">
             <th scope="row">
-                <label for="image_id">'.__( 'Offer Image', 'freshen' ).'</label>
+                <label for="image_id">'.__( 'Offer Image', 'wpew' ).'</label>
             </th>
         <td>';
 
@@ -140,28 +133,28 @@ function misha_edit_term_fields( $term, $taxonomy ) {
             echo '</div>';
 
             echo '<p>
-                <input type="button" class="button button-secondary taxonomy_media_button" id="taxonomy_media_button" name="taxonomy_media_button" value="'.__( 'Add Image', 'freshen' ).'">
-                <input type="button" class="button button-secondary taxonomy_media_remove" id="taxonomy_media_remove" name="taxonomy_media_remove" value="'.__( 'Remove Image', 'freshen' ).'">
+                <input type="button" class="button button-secondary taxonomy_media_button" id="taxonomy_media_button" name="taxonomy_media_button" value="'.__( 'Add Image', 'wpew' ).'">
+                <input type="button" class="button button-secondary taxonomy_media_remove" id="taxonomy_media_remove" name="taxonomy_media_remove" value="'.__( 'Remove Image', 'wpew' ).'">
             </p>
         </td>
     </tr>';
 }
 
 
-add_action( 'created_product_cat', 'freshen_save_term_fields' );
-add_action( 'edited_product_cat', 'freshen_save_term_fields' );
+add_action( 'created_product_cat', 'wpew_save_term_fields' );
+add_action( 'edited_product_cat', 'wpew_save_term_fields' );
 
-function freshen_save_term_fields( $term_id ) {
+function wpew_save_term_fields( $term_id ) {
 	update_term_meta(
 		$term_id,
-		'freshen_offer_intro',
-		sanitize_text_field( $_POST[ 'freshen_offer_intro' ] )
+		'wpew_offer_intro',
+		sanitize_text_field( $_POST[ 'wpew_offer_intro' ] )
 	);
 
     update_term_meta(
 		$term_id,
-		'freshen_offer_title',
-		sanitize_text_field( $_POST[ 'freshen_offer_title' ] )
+		'wpew_offer_title',
+		sanitize_text_field( $_POST[ 'wpew_offer_title' ] )
 	);
 
     update_term_meta(
@@ -173,8 +166,8 @@ function freshen_save_term_fields( $term_id ) {
 
 
 //Enqueue the wp_media library
-add_action( 'admin_enqueue_scripts', 'freshen_product_taxonomy_load_media' );
-function freshen_product_taxonomy_load_media() {
+add_action( 'admin_enqueue_scripts', 'wpew_product_taxonomy_load_media' );
+function wpew_product_taxonomy_load_media() {
     if( ! isset( $_GET['taxonomy'] ) || $_GET['taxonomy'] != 'product_cat' ) {
        return;
     }
@@ -182,8 +175,8 @@ function freshen_product_taxonomy_load_media() {
 }
 
 //Custom script
-add_action( 'admin_footer', 'add_product_taxonomy_script' );
-function add_product_taxonomy_script() {
+add_action( 'admin_footer', 'wpew_add_product_taxonomy_script' );
+function wpew_add_product_taxonomy_script() {
     if( ! isset( $_GET['taxonomy'] ) || $_GET['taxonomy'] != 'product_cat' ) {
        return;
     } ?>
@@ -234,15 +227,15 @@ function add_product_taxonomy_script() {
 }
 
 //Add new column heading
-add_filter( 'manage_edit-product_cat_columns', 'freshen_display_products_taxonomy_image' ); 
-function freshen_display_products_taxonomy_image( $columns ) {
-    $columns['category_image'] = __( 'Image', 'freshen' );
+add_filter( 'manage_edit-product_cat_columns', 'wpew_display_products_taxonomy_image' ); 
+function wpew_display_products_taxonomy_image( $columns ) {
+    $columns['category_image'] = __( 'Image', 'wpew' );
     return $columns;
 }
 
 //Display new columns values
-add_action( 'manage_product_cat_custom_column', 'freshen_display_product_taxonomy_image_value_column' , 10, 3); 
-function freshen_display_product_taxonomy_image_value_column( $columns, $column, $id ) {
+add_action( 'manage_product_cat_custom_column', 'wpew_display_product_taxonomy_image_value_column' , 10, 3); 
+function wpew_display_product_taxonomy_image_value_column( $columns, $column, $id ) {
     if ( 'category_image' == $column ) {
         $image_id = esc_html( get_term_meta($id, 'image_id', true) );
         $columns = wp_get_attachment_image ( $image_id, array('50', '50') );
@@ -251,44 +244,64 @@ function freshen_display_product_taxonomy_image_value_column( $columns, $column,
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * FlatIcons list in WooCommerce
+ */
 $flaticon_lists = array(
-    'hot-sale'         => __('Hot Sale', 'freshen-core'),
-    'bell'             => __('Bell', 'freshen-core'),
-    'discount'         => __('Discount', 'freshen-core'),
-    'harvest'          => __('Harvest', 'freshen-core'),
-    'vegetable'        => __('Vegetable', 'freshen-core'),
-    'plastic-bottle'   => __('Plastic Bottle', 'freshen-core'),
-    'bread-1'          => __('Bread', 'freshen-core'),
-    'boiled-egg'       => __('Boiled Egg', 'freshen-core'),
-    'milk-1'           => __('Milk', 'freshen-core'),
-    'meat'             => __('Meat', 'freshen-core'),
-    'fish'             => __('Fish', 'freshen-core'),
+    'cookie'            => __('Cookie', 'wpew'),
+    'shop'              => __('Shop', 'wpew'),
+    'map'               => __('Map', 'wpew'),
+    'wall-clock'        => __('Wall Clock', 'wpew'),
+    'location'          => __('Location', 'wpew'),
+    'play-button-arrowhead'  => __('Play Button', 'wpew'),
+    'salad-1'           => __('Salad', 'wpew'),
+    'apple'             => __('Apple', 'wpew'),
+    'broccoli'          => __('Broccoli', 'wpew'),
+    'lemon'             => __('Lemon', 'wpew'),
+    'love'              => __('Love', 'wpew'),
+    'check'             => __('Check', 'wpew'),
+    'controls'          => __('Controls', 'wpew'),
+    'setting-lines'     => __('Setting Lines', 'wpew'),
+    'filter'            => __('Filter', 'wpew'),
+    'trophy'            => __('Trophy', 'wpew'),
+    'vegetarian'        => __('Vegetarian', 'wpew'),
+    'customer-1'        => __('Vustomer', 'wpew'),
+    'customer'          => __('Customer', 'wpew'),
+    'support'           => __('Support', 'wpew'),
+    'returning'         => __('Returning', 'wpew'),
+    'hot-sale'          => __('Hot Sale', 'wpew'),
+    'bell'              => __('Bell', 'wpew'),
+    'discount'          => __('Discount', 'wpew'),
+    'harvest'           => __('Harvest', 'wpew'),
+    'vegetable'         => __('Vegetable', 'wpew'),
+    'plastic-bottle'    => __('Plastic Bottle', 'wpew'),
+    'bread-1'           => __('Bread', 'wpew'),
+    'boiled-egg'        => __('Boiled Egg', 'wpew'),
+    'milk-1'            => __('Milk', 'wpew'),
+    'fish'              => __('Fish', 'wpew'),
+    'meat'              => __('meat', 'wpew'),
+    'play'              => __('play', 'wpew'),
+    'email-1'           => __('email-1', 'wpew'),
+    'shopping-cart'     => __('shopping-cart', 'wpew'),
+    'chat'              => __('chat', 'wpew'),
+    'whatsapp'          => __('whatsapp', 'wpew'),
+    'up-arrow'          => __('up-arrow', 'wpew'),
+    'down-arrow'        => __('down-arrow', 'wpew'),
+    'left-arrow'        => __('left-arrow', 'wpew'),
+    'chevron'           => __('chevron', 'wpew'),
+    'shuffle'           => __('shuffle', 'wpew'),
+    'star'              => __('star', 'wpew'),
+    'heart'             => __('Heart', 'wpew'),
+    'phone-call'        => __('phone-call', 'wpew'),
 );
 
-add_action( 'product_cat_add_form_fields', 'add_flaticon_list_field', 10, 2 );
-function add_flaticon_list_field($taxonomy) {
+add_action( 'product_cat_add_form_fields', 'wpew_add_flaticon_list_field', 10, 2 );
+function wpew_add_flaticon_list_field($taxonomy) {
     global $flaticon_lists;
     ?><div class="form-field term-group">
-        <label for="flaticon-list"><?php _e('Flaticon List', 'freshen-core'); ?></label>
+        <label for="flaticon-list"><?php _e('Flaticon List', 'wpew'); ?></label>
         <select class="postform" id="equipment-group" name="flaticon-list">
-            <option value=""><?php _e('Select Icons', 'freshen-core'); ?></option>
+            <option value=""><?php _e('Select Icons', 'wpew'); ?></option>
             <?php foreach ($flaticon_lists as $_group_key => $_group) : ?>
                 <option value="<?php echo $_group_key; ?>" class=""><?php echo $_group; ?></option>
             <?php endforeach; ?>
@@ -296,17 +309,17 @@ function add_flaticon_list_field($taxonomy) {
     </div><?php
 }
 
-add_action( 'created_product_cat', 'save_feature_meta', 10, 2 );
+add_action( 'created_product_cat', 'wpew_save_feature_meta', 10, 2 );
 
-function save_feature_meta( $term_id, $tt_id ){
+function wpew_save_feature_meta( $term_id, $tt_id ){
     if( isset( $_POST['flaticon-list'] ) && ’ !== $_POST['flaticon-list'] ){
         $group = sanitize_title( $_POST['flaticon-list'] );
         add_term_meta( $term_id, 'flaticon-list', $group, true );
     }
 }
-add_action( 'product_cat_edit_form_fields', 'edit_flaticon_list_field', 10, 2 );
+add_action( 'product_cat_edit_form_fields', 'wpew_edit_flaticon_list_field', 10, 2 );
 
-function edit_flaticon_list_field( $term, $taxonomy ){
+function wpew_edit_flaticon_list_field( $term, $taxonomy ){
 
     global $flaticon_lists;
 
@@ -314,9 +327,9 @@ function edit_flaticon_list_field( $term, $taxonomy ){
     $flaticon_list = get_term_meta( $term->term_id, 'flaticon-list', true );
 
     ?><tr class="form-field term-group-wrap">
-        <th scope="row"><label for="flaticon-list"><?php _e( 'Flaticon List', 'freshen-core' ); ?></label></th>
+        <th scope="row"><label for="flaticon-list"><?php _e( 'Flaticon List', 'wpew' ); ?></label></th>
         <td><select class="postform" id="flaticon-list" name="flaticon-list">
-            <option value=""><?php _e('Update icons', 'freshen-core'); ?></option>
+            <option value=""><?php _e('Update icons', 'wpew'); ?></option>
             <?php foreach( $flaticon_lists as $_group_key => $_group ) : ?>
                 <option value="<?php echo $_group_key; ?>" <?php selected( $flaticon_list, $_group_key ); ?>><?php echo $_group; ?></option>
             <?php endforeach; ?>
@@ -324,9 +337,9 @@ function edit_flaticon_list_field( $term, $taxonomy ){
     </tr><?php
 }
 
-add_action( 'edited_product_cat', 'update_feature_meta', 10, 2 );
+add_action( 'edited_product_cat', 'wpew_update_feature_meta', 10, 2 );
 
-function update_feature_meta( $term_id, $tt_id ){
+function wpew_update_feature_meta( $term_id, $tt_id ){
 
     if( isset( $_POST['flaticon-list'] ) && ’ !== $_POST['flaticon-list'] ){
         $group = sanitize_title( $_POST['flaticon-list'] );
@@ -334,15 +347,15 @@ function update_feature_meta( $term_id, $tt_id ){
     }
 }
 
-add_filter('manage_edit-product_cat_columns', 'add_flaticon_list_column' );
+add_filter('manage_edit-product_cat_columns', 'wpew_add_flaticon_list_column' );
 
-function add_flaticon_list_column( $columns ){
-    $columns['flaticon_list'] = __( 'Group', 'freshen-core' );
+function wpew_add_flaticon_list_column( $columns ){
+    $columns['flaticon_list'] = __( 'Group', 'wpew' );
     return $columns;
 }
-add_filter('manage_product_cat_custom_column', 'add_flaticon_list_column_content', 10, 3 );
+add_filter('manage_product_cat_custom_column', 'wpew_add_flaticon_list_column_content', 10, 3 );
 
-function add_flaticon_list_column_content( $content, $column_name, $term_id ){
+function wpew_add_flaticon_list_column_content( $content, $column_name, $term_id ){
     global $flaticon_lists;
 
     if( $column_name !== 'flaticon_list' ){
@@ -359,9 +372,11 @@ function add_flaticon_list_column_content( $content, $column_name, $term_id ){
     return $content;
 }
 
-add_filter( 'manage_edit-product_cat_sortable_columns', 'add_flaticon_list_column_sortable' );
+add_filter( 'manage_edit-product_cat_sortable_columns', 'wpew_add_flaticon_list_column_sortable' );
 
-function add_flaticon_list_column_sortable( $sortable ){
+function wpew_add_flaticon_list_column_sortable( $sortable ){
     $sortable[ 'flaticon_list' ] = 'flaticon_list';
     return $sortable;
 }
+
+
