@@ -1,0 +1,104 @@
+.img-style{
+    width: 100px;
+}
+
+.div-style{
+    max-width: 100%;
+}
+
+.card-1{
+    background-color: bisque;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.img-style{
+    bottom: 15px;
+    left: 12px;
+    position: absolute;
+    width: 193px;
+}
+
+
+.title-style{
+    font-weight: bold;
+}
+
+p{
+    text-align: justify;
+}
+
+.btn-style-1{
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(101, 17, 179, 0.856);
+    padding: 10px 30px;
+    border: 2px solid white;
+    border-radius: 30px;
+}
+
+.btn-style-1:hover{
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(101, 17, 179, 0.856);
+    padding: 10px 30px;
+    border: 2px solid white;
+    border-radius: 30px;
+}
+
+.btn-style-2{
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(71, 71, 71);
+    background-color: rgba(128, 128, 128, 0.253);
+    border: 2px solid white;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+
+.btn-style-2:hover{
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(71, 71, 71);
+    background-color: rgba(128, 128, 128, 0.253);
+    border: 2px solid white;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+
+.btn-1{
+    text-decoration: none;
+    font-size: 14px;
+    color:rgb(82, 158, 158);
+    background-color: rgba(0, 255, 255, 0.123);
+    border: 1px solid rgba(82, 158, 158, 0.685);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.btn-2{
+    text-decoration: none;
+    font-size: 14px;
+    color:rgba(4, 0, 255, 0.719);
+    background-color: rgba(4, 0, 255, 0.123);
+    border: 1px solid rgba(4, 0, 255, 0.438);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.btn-3{
+    text-decoration: none;
+    font-size: 14px;
+    color:rgba(255, 0, 0, 0.698);
+    background-color: rgba(255, 0, 0, 0.212);
+    border: 1px solid rgba(255, 0, 0, 0.336);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
