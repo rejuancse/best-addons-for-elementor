@@ -106,7 +106,7 @@ class Widget_Photo_Gallery extends Widget_Base {
 			<div class="wpew-row">
 			<?php foreach ( $settings['photogallery'] as $item ) { ?>
 				<div class="wpew-col-<?php echo $gallery_column; ?>">
-					<div class="crs_grid_thumb">
+					<div class="gallery_grid_thumb">
 						<a class="popup-image" href="<?php echo esc_url( $item['url'] ); ?>">
 							<img class="slide-image" src="<?php echo esc_url( $item['url'] ); ?>" />
 						</a>
