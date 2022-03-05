@@ -1,7 +1,7 @@
 /**
 * Tree graph
 */ 
-.tree {
+.tree-diagram {
 	ul {
 		padding-top: 20px;
 		position: relative;
@@ -94,14 +94,15 @@
 			border: 1px solid #D4D4D4;
 			padding: 5px 10px;
 			text-decoration: none;
-			display: inline-grid;
+			display: inline-block;
 			align-items: center;
 			background: #FFFFFF;
 			border-radius: 2px;
 			min-width: 120px;
-			height: 40px;
+			height: auto;
 			text-align: center;
 			transition: .3s;
+            color: #333;
 			&:hover {
                 background-color: #d4482b;
                 border: 1px solid #d4482b;
