@@ -122,7 +122,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_control(
 			'countdown_bg_color',
 			[
-				'label'		=> __( 'Background Color AA', 'wpew' ),
+				'label'		=> __( 'Background Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .countdown-wrap .deal_counter.bgc-thm' => 'background-color: {{VALUE}};',
@@ -159,8 +159,41 @@ class Widget_CountDown extends Widget_Base {
 			[
 				'label'		=> __( 'Digit Typography', 'wpew' ),
 				'name' 		=> 'digit_typography',
-				'selector' 	=> '{{WRAPPER}} .countdown-wrap .deal_counter .list-inline-item',
+				'selector' 	=> '{{WRAPPER}} .countdown-wrap .style2 .deal_counter .list-inline-item',
 				'condition' => ['countdown_style' => 'style2'],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'countdown_bg_border',
+				'selector' => '{{WRAPPER}} .countdown-wrap .deal_counter',
+				'separator' => 'before',
+				'condition' => ['countdown_style' => 'style1'],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'countdown_bg2_border',
+				'selector' => '{{WRAPPER}} .countdown-wrap .style2 .deal_counter .list-inline-item',
+				'separator' => 'before',
+				'condition' => ['countdown_style' => 'style2'],
+			]
+		);
+
+		$this->add_responsive_control(
+			'countdown_border',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .countdown-wrap .deal_counter' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .countdown-wrap .style2 .deal_counter .list-inline-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -181,6 +214,7 @@ class Widget_CountDown extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .countdown-wrap .style2 .deal_counter.bgc-thm .list-inline-item span' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
+				'condition' => ['countdown_style' => 'style2'],
 			]
 		);
 
@@ -278,7 +312,17 @@ class Widget_CountDown extends Widget_Base {
 				'label'		=> __( 'Intro Text Typography', 'wpew' ),
 				'name' 		=> 'intro_typography',
 				'selector' 	=> '{{WRAPPER}} .countdown-wrap .deal_counter .list-inline-item .title',
+				'condition' => ['countdown_style' => 'style1'],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Intro Text Typography', 'wpew' ),
+				'name' 		=> 'intro_style2_typography',
 				'selector' 	=> '{{WRAPPER}} .deal_countdown.style2 h2',
+				'condition' => ['countdown_style' => 'style2'],
 			]
 		);
 
