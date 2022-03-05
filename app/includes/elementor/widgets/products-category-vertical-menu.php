@@ -4,7 +4,7 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_Products_Category_Vertical_Menu extends Widget_Base {
-	
+
 	public function get_name() {
 		return 'products-category-vertical-menu';
 	}
@@ -45,7 +45,7 @@ class Widget_Products_Category_Vertical_Menu extends Widget_Base {
                 'label' 		=> __( 'Category Limit', 'wpew' ),
                 'type' 			=> Controls_Manager::NUMBER,
                 'label_block' 	=> true,
-                'default' 		=> '10',
+                'default' 		=> '11',
             ]
         );
 
@@ -78,6 +78,81 @@ class Widget_Products_Category_Vertical_Menu extends Widget_Base {
 	  	);
 
         $this->end_controls_section();
+
+		/**
+		 * All Categories Style
+		 */
+		$this->start_controls_section(
+			'all_categories_title_style',
+			[
+				'label' 	=> __( 'ALL Categories', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'all_category_text_color',
+			[
+				'label'		=> __( 'All Category Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+		# End All Categories
+
+		/**
+		 * All Categories List Style
+		 */
+		$this->start_controls_section(
+			'all_categories_list_style',
+			[
+				'label' 	=> __( 'Categories List Style', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'all_category_list_color',
+			[
+				'label'		=> __( 'Category Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+		# End All Categories List
+
+		/**
+		 * All Categories Megamenu Style
+		 */
+		$this->start_controls_section(
+			'all_categories_megamenu_style',
+			[
+				'label' 	=> __( 'Megamenu Style', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'all_category_megamenu_color',
+			[
+				'label'		=> __( 'Megamenu Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+		# End All Categories megamenu
 	}
 
 	protected function render( ) {
@@ -85,12 +160,10 @@ class Widget_Products_Category_Vertical_Menu extends Widget_Base {
 		$category_heading = $settings['category_heading'];
 		$category_limit = $settings['category_limit'];
 		$category_order = $settings['category_order'];
-		$category_orderby = $settings['category_orderby'];
-
-		?>
+		$category_orderby = $settings['category_orderby']; ?>
 
 		<div class="posr logo1">
-			<div id="mega-menu">
+			<div id="wpew-mega-menu">
 				<div class="btn-mega">
 					<span class="pre_line"></span>
 					<span class="ctr_title"><?php echo $category_heading; ?></span>
