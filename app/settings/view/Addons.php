@@ -4,7 +4,6 @@
     </h2>
     
     <?php
-
     $site_url = 'https://wpqxtheme.com/';
     $config = [
         [
@@ -106,7 +105,6 @@
             "url"=> $site_url.'animated-headine',
         ], 
     ];
-    
 
     if (is_array($config) && count($config)){ ?>
         <div class="wp-list-table widefat plugin-install">
@@ -122,6 +120,5 @@
             <?php } ?>
         </div>
         <?php
-    }
-    ?>
+    } ?>
 </div>
