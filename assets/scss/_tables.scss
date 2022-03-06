@@ -1,0 +1,113 @@
+.data_table_area {
+	.dataTables_wrapper {
+
+        .table-bordered {
+            border: 1px solid #dee2e6;
+            td, th {
+                border: 1px solid #dee2e6;
+            }
+        }
+        table {
+            border-collapse: collapse;
+        }
+        .table-striped {
+            tbody {
+                tr {
+                    &:nth-of-type(odd) {
+                        background-color: rgba(0, 0, 0, 0.05);
+                    }
+                }
+            }
+        }
+        
+        .font-weight-bold {
+            font-weight: 700;
+        }
+
+		.table {
+			width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+
+            td, th {
+                padding: 0.75rem;
+                vertical-align: top;
+                border-top: 1px solid #dee2e6;
+            }
+
+			thead {
+				tr {
+					background: #32323a;
+					background: #32323a;
+					th {
+						padding-left: 18px;
+						padding-right: 18px;
+						color: #fff;
+						height: 53px;
+						font: 700 14px quicksand,sans-serif;
+						border: 1px solid #d6d9e2;
+						border-right: 1px solid #5b5b69;
+						vertical-align: middle;
+						position: relative;
+						outline: none;
+						box-shadow: none;
+						cursor: pointer;
+
+						&:first-child {
+							width: 50px;
+						}
+					}
+				}
+			}
+			th {
+				padding: 0;
+			}
+			tbody {
+				tr {
+					background: transparent;
+					td {
+						text-align: right;
+						vertical-align: middle;
+						font: 500 14px "Quicksand", sans-serif;
+						border: 1px solid #d6d9e2;
+						text-align: right;
+						vertical-align: middle;
+						font: 500 14px "Quicksand", sans-serif;
+						border: 1px solid #d6d9e2;
+						&:nth-child(1) {
+							text-align: center;
+						}
+						&:nth-child(5) {
+							background: #ffde90;
+							font: 700 14px "Quicksand", sans-serif;
+						}
+						&:nth-child(7) {
+							background: #01cfbd;
+							font: 700 14px "Quicksand", sans-serif;
+						}
+						&:nth-child(3) {
+							text-align: left;
+							font: 700 16px "Quicksand", sans-serif;
+							span {
+								color: #01cfbe;
+								text-decoration: underline;
+							}
+						}
+						.text-primary {
+							color: #58547e !important;
+						}
+						.text-danger {
+							color: #58547e !important;
+						}
+						.text-success {
+							color: #58547e !important;
+						}
+						.text-warning {
+							color: #58547e !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -25,7 +25,7 @@ class Widget_Products_Category_Vertical_Menu extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Product Category List', 'wpew' ),
+				'label' => __( 'Product Category MegaMenu', 'wpew' ),
 			]
 		);
 
