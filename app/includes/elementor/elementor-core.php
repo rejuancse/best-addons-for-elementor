@@ -5,7 +5,7 @@ function wpew_elementor_init(){
     Elementor\Plugin::instance()->elements_manager->add_category(
         'wpew-elementor',
         [
-            'title'     => 'WP Elements Widgets',
+            'title'     => 'WPEW Addons',
             'icon'      => 'apps'
         ],
         1
@@ -29,7 +29,6 @@ function add_new_elements() {
             }
         }
     }
-
 }
 add_action( 'elementor/widgets/widgets_registered', 'add_new_elements' );
 
