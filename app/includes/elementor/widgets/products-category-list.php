@@ -30,6 +30,19 @@ class Widget_Products_Category_List extends Widget_Base {
 		);
 
 		$this->add_control(
+            'category_style',
+            [
+                'label'     => __( 'Category Style', 'wpew' ),
+                'type'      => Controls_Manager::SELECT,
+                'default'   => 'style1',
+                'options'   => [
+                        'style1' 	=> __( 'Style 1', 'wpew' ),
+                        'style2' 	=> __( 'Style 2', 'wpew' ),
+                    ],
+            ]
+        );
+
+		$this->add_control(
             'category_heading',
             [
                 'label' => __( 'Category Heading', 'wpew' ),
@@ -157,6 +170,7 @@ class Widget_Products_Category_List extends Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings(); 
+		$category_style = $settings['category_style'];
 		$category_heading = $settings['category_heading'];
 		$category_limit = $settings['category_limit'];
 		$category_order = $settings['category_order'];
@@ -180,31 +194,29 @@ class Widget_Products_Category_List extends Widget_Base {
                     if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
                         foreach ( $parent_terms as $pterm ) { 
 
-                            $url = get_term_link($pterm->slug, 'product_cat'); 
-                            $image_id = get_term_meta( $pterm->term_id, 'image_id', true );
-                            $image_url = wp_get_attachment_url( $image_id );
-
-                            $terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );?>
+                            $terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );
+							$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
+							$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; 
+							?>
 
                             <?php if ( $i === 0 ) { ?>
                                 <div class="wpew-col-6 first category-grid-item cat-design-default categories-with-shadow product-category product first">
                                     <div class="wrapp-category">
                                         <div class="category-image-wrapp">
-                                            <a href="https://woodmart.xtemos.com/product-category/furniture/" class="category-image">
-                                                <picture class="wd-lazy-load woodmart-lazy-load wd-lazy-fade wd-loaded" data-wood-src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg">
-                                                    <source type="image/webp" srcset="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg">
-                                                    <img src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg" data-wood-src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-23-860x860.jpg" alt="Furniture" width="860" height="860">
-                                                </picture>
+                                            <a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-image">
+                                                <img src="<?php echo esc_url($image_url); ?>" alt="">
                                             </a>
                                         </div>
                                         <div class="hover-mask">
-                                            <h3 class="wd-entities-title category-title"> Furniture <mark class="count">(22)</mark>
-                                            </h3>
+                                            <h3 class="wd-entities-title category-title"><?php echo esc_html($pterm->name); ?></h3>
                                             <div class="more-products">
-                                                <a href="https://woodmart.xtemos.com/product-category/furniture/">22 products</a>
+                                                <a href="<?php echo get_term_link($pterm->term_id); ?>"><?php
+												echo esc_html($pterm->count);
+												esc_html_e(' Products', 'wpew');
+												?></a>
                                             </div>
                                         </div>
-                                        <a href="https://woodmart.xtemos.com/product-category/furniture/" class="category-link wd-fill" aria-label="Product category furniture"></a>
+                                        <a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-link wd-fill" aria-label="Product category furniture"></a>
                                     </div>
                                 </div>
                             <?php }else { ?>
@@ -214,26 +226,25 @@ class Widget_Products_Category_List extends Widget_Base {
                                     <div class="wpew-row">
                                 <?php endif ?>
                                         
-                                        <div class="wpew-col-6  category-grid-item cat-design-default categories-with-shadow product-category product">
-                                            <div class="wrapp-category">
-                                                <div class="category-image-wrapp">
-                                                    <a href="https://woodmart.xtemos.com/product-category/clocks/" class="category-image">
-                                                        <picture class="wd-lazy-load woodmart-lazy-load wd-lazy-fade wd-loaded" data-wood-src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-klock-430x430.jpg">
-                                                            <source type="image/webp" srcset="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-klock-430x430.jpg">
-                                                            <img src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-klock-430x430.jpg" data-wood-src="https://z9d7c4u6.rocketcdn.me/wp-content/uploads/2016/06/cat-klock-430x430.jpg" alt="Clocks" width="430" height="430">
-                                                        </picture>
-                                                    </a>
-                                                </div>
-                                                <div class="hover-mask">
-                                                    <h3 class="wd-entities-title category-title"> Clocks <mark class="count">(12)</mark>
-                                                    </h3>
-                                                    <div class="more-products">
-                                                        <a href="https://woodmart.xtemos.com/product-category/clocks/">12 products</a>
-                                                    </div>
-                                                </div>
-                                                <a href="https://woodmart.xtemos.com/product-category/clocks/" class="category-link wd-fill" aria-label="Product category clocks"></a>
-                                            </div>
-                                        </div>
+									<div class="wpew-col-6  category-grid-item cat-design-default categories-with-shadow product-category product">
+										<div class="wrapp-category">
+											<div class="category-image-wrapp">
+												<a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-image">
+													<img src="<?php echo esc_url($image_url); ?>" alt="">
+												</a>
+											</div>
+											<div class="hover-mask">
+												<h3 class="wd-entities-title category-title"><?php echo esc_html($pterm->name); ?></h3>
+												<div class="more-products">
+													<a href="<?php echo get_term_link($pterm->term_id); ?>"><?php
+												echo esc_html($pterm->count);
+												esc_html_e(' Products', 'wpew');
+												?></a>
+												</div>
+											</div>
+											<a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-link wd-fill" aria-label="Product category clocks"></a>
+										</div>
+									</div>
 
                                 <?php 
                                 $cunt_nbr = $i+1; 
@@ -245,9 +256,9 @@ class Widget_Products_Category_List extends Widget_Base {
                     <?php } 
                     } 
                 ?>
-                
             </div>
         </div>
+		
 	<?php 
 	}
 }
