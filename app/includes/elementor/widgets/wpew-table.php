@@ -28,6 +28,58 @@ class Widget_WPEW_Table extends Widget_Base {
             ]
         );
 
+        $repeater = new \Elementor\Repeater();
+
+        $repeater->add_control(
+			'table_head',
+			[
+				'label' => __( 'Table Head Row', 'wpew' ),
+				'type' => Controls_Manager::TEXT,
+                'default'   => 'Co-Founder',   
+            ]
+		);
+
+        $this->add_control(
+			'row_head',
+			[
+				'label' => esc_html__( 'Table Head Row', 'wpew' ),
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'timeline_title' => esc_html__( 'Co-Founder', 'wpew' ),
+						'timeline_intro' => 'Lorem ipsum dolor sit amet',
+						'timeline_datetime' => '18 March, 2021'
+					],
+				],
+			]
+		);
+
+        $repeater1 = new \Elementor\Repeater();
+
+        $repeater1->add_control(
+			'table_row',
+			[
+				'label' => __( 'Table Row', 'wpew' ),
+				'type' => Controls_Manager::TEXT,
+                'default'   => 'Co-Founder',   
+            ]
+		);
+
+        $this->add_control(
+			'row_repeater',
+			[
+				'label' => esc_html__( 'Row Repeater', 'wpew' ),
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater1->get_controls(),
+				'default' => [
+					[
+						'timeline_title' => esc_html__( 'Co-Founder', 'wpew' ),
+					],
+				],
+			]
+		);
+
 		# Title text field
         $this->add_control(
             'title_text',
@@ -133,6 +185,9 @@ class Widget_WPEW_Table extends Widget_Base {
 		$title_text = $settings['title_text'];
 		$hotline_text = $settings['hotline_text'];
 		$delivery_image = $settings['delivery_image'];
+
+        $row_head = $settings['row_head'];
+        $row_repeater = $settings['row_repeater'];
 		?>
 
 		<!-- https://creativelayers.net/themes/freshen-html/images/shop-items/delivery.png -->
@@ -140,9 +195,15 @@ class Widget_WPEW_Table extends Widget_Base {
         <div class="data_table_area">
             <div id="world_table_wrapper" class="dataTables_wrapper no-footer">
                 <table id="world_table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="world_table_info" style="width: 1175px;">
-                    <thead>
+                    <thead> 
                         <tr role="row">
-                            <th>Serial</th>
+                            <?php $counter = 0; ?>
+                            <?php foreach($row_head as $value){ ?>
+                                <th> <?php echo $value['table_head']?> </th>
+                                <?php $counter++ ?>
+                            <?php } ?>
+
+                            <!-- <th>Serial</th>
                             <th>Flag</th>
                             <th>Country</th>
                             <th>Cases</th>
@@ -151,13 +212,25 @@ class Widget_WPEW_Table extends Widget_Base {
                             <th>New Deaths</th>
                             <th>Recovered</th>
                             <th>Active</th>
-                            <th>Critical</th>
+                            <th>Critical</th> -->
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr role="row" class="odd">
-                            <td>1</td>
+                        <?php foreach($row_repeater as $value){ ?>
+                            <tr role="row" class="odd">
+                                <?php for($a=0; $a<$counter; $a++){ ?>
+                                    <td> <?php echo $value['table_row'] ?> </td>
+                                <?php } ?>
+                            </tr>
+                        <?php } ?>
+
+                        <!-- <tr role="row" class="odd">
+                                <td>
+                                    <img src="https://disease.sh/assets/img/flags/us.png" width="30">
+                                </td>
+
+                             <td>1</td>
                             <td>
                                 <img src="https://disease.sh/assets/img/flags/us.png" width="30">
                             </td>
@@ -184,15 +257,15 @@ class Widget_WPEW_Table extends Widget_Base {
                             </td>
                             <td>
                                 <span class="text-warning">6320</span>
-                            </td>
-                        </tr>
-                        <tr role="row" class="even">
+                            </td> -->
+                        <!-- </tr> -->
+                        <!-- <tr role="row" class="even">
                             <td>2</td>
                             <td>
                                 <img src="https://disease.sh/assets/img/flags/in.png" width="30">
                             </td>
                             <td>
-                                <span class="font-weight-bold">India</span>
+                                <span class="font-weight-bold"><?php echo $counter ?> </span>
                             </td>
                             <td class="sorting_1">
                                 <span class="text-primary">42962953</span>
@@ -215,7 +288,7 @@ class Widget_WPEW_Table extends Widget_Base {
                             <td>
                                 <span class="text-warning">8944</span>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
