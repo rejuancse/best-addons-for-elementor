@@ -28,40 +28,51 @@ class Widget_WPEW_Products_List extends Widget_Base {
             ]
         );
 
+        # Product type title
         $this->add_control(
-            'headine_text',
+            'product_type_title_text',
             [
-                'label' => __( 'Headine Text', 'wpew' ),
+                'label' => __( 'Product Type Title Text', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'placeholder' => __( 'Enter heading', 'wpew' ),
-                'default' => __( 'My favourite food is', 'wpew' ),
+                'default' => __( 'Fruits', 'wpew' ),
             ]
         );
 
-		$this->add_control(
-            'animated_text',
+        # Product title text
+        $this->add_control(
+            'product_title_text',
             [
-                'label' => __( 'Animated Text', 'wpew' ),
-                'type' => Controls_Manager::TEXTAREA,
+                'label' => __( 'Product Title Text', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => __( 'Pizza Sushi Steak', 'wpew' ),
-				'description' => sprintf(
-					esc_html__( 'For animated text please use space or new line, For example, Pizza Sushi Steak', 'wpew' ),
-					'<code>',
-					'</code>'
-				),
+                'placeholder' => __( 'Enter heading', 'wpew' ),
+                'default' => __( 'Pineapple (Tropical Gold)', 'wpew' ),
             ]
         );
 
+        # Product quantity text
 		$this->add_control(
-            'headine_text2',
+            'product_quantity_text',
             [
-                'label' => __( 'Headine Text2', 'wpew' ),
+                'label' => __( 'Product Quantity Text', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'placeholder' => __( 'Enter title two', 'wpew' ),
-                'default' => __( 'Course', 'wpew' ),
+                'default' => __( '1 lb', 'wpew' ),
+            ]
+        );
+
+        # Product price text
+		$this->add_control(
+            'product_price_text',
+            [
+                'label' => __( 'Product Price Text', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Enter title two', 'wpew' ),
+                'default' => __( '2.00', 'wpew' ),
             ]
         );
 
@@ -118,100 +129,317 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->end_controls_section();
         # Option End
 
+        # Background
 		$this->start_controls_section(
-			'section_title_style',
+			'background_style',
+			[
+				'label' 	=> __( 'Background', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+        # Product background color
+		$this->add_control(
+			'product_bgColor',
+			[
+				'label'		=> __( 'Product Background Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+        # Product hover background color
+		$this->add_control(
+			'product_hover_bgColor',
+			[
+				'label'		=> __( 'Product Background Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item:hover' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+        $this->end_controls_section();
+
+        # Title
+        $this->start_controls_section(
+			'title_style',
 			[
 				'label' 	=> __( 'Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
-		$this->add_control(
-            'animated_name',
-            [
-                'label'     => __( 'Animated Name', 'wpew' ),
-                'type'      => Controls_Manager::SELECT,
-                'default'   => 'clip is-full-width',
-                'options'   => [
-                        'clip is-full-width' 	=> __( 'Clip', 'wpew' ),
-                        'rotate-1' 	=> __( 'Rotate-1', 'wpew' ),
-                        'rotate-2' 	=> __( 'Rotate-2', 'wpew' ),
-                        'letters rotate-3' 	=> __( 'Letters Rotate-3', 'wpew' ),
-                        'letters type' 	=> __( 'Letters Type', 'wpew' ),
-                        'loading-bar' 	=> __( 'Loading Bar', 'wpew' ),
-                        'letters scale' 	=> __( 'Letters Scale', 'wpew' ),
-                        'slide' 	=> __( 'Slide', 'wpew' ),
-                        'zoom' 	=> __( 'Zoom', 'wpew' ),
-                        'push' 	=> __( 'Push', 'wpew' ),
-                    ],
-            ]
-        );
-
-		$this->add_control(
-			'animated_text_color',
+        # Product title text color
+        $this->add_control(
+			'product_title_text_color',
 			[
-				'label'		=> __( 'Animated Text Color', 'wpew' ),
+				'label'		=> __( 'Product Title Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .animated-headine .headline .words-wrapper' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .title' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-		$this->add_control(
-			'title_color',
+        # Product title hover text color
+        $this->add_control(
+			'product_title_hover_text_color',
 			[
-				'label'		=> __( 'Headine Text Color', 'wpew' ),
+				'label'		=> __( 'Product Title Hover Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .title:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
+        # Product title text typography
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'typography',
-				'selector' 	=> '{{WRAPPER}} .animated-headine .headline',
+				'label'		=> __( 'Product Title Typography', 'wpew' ),
+				'name' 		=> 'title_typography',
+				'selector' 	=> '{{WRAPPER}} .title',
 			]
 		);
 
-		$this->add_responsive_control(
-            'text_padding',
-            [
-                'label' 		=> __( 'Title Padding', 'wpew' ),
-                'type' 			=> Controls_Manager::DIMENSIONS,
-                'size_units' 	=> [ 'px', 'em', '%' ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .animated-headine .headline' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' 	=> 'before', 
-            ]
-        );
+        $this->end_controls_section();
+
+         # Icon
+         $this->start_controls_section(
+			'icon_style',
+			[
+				'label' 	=> __( 'Icon', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+        # Rating color
+        $this->add_control(
+			'rating_color',
+			[
+				'label'		=> __( 'Rating Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .flaticon-star' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Rating typography
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+                'label'		=> __( 'Rating Typography', 'wpew' ),
+				'name' 		=> 'rating_typography',
+				'selector' 	=> '{{WRAPPER}} .flaticon-star',
+			]
+		);
+
+        $this->end_controls_section();
+
+        # Sub-Title
+        $this->start_controls_section(
+			'sub_title_style',
+			[
+				'label' 	=> __( 'Sub-Title', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+        # Product Sub-title text color
+        $this->add_control(
+			'product_subtitle_text_color',
+			[
+				'label'		=> __( 'Product Sub-Title Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .details .sub_title' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+         # Product sub-title typography
+         $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Product Sub-Title Typography', 'wpew' ),
+				'name' 		=> 'subtitle_typography',
+				'selector' 	=> '{{WRAPPER}} .shop_item .details .sub_title',
+			]
+		);
+
+        $this->end_controls_section();
+
+        # Price
+        $this->start_controls_section(
+			'price',
+			[
+				'label' 	=> __( 'Price', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+        # Product price text color
+        $this->add_control(
+			'product_price_text_color',
+			[
+				'label'		=> __( 'Product Price Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .price' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Product price typography
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+                'label'		=> __( 'Product Price Typography', 'wpew' ),
+				'name' 		=> 'price_typography',
+				'selector' 	=> '{{WRAPPER}} .price',
+			]
+		);
 		
-        $this->add_responsive_control(
-            'text_margin',
-            [
-                'label' 		=> __( 'Title Margin', 'wpew' ),
-                'type' 			=> Controls_Manager::DIMENSIONS,
-                'size_units' 	=> [ 'px', 'em', '%' ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .animated-headine .headline' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' 	=> 'before',
-            ]
-        );
 		$this->end_controls_section();
-		# Title Section end 1
+
+        # Button style
+        $this->start_controls_section(
+			'button',
+			[
+				'label' 	=> __( 'Button', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+         # Button background color
+		$this->add_control(
+			'button_bgColor',
+			[
+				'label'		=> __( 'Button Background Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .btn-thm' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+        # Product hover background color
+		$this->add_control(
+			'button_hover_bgColor',
+			[
+				'label'		=> __( 'Button Background Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .btn-thm:hover' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+         # Button text color
+         $this->add_control(
+			'button_text_color',
+			[
+				'label'		=> __( 'Button Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .btn-thm' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Button hover text color
+        $this->add_control(
+			'button_hover_text_color',
+			[
+				'label'		=> __( 'Button Hover Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .btn-thm:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+          # Product price typography
+          $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+                'label'		=> __( 'Button Typography', 'wpew' ),
+				'name' 		=> 'button_typography',
+				'selector' 	=> '{{WRAPPER}} .btn-thm',
+			]
+		);
+
+        $this->end_controls_section();
+
+        # Wist List style
+        $this->start_controls_section(
+			'wist_list_style',
+			[
+				'label' 	=> __( 'Wist List', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+        # Wist list color
+		$this->add_control(
+			'wist_list_color',
+			[
+				'label'		=> __( 'Wist List Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .flaticon-heart' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .flaticon-search' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .flaticon-shuffle' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Wist list hover color
+		$this->add_control(
+			'wist_list_hover_color',
+			[
+				'label'		=> __( 'Wist List Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .flaticon-heart:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .flaticon-search:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .flaticon-shuffle:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        #.shop_item .thumb_info ul li:hover 
+
+        # Wist list hover color
+		$this->add_control(
+			'wist_list_border_hover_color',
+			[
+				'label'		=> __( 'Wist List Border Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .thumb_info ul li:hover' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+        $this->end_controls_section();
 
 	}
 
 	protected function render( ) {
 		$settings = $this->get_settings();
-		$animated_text = $settings['animated_text'];
-		$animated_name = $settings['animated_name'];
-		$headine_size = $settings['headine_size'];  ?>
+
+        $product_type_title_text = $settings['product_type_title_text'];
+        $product_title_text = $settings['product_title_text'];
+        $product_quantity_text = $settings['product_quantity_text'];
+        $product_price_text = $settings['product_price_text'];
+	 
+        ?>
 
         <div class="col-sm-6 col-lg-4 col-xl-3">
             <div class="shop_item">
@@ -232,7 +460,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
                     </div>
                 </div>
                 <div class="details text-center">
-                    <div class="title">FRUITS</div>
+                    <div class="title"> <?php echo $product_type_title_text; ?> </div>
                     <div class="review">
                         <ul class="mb0">
                             <li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
@@ -242,9 +470,9 @@ class Widget_WPEW_Products_List extends Widget_Base {
                             <li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
                         </ul>
                     </div>
-                    <div class="sub_title">Pineapple (Tropical Gold) <br> 1 lb</div>
+                    <div class="sub_title"> <?php echo $product_title_text; ?> <br> <?php echo $product_quantity_text; ?> </div>
                     <div class="si_footer">
-                        <div class="price">$2.00</div>
+                        <div class="price">$ <span> <?php echo $product_price_text; ?> </span> </div>
                         <a href="page-shop-cart.html" class="cart_btn btn-thm"><span class="flaticon-shopping-cart mr10"></span>ADD TO CART</a>
                     </div>
                 </div>
