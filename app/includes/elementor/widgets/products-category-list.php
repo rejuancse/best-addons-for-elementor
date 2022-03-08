@@ -21,6 +21,13 @@ class Widget_Products_Category_List extends Widget_Base {
 		return [ 'wpew-elementor' ];
 	}
 
+	public function get_script_depends() {
+		return [
+            'wpew-custom',
+            'wpew-slick',
+        ];
+	}
+
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_title',
@@ -43,23 +50,25 @@ class Widget_Products_Category_List extends Widget_Base {
         );
 
 		$this->add_control(
-            'category_heading',
-            [
-                'label' => __( 'Category Heading', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'default' => __( 'ALL CATEGORIES', 'wpew' ),
-            ]
-        );
-
-		$this->add_control(
             'category_limit',
             [
                 'label' 		=> __( 'Category Limit', 'wpew' ),
                 'type' 			=> Controls_Manager::NUMBER,
-                'label_block' 	=> true,
+                'label_block' 	=> false,
                 'default' 		=> '5',
             ]
+        );
+
+		$this->add_control(
+            'carousel_items',
+            [
+                'label' 		=> __( 'Carousel Items', 'wpew' ),
+                'type' 			=> Controls_Manager::NUMBER,
+                'label_block' 	=> false,
+                'default' 		=> '6',
+				'condition' => ['category_style' => 'style2'],
+            ]
+
         );
 
 		$this->add_control(
@@ -175,6 +184,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$category_limit = $settings['category_limit'];
 		$category_order = $settings['category_order'];
 		$category_orderby = $settings['category_orderby'];
+		$carousel_items = $settings['carousel_items'];
         
         $parent_terms = get_terms( 
             'product_cat', 
@@ -187,46 +197,20 @@ class Widget_Products_Category_List extends Widget_Base {
             ) 
         ); ?>
 
-        <div class="wpew-category-list">
-            <div class="wpew-row"> 
-                <?php
-                    $i = 0;
-                    if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
-                        foreach ( $parent_terms as $pterm ) { 
+		<?php if($category_style === 'style1' ) { ?>
+			<div class="wpew-category-list">
+				<div class="wpew-row"> 
+					<?php
+						$i = 0;
+						if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
+							foreach ( $parent_terms as $pterm ) { 
 
-                            $terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );
-							$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
-							$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; 
-							?>
+								$terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );
+								$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
+								$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; ?>
 
-                            <?php if ( $i === 0 ) { ?>
-                                <div class="wpew-col-6 first category-grid-item cat-design-default categories-with-shadow product-category product first">
-                                    <div class="wrapp-category">
-                                        <div class="category-image-wrapp">
-                                            <a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-image">
-                                                <img src="<?php echo esc_url($image_url); ?>" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hover-mask">
-                                            <h3 class="wd-entities-title category-title"><?php echo esc_html($pterm->name); ?></h3>
-                                            <div class="more-products">
-                                                <a href="<?php echo get_term_link($pterm->term_id); ?>"><?php
-												echo esc_html($pterm->count);
-												esc_html_e(' Products', 'wpew');
-												?></a>
-                                            </div>
-                                        </div>
-                                        <a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-link wd-fill" aria-label="Product category furniture"></a>
-                                    </div>
-                                </div>
-                            <?php }else { ?>
-
-                                <?php if ($i==1): ?>	
-                                <div class="col-sm-6 section-content-second">
-                                    <div class="wpew-row">
-                                <?php endif ?>
-                                        
-									<div class="wpew-col-6  category-grid-item cat-design-default categories-with-shadow product-category product">
+								<?php if ( $i === 0 ) { ?>
+									<div class="wpew-col-6 first category-grid-item cat-design-default categories-with-shadow product-category product first">
 										<div class="wrapp-category">
 											<div class="category-image-wrapp">
 												<a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-image">
@@ -237,29 +221,88 @@ class Widget_Products_Category_List extends Widget_Base {
 												<h3 class="wd-entities-title category-title"><?php echo esc_html($pterm->name); ?></h3>
 												<div class="more-products">
 													<a href="<?php echo get_term_link($pterm->term_id); ?>"><?php
-												echo esc_html($pterm->count);
-												esc_html_e(' Products', 'wpew');
-												?></a>
+													echo esc_html($pterm->count);
+													esc_html_e(' Products', 'wpew');
+													?></a>
 												</div>
 											</div>
-											<a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-link wd-fill" aria-label="Product category clocks"></a>
+											<a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-link wd-fill" aria-label="Product category furniture"></a>
 										</div>
 									</div>
+								<?php }else { ?>
 
-                                <?php 
-                                $cunt_nbr = $i+1; 
-                                if ($cunt_nbr == $category_limit): ?>
-                                    </div>
-                                </div>
-                                <?php endif ?>	
-                            <?php } $i++; ?>
-                    <?php } 
-                    } 
-                ?>
-            </div>
-        </div>
+									<?php if ($i==1): ?>	
+									<div class="col-sm-6 section-content-second">
+										<div class="wpew-row">
+									<?php endif ?>
+											
+										<div class="wpew-col-6  category-grid-item cat-design-default categories-with-shadow product-category product">
+											<div class="wrapp-category">
+												<div class="category-image-wrapp">
+													<a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-image">
+														<img src="<?php echo esc_url($image_url); ?>" alt="">
+													</a>
+												</div>
+												<div class="hover-mask">
+													<h3 class="wd-entities-title category-title"><?php echo esc_html($pterm->name); ?></h3>
+													<div class="more-products">
+														<a href="<?php echo get_term_link($pterm->term_id); ?>"><?php
+													echo esc_html($pterm->count);
+													esc_html_e(' Products', 'wpew');
+													?></a>
+													</div>
+												</div>
+												<a href="<?php echo get_term_link($pterm->term_id); ?>" class="category-link wd-fill" aria-label="Product category clocks"></a>
+											</div>
+										</div>
+
+									<?php 
+									$cunt_nbr = $i+1; 
+									if ($cunt_nbr == $category_limit): ?>
+										</div>
+									</div>
+									<?php endif ?>	
+								<?php } $i++; ?>
+						<?php } 
+						} 
+					?>
+				</div>
+			</div>
+		<?php } else { ?>
+			<!-- Carousel Start -->
+			<div class="header-carousel position-relative" items-list="<?php echo $carousel_items; ?>">
+				<?php
+				$i = 0;
+				if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
+					foreach ( $parent_terms as $pterm ) { 
+
+						$terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );
+						$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
+						$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; ?>
+			
+						<div class="item">
+							<a href="<?php echo get_term_link($pterm->term_id); ?>">
+								<div class="iconbox">
+									<div class="icon">
+										<img src="<?php echo esc_url($image_url); ?>" alt="">
+									</div>
+									<div class="details">
+										<h5 class="title"><?php echo esc_html($pterm->name); ?></h5>
+										<p><?php echo esc_html($pterm->count).' '.__('Products', 'wpew'); ?></p>
+									</div>
+								</div>
+							</a>
+						</div>
 		
-	<?php 
+					<?php 
+					} 
+				} 
+				?>
+			</div>
+			<!-- Carousel End -->
+		<?php
+		} ?>
+		<?php 
 	}
 }
 

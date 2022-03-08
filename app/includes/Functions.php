@@ -5,12 +5,6 @@ defined( 'ABSPATH' ) || exit;
 
 class Functions {
 
-    public function generator( $arr ){
-        require_once WPEW_DIR_PATH . 'app/settings/Generator.php';
-        $generator = new \WPEW\settings\Settings_Generator();
-        $generator->generator( $arr );
-    }
-
     public function post($post_item){
         if (!empty($_POST[$post_item])) {
             return $_POST[$post_item];

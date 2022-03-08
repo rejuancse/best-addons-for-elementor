@@ -179,11 +179,4 @@ jQuery(document).ready(function($){
     }
     setInterval(function() { makeTimer(); }, 1000);
       
-  
 });
-
-
-
-
-
-
