@@ -142,7 +142,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 		$this->add_control(
 			'product_bgColor',
 			[
-				'label'		=> __( 'Product Background Color', 'wpew' ),
+				'label'		=> __( 'Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_item' => 'background: {{VALUE}};',
@@ -150,11 +150,11 @@ class Widget_WPEW_Products_List extends Widget_Base {
 			]
 		);
 
-        # Product hover background color
+        # Product background hover color
 		$this->add_control(
 			'product_hover_bgColor',
 			[
-				'label'		=> __( 'Product Background Hover Color', 'wpew' ),
+				'label'		=> __( 'Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_item:hover' => 'background: {{VALUE}};',
@@ -162,9 +162,219 @@ class Widget_WPEW_Products_List extends Widget_Base {
 			]
 		);
 
+		# Product background border hover color
+		$this->add_control(
+			'product_border_hover_Color',
+			[
+				'label'		=> __( 'Hover Border Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item:hover' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'product_border_hover_radius',
+			[
+				'label' => esc_html__( 'Hover Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .shop_item:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
         $this->end_controls_section();
 
-        # Title
+        # offer
+        $this->start_controls_section(
+			'offer_title_style',
+			[
+				'label' 	=> __( 'Offer Title', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		# Offer title background color
+		$this->add_control(
+			'offer_title_bgColor',
+			[
+				'label'		=> __( 'Background Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag' => 'background: {{VALUE}};',
+				],
+			]
+		);
+	
+		# Offer title background hover color
+		$this->add_control(
+			'offer_title_hover_bgColor',
+			[
+				'label'		=> __( 'Backgournd Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag:hover' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+        # Offer title text color
+        $this->add_control(
+			'offer_title_text_color',
+			[
+				'label'		=> __( 'Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Offer title hover text color
+        $this->add_control(
+			'offer_title_hover_text_color',
+			[
+				'label'		=> __( 'Hover Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Offer title text typography
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'offer_typography',
+				'selector' 	=> '{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag',
+			]
+		);
+
+		# Offer border radius
+		$this->add_responsive_control(
+			'offer_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'offer_title_space',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 12,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->end_controls_section();
+
+		// discount
+		$this->start_controls_section(
+			'offer_discount_style',
+			[
+				'label' 	=> __( 'Offer Discount', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		# Discount title background color
+		$this->add_control(
+			'discount_title_bgColor',
+			[
+				'label'		=> __( 'Background Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate' => 'background: {{VALUE}};',
+				],
+			]
+		);
+	
+		# Discount title background hover color
+		$this->add_control(
+			'discount_title_hover_bgColor',
+			[
+				'label'		=> __( 'Backgournd Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate:hover' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+        # Discount title text color
+        $this->add_control(
+			'discount_title_text_color',
+			[
+				'label'		=> __( 'Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Discount title hover text color
+        $this->add_control(
+			'discount_title_hover_text_color',
+			[
+				'label'		=> __( 'Hover Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Discount title text typography
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'discount_typography',
+				'selector' 	=> '{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate',
+			]
+		);
+
+		# Discount border radius
+		$this->add_responsive_control(
+			'discount_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		
+		$this->end_controls_section();
+
+		# Title
         $this->start_controls_section(
 			'title_style',
 			[
@@ -177,7 +387,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->add_control(
 			'product_title_text_color',
 			[
-				'label'		=> __( 'Product Title Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .title' => 'color: {{VALUE}};',
@@ -189,7 +399,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->add_control(
 			'product_title_hover_text_color',
 			[
-				'label'		=> __( 'Product Title Hover Text Color', 'wpew' ),
+				'label'		=> __( 'Hover Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .title:hover' => 'color: {{VALUE}};',
@@ -201,9 +411,29 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Product Title Typography', 'wpew' ),
-				'name' 		=> 'title_typography',
+				'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'product_title_text_typography',
 				'selector' 	=> '{{WRAPPER}} .title',
+			]
+		);
+
+		$this->add_responsive_control(
+			'product_title_space',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -213,15 +443,16 @@ class Widget_WPEW_Products_List extends Widget_Base {
          $this->start_controls_section(
 			'icon_style',
 			[
-				'label' 	=> __( 'Icon', 'wpew' ),
+				'label' 	=> __( 'Rating Icon', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
+
         # Rating color
         $this->add_control(
 			'rating_color',
 			[
-				'label'		=> __( 'Rating Color', 'wpew' ),
+				'label'		=> __( 'Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .flaticon-star' => 'color: {{VALUE}};',
@@ -233,9 +464,29 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-                'label'		=> __( 'Rating Typography', 'wpew' ),
+                'label'		=> __( 'Typography', 'wpew' ),
 				'name' 		=> 'rating_typography',
 				'selector' 	=> '{{WRAPPER}} .flaticon-star',
+			]
+		);
+
+		$this->add_responsive_control(
+			'rating_space',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}}  .review .mb0' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -254,7 +505,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->add_control(
 			'product_subtitle_text_color',
 			[
-				'label'		=> __( 'Product Sub-Title Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_item .details .sub_title' => 'color: {{VALUE}};',
@@ -266,9 +517,30 @@ class Widget_WPEW_Products_List extends Widget_Base {
          $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Product Sub-Title Typography', 'wpew' ),
+				'label'		=> __( 'Typography', 'wpew' ),
 				'name' 		=> 'subtitle_typography',
 				'selector' 	=> '{{WRAPPER}} .shop_item .details .sub_title',
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'subtitle_space',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .shop_item .details .sub_title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -287,7 +559,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->add_control(
 			'product_price_text_color',
 			[
-				'label'		=> __( 'Product Price Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .price' => 'color: {{VALUE}};',
@@ -299,9 +571,30 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-                'label'		=> __( 'Product Price Typography', 'wpew' ),
+                'label'		=> __( 'Typography', 'wpew' ),
 				'name' 		=> 'price_typography',
 				'selector' 	=> '{{WRAPPER}} .price',
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'price_space',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .price' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 		
@@ -316,11 +609,11 @@ class Widget_WPEW_Products_List extends Widget_Base {
 			]
 		);
 
-         # Button background color
+        # Button background color
 		$this->add_control(
 			'button_bgColor',
 			[
-				'label'		=> __( 'Button Background Color', 'wpew' ),
+				'label'		=> __( 'Background Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-thm' => 'background: {{VALUE}};',
@@ -332,7 +625,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 		$this->add_control(
 			'button_hover_bgColor',
 			[
-				'label'		=> __( 'Button Background Hover Color', 'wpew' ),
+				'label'		=> __( 'Background Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-thm:hover' => 'background: {{VALUE}};',
@@ -340,11 +633,11 @@ class Widget_WPEW_Products_List extends Widget_Base {
 			]
 		);
 
-         # Button text color
-         $this->add_control(
+        # Button text color
+        $this->add_control(
 			'button_text_color',
 			[
-				'label'		=> __( 'Button Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-thm' => 'color: {{VALUE}};',
@@ -356,7 +649,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
         $this->add_control(
 			'button_hover_text_color',
 			[
-				'label'		=> __( 'Button Hover Text Color', 'wpew' ),
+				'label'		=> __( 'Hover Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn-thm:hover' => 'color: {{VALUE}};',
@@ -364,11 +657,11 @@ class Widget_WPEW_Products_List extends Widget_Base {
 			]
 		);
 
-          # Product price typography
-          $this->add_group_control(
+        # Product price typography
+        $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-                'label'		=> __( 'Button Typography', 'wpew' ),
+                'label'		=> __( 'Typography', 'wpew' ),
 				'name' 		=> 'button_typography',
 				'selector' 	=> '{{WRAPPER}} .btn-thm',
 			]
@@ -389,7 +682,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 		$this->add_control(
 			'wist_list_color',
 			[
-				'label'		=> __( 'Wist List Color', 'wpew' ),
+				'label'		=> __( 'Icon Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .flaticon-heart' => 'color: {{VALUE}};',
@@ -403,31 +696,110 @@ class Widget_WPEW_Products_List extends Widget_Base {
 		$this->add_control(
 			'wist_list_hover_color',
 			[
-				'label'		=> __( 'Wist List Hover Color', 'wpew' ),
+				'label'		=> __( 'Icon Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .flaticon-heart:hover' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .flaticon-search:hover' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .flaticon-shuffle:hover' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-        #.shop_item .thumb_info ul li:hover 
-
-        # Wist list hover color
-		$this->add_control(
-			'wist_list_border_hover_color',
-			[
-				'label'		=> __( 'Wist List Border Hover Color', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
 					'{{WRAPPER}} .shop_item .thumb_info ul li:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
 
+
+		$this->add_responsive_control(
+			'wist_list_space',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}}  .shop_item .thumb_info ul li' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
         $this->end_controls_section();
+
+		# Pagination style
+		$this->start_controls_section(
+			'pagination_style',
+			[
+				'label' 	=> __( 'Pagination', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		# Pagination text color
+		$this->add_control(
+			'pagination_text_color',
+			[
+				'label'		=> __( 'Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .page-link' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Pagination typography
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+                'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'pagination_typography',
+				'selector' 	=> '{{WRAPPER}} .page-link',
+			]
+		);
+
+		# Pagination text color
+		$this->add_control(
+			'pagination_active_text_Color',
+			[
+				'label'		=> __( 'Active Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mbp_pagination ul.page_navigation li.active .page-link' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Pagination text hover color
+		$this->add_control(
+			'pagination_active_text_hover_Color',
+			[
+				'label'		=> __( 'Active Text Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mbp_pagination ul.page_navigation li.active .page-link:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+        # Pagination text background color
+		$this->add_control(
+			'pagination_text_bgColor',
+			[
+				'label'		=> __( 'Active Text Background Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mbp_pagination ul.page_navigation li.active .page-link' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+
+		$this->end_controls_section();
+
 
 	}
 
