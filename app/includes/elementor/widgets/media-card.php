@@ -28,15 +28,53 @@ class Widget_Media_Card extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'mediacard_image',
+            [
+                'label' => esc_html__( 'Upload Background Image', 'wpew' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
 		# Media image
 		$this->add_control(
 			'media_image',
 			[
-				'label' => esc_html__( 'Choose Image', 'plugin-name' ),
+				'label' => esc_html__( 'Upload Image', 'wpew' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
+				'default' => [],
+			]
+		);
+
+        $this->add_responsive_control(
+			'image_position',
+			[
+				'label' => esc_html__( 'Image Position', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
 				'default' => [
-					'url' => \Elementor\Utils::get_placeholder_image_src(),
+					'size' => -30,
 				],
+				'range' => [
+					'px' => [
+						'min' => -100,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .wpew-card__image--barbarian img' => 'top: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->add_control(
+			'content_wrap_section',
+			[
+				'label' => esc_html__( 'Main Contents', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -48,7 +86,18 @@ class Widget_Media_Card extends Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'placeholder' => __( 'Enter title text', 'wpew' ),
-                'default' => __( 'Lead Product Design', 'wpew' ),
+                'default' => __( 'The Barbarian', 'wpew' ),
+            ]
+        );
+
+        $this->add_control(
+            'subtitle_text',
+            [
+                'label' => __( 'Sub Title Text', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Enter subtitle text', 'wpew' ),
+                'default' => __( 'LEVEL 1', 'wpew' ),
             ]
         );
 
@@ -59,12 +108,7 @@ class Widget_Media_Card extends Widget_Base {
                 'label' => __( 'Description Text', 'wpew' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'default' => __( 'Some quick example text to build on the card title and make up the bulk of the card s content.', 'wpew' ),
-				'description' => sprintf(
-					esc_html__( 'For description text please use space or new line.', 'wpew' ),
-					'<code>',
-					'</code>'
-				),
+                'default' => __( 'The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready expression, hungry for destruction. He has Killer yellow horseshoe mustache.', 'wpew' ),
             ]
         );
 
@@ -93,7 +137,7 @@ class Widget_Media_Card extends Widget_Base {
 				],
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .wpew-card .content' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -160,42 +204,53 @@ class Widget_Media_Card extends Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings();
+		$mediacard_image = $settings['mediacard_image'];
 		$media_image = $settings['media_image'];
 		$title_text = $settings['title_text'];
+		$subtitle_text = $settings['subtitle_text'];
 		$description_text = $settings['description_text'];
 		?>
 
-        <div class="div-style">
-            <div class="card-1">
-				<div class="img-style">
-					<img src=<?php echo $media_image['url'] ?> alt="delivery.png">
-				</div>
-        
-                <div class="card-2">
-                    <h5 class="title-style"> <?php echo $title_text ?>
-                        <span class="icon-design"></span>
-                    </h5>
-                    <p class="">
-						<?php echo $description_text ?>
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                    <div>
-                        <a href="#" class="btn-1"> Full Time</a>
-                        <a href="#" class="btn-2"> Min, 1 Year </a>
-                        <a href="#" class="btn-3"> Director</a>
+        <div class="slide-container">
+            <div class="wrapper">
+                <div class="wpew-card barbarian">
+                    <div class="wpew-card__image wpew-card__image--barbarian" style="background-image: url(<?php echo $mediacard_image['url']; ?>)">
+                        <?php if( ! empty($media_image['url']) ) { ?>
+                            <img src="<?php echo $media_image['url']; ?>" alt="barbarian" />
+                        <?php } ?>
                     </div>
-                    <div>
-                        <img src="..." alt="">
-                        <img src="..." alt="">
-                        <img src="..." alt="">
+
+                    <div class="content">
+                        <div class="wpew-card__level wpew-card__level--barbarian"><?php echo $subtitle_text; ?></div>
+                        <div class="wpew-card__unit-name"><?php echo $title_text ?></div>
+                        <div class="wpew-card__unit-description"><?php echo $description_text ?></div>
                     </div>
-                    <div class="">
-                        <a href="#" class="btn-style-1"> Apply Now</a>
-                        <a href="#" class="btn-style-2"> Message </a>
+                    
+                    <div class="wpew-card__unit-stats wpew-card__unit-stats--barbarian clearfix">
+                        <div class="one-third">
+                            <div class="stat">20<sup>S</sup></div>
+                            <div class="stat-value">Training</div>
+                        </div>
+
+                        <div class="one-third">
+                            <div class="stat">16</div>
+                            <div class="stat-value">Speed</div>
+                        </div>
+
+                        <div class="one-third no-border">
+                            <div class="stat">150</div>
+                            <div class="stat-value">Cost</div>
+                        </div>
                     </div>
                 </div>
-            </div>   
+                <!-- end wpew-card barbarian-->
+            </div>
+            <!-- end wrapper -->
+
         </div>
+        <!-- end container -->
+
+
 
 		<?php 
     }

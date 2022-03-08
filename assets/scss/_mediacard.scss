@@ -1,100 +1,179 @@
-.img-style{
-    width: 100px;
+$border-radius-size: 14px;
+$barbarian: #ec9b3b;
+$archer: #ee5487;
+$giant: #f6901a;
+$goblin: #82bb30;
+$wizard: #4facff;
+
+.slide-container {
+    text-align: center;
 }
 
-.div-style{
-    max-width: 100%;
+.wrapper {
+    padding-top: 40px;
+
+    &:focus {
+        outline: 0;
+    }
 }
 
-.card-1{
-    background-color: bisque;
-    border-radius: 15px;
-    padding: 10px;
+.wpew-card {
+    background: white;
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    border-radius: $border-radius-size + 5;
+    position: relative;
+    text-align: center;
+    box-shadow: -1px 15px 30px -12px black;
+    z-index: 9999;
+
+    .content {
+        text-align: center;
+        padding: 0 20px;
+    }
 }
 
-.img-style{
-    bottom: 15px;
-    left: 12px;
-    position: absolute;
-    width: 193px;
+
+.wpew-card__image {
+    position: relative;
+    height: 230px;
+    margin-bottom: 35px;
+    border-top-left-radius: $border-radius-size;
+    border-top-right-radius: $border-radius-size;
 }
 
-
-.title-style{
-    font-weight: bold;
+.wpew-card__image--barbarian {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    img {
+        width: 92%;
+        position: absolute;
+        top: -60px;
+        left: 0;
+    }
 }
 
-.btn-style-1{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
+.wpew-card__level {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.wpew-card__level--barbarian {
+    color: $barbarian;
+}
+
+.wpew-card__level--archer {
+    color: $archer;
+}
+
+.wpew-card__level--giant {
+    color: $giant;
+}
+
+.wpew-card__level--goblin {
+    color: $goblin;
+}
+
+.wpew-card__level--wizard {
+    color: $wizard;
+}
+
+.wpew-card__unit-name {
+    font-size: 26px;
+    color: black;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.wpew-card__unit-description {
+    padding: 20px 0;
+}
+
+.wpew-card__unit-stats--barbarian {
+    background: $barbarian;
+
+    .one-third {
+        border-right: 1px solid #bd7c2f;
+    }
+}
+
+.wpew-card__unit-stats--archer {
+    background: $archer;
+
+    .one-third {
+        border-right: 1px solid #d04976;
+    }
+}
+
+.wpew-card__unit-stats--giant {
+    background: $giant;
+
+    .one-third {
+        border-right: 1px solid darken($giant, 8%);
+    }
+}
+
+.wpew-card__unit-stats--goblin {
+    background: $goblin;
+
+    .one-third {
+        border-right: 1px solid darken($goblin, 6%);
+    }
+}
+
+.wpew-card__unit-stats--wizard {
+    background: $wizard;
+
+    .one-third {
+        border-right: 1px solid darken($wizard, 6%);
+    }
+}
+
+.wpew-card__unit-stats {
     color: white;
-    background-color: rgba(101, 17, 179, 0.856);
-    padding: 10px 30px;
-    border: 2px solid white;
-    border-radius: 30px;
+    font-weight: 700;
+    border-bottom-left-radius: $border-radius-size;
+    border-bottom-right-radius: $border-radius-size;
+
+    .one-third {
+        width: 33%;
+        float: left;
+        padding: 20px 15px;
+    }
+
+    sup {
+        position: absolute;
+        bottom: 4px;
+        font-size: 45%;
+        margin-left: 2px;
+    }
+
+    .stat {
+        position: relative;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .stat-value {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .no-border {
+        border-right: none;
+    }
 }
 
-.btn-style-1:hover{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-    background-color: rgba(101, 17, 179, 0.856);
-    padding: 10px 30px;
-    border: 2px solid white;
-    border-radius: 30px;
-}
-
-.btn-style-2{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: rgb(71, 71, 71);
-    background-color: rgba(128, 128, 128, 0.253);
-    border: 2px solid white;
-    padding: 10px 30px;
-    border-radius: 30px;
-}
-
-.btn-style-2:hover{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: rgb(71, 71, 71);
-    background-color: rgba(128, 128, 128, 0.253);
-    border: 2px solid white;
-    padding: 10px 30px;
-    border-radius: 30px;
-}
-
-.btn-1{
-    text-decoration: none;
-    font-size: 14px;
-    color:rgb(82, 158, 158);
-    background-color: rgba(0, 255, 255, 0.123);
-    border: 1px solid rgba(82, 158, 158, 0.685);
-    padding: 4px 8px;
-    border-radius: 4px;
-}
-
-.btn-2{
-    text-decoration: none;
-    font-size: 14px;
-    color:rgba(4, 0, 255, 0.719);
-    background-color: rgba(4, 0, 255, 0.123);
-    border: 1px solid rgba(4, 0, 255, 0.438);
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin-right: 5px;
-}
-
-.btn-3{
-    text-decoration: none;
-    font-size: 14px;
-    color:rgba(255, 0, 0, 0.698);
-    background-color: rgba(255, 0, 0, 0.212);
-    border: 1px solid rgba(255, 0, 0, 0.336);
-    padding: 4px 8px;
-    border-radius: 4px;
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
