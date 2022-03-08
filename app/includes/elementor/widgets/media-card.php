@@ -22,348 +22,236 @@ class Widget_Media_Card extends Widget_Base {
 
 	protected function register_controls() {
 		$this->start_controls_section(
-			'section_button',
+            'section_title',
+            [
+                'label' => __( 'Title Element', 'wpew' )
+            ]
+        );
+
+        $this->add_control(
+            'mediacard_image',
+            [
+                'label' => esc_html__( 'Upload Background Image', 'wpew' ),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
+		# Media image
+		$this->add_control(
+			'media_image',
 			[
-				'label' => esc_html__( 'Button', 'elementor' ),
+				'label' => esc_html__( 'Upload Image', 'wpew' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+				'default' => [],
 			]
 		);
 
-		# Media applynow button type
-		$this->add_control(
-			'media_button_type',
+        $this->add_responsive_control(
+			'image_position',
 			[
-				'label' => esc_html__( 'Type', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'default',
-				'options' => [
-					'default' => esc_html__( 'Default', 'elementor' ),
-					'primary' => esc_html__( 'Primay', 'elementor' ),
-					'success' => esc_html__( 'Success', 'elementor' ),
-					'info' => esc_html__( 'Info', 'elementor' ),
-					'warning' => esc_html__( 'Warning', 'elementor' ),
-					'danger' => esc_html__( 'Danger', 'elementor' ),
-					'dark' => esc_html__( 'Dark', 'elementor' ),
-				],
-			]
-		);
-
-		# Media applynow button text
-		$this->add_control(
-			'media_applynow_button_text',
-			[
-				'label' => esc_html__( 'Text', 'elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'dynamic' => [
-					'active' => true,
-				],
-				'default' => esc_html__( 'Apply Now', 'elementor' ),
-				'placeholder' => esc_html__( 'Apply Now', 'elementor' ),
-			]
-		);
-
-		# Media applynow button url
-		$this->add_control(
-			'media_applynow_button_url',
-			[
-				'label' => esc_html__( 'Url', 'elementor' ),
-				'type' => Controls_Manager::URL,
-				'dynamic' => [
-					'active' => true,
-				],
-				'placeholder' => esc_html__( 'https://your-url.com', 'elementor' ),
+				'label' => esc_html__( 'Image Position', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
 				'default' => [
-					'url' => '#',
+					'size' => -30,
+				],
+				'range' => [
+					'px' => [
+						'min' => -100,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .wpew-card__image--barbarian img' => 'top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
-		# Media applynow button responsive
-		$this->add_responsive_control(
-			'media_applynow_button_align',
+        $this->add_control(
+			'content_wrap_section',
 			[
-				'label' => esc_html__( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Main Contents', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		# Media title text
+		$this->add_control(
+            'title_text',
+            [
+                'label' => __( 'Title Text', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Enter title text', 'wpew' ),
+                'default' => __( 'The Barbarian', 'wpew' ),
+            ]
+        );
+
+        $this->add_control(
+            'subtitle_text',
+            [
+                'label' => __( 'Sub Title Text', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Enter subtitle text', 'wpew' ),
+                'default' => __( 'LEVEL 1', 'wpew' ),
+            ]
+        );
+
+		# Media description text
+		$this->add_control(
+            'description_text',
+            [
+                'label' => __( 'Description Text', 'wpew' ),
+                'type' => Controls_Manager::TEXTAREA,
+                'label_block' => true,
+                'default' => __( 'The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready expression, hungry for destruction. He has Killer yellow horseshoe mustache.', 'wpew' ),
+            ]
+        );
+
+		$this->add_responsive_control(
+			'align',
+			[
+				'label' => esc_html__( 'Alignment', 'wpew' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
-					'left'    => [
-						'title' => esc_html__( 'Left', 'elementor' ),
+					'left' => [
+						'title' => esc_html__( 'Left', 'wpew' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'elementor' ),
+						'title' => esc_html__( 'Center', 'wpew' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'elementor' ),
+						'title' => esc_html__( 'Right', 'wpew' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'elementor' ),
+						'title' => esc_html__( 'Justified', 'wpew' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
-				'prefix_class' => 'elementor%s-align-',
 				'default' => '',
-			]
-		);
-
-		$this->add_control(
-			'media_applynow_button_selected_icon',
-			[
-				'label' => esc_html__( 'Icon', 'elementor' ),
-				'type' => Controls_Manager::ICONS,
-				'fa4compatibility' => 'icon',
-				'skin' => 'inline',
-				'label_block' => false,
-			]
-		);
-
-		$this->add_control(
-			'icon_align',
-			[
-				'label' => esc_html__( 'Icon Position', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'left',
-				'options' => [
-					'left' => esc_html__( 'Before', 'elementor' ),
-					'right' => esc_html__( 'After', 'elementor' ),
-				],
-				'condition' => [
-					'selected_icon[value]!' => '',
+				'selectors' => [
+					'{{WRAPPER}} .wpew-card .content' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
 
-		// $this->add_control(
-		// 	'icon_indent',
-		// 	[
-		// 		'label' => esc_html__( 'Icon Spacing', 'elementor' ),
-		// 		'type' => Controls_Manager::SLIDER,
-		// 		'range' => [
-		// 			'px' => [
-		// 				'max' => 50,
-		// 			],
-		// 		],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .elementor-button .elementor-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-		// 			'{{WRAPPER}} .elementor-button .elementor-align-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+        $this->end_controls_section();
+        # Option End
 
-		$this->end_controls_section();
-
-		# Button Style
 		$this->start_controls_section(
-			'section_style',
+			'section_title_style',
 			[
-				'label' => esc_html__( 'Button', 'elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'label' 	=> __( 'CountDown Title', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
-		# Media card apply now button typography
+		# Media title text color
+		$this->add_control(
+			'title_color',
+			[
+				'label'		=> __( 'Title Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .title-style' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Media description text color
+		$this->add_control(
+			'description_color',
+			[
+				'label'		=> __( 'Description Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} p' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Media Title text typography
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Media Card Apply Now Button Typography', 'wpew' ),
-				'name' 		=> 'media_apply_now_btn_typography',
-				'selector' 	=> '{{WRAPPER}} .btn',
+				'label'		=> __( 'Title Text Typography', 'wpew' ),
+				'name' 		=> 'title_typography',
+				'selector' 	=> '{{WRAPPER}} .title-style',
 			]
 		);
 
+		# Media description text typography
 		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
+			Group_Control_Typography::get_type(),
 			[
-				'name' => 'text_shadow',
-				'selector' => '{{WRAPPER}} .btn',
+				'label'		=> __( 'Description Text Typography', 'wpew' ),
+				'name' 		=> 'description_typography',
+				'selector' 	=> '{{WRAPPER}} p',
 			]
 		);
-
-		$this->start_controls_tabs( 'tabs_button_style' );
-
-		$this->start_controls_tab(
-			'tab_button_normal',
-			[
-				'label' => esc_html__( 'Normal', 'elementor' ),
-			]
-		);
-
-		// $this->add_control(
-		// 	'button_text_color',
-		// 	[
-		// 		'label' => esc_html__( 'Text Color', 'elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'default' => '',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .elementor-button' => 'fill: {{VALUE}}; color: {{VALUE}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	Group_Control_Background::get_type(),
-		// 	[
-		// 		'name' => 'background',
-		// 		'label' => esc_html__( 'Background', 'elementor' ),
-		// 		'types' => [ 'classic', 'gradient' ],
-		// 		'exclude' => [ 'image' ],
-		// 		'selector' => '{{WRAPPER}} .elementor-button',
-		// 		'fields_options' => [
-		// 			'background' => [
-		// 				'default' => 'classic',
-		// 			],
-		// 			'color' => [
-		// 				'global' => [
-		// 					'default' => Global_Colors::COLOR_ACCENT,
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
-
-		// $this->end_controls_tab();
-
-		// $this->start_controls_tab(
-		// 	'tab_button_hover',
-		// 	[
-		// 		'label' => esc_html__( 'Hover', 'elementor' ),
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'hover_color',
-		// 	[
-		// 		'label' => esc_html__( 'Text Color', 'elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .elementor-button:hover, {{WRAPPER}} .elementor-button:focus' => 'color: {{VALUE}};',
-		// 			'{{WRAPPER}} .elementor-button:hover svg, {{WRAPPER}} .elementor-button:focus svg' => 'fill: {{VALUE}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	Group_Control_Background::get_type(),
-		// 	[
-		// 		'name' => 'button_background_hover',
-		// 		'label' => esc_html__( 'Background', 'elementor' ),
-		// 		'types' => [ 'classic', 'gradient' ],
-		// 		'exclude' => [ 'image' ],
-		// 		'selector' => '{{WRAPPER}} .elementor-button:hover, {{WRAPPER}} .elementor-button:focus',
-		// 		'fields_options' => [
-		// 			'background' => [
-		// 				'default' => 'classic',
-		// 			],
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'button_hover_border_color',
-		// 	[
-		// 		'label' => esc_html__( 'Border Color', 'elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'condition' => [
-		// 			'border_border!' => '',
-		// 		],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .elementor-button:hover, {{WRAPPER}} .elementor-button:focus' => 'border-color: {{VALUE}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'hover_animation',
-		// 	[
-		// 		'label' => esc_html__( 'Hover Animation', 'elementor' ),
-		// 		'type' => Controls_Manager::HOVER_ANIMATION,
-		// 	]
-		// );
-
-		// $this->end_controls_tab();
-
-		// $this->end_controls_tabs();
-
-		// $this->add_group_control(
-		// 	Group_Control_Border::get_type(),
-		// 	[
-		// 		'name' => 'border',
-		// 		'selector' => '{{WRAPPER}} .elementor-button',
-		// 		'separator' => 'before',
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'border_radius',
-		// 	[
-		// 		'label' => esc_html__( 'Border Radius', 'elementor' ),
-		// 		'type' => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .elementor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	Group_Control_Box_Shadow::get_type(),
-		// 	[
-		// 		'name' => 'button_box_shadow',
-		// 		'selector' => '{{WRAPPER}} .elementor-button',
-		// 	]
-		// );
-
-		// $this->add_responsive_control(
-		// 	'text_padding',
-		// 	[
-		// 		'label' => esc_html__( 'Padding', 'elementor' ),
-		// 		'type' => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', 'em', '%' ],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 		'separator' => 'before',
-		// 	]
-		// );
 
 		$this->end_controls_section();
+		# Title Section end 1
+
 	}
 
 	protected function render( ) {
 		$settings = $this->get_settings();
-		// $media_title_text = $settings['media_title_text'];
-		// $media_description_text = $settings['media_description_text'];
-		$media_applynow_button_text = $settings['media_applynow_button_text'];
-		// $media_apply_now_button_url = $settings['media_apply_now_button_url'];
-		// $media_message_button_name = $settings['media_message_button_name'];
-		// $media_message_button_url = $settings['media_message_button_url'];
-
-		$button_type = $settings['media_button_type'];
-		$media_applynow_button_url = $settings['media_applynow_button_url'];
-		$media_applynow_button_selected_icon = $settings['media_applynow_button_selected_icon'];
-
-		$icon_align = $settings['icon_align'];
-
+		$mediacard_image = $settings['mediacard_image'];
+		$media_image = $settings['media_image'];
+		$title_text = $settings['title_text'];
+		$subtitle_text = $settings['subtitle_text'];
+		$description_text = $settings['description_text'];
 		?>
 
-		<!-- <section class="elementor-section elementor-top-section elementor-element elementor-element-27eb5c9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="27eb5c9" data-element_type="section"> -->
-			<!-- <div class="elementor-container elementor-column-gap-default">
-				<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b1a5c98" data-id="b1a5c98" data-element_type="column">
-				<div class="elementor-widget-wrap elementor-element-populated">
-					<div class="elementor-element elementor-element-0178a12 elementor-align-center elementor-widget elementor-widget-button" data-id="0178a12" data-element_type="widget" data-widget_type="button.default">
-					<div class="elementor-widget-container"> -->
-					<div class="wpew-btn">
-						<a href="<?php echo $media_applynow_button_url['url']; ?>" class="btn <?php echo $button_type;?> <?php echo $icon_align?>" role="button">
-							<?php Icons_Manager::render_icon( $media_applynow_button_selected_icon, [ 'aria-hidden' => 'true' , 'id' => $icon_align] ); ?>
-							<span class=""><?php echo $media_applynow_button_text; ?></span>
-						</a>
-					</div>
-					<!-- </div>
-					</div>
-				</div>
-				</div>
-			</div> -->
-		<!-- </section> -->
+        <div class="slide-container">
+            <div class="wrapper">
+                <div class="wpew-card barbarian">
+                    <div class="wpew-card__image wpew-card__image--barbarian" style="background-image: url(<?php echo $mediacard_image['url']; ?>)">
+                        <?php if( ! empty($media_image['url']) ) { ?>
+                            <img src="<?php echo $media_image['url']; ?>" alt="barbarian" />
+                        <?php } ?>
+                    </div>
+
+                    <div class="content">
+                        <div class="wpew-card__level wpew-card__level--barbarian"><?php echo $subtitle_text; ?></div>
+                        <div class="wpew-card__unit-name"><?php echo $title_text ?></div>
+                        <div class="wpew-card__unit-description"><?php echo $description_text ?></div>
+                    </div>
+                    
+                    <div class="wpew-card__unit-stats wpew-card__unit-stats--barbarian clearfix">
+                        <div class="one-third">
+                            <div class="stat">20<sup>S</sup></div>
+                            <div class="stat-value">Training</div>
+                        </div>
+
+                        <div class="one-third">
+                            <div class="stat">16</div>
+                            <div class="stat-value">Speed</div>
+                        </div>
+
+                        <div class="one-third no-border">
+                            <div class="stat">150</div>
+                            <div class="stat-value">Cost</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end wpew-card barbarian-->
+            </div>
+            <!-- end wrapper -->
+
+        </div>
+        <!-- end container -->
+
+
+
 		<?php 
     }
 

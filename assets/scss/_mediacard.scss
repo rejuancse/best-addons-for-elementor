@@ -1,195 +1,179 @@
-.card-style{
-    width: 450px;
-    background-color:rgb(224, 246, 239);
-    border-radius: 10px;
-    padding: 10px;
-}
+$border-radius-size: 14px;
+$barbarian: #ec9b3b;
+$archer: #ee5487;
+$giant: #f6901a;
+$goblin: #82bb30;
+$wizard: #4facff;
 
-h5{
-    margin: 0;
-    padding: 0;
-}
-
-.title-style{
-    font-weight: bold;
-    font-size: 23px;
-    margin-top: 20px;
-}
-
-.anchor-style{
-    text-decoration: none;
-    font-size: 14px;
-    color:rgb(82, 158, 158);
-    background-color: rgba(0, 255, 255, 0.123);
-    border: 1px solid rgba(82, 158, 158, 0.685);
-    padding: 4px 8px;
-    border-radius: 4px;
-}
-
-.btn-part-1, .btn-part-2{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.btn-style-1{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-    background-color: rgba(101, 17, 179, 0.856);
-    padding: 10px 30px;
-    border: 2px solid white;
-    border-radius: 30px;
-}
-
-.btn-style-1:hover{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-    background-color: rgba(101, 17, 179, 0.856);
-    padding: 10px 30px;
-    border: 2px solid white;
-    border-radius: 30px;
-}
-
-.btn-style-2{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: rgb(71, 71, 71);
-    background-color: rgba(128, 128, 128, 0.253);
-    border: 2px solid white;
-    padding: 10px 30px;
-    border-radius: 30px;
-}
-
-.btn-style-2:hover{
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: rgb(71, 71, 71);
-    background-color: rgba(128, 128, 128, 0.253);
-    border: 2px solid white;
-    padding: 10px 30px;
-    border-radius: 30px;
-}
-
-/* btn primary danger*/
-.btn{
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
+.slide-container {
     text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.btn:hover {
-    color: #212529;
-}
+.wrapper {
+    padding-top: 40px;
 
-.default {
-    color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
-}
-
-.default:hover {
-    color: #fff;
-    background-color: #5c636a;
-    border-color: #565e64;
-}
-
-.primary {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-}
-.primary:hover {
-    color: #fff;
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-}
-
-.success{
-    color: #fff;
-    background-color: #198754;
-    border-color: #198754;
-}
-
-.success:hover {
-    color: #fff;
-    background-color: #157347;
-    border-color: #146c43;
-}
-
-.danger{
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
-.danger:hover{
-    color: #fff;
-    background-color: #bb2d3b;
-    border-color: #b02a37;
-}
-
-.warning {
-    color: #000;
-    background-color: #ffc107;
-    border-color: #ffc107;
-}
-
-.warning:hover {
-    color: #000;
-    background-color: #ffca2c;
-    border-color: #ffc720;
-}
-
-.info {
-    color: #000;
-    background-color: #0dcaf0;
-    border-color: #0dcaf0;
-}
-
-.info:hover {
-    color: #000;
-    background-color: #31d2f2;
-    border-color: #25cff2;
-}
-
-.dark {
-    color: #fff;
-    background-color: #212529;
-    border-color: #212529;
-}
-
-.dark:hover {
-    color: #fff;
-    background-color: #1c1f23;
-    border-color: #1a1e21;
-}
-.wpew-btn {
-    .right {
-        display: inline-flex;
-        flex-direction: row-reverse;
-        align-items: center;
+    &:focus {
+        outline: 0;
     }
 }
 
-#right{
-    margin-left: 5px;
-    margin-right: 5px;
+.wpew-card {
+    background: white;
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    border-radius: $border-radius-size + 5;
+    position: relative;
+    text-align: center;
+    box-shadow: -1px 15px 30px -12px black;
+    z-index: 9999;
+
+    .content {
+        text-align: center;
+        padding: 0 20px;
+    }
+}
+
+
+.wpew-card__image {
+    position: relative;
+    height: 230px;
+    margin-bottom: 35px;
+    border-top-left-radius: $border-radius-size;
+    border-top-right-radius: $border-radius-size;
+}
+
+.wpew-card__image--barbarian {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    img {
+        width: 92%;
+        position: absolute;
+        top: -60px;
+        left: 0;
+    }
+}
+
+.wpew-card__level {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.wpew-card__level--barbarian {
+    color: $barbarian;
+}
+
+.wpew-card__level--archer {
+    color: $archer;
+}
+
+.wpew-card__level--giant {
+    color: $giant;
+}
+
+.wpew-card__level--goblin {
+    color: $goblin;
+}
+
+.wpew-card__level--wizard {
+    color: $wizard;
+}
+
+.wpew-card__unit-name {
+    font-size: 26px;
+    color: black;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.wpew-card__unit-description {
+    padding: 20px 0;
+}
+
+.wpew-card__unit-stats--barbarian {
+    background: $barbarian;
+
+    .one-third {
+        border-right: 1px solid #bd7c2f;
+    }
+}
+
+.wpew-card__unit-stats--archer {
+    background: $archer;
+
+    .one-third {
+        border-right: 1px solid #d04976;
+    }
+}
+
+.wpew-card__unit-stats--giant {
+    background: $giant;
+
+    .one-third {
+        border-right: 1px solid darken($giant, 8%);
+    }
+}
+
+.wpew-card__unit-stats--goblin {
+    background: $goblin;
+
+    .one-third {
+        border-right: 1px solid darken($goblin, 6%);
+    }
+}
+
+.wpew-card__unit-stats--wizard {
+    background: $wizard;
+
+    .one-third {
+        border-right: 1px solid darken($wizard, 6%);
+    }
+}
+
+.wpew-card__unit-stats {
+    color: white;
+    font-weight: 700;
+    border-bottom-left-radius: $border-radius-size;
+    border-bottom-right-radius: $border-radius-size;
+
+    .one-third {
+        width: 33%;
+        float: left;
+        padding: 20px 15px;
+    }
+
+    sup {
+        position: absolute;
+        bottom: 4px;
+        font-size: 45%;
+        margin-left: 2px;
+    }
+
+    .stat {
+        position: relative;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .stat-value {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .no-border {
+        border-right: none;
+    }
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
