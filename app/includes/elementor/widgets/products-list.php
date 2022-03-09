@@ -22,114 +22,76 @@ class Widget_WPEW_Products_List extends Widget_Base {
 
 	protected function register_controls() {
 		$this->start_controls_section(
-            'section_title',
+            'charity_woo_product',
             [
-                'label' => __( 'Title Element', 'wpew' )
-            ]
-        );
-
-        # Product type title
-        $this->add_control(
-            'product_type_title_text',
-            [
-                'label' => __( 'Product Type Title Text', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter heading', 'wpew' ),
-                'default' => __( 'Fruits', 'wpew' ),
-            ]
-        );
-
-        # Product title text
-        $this->add_control(
-            'product_title_text',
-            [
-                'label' => __( 'Product Title Text', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter heading', 'wpew' ),
-                'default' => __( 'Pineapple (Tropical Gold)', 'wpew' ),
-            ]
-        );
-
-        # Product quantity text
-		$this->add_control(
-            'product_quantity_text',
-            [
-                'label' => __( 'Product Quantity Text', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'wpew' ),
-                'default' => __( '1 lb', 'wpew' ),
-            ]
-        );
-
-        # Product price text
-		$this->add_control(
-            'product_price_text',
-            [
-                'label' => __( 'Product Price Text', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'wpew' ),
-                'default' => __( '2.00', 'wpew' ),
+                'label' 	=> __( 'Product Element', 'wpew' )
             ]
         );
 
 		$this->add_control(
-			'headine_size',
+			'woo_number',
 			[
-				'label' => esc_html__( 'HTML Tag', 'wpew' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'h1' => 'H1',
-					'h2' => 'H2',
-					'h3' => 'H3',
-					'h4' => 'H4',
-					'h5' => 'H5',
-					'h6' => 'H6',
-					'div' => 'div',
-					'span' => 'span',
-					'p' => 'p',
+				'label'         => __( 'Number of Products', 'wpew' ),
+				'type'          => Controls_Manager::NUMBER,
+				'label_block'   => true,
+				'default'       => __( '9', 'wpew' ),
+
+			]
+		); 
+		$this->add_control(
+            'woo_column',
+            [
+                'label'     => __( 'Number of Column', 'wpew' ),
+                'type'      => Controls_Manager::SELECT,
+                'default'   => 4,
+                'options'   => [
+					'12' 	=> __( 'One Column', 'wpew' ),
+					'6' 	=> __( 'Two Column', 'wpew' ),
+					'4' 	=> __( 'Three Column', 'wpew' ),
+					'3' 	=> __( 'Four Column', 'wpew' ),
 				],
-				'default' => 'h2',
+            ]
+        );
+        $this->add_control(
+			'woo_cat',
+			[
+				'label'    => __( 'Product Category', 'wpew' ),
+				'type'     => Controls_Manager::SELECT,
+				'options'  => wpew_all_category_list( 'product_cat' ),
+				'multiple' => true,
+				'default'  => 'allpost',
+			]
+        );
+        $this->add_control(
+            'woo_order_by',
+            [
+                'label'     => __( 'Order', 'wpew' ),
+                'type'      => Controls_Manager::SELECT,
+                'default'   => 'DESC',
+                'options'   => [
+                        'DESC' 		=> __( 'Descending', 'wpew' ),
+                        'ASC' 		=> __( 'Ascending', 'wpew' ),
+                    ],
+            ]
+        );
+		$this->add_control(
+			'woo_pagination',
+			[
+				'label' => __( 'Product Pagination', 'wpew' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'wpew' ),
+				'label_off' => __( 'Hide', 'wpew' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
 			]
 		);
-
-		$this->add_responsive_control(
-			'align',
-			[
-				'label' => esc_html__( 'Alignment', 'wpew' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__( 'Left', 'wpew' ),
-						'icon' => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'wpew' ),
-						'icon' => 'eicon-text-align-center',
-					],
-					'right' => [
-						'title' => esc_html__( 'Right', 'wpew' ),
-						'icon' => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpew' ),
-						'icon' => 'eicon-text-align-justify',
-					],
-				],
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
         $this->end_controls_section();
         # Option End
 
-        # Background
+
+        /**
+		 * # Background
+		 */
 		$this->start_controls_section(
 			'background_style',
 			[
@@ -805,52 +767,126 @@ class Widget_WPEW_Products_List extends Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings();
+		$woo_number 		= $settings['woo_number'];
+		$woo_column 		= $settings['woo_column'];
+		$woo_cat 			= $settings['woo_cat'];
+		$woo_order_by 		= $settings['woo_order_by'];
+		$woo_pagination 	= $settings['woo_pagination'];
+		$page_numb 			= max( 1, get_query_var('paged') );
 
-        $product_type_title_text = $settings['product_type_title_text'];
-        $product_title_text = $settings['product_title_text'];
-        $product_quantity_text = $settings['product_quantity_text'];
-        $product_price_text = $settings['product_price_text'];
-	 
-        ?>
+		//Query Build
+		$arg = array(
+				'post_type'   =>  'product',
+				'post_status' => 'publish',
+			);
+		if( $woo_order_by ){
+			$arg['order'] = $woo_order_by;
+		}
+		if( $page_numb ){
+			$arg['paged'] = $page_numb;
+		}
+		if( $woo_number ){
+			$arg['posts_per_page'] = $woo_number;
+		}
 
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-            <div class="shop_item">
-                <div class="thumb">
-                    <div class="offer_badge">
-                        <ul class="mb0">
-                        <li><a class="offr_tag" href="#"><span>HOT</span></a></li>
-                        <li><a class="comison_rate" href="#"><span>-4 %</span></a></li>
-                        </ul>
-                    </div>
-                    <img src="https://creativelayers.net/themes/freshen-html/images/shop-items/fp1.png" alt="fp1.png">
-                    <div class="thumb_info">
-                        <ul class="mb0">
-                            <li><a href="page-dashboard-wish-list.html"><span class="flaticon-heart"></span></a></li>
-                            <li><a href="page-dashboard-wish-list.html"><span class="flaticon-search"></span></a></li>
-                            <li><a href="page-shop-list-v6.html"><span class="flaticon-shuffle"></span></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="details text-center">
-                    <div class="title"> <?php echo $product_type_title_text; ?> </div>
-                    <div class="review">
-                        <ul class="mb0">
-                            <li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="sub_title"> <?php echo $product_title_text; ?> <br> <?php echo $product_quantity_text; ?> </div>
-                    <div class="si_footer">
-                        <div class="price">$ <span> <?php echo $product_price_text; ?> </span> </div>
-                        <a href="page-shop-cart.html" class="cart_btn btn-thm"><span class="flaticon-shopping-cart mr10"></span>ADD TO CART</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+		if( $woo_cat ){
+			$cat_data = array();
+			$cat_data['relation'] = 'AND';
+			$cat_data[] = array(
+			            'taxonomy' => 'product_type',
+			            'field'    => 'slug',
+			            'terms'    => 'crowdfunding',
+			            'operator' => 'NOT IN',
+			        );
+			if( $woo_cat != 'allpost' ){
+				$cat_data[] = array(
+						'taxonomy' 	=> 'product_cat',
+			          	'field' 	=> 'slug',
+			          	'terms' 	=> $woo_cat
+					);
+			}
+			$arg['tax_query'] = $cat_data;
+		}
 
+		$data = new \WP_Query( $arg ); ?>
+
+
+<div class="shop-area">
+<div class="shop-list-item">
+<div class="wpew-row">
+
+	<?php if ( $data->have_posts() ) : ?>
+	<?php while ( $data->have_posts() ) : $data->the_post(); 
+		$product = new \WC_Product(get_the_ID());
+		$price_html = $product->get_price_html(); 
+
+		?>
+
+
+			<div class="col-sm-<?php echo $woo_column; ?> col-lg-4 col-xl-3">
+				<div class="shop_item">
+					<div class="thumb">
+						<div class="offer_badge">
+							<ul class="mb0">
+							<li><a class="offr_tag" href="#"><span>HOT</span></a></li>
+							<li><a class="comison_rate" href="#"><span>-4 %</span></a></li>
+							</ul>
+						</div>
+						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'img-fluid')); ?></a>
+						<!-- <img src="https://creativelayers.net/themes/freshen-html/images/shop-items/fp1.png" alt="fp1.png"> -->
+						<div class="thumb_info">
+							<ul class="mb0">
+								<li><a href="page-dashboard-wish-list.html"><span class="flaticon-heart"></span></a></li>
+								<li><a href="page-dashboard-wish-list.html"><span class="flaticon-search"></span></a></li>
+								<li><a href="page-shop-list-v6.html"><span class="flaticon-shuffle"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="details text-center">
+						<div class="title"><?php echo get_the_term_list( get_the_ID(), 'product_cat', ' ', ', ', ' ' ); ?></div>
+						<div class="review">
+							<ul class="mb0">
+								<?php
+									$product = wc_get_product( get_the_ID() );
+
+									$rating  = $product->get_average_rating();
+									
+									$count   = $product->get_rating_count();
+									
+									echo wc_get_rating_html( $rating, $count );
+
+									?>
+
+<div id="wrapper">
+  <div class="star-rating">
+    <span style="width:30%"></span>
+  </div>
+</div>
+
+
+								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
+								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
+								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
+								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
+								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
+							</ul>
+						</div>
+						<div class="sub_title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></div>
+						<div class="si_footer">
+							<div class="price"><span><?php echo $price_html; ?></span></div>
+							<a rel="nofollow" href="?add-to-cart=<?php echo $data->post->ID ?>" data-quantity="1" data-product_id="<?php echo $data->post->ID ?>" data-product_sku="" class="cart_btn btn-thm filled-button button product_type_simple add_to_cart_button ajax_add_to_cart"><span class="flaticon-shopping-cart mr10"></span> <?php _e('Add to cart','charity-essential'); ?></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	<?php endwhile; ?>
+	<?php wp_reset_query(); ?>
+	<?php endif; ?>
+
+</div>
+</div>
+</div>
         <div class="mbp_pagination mt10">
             <ul class="page_navigation">
                 <li class="page-item">
