@@ -180,7 +180,6 @@ class Widget_Products_Category_List extends Widget_Base {
 	protected function render( ) {
 		$settings = $this->get_settings(); 
 		$category_style = $settings['category_style'];
-		$category_heading = $settings['category_heading'];
 		$category_limit = $settings['category_limit'];
 		$category_order = $settings['category_order'];
 		$category_orderby = $settings['category_orderby'];
