@@ -102,7 +102,7 @@ class Widget_Media_Card extends Widget_Base {
 
 		# Media title text
 		$this->add_control(
-            'title_text',
+            'media_title',
             [
                 'label' => __( 'Title Text', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
@@ -113,7 +113,7 @@ class Widget_Media_Card extends Widget_Base {
         );
 
         $this->add_control(
-            'subtitle_text',
+            'media_subtitle',
             [
                 'label' => __( 'Sub Title Text', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
@@ -125,7 +125,7 @@ class Widget_Media_Card extends Widget_Base {
 
 		# Media description text
 		$this->add_control(
-            'description_text',
+            'media_description',
             [
                 'label' => __( 'Description Text', 'wpew' ),
                 'type' => Controls_Manager::TEXTAREA,
@@ -207,7 +207,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->start_controls_section(
 			'media_content_style',
 			[
-				'label' 	=> __( 'Content', 'wpew' ),
+				'label' 	=> __( 'Settings', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -225,6 +225,15 @@ class Widget_Media_Card extends Widget_Base {
                 'separator' 	=> 'before',
             ]
         );
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'box_shadow',
+				'label' => esc_html__( 'Box Shadow', 'wpew' ),
+				'selector' => '{{WRAPPER}} .wpew-card',
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -347,7 +356,7 @@ class Widget_Media_Card extends Widget_Base {
 
 		# Media description text color
 		$this->add_control(
-			'media_description_text_color',
+			'media_media_description_color',
 			[
 				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
@@ -385,26 +394,6 @@ class Widget_Media_Card extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .wpew-card__unit-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
-			]
-		);
-
-		$this->end_controls_section();
-
-		# Media card 
-		$this->start_controls_section(
-			'media_card_style',
-			[
-				'label' 	=> __( 'Media Card', 'wpew' ),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'wpew' ),
-				'selector' => '{{WRAPPER}} .wpew-card',
 			]
 		);
 
@@ -521,14 +510,12 @@ class Widget_Media_Card extends Widget_Base {
 		$settings = $this->get_settings();
 		$mediacard_image = $settings['mediacard_image'];
 		$media_image = $settings['media_image'];
-		$title_text = $settings['title_text'];
-		$subtitle_text = $settings['subtitle_text'];
-		$description_text = $settings['description_text'];
+		$media_title = $settings['media_title'];
+		$media_subtitle = $settings['media_subtitle'];
+		$media_description = $settings['media_description'];
+		$footer = $settings['footer']; ?>
 
-		$footer = $settings['footer'];
-		?>
-
-        <div class="slide-container">
+        <div class="media-card-container">
             <div class="wrapper">
                 <div class="wpew-card barbarian">
                     <div class="wpew-card__image wpew-card__image--barbarian" style="background-image: url(<?php echo $mediacard_image['url']; ?>)">
@@ -538,28 +525,28 @@ class Widget_Media_Card extends Widget_Base {
                     </div>
 
                     <div class="content">
-                        <div class="wpew-card__level wpew-card__level--barbarian"><?php echo $subtitle_text; ?></div>
-                        <div class="wpew-card__unit-name"><?php echo $title_text ?></div>
-                        <div class="wpew-card__unit-description"><?php echo $description_text ?></div>
+						<?php if( !empty( $media_subtitle ) ) { ?>
+                        	<div class="wpew-card__level wpew-card__level--barbarian"><?php echo $media_subtitle; ?></div>
+						<?php } ?>
+
+						<?php if( !empty( $media_title ) ) { ?>
+                        	<div class="wpew-card__unit-name"><?php echo $media_title ?></div>
+						<?php } ?>
+
+						<?php if( !empty( $media_description ) ) { ?>
+                        	<div class="wpew-card__unit-description"><?php echo $media_description ?></div>
+						<?php } ?>
                     </div>
                     
                     <div class="wpew-card__unit-stats wpew-card__unit-stats--barbarian clearfix">
-						<?php foreach($footer as $value) { ?>
-							<div class="one-third">
-								<div class="stat"> <?php echo $value['footer_title']; ?> <sup>S</sup></div>
-								<div class="stat-value"> <?php echo $value['footer_subtitle']; ?></div>
+						<?php 
+						$col = count($footer);
+						foreach($footer as $value) { ?>
+							<div class="one-third val-<?php echo $col; ?>">
+								<div class="stat"><?php echo $value['footer_title']; ?></div>
+								<div class="stat-value"><?php echo $value['footer_subtitle']; ?></div>
 							</div>
 						<?php } ?>
-
-                        <!-- <div class="one-third">
-                            <div class="stat">16</div>
-                            <div class="stat-value">Speed</div>
-                        </div>
-
-                        <div class="one-third no-border">
-                            <div class="stat">150</div>
-                            <div class="stat-value">Cost</div>
-                        </div> -->
                     </div>
                 </div>
                 <!-- end wpew-card barbarian-->

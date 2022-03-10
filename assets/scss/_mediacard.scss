@@ -5,175 +5,182 @@ $giant: #f6901a;
 $goblin: #82bb30;
 $wizard: #4facff;
 
-.slide-container {
+.media-card-container {
     text-align: center;
-}
 
-.wrapper {
-    padding-top: 40px;
-
-    &:focus {
-        outline: 0;
-    }
-}
-
-.wpew-card {
-    background: white;
-    width: 100%;
-    display: inline-block;
-    margin: auto;
-    border-radius: $border-radius-size + 5;
-    position: relative;
-    text-align: center;
-    box-shadow: -1px 15px 30px -12px black;
-    z-index: 9999;
-
-    .content {
-        text-align: center;
-        padding: 0 20px;
-    }
-}
-
-
-.wpew-card__image {
-    position: relative;
-    height: 230px;
-    margin-bottom: 35px;
-    border-top-left-radius: $border-radius-size;
-    border-top-right-radius: $border-radius-size;
-}
-
-.wpew-card__image--barbarian {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    img {
-        width: 92%;
-        position: absolute;
-        top: -60px;
-        left: 0;
-    }
-}
-
-.wpew-card__level {
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 3px;
-}
-
-.wpew-card__level--barbarian {
-    color: $barbarian;
-}
-
-.wpew-card__level--archer {
-    color: $archer;
-}
-
-.wpew-card__level--giant {
-    color: $giant;
-}
-
-.wpew-card__level--goblin {
-    color: $goblin;
-}
-
-.wpew-card__level--wizard {
-    color: $wizard;
-}
-
-.wpew-card__unit-name {
-    font-size: 26px;
-    color: black;
-    font-weight: 900;
-    margin-bottom: 5px;
-}
-
-.wpew-card__unit-description {
-    padding: 20px 0;
-}
-
-.wpew-card__unit-stats--barbarian {
-    background: $barbarian;
-
-    .one-third {
-        border-right: 1px solid #bd7c2f;
-    }
-}
-
-.wpew-card__unit-stats--archer {
-    background: $archer;
-
-    .one-third {
-        border-right: 1px solid #d04976;
-    }
-}
-
-.wpew-card__unit-stats--giant {
-    background: $giant;
-
-    .one-third {
-        border-right: 1px solid darken($giant, 8%);
-    }
-}
-
-.wpew-card__unit-stats--goblin {
-    background: $goblin;
-
-    .one-third {
-        border-right: 1px solid darken($goblin, 6%);
-    }
-}
-
-.wpew-card__unit-stats--wizard {
-    background: $wizard;
-
-    .one-third {
-        border-right: 1px solid darken($wizard, 6%);
-    }
-}
-
-.wpew-card__unit-stats {
-    color: white;
-    font-weight: 700;
-    border-bottom-left-radius: $border-radius-size;
-    border-bottom-right-radius: $border-radius-size;
-
-    .one-third {
-        width: 33%;
-        float: left;
-        padding: 20px 15px;
+    .wrapper {
+        &:focus {
+            outline: 0;
+        }
     }
 
-    sup {
-        position: absolute;
-        bottom: 4px;
-        font-size: 45%;
-        margin-left: 2px;
-    }
-
-    .stat {
+    .wpew-card {
+        background: white;
+        width: 100%;
+        display: inline-block;
+        margin: auto;
+        border-radius: $border-radius-size + 5;
         position: relative;
-        font-size: 24px;
-        margin-bottom: 10px;
+        text-align: center;
+        box-shadow: -1px 15px 30px -12px black;
+        z-index: 9999;
+
+        .content {
+            text-align: center;
+            padding: 0 20px;
+        }
     }
 
-    .stat-value {
+    .wpew-card__image {
+        position: relative;
+        height: 230px;
+        margin-bottom: 35px;
+        border-top-left-radius: $border-radius-size;
+        border-top-right-radius: $border-radius-size;
+    }
+
+    .wpew-card__image--barbarian {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        img {
+            width: 92%;
+            position: absolute;
+            top: -60px;
+            left: 0;
+        }
+    }
+
+    .wpew-card__level {
         text-transform: uppercase;
-        font-weight: 400;
         font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 3px;
     }
 
-    .no-border {
-        border-right: none;
+    .wpew-card__level--barbarian {
+        color: $barbarian;
     }
-}
 
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
+    .wpew-card__level--archer {
+        color: $archer;
+    }
+
+    .wpew-card__level--giant {
+        color: $giant;
+    }
+
+    .wpew-card__level--goblin {
+        color: $goblin;
+    }
+
+    .wpew-card__level--wizard {
+        color: $wizard;
+    }
+
+    .wpew-card__unit-name {
+        font-size: 26px;
+        color: black;
+        font-weight: 900;
+        margin-bottom: 5px;
+    }
+
+    .wpew-card__unit-description {
+        padding: 20px 0;
+    }
+
+    .wpew-card__unit-stats--barbarian {
+        background: $barbarian;
+
+        .one-third {
+            border-right: 1px solid #bd7c2f;
+        }
+        .one-third.val-1 {
+            border-right: none;
+        }
+    }
+
+    .wpew-card__unit-stats--archer {
+        background: $archer;
+
+        .one-third {
+            border-right: 1px solid #d04976;
+        }
+    }
+
+    .wpew-card__unit-stats--giant {
+        background: $giant;
+
+        .one-third {
+            border-right: 1px solid darken($giant, 8%);
+        }
+    }
+
+    .wpew-card__unit-stats--goblin {
+        background: $goblin;
+
+        .one-third {
+            border-right: 1px solid darken($goblin, 6%);
+        }
+    }
+
+    .wpew-card__unit-stats--wizard {
+        background: $wizard;
+
+        .one-third {
+            border-right: 1px solid darken($wizard, 6%);
+        }
+    }
+
+    .wpew-card__unit-stats {
+        color: white;
+        font-weight: 700;
+        border-bottom-left-radius: $border-radius-size;
+        border-bottom-right-radius: $border-radius-size;
+
+        .one-third {
+            width: 100%;
+            float: left;
+            padding: 20px 15px;
+            &.val-2 {
+                width: 50%;
+            }
+        
+            &.val-3 {
+                width: 33%;
+            }
+            &.val-4 {
+                width: 25%;
+            }
+        
+            &.val-5 {
+                width: 20%;
+            }
+        }
+
+        .one-third:last-child {
+            border-right: none;
+        }
+
+        .stat {
+            position: relative;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 12px;
+        }
+    }
+
+    .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
 }
