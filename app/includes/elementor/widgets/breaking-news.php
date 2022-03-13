@@ -29,26 +29,133 @@ class Widget_Breaking_News extends Widget_Base {
         );
 
 		$this->add_control(
-            'countdown_style',
+            'breaking_news_title',
             [
-                'label'     => __( 'CountDown Style', 'wpew' ),
-                'type'      => Controls_Manager::SELECT,
-                'default'   => 'style1',
-                'options'   => [
-                        'style1' 	=> __( 'Style 1', 'wpew' ),
-                        'style2' 	=> __( 'Style 2', 'wpew' ),
-                    ],
+                'label' => __( 'Heading Title', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Enter your title', 'wpew' ),
+                'default' => __( 'Breaking News', 'wpew' ),
             ]
         );
+
+		$this->add_control(
+			'post_number',
+			[
+				'label'         => __( 'Number of Posts', 'wpew' ),
+				'type'          => Controls_Manager::NUMBER,
+				'label_block'   => false,
+				'default'       => __( '5', 'wpew' ),
+			]
+		);
+
+		$this->add_control(
+			'post_cat',
+			[
+				'label'    => __( 'News Category', 'wpew' ),
+				'type'     => Controls_Manager::SELECT,
+				'options'  => wpew_all_category_list( 'category' ),
+				'multiple' => true,
+				'default'  => 'allpost'
+			]
+		);
+		
+		$this->add_control(
+			'post_order_by',
+			[
+				'label'     => __( 'Order', 'wpew' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'DESC',
+				'options'   => [
+						'DESC' 		=> __( 'Descending', 'wpew' ),
+						'ASC' 		=> __( 'Ascending', 'wpew' ),
+					],
+			]
+		);
 
 		$this->end_controls_section();
 		# Title Section end 1
 
+
+		/**
+		 * Settings Section
+		 */
+		# Breaking news title
+		$this->start_controls_section(
+			'news_settings_style',
+			[
+				'label' 	=> __( 'Settings', 'wpew' ),
+			]
+		);
+
+		# Breaking news title text color
+		$this->add_responsive_control(
+			'section_height_space',
+			[
+				'label' => esc_html__( 'Height', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 50,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'animation_speed',
+			[
+				'label' => esc_html__( 'Animation Speed', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 30,
+				],
+				'range' => [
+					's' => [
+						'min' => 1,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker' => 'animation-duration: {{SIZE}}s;',
+				],
+			]
+		);
+
+		# Breaking news headline text border radius color
+		$this->add_responsive_control(
+			'news_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .wpew-breaking-news' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+		# Title Section end 1
+
+
+		/**
+		 * Heading Section
+		 */
 		# Breaking news title
 		$this->start_controls_section(
 			'news_title_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Heading Section', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -60,7 +167,7 @@ class Widget_Breaking_News extends Widget_Base {
 				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ticker__breaking' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -72,7 +179,9 @@ class Widget_Breaking_News extends Widget_Base {
 				'label'		=> __( 'Backgound Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ticker__breaking' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading:after' => 'border-left-color: {{VALUE}};',
 				],
 			]
 		);
@@ -81,33 +190,22 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Text Typography', 'wpew' ),
+				'label'		=> __( 'Heading Typography', 'wpew' ),
 				'name' 		=> 'breaking_news_title_typography',
-				'selector' 	=> '{{WRAPPER}} .ticker__breaking',
+				'selector' 	=> '{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading',
 			]
 		);
 
-        # Breaking news title padding
-		$this->add_responsive_control(
-            'news_title_padding',
-            [
-                'label' 		=> __( 'Padding', 'wpew' ),
-                'type' 			=> Controls_Manager::DIMENSIONS,
-                'size_units' 	=> [ 'px', 'em', '%' ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .ticker__breaking' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' 	=> 'before',
-            ]
-        );
-
         $this->end_controls_section();
-
+		
+		/**
+		 * Title Section
+		 */
         # Breaking news headline title
 		$this->start_controls_section(
 			'news_headline_title_style',
 			[
-				'label' 	=> __( 'Headline Title', 'wpew' ),
+				'label' 	=> __( 'Headline', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -119,12 +217,11 @@ class Widget_Breaking_News extends Widget_Base {
 				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ticker__item' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .ticker__item a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item a' => 'color: {{VALUE}};',
 				],
 			]
 		);
-
 
 		# Breaking news headline title link hover color
 		$this->add_control(
@@ -133,7 +230,7 @@ class Widget_Breaking_News extends Widget_Base {
 				'label'		=> __( 'Link Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ticker__item a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -145,7 +242,7 @@ class Widget_Breaking_News extends Widget_Base {
 				'label'		=> __( 'Backgound Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ticker__viewport' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -156,45 +253,26 @@ class Widget_Breaking_News extends Widget_Base {
 			[
 				'label'		=> __( 'Text Typography', 'wpew' ),
 				'name' 		=> 'breaking_news_headline_text_typography',
-				'selector' 	=> '{{WRAPPER}} .ticker__item',
+				'selector' 	=> '{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item',
 			]
 		);
 
-        # Breaking news headline text padding
 		$this->add_responsive_control(
-            'news_headline_text_padding',
-            [
-                'label' 		=> __( 'Padding', 'wpew' ),
-                'type' 			=> Controls_Manager::DIMENSIONS,
-                'size_units' 	=> [ 'px', 'em', '%' ],
-                'selectors' 	=> [
-                    '{{WRAPPER}} .ticker__item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' 	=> 'before',
-            ]
-        );
-
-        # Breaking news headline text border color
-        $this->add_control(
-			'news_headline_title_border_color',
+			'media_title_space',
 			[
-				'label'		=> __( 'Border Color', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .ticker__viewport' => 'border-color: {{VALUE}};',
+				'label' => esc_html__( 'Title Gap', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 20,
 				],
-			]
-		);
-
-        # Breaking news headline text border radius color
-		$this->add_responsive_control(
-			'news_border_radius',
-			[
-				'label' => esc_html__( 'Border Radius', 'wpew' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
 				'selectors' => [
-					'{{WRAPPER}} .ticker__viewport' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item' => 'padding-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -205,7 +283,7 @@ class Widget_Breaking_News extends Widget_Base {
 			[
 				'name' => 'box_shadow',
 				'label' => esc_html__( 'Box Shadow', 'wpew' ),
-				'selector' => '{{WRAPPER}} .ticker_wrap',
+				'selector' => '{{WRAPPER}} .wpew-breaking-news',
 			]
 		);
 
@@ -214,17 +292,50 @@ class Widget_Breaking_News extends Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings();
+		$breaking_news_title = $settings['breaking_news_title'];
+		$post_number 		= $settings['post_number'];
+		$post_cat 			= $settings['post_cat'];
+		$post_orderby 		= $settings['post_order_by'];
 
-		?>
+		# Query Build
+		if( $post_cat = 'allpost' ){
+			$args = array(
+			  'post_type'     	=> 'post',
+			  'post_status' 		=> 'publish',
+			  'posts_per_page' 	=> esc_attr($post_number),			
+			  'order' 			=> $post_orderby,  
+		  );
+		}else{
+			$args = array(
+				'post_type'     	=> 'post',
+				'post_status' 		=> 'publish',
+				'posts_per_page' 	=> esc_attr($post_number),			
+				'order' 			=> $post_orderby,
+					'tax_query'    		=> array(
+					array(
+						'taxonomy' => 'category',
+						'field'    => 'slug',
+						'terms'    => esc_attr($post_cat),
+					),
+				),
+		  );
+		}
 
-		<div class="breaking-news">
+	  	$data = new \WP_Query( $args ); ?>
+
+		<div class="wpew-breaking-news">
 			<div class="ticker-wrap">
-				<div class="ticker-heading">Breaking News</div>
+				<?php if( ! empty( $breaking_news_title  ) ) { ?>
+					<div class="ticker-heading"><?php echo $breaking_news_title; ?></div>
+				<?php } ?>
 				<div class="ticker">
-					<div class="ticker__item"><a href="">Letterpress chambray brunch.</a></div>
-					<div class="ticker__item">Vice mlkshk crucifix beard chillwave meditation hoodie asymmetrical Helvetica.</div>
-					<div class="ticker__item">Ugh PBR&B kale chips Echo Park.</div>
-					<div class="ticker__item">Gluten-free mumblecore chambray mixtape food truck. </div>
+					<?php if ( $data->have_posts() ) : ?>
+					<?php while ( $data->have_posts() ) : $data->the_post(); 
+						$permalink 	= get_permalink(); ?>
+						<div class="ticker__item"><a href="<?php echo esc_url($permalink); ?>"><?php the_title(); ?></a></div>
+					<?php endwhile; ?>
+					<?php wp_reset_query(); ?>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

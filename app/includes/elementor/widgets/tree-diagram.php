@@ -1,9 +1,6 @@
 <?php
 namespace Elementor;
 
-use Elementor\Controls_Manager;
-use Elementor\Plugin;
-
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_WPEW_Tree_Diagram extends Widget_Base {
