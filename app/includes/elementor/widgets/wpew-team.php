@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Urbancharity_Team extends Widget_Base {
+class Widget_WPEW_Team extends Widget_Base {
 	public function get_name() {
 		return 'thm-team';
 	}
 
 	public function get_title() {
-		return __( 'Team', 'charity-essential' );
+		return __( 'Team', 'wpew' );
 	}
 
 	public function get_icon() {
@@ -24,14 +24,14 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'charity-essential' )
+                'label' => __( 'Title Element', 'wpew' )
             ]
         );
 
 		$this->add_control(
 		    'team_layout',
 		    [
-		        'label'     => __( 'Layout', 'charity-essential' ),
+		        'label'     => __( 'Layout', 'wpew' ),
 		        'type'      => Controls_Manager::SELECT,
 		        'default'   => '1',
 		        'options'   => [
@@ -46,7 +46,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 		    'team_text_align',
 		    [
-		        'label'     => __( 'Alignment', 'charity-essential' ),
+		        'label'     => __( 'Alignment', 'wpew' ),
 		        'type'      => Controls_Manager::SELECT,
 		        'default'   => 'center',
 		        'options'   => [
@@ -60,7 +60,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 		    'team_headline',
 		    [
-		        'label'     => __( 'Select the Elements', 'charity-essential' ),
+		        'label'     => __( 'Select the Elements', 'wpew' ),
 		        'type'      => Controls_Manager::SELECT,
 		        'default'   => 'h3',
 		        'options'   => [
@@ -80,41 +80,41 @@ class Widget_Urbancharity_Team extends Widget_Base {
         $this->add_control(
            	'team_title',
             [
-                'label' => __( 'Name', 'charity-essential' ),
+                'label' => __( 'Name', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Name', 'charity-essential' ),
-                'default' => __( 'Jon Deo', 'charity-essential' ),
+                'placeholder' => __( 'Enter Name', 'wpew' ),
+                'default' => __( 'Jon Deo', 'wpew' ),
             ]
         );
 
         $this->add_control(
 			'team_link',
 			[
-				'label' => __( 'Title Link', 'charity-essential' ),
+				'label' => __( 'Title Link', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 			]
 		);
 
         $this->add_control(
            	'team_subtitle',
             [
-                'label' => __( 'Designation', 'charity-essential' ),
+                'label' => __( 'Designation', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Designation', 'charity-essential' ),
-                'default' => __( 'Developer', 'charity-essential' ),
+                'placeholder' => __( 'Enter Designation', 'wpew' ),
+                'default' => __( 'Developer', 'wpew' ),
             ]
         );
         $this->add_control(
             'team_desc',
             [
-                'label' => __( 'Description', 'charity-essential' ),
+                'label' => __( 'Description', 'wpew' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Description', 'charity-essential' ),
-                'default' => __( 'Write your description content of this section.', 'charity-essential' ),
+                'placeholder' => __( 'Enter Description', 'wpew' ),
+                'default' => __( 'Write your description content of this section.', 'wpew' ),
             ]
         );         
 
@@ -122,7 +122,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 		    'team_image',
 		    [
-		        'label'         => __( 'Team Image', 'charity-essential' ),
+		        'label'         => __( 'Team Image', 'wpew' ),
 		        'type'          => Controls_Manager::MEDIA,
 		        'label_block'   => true,
 		        'default'       => [
@@ -134,20 +134,20 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_social',
 			[
-				'label' => __( 'Show Social', 'charity-essential' ),
+				'label' => __( 'Show Social', 'wpew' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => '',
-				'label_on' => __( 'Show', 'charity-essential' ),
-				'label_off' => __( 'Hide', 'charity-essential' ),
+				'label_on' => __( 'Show', 'wpew' ),
+				'label_off' => __( 'Hide', 'wpew' ),
 				'return_value' => 'yes',
 			]
 		);
 		$this->add_control(
 			'team_facebook',
 			[
-				'label' => __( 'Facebook URL', 'charity-essential' ),
+				'label' => __( 'Facebook URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -156,9 +156,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_twitter',
 			[
-				'label' => __( 'Twitter URL', 'charity-essential' ),
+				'label' => __( 'Twitter URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -167,9 +167,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_google-plus',
 			[
-				'label' => __( 'Google Plus URL', 'charity-essential' ),
+				'label' => __( 'Google Plus URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -178,9 +178,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_linkedin',
 			[
-				'label' => __( 'Linkedin URL', 'charity-essential' ),
+				'label' => __( 'Linkedin URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -189,9 +189,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_pinterest',
 			[
-				'label' => __( 'Pinterest URL', 'charity-essential' ),
+				'label' => __( 'Pinterest URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -200,9 +200,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_flickr',
 			[
-				'label' => __( 'Flickr URL', 'charity-essential' ),
+				'label' => __( 'Flickr URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -211,9 +211,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_instagram',
 			[
-				'label' => __( 'Instagram URL', 'charity-essential' ),
+				'label' => __( 'Instagram URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -222,9 +222,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_dribbble',
 			[
-				'label' => __( 'Dribbble URL', 'charity-essential' ),
+				'label' => __( 'Dribbble URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -233,9 +233,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_reddit',
 			[
-				'label' => __( 'Reddit URL', 'charity-essential' ),
+				'label' => __( 'Reddit URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -244,9 +244,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'team_email',
 			[
-				'label' => __( 'Email URL', 'charity-essential' ),
+				'label' => __( 'Email URL', 'wpew' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'http://your-link.com', 'charity-essential' ),
+				'placeholder' => __( 'http://your-link.com', 'wpew' ),
 				'condition' => [
 					'team_social' => 'yes',
 				],
@@ -256,10 +256,10 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'stayle_1_color',
 			[
-				'label'		=> __( 'Basic Color', 'charity-essential' ),
+				'label'		=> __( 'Basic Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .charity-team-wrap-1 .team-content-image' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-team-wrap-1 .team-content-image' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'team_layout' => '1',
@@ -270,7 +270,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'stayle_2_color',
 			[
-				'label'		=> __( 'Basic Color', 'charity-essential' ),
+				'label'		=> __( 'Basic Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .team-content2' => 'background-color: {{VALUE}};',
@@ -284,7 +284,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'stayle_4_color',
 			[
-				'label'		=> __( 'Basic Color', 'charity-essential' ),
+				'label'		=> __( 'Basic Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .team-content4' => 'background: {{VALUE}};',
@@ -300,7 +300,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Name Style', 'charity-essential' ),
+				'label' 	=> __( 'Name Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -308,7 +308,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'name_color',
 			[
-				'label'		=> __( 'Name Color', 'charity-essential' ),
+				'label'		=> __( 'Name Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .team-content-title' => 'color: {{VALUE}};',
@@ -319,7 +319,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'name_hover_color',
 			[
-				'label'		=> __( 'Name Hover Color', 'charity-essential' ),
+				'label'		=> __( 'Name Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .team-content-title:hover' => 'color: {{VALUE}};',
@@ -330,7 +330,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_responsive_control(
             'name_padding',
             [
-                'label' 		=> __( 'Name Padding', 'charity-essential' ),
+                'label' 		=> __( 'Name Padding', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -355,7 +355,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->start_controls_section(
 			'section_designation_style',
 			[
-				'label' 	=> __( 'Designation Style', 'charity-essential' ),
+				'label' 	=> __( 'Designation Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -363,7 +363,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'designation_color',
 			[
-				'label'		=> __( 'Designation Color', 'charity-essential' ),
+				'label'		=> __( 'Designation Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .team-content-subtitle' => 'color: {{VALUE}};',
@@ -374,7 +374,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_responsive_control(
             'designation_padding',
             [
-                'label' 		=> __( 'Designation Padding', 'charity-essential' ),
+                'label' 		=> __( 'Designation Padding', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -398,7 +398,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->start_controls_section(
 			'section_description_style',
 			[
-				'label' 	=> __( 'Description Style', 'charity-essential' ),
+				'label' 	=> __( 'Description Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -406,7 +406,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_control(
 			'description_color',
 			[
-				'label'		=> __( 'Description Color', 'charity-essential' ),
+				'label'		=> __( 'Description Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .team-content-desc' => 'color: {{VALUE}};',
@@ -417,7 +417,7 @@ class Widget_Urbancharity_Team extends Widget_Base {
 		$this->add_responsive_control(
             'description_padding',
             [
-                'label' 		=> __( 'Designation Padding', 'charity-essential' ),
+                'label' 		=> __( 'Designation Padding', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -521,9 +521,9 @@ class Widget_Urbancharity_Team extends Widget_Base {
 	        $data_socials = '<div class="team-content-socials">' . $data_socials . '</div>';
 	    }
 		?>
-		<div class="charity-team-wrap-<?php echo $layout; ?>">
-		    <div class="charity-team-wrap">
-		        <div class="item charity_team">
+		<div class="wpew-team-wrap-<?php echo $layout; ?>">
+		    <div class="wpew-team-wrap">
+		        <div class="item wpew_team">
 		            <?php
 		            	switch ( $layout ) {
 			                case '2':
@@ -597,4 +597,4 @@ class Widget_Urbancharity_Team extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Urbancharity_Team() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Team() );

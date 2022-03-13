@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Charity_Video extends Widget_Base {
+class Widget_WPEW_Video extends Widget_Base {
 	public function get_name() {
 		return 'thm-video-link';
 	}
 
 	public function get_title() {
-		return __( 'Section Video', 'charity-essential' );
+		return __( 'Section Video', 'wpew' );
 	}
 
 	public function get_icon() {
@@ -24,13 +24,13 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'charity-essential' )
+                'label' => __( 'Title Element', 'wpew' )
             ]
         );
 		$this->add_control(
             'video_link',
             [
-                'label' => __( 'Video Link', 'charity-essential' ),
+                'label' => __( 'Video Link', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'default' => '',
@@ -39,37 +39,37 @@ class Widget_Charity_Video extends Widget_Base {
         $this->add_control(
             'title_txt',
             [
-                'label' => __( 'Title', 'charity-essential' ),
+                'label' => __( 'Title', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'charity-essential' ),
-                'default' => __( 'What is', 'charity-essential' ),
+                'placeholder' => __( 'Enter title', 'wpew' ),
+                'default' => __( 'What is', 'wpew' ),
             ]
         );
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'charity-essential' ),
+                'label' => __( 'Sub Title Content', 'wpew' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'charity-essential' ),
-                'default' => __( 'Our ministries', 'charity-essential' ),
+                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
+                'default' => __( 'Our ministries', 'wpew' ),
             ]
         );   
         $this->add_control(
             'video_intro',
             [
-                'label' => __( 'Video Intro', 'charity-essential' ),
+                'label' => __( 'Video Intro', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Intro Title', 'charity-essential' ),
-                'default' => __( 'New Here ?', 'charity-essential' ),
+                'placeholder' => __( 'Enter Intro Title', 'wpew' ),
+                'default' => __( 'New Here ?', 'wpew' ),
             ]
         ); 
         $this->add_control(
 		    'upload_image',
 		    [
-		        'label'         => __( 'Upload Image', 'charity-essential' ),
+		        'label'         => __( 'Upload Image', 'wpew' ),
 		        'type'          => Controls_Manager::MEDIA,
 		        'label_block'   => true,
 		        'default'       => [
@@ -80,7 +80,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->add_control(
 			'hover_bg_color',
 			[
-				'label'		=> __( 'Hover Background Color', 'charity-essential' ),
+				'label'		=> __( 'Hover Background Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hover-info' => 'background: {{VALUE}};',
@@ -93,7 +93,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'charity-essential' ),
+				'label' 	=> __( 'Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -101,7 +101,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Text Color', 'charity-essential' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '#ffffff',
 				'selectors' => [
@@ -113,7 +113,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->add_responsive_control(
             'text_padding',
             [
-                'label' 		=> __( 'Title Padding', 'charity-essential' ),
+                'label' 		=> __( 'Title Padding', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -125,7 +125,7 @@ class Widget_Charity_Video extends Widget_Base {
         $this->add_responsive_control(
             'text_margin',
             [
-                'label' 		=> __( 'Title Margin', 'charity-essential' ),
+                'label' 		=> __( 'Title Margin', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -152,7 +152,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'charity-essential' ),
+				'label' 	=> __( 'Sub Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -160,7 +160,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'charity-essential' ),
+				'label'		=> __( 'Subtitle Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '#ffffff',
 				'selectors' => [
@@ -172,7 +172,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->add_responsive_control(
             'sub_text_padding',
             [
-                'label' => __( 'Sub Title Padding', 'charity-essential' ),
+                'label' => __( 'Sub Title Padding', 'wpew' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -197,7 +197,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->start_controls_section(
 			'section_video_style',
 			[
-				'label' 	=> __( 'Video Intro', 'charity-essential' ),
+				'label' 	=> __( 'Video Intro', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -205,7 +205,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->add_control(
 			'videointro_color',
 			[
-				'label'		=> __( 'Video Intro Color', 'charity-essential' ),
+				'label'		=> __( 'Video Intro Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '#ffffff',
 				'selectors' => [
@@ -217,7 +217,7 @@ class Widget_Charity_Video extends Widget_Base {
 		$this->add_responsive_control(
             'videointro_padding',
             [
-                'label' => __( 'Video Intro Padding', 'charity-essential' ),
+                'label' => __( 'Video Intro Padding', 'wpew' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -275,4 +275,4 @@ class Widget_Charity_Video extends Widget_Base {
 	<?php }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Charity_Video() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Video() );

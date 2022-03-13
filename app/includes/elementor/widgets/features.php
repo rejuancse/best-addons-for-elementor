@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_WPEW_Features extends \Elementor\Widget_Base {
 	public function get_name() {
-		return 'kitolms-features';
+		return 'wpew-features';
 	}
 
 	public function get_title() {

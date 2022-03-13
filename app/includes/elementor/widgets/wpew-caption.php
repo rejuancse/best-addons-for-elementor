@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_WPEW_Lmp_Caption extends Widget_Base {
 	public function get_name() {
-		return 'kitolms-lmp-caption';
+		return 'wpew-lmp-caption';
 	}
 
 	public function get_title() {

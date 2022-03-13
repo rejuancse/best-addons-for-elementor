@@ -4,7 +4,7 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Widget_WPEW_Title extends \Elementor\Widget_Base {
 	public function get_name() {
-		return 'kitolms-title1';
+		return 'wpew-title1';
 	}
 
 	public function get_title() {

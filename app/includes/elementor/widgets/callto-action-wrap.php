@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_WPEW_Call_Action_Wrap extends Widget_Base {
 	public function get_name() {
-		return 'kitolms-call-action-wrap';
+		return 'wpew-call-action-wrap';
 	}
 
 	public function get_title() {
