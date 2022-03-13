@@ -214,21 +214,20 @@ class Widget_Breaking_News extends Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings();
+
 		?>
 
-        
-    <div class="ticker_wrap">
-        <div class="ticker__breaking"> Breaking News: </div>
-        <div class="ticker__viewport">
-        <ul class="ticker__list" data-ticker="list">
-            <li class="ticker__item" data-ticker="item">
-                <a href="javascrit:void(0)">In publishing and graphic design</a>   
-            </li>
-            <li class="ticker__item" data-ticker="item">Lorem ipsum is a placeholder text commonly used to demonstrate the visual</li>
-            <li class="ticker__item" data-ticker="item">Form of a document or a typeface without relying on meaningful content.</li>
-        </ul>
-        </div>
-    </div>
+		<div class="breaking-news">
+			<div class="ticker-wrap">
+				<div class="ticker-heading">Breaking News</div>
+				<div class="ticker">
+					<div class="ticker__item"><a href="">Letterpress chambray brunch.</a></div>
+					<div class="ticker__item">Vice mlkshk crucifix beard chillwave meditation hoodie asymmetrical Helvetica.</div>
+					<div class="ticker__item">Ugh PBR&B kale chips Echo Park.</div>
+					<div class="ticker__item">Gluten-free mumblecore chambray mixtape food truck. </div>
+				</div>
+			</div>
+		</div>
 
 		<?php 
     }
