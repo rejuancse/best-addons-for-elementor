@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Kitolms_Features extends \Elementor\Widget_Base {
+class Widget_WPEW_Features extends \Elementor\Widget_Base {
 	public function get_name() {
 		return 'kitolms-features';
 	}
 
 	public function get_title() {
-		return __( 'Kitolms Features', 'kitolms-core' );
+		return __( 'WPEW Features', 'wpew' );
 	}
 
 	public function get_icon() {
@@ -24,14 +24,14 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'kitolms-core' )
+                'label' => __( 'Title Element', 'wpew' )
             ]
         );
 
 		$this->add_control(
 			'feature_icon',
 			[
-				'label' 	=> esc_html__( 'Feature Icon', 'kitolms-core' ),
+				'label' 	=> esc_html__( 'Feature Icon', 'wpew' ),
 				'type' 		=> Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' 		=> [
@@ -44,22 +44,22 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
         $this->add_control(
             'title_txt',
             [
-                'label' => __( 'Title', 'kitolms-core' ),
+                'label' => __( 'Title', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'kitolms-core' ),
-                'default' => __( 'Explore Featured', 'kitolms-core' ),
+                'placeholder' => __( 'Enter title', 'wpew' ),
+                'default' => __( 'Explore Featured', 'wpew' ),
             ]
         );
 
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'kitolms-core' ),
+                'label' => __( 'Sub Title Content', 'wpew' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'kitolms-core' ),
-                'default' => __( 'Write your sub title content of this section.', 'kitolms-core' ),
+                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
+                'default' => __( 'Write your sub title content of this section.', 'wpew' ),
             ]
         );         
 
@@ -72,14 +72,14 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label' 	=> __( 'Icon', 'kitolms-core' ),
+				'label' 	=> __( 'Icon', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'icon_color',
 			[
-				'label'		=> __( 'Icon Color', 'kitolms-core' ),
+				'label'		=> __( 'Icon Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .crp_box.fl_color .dro_141' => 'color: {{VALUE}};',
@@ -89,7 +89,7 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
 		$this->add_control(
 			'icon_bg_color',
 			[
-				'label'		=> __( 'Icon BG Color', 'kitolms-core' ),
+				'label'		=> __( 'Icon BG Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .crp_box.fl_color .dro_141' => 'background: {{VALUE}};',
@@ -111,14 +111,14 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'kitolms-core' ),
+				'label' 	=> __( 'Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Text Color', 'kitolms-core' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .banner_title' => 'color: {{VALUE}};',
@@ -137,7 +137,7 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
             'text_padding',
             [
-                'label' 		=> __( 'Title Padding', 'kitolms-core' ),
+                'label' 		=> __( 'Title Padding', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -154,7 +154,7 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'kitolms-core' ),
+				'label' 	=> __( 'Sub Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -162,7 +162,7 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'kitolms-core' ),
+				'label'		=> __( 'Subtitle Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hero_search-2 .font-lg' => 'color: {{VALUE}};',
@@ -181,7 +181,7 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
             'sub_text_padding',
             [
-                'label' => __( 'Sub Title Padding', 'kitolms-core' ),
+                'label' => __( 'Sub Title Padding', 'wpew' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -217,4 +217,4 @@ class Widget_Kitolms_Features extends \Elementor\Widget_Base {
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Kitolms_Features() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Features() );

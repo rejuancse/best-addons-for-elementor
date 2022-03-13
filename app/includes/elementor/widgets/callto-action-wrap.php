@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
+class Widget_WPEW_Call_Action_Wrap extends Widget_Base {
 	public function get_name() {
 		return 'kitolms-call-action-wrap';
 	}
 
 	public function get_title() {
-		return __( 'Call Action Wrap', 'kitolms-core' );
+		return __( 'Call Action Wrap', 'wpew' );
 	}
 
 	public function get_icon() {
@@ -24,49 +24,49 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Call to Action Element', 'kitolms-core' )
+                'label' => __( 'Call to Action Element', 'wpew' )
             ]
         );
 
         $this->add_control(
             'callto_action_title',
             [
-                'label' => __( 'Title', 'kitolms-core' ),
+                'label' => __( 'Title', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'kitolms-core' ),
-                'default' => __( 'This is heading', 'kitolms-core' ),
+                'placeholder' => __( 'Enter title', 'wpew' ),
+                'default' => __( 'This is heading', 'wpew' ),
             ]
         );
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'kitolms-core' ),
+                'label' => __( 'Sub Title Content', 'wpew' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'kitolms-core' ),
-                'default' => __( 'Write your sub title content of this section.', 'kitolms-core' ),
+                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
+                'default' => __( 'Write your sub title content of this section.', 'wpew' ),
             ]
         );    
 		
 		$this->add_control(
             'action_button',
             [
-                'label' => __( 'Button Name', 'kitolms-core' ),
+                'label' => __( 'Button Name', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Button Name', 'kitolms-core' ),
-                'default' => __( 'Contact us Today', 'kitolms-core' ),
+                'placeholder' => __( 'Button Name', 'wpew' ),
+                'default' => __( 'Contact us Today', 'wpew' ),
             ]
         );
 
 		$this->add_control(
             'action_button_url',
             [
-                'label' => __( 'Button URL', 'kitolms-core' ),
+                'label' => __( 'Button URL', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Use url', 'kitolms-core' ),
+                'placeholder' => __( 'Use url', 'wpew' ),
                 'default' => '#',
             ]
         );
@@ -77,7 +77,7 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'kitolms-core' ),
+				'label' 	=> __( 'Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -85,7 +85,7 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->add_control(
 			'section_bg_color',
 			[
-				'label'		=> __( 'Section Background Color', 'kitolms-core' ),
+				'label'		=> __( 'Section Background Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .theme-bg' => 'background: {{VALUE}};',
@@ -95,7 +95,7 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Text Color', 'kitolms-core' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .call_action_wrap h3' => 'color: {{VALUE}};',
@@ -117,7 +117,7 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'kitolms-core' ),
+				'label' 	=> __( 'Sub Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -125,7 +125,7 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'kitolms-core' ),
+				'label'		=> __( 'Subtitle Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .call_action_wrap span' => 'color: {{VALUE}};',
@@ -147,7 +147,7 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->start_controls_section(
 			'action_button_style',
 			[
-				'label' 	=> __( 'Button Style', 'kitolms-core' ),
+				'label' 	=> __( 'Button Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -155,7 +155,7 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->add_control(
 			'button_color',
 			[
-				'label'		=> __( 'Button Text Color', 'kitolms-core' ),
+				'label'		=> __( 'Button Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'color: {{VALUE}};',
@@ -166,7 +166,7 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 		$this->add_control(
 			'button_background',
 			[
-				'label'		=> __( 'Button BG Color', 'kitolms-core' ),
+				'label'		=> __( 'Button BG Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'color: {{VALUE}};',
@@ -217,4 +217,4 @@ class Widget_Kitolms_Call_Action_Wrap extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Kitolms_Call_Action_Wrap() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Call_Action_Wrap() );

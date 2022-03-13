@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Kitolms_Callto_Action extends Widget_Base {
+class Widget_WPEW_Callto_Action extends Widget_Base {
 	public function get_name() {
 		return 'kitolms-callto-action';
 	}
 
 	public function get_title() {
-		return __( 'Call to Action', 'kitolms-core' );
+		return __( 'Call to Action', 'wpew' );
 	}
 
 	public function get_icon() {
@@ -24,73 +24,73 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Call to Action Element', 'kitolms-core' )
+                'label' => __( 'Call to Action Element', 'wpew' )
             ]
         );
 
         $this->add_control(
             'title_tags',
             [
-                'label' => __( 'Title Tags', 'kitolms-core' ),
+                'label' => __( 'Title Tags', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter tag title', 'kitolms-core' ),
-                'default' => __( 'LISTEN TO OUR NEW ANTHEM', 'kitolms-core' ),
+                'placeholder' => __( 'Enter tag title', 'wpew' ),
+                'default' => __( 'LISTEN TO OUR NEW ANTHEM', 'wpew' ),
             ]
         );
 
         $this->add_control(
             'callto_action_txt',
             [
-                'label' => __( 'Title', 'kitolms-core' ),
+                'label' => __( 'Title', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'kitolms-core' ),
-                'default' => __( 'This is heading', 'kitolms-core' ),
+                'placeholder' => __( 'Enter title', 'wpew' ),
+                'default' => __( 'This is heading', 'wpew' ),
             ]
         );
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'kitolms-core' ),
+                'label' => __( 'Sub Title Content', 'wpew' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'kitolms-core' ),
-                'default' => __( 'Write your sub title content of this section.', 'kitolms-core' ),
+                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
+                'default' => __( 'Write your sub title content of this section.', 'wpew' ),
             ]
         );  
 		
 		$this->add_control(
 			'enable_search',
 			[
-				'label' => esc_html__( 'Enable Search', 'kitolms-core' ),
+				'label' => esc_html__( 'Enable Search', 'wpew' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
-				'label_on' => esc_html__( 'Show', 'kitolms-core' ),
-				'label_off' => esc_html__( 'Hide', 'kitolms-core' ),
+				'label_on' => esc_html__( 'Show', 'wpew' ),
+				'label_off' => esc_html__( 'Hide', 'wpew' ),
 			]
 		);
 
         $this->add_responsive_control(
 			'align',
 			[
-				'label' 	=> __( 'Alignment', 'kitolms-core' ),
+				'label' 	=> __( 'Alignment', 'wpew' ),
 				'type' 		=> Controls_Manager::CHOOSE,
 				'options' 	=> [
 					'left' 		=> [
-						'title' => __( 'Left', 'kitolms-core' ),
+						'title' => __( 'Left', 'wpew' ),
 						'icon' 	=> 'fa fa-align-left',
 					],
 					'center' 	=> [
-						'title' => __( 'Center', 'kitolms-core' ),
+						'title' => __( 'Center', 'wpew' ),
 						'icon' 	=> 'fa fa-align-center',
 					],
 					'right' 	=> [
-						'title' => __( 'Right', 'kitolms-core' ),
+						'title' => __( 'Right', 'wpew' ),
 						'icon' 	=> 'fa fa-align-right',
 					],
 					'justify' 	=> [
-						'title' => __( 'Justified', 'kitolms-core' ),
+						'title' => __( 'Justified', 'wpew' ),
 						'icon' 	=> 'fa fa-align-justify',
 					],
 				],
@@ -106,14 +106,14 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'kitolms-core' ),
+				'label' 	=> __( 'Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Text Color', 'kitolms-core' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .banner_title' => 'color: {{VALUE}};',
@@ -132,7 +132,7 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->add_responsive_control(
             'text_padding',
             [
-                'label' 		=> __( 'Title Padding', 'kitolms-core' ),
+                'label' 		=> __( 'Title Padding', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -144,7 +144,7 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
         $this->add_responsive_control(
             'text_margin',
             [
-                'label' 		=> __( 'Title Margin', 'kitolms-core' ),
+                'label' 		=> __( 'Title Margin', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -161,7 +161,7 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'kitolms-core' ),
+				'label' 	=> __( 'Sub Title', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -169,7 +169,7 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'kitolms-core' ),
+				'label'		=> __( 'Subtitle Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hero_search-2 .font-lg' => 'color: {{VALUE}};',
@@ -188,7 +188,7 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->add_responsive_control(
             'sub_text_padding',
             [
-                'label' => __( 'Sub Title Padding', 'kitolms-core' ),
+                'label' => __( 'Sub Title Padding', 'wpew' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -204,7 +204,7 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_tag_style',
 			[
-				'label' 	=> __( 'Title Tag', 'kitolms-core' ),
+				'label' 	=> __( 'Title Tag', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -212,7 +212,7 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->add_control(
 			'title_tag_color',
 			[
-				'label'		=> __( 'Title Tag Color', 'kitolms-core' ),
+				'label'		=> __( 'Title Tag Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elsio_tag' => 'color: {{VALUE}};',
@@ -239,7 +239,7 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 		$this->add_responsive_control(
             'title_tag_padding',
             [
-                'label' => __( 'Title Tag Padding', 'kitolms-core' ),
+                'label' => __( 'Title Tag Padding', 'wpew' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -274,9 +274,9 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 				<?php if($enable_search == 'yes') { ?> 
 					<form class="input-group simple_search" action="<?php echo esc_url($action); ?>" method="get" role="search">
 						<i class="fa fa-search ico"></i>
-						<input type="text" name="s" value="<?php echo get_search_query(); ?>" class="form-control" placeholder="<?php esc_html_e('Search Your Cources', 'kitolms-core'); ?>">
+						<input type="text" name="s" value="<?php echo get_search_query(); ?>" class="form-control" placeholder="<?php esc_html_e('Search Your Cources', 'wpew'); ?>">
 						<div class="input-group-append">
-							<button class="btn theme-bg" type="submit"><?php esc_html_e('Search', 'kitolms-core'); ?></button>
+							<button class="btn theme-bg" type="submit"><?php esc_html_e('Search', 'wpew'); ?></button>
 						</div>
 					</form>
 				<?php } ?>
@@ -288,4 +288,4 @@ class Widget_Kitolms_Callto_Action extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Kitolms_Callto_Action() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Callto_Action() );

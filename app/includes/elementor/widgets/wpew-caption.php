@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Kitolms_Lmp_Caption extends Widget_Base {
+class Widget_WPEW_Lmp_Caption extends Widget_Base {
 	public function get_name() {
 		return 'kitolms-lmp-caption';
 	}
 
 	public function get_title() {
-		return __( 'Kitolms Caption', 'kitolms-core' );
+		return __( 'WPEW Caption', 'wpew' );
 	}
 
 	public function get_icon() {	
@@ -24,19 +24,19 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Kitolms Caption', 'kitolms-core' ),
+				'label' => __( 'WPEW Caption', 'wpew' ),
 			]
 		);
 
 		$this->add_control(
             'style',
             [
-                'label'     => __( 'Icons/Digit', 'kitolms-core' ),
+                'label'     => __( 'Icons/Digit', 'wpew' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'digit',
                 'options'   => [
-                        'digit' 	=> __( 'Digit', 'kitolms-core' ),
-                        'icon' 	=> __( 'Icon', 'kitolms-core' ),
+                        'digit' 	=> __( 'Digit', 'wpew' ),
+                        'icon' 	=> __( 'Icon', 'wpew' ),
                     ],
             ]
         );
@@ -44,7 +44,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_control(
 			'caption_icon',
 			[
-				'label' 	=> esc_html__( 'Caption Icon', 'kitolms-core' ),
+				'label' 	=> esc_html__( 'Caption Icon', 'wpew' ),
 				'type' 		=> Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' 		=> [
@@ -60,7 +60,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_control(
 			'caption_digit',
 			[
-				'label' => esc_html__( 'Digit Number', 'kitolms-core' ),
+				'label' => esc_html__( 'Digit Number', 'wpew' ),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 1,
 				'dynamic' => [
@@ -75,20 +75,20 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_control(
             'caption_title',
             [
-                'label' => __( 'Title', 'kitolms-core' ),
+                'label' => __( 'Title', 'wpew' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => __( 'Create Account', 'kitolms-core' ),
+                'default' => __( 'Create Account', 'wpew' ),
             ]
         );
 
         $this->add_control(
             'caption_descriptions',
             [
-                'label' => __( 'Description', 'kitolms-core' ),
+                'label' => __( 'Description', 'wpew' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'default' => __( 'Oluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.', 'kitolms-core', 'kitolms-core' ),
+                'default' => __( 'Oluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.', 'wpew', 'wpew' ),
             ]
         ); 
 
@@ -99,7 +99,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label' 	=> __( 'Caption Digit/Icon Style', 'kitolms-core' ),
+				'label' 	=> __( 'Caption Digit/Icon Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -107,7 +107,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_control(
 			'caption_icon_color',
 			[
-				'label'		=> __( 'Digit/Icons Color', 'kitolms-core' ),
+				'label'		=> __( 'Digit/Icons Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '#ffffff',
 				'selectors' => [
@@ -119,7 +119,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_control(
 			'caption_icon_bg_color',
 			[
-				'label'		=> __( 'Digit/Icons BG Color', 'kitolms-core' ),
+				'label'		=> __( 'Digit/Icons BG Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .lmp_caption .theme-bg' => 'background: {{VALUE}};',
@@ -142,7 +142,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Caption Title Style', 'kitolms-core' ),
+				'label' 	=> __( 'Caption Title Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -150,7 +150,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_control(
 			'caption_title_color',
 			[
-				'label'		=> __( 'Title Color', 'kitolms-core' ),
+				'label'		=> __( 'Title Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .lmp_caption h4' => 'color: {{VALUE}};',
@@ -169,7 +169,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_responsive_control(
             'caption_title_margin',
             [
-                'label' => __( 'Title Margin', 'kitolms-core' ),
+                'label' => __( 'Title Margin', 'wpew' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -185,7 +185,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->start_controls_section(
 			'section_descriptions_style',
 			[
-				'label' 	=> __( 'Caption Descriptions Style', 'kitolms-core' ),
+				'label' 	=> __( 'Caption Descriptions Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -193,7 +193,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_control(
 			'caption_descriptions_color',
 			[
-				'label'		=> __( 'Descriptions Color', 'kitolms-core' ),
+				'label'		=> __( 'Descriptions Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .lmp_caption p' => 'color: {{VALUE}};',
@@ -212,7 +212,7 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 		$this->add_responsive_control(
             'caption_descriptions_margin',
             [
-                'label' => __( 'Title Margin', 'kitolms-core' ),
+                'label' => __( 'Title Margin', 'wpew' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -262,4 +262,4 @@ class Widget_Kitolms_Lmp_Caption extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Kitolms_Lmp_Caption() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Lmp_Caption() );
