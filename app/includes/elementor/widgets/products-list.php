@@ -95,7 +95,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 		$this->start_controls_section(
 			'background_style',
 			[
-				'label' 	=> __( 'Background', 'wpew' ),
+				'label' 	=> __( 'Settings', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -104,7 +104,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 		$this->add_control(
 			'product_bgColor',
 			[
-				'label'		=> __( 'Color', 'wpew' ),
+				'label'		=> __( 'Background Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_item' => 'background: {{VALUE}};',
@@ -116,7 +116,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 		$this->add_control(
 			'product_hover_bgColor',
 			[
-				'label'		=> __( 'Hover Color', 'wpew' ),
+				'label'		=> __( 'Background Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_item:hover' => 'background: {{VALUE}};',
@@ -170,18 +170,6 @@ class Widget_WPEW_Products_List extends Widget_Base {
 				],
 			]
 		);
-	
-		# Offer title background hover color
-		$this->add_control(
-			'offer_title_hover_bgColor',
-			[
-				'label'		=> __( 'Backgournd Hover Color', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag:hover' => 'background: {{VALUE}};',
-				],
-			]
-		);
 
         # Offer title text color
         $this->add_control(
@@ -191,18 +179,6 @@ class Widget_WPEW_Products_List extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-        # Offer title hover text color
-        $this->add_control(
-			'offer_title_hover_text_color',
-			[
-				'label'		=> __( 'Hover Text Color', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .shop_item .offer_badge ul li a.offr_tag:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -230,14 +206,14 @@ class Widget_WPEW_Products_List extends Widget_Base {
 			]
 		);
 
-
+		// Offer Title Space 
 		$this->add_responsive_control(
 			'offer_title_space',
 			[
 				'label' => esc_html__( 'Spacing', 'wpew' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
-					'size' => 12,
+					'size' => 0,
 				],
 				'range' => [
 					'px' => [
@@ -273,18 +249,6 @@ class Widget_WPEW_Products_List extends Widget_Base {
 				],
 			]
 		);
-	
-		# Discount title background hover color
-		$this->add_control(
-			'discount_title_hover_bgColor',
-			[
-				'label'		=> __( 'Backgournd Hover Color', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate:hover' => 'background: {{VALUE}};',
-				],
-			]
-		);
 
         # Discount title text color
         $this->add_control(
@@ -294,18 +258,6 @@ class Widget_WPEW_Products_List extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-        # Discount title hover text color
-        $this->add_control(
-			'discount_title_hover_text_color',
-			[
-				'label'		=> __( 'Hover Text Color', 'wpew' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .shop_item .offer_badge ul li a.comison_rate:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -333,14 +285,15 @@ class Widget_WPEW_Products_List extends Widget_Base {
 			]
 		);
 
-		
 		$this->end_controls_section();
 
-		# Title
+		/**
+		 * Category Style
+		 * */ 
         $this->start_controls_section(
-			'title_style',
+			'category_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Category Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -352,7 +305,8 @@ class Widget_WPEW_Products_List extends Widget_Base {
 				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-shop-area .shop_item .details .title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-shop-area .shop_item .details .title a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -364,7 +318,8 @@ class Widget_WPEW_Products_List extends Widget_Base {
 				'label'		=> __( 'Hover Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .title:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-shop-area .shop_item .details .title:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .wpew-shop-area .shop_item .details .title a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -375,7 +330,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 			[
 				'label'		=> __( 'Typography', 'wpew' ),
 				'name' 		=> 'product_title_text_typography',
-				'selector' 	=> '{{WRAPPER}} .title',
+				'selector' 	=> '{{WRAPPER}} .wpew-shop-area .shop_item .details .title',
 			]
 		);
 
@@ -385,7 +340,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 				'label' => esc_html__( 'Spacing', 'wpew' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
-					'size' => 5,
+					'size' => 8,
 				],
 				'range' => [
 					'px' => [
@@ -394,15 +349,18 @@ class Widget_WPEW_Products_List extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wpew-shop-area .shop_item .details .title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
         $this->end_controls_section();
 
-         # Icon
-         $this->start_controls_section(
+        
+		/**
+		 * Rating Style
+		 */
+        $this->start_controls_section(
 			'icon_style',
 			[
 				'label' 	=> __( 'Rating Icon', 'wpew' ),
@@ -454,7 +412,10 @@ class Widget_WPEW_Products_List extends Widget_Base {
 
         $this->end_controls_section();
 
-        # Sub-Title
+
+		/**
+		 * Product Title
+		 */
         $this->start_controls_section(
 			'sub_title_style',
 			[
@@ -492,7 +453,7 @@ class Widget_WPEW_Products_List extends Widget_Base {
 				'label' => esc_html__( 'Spacing', 'wpew' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
-					'size' => 5,
+					'size' => 15,
 				],
 				'range' => [
 					'px' => [
@@ -810,106 +771,86 @@ class Widget_WPEW_Products_List extends Widget_Base {
 
 		$data = new \WP_Query( $arg ); ?>
 
+		<div class="wpew-shop-area">
+			<div class="shop-list-item">
+				<div class="wpew-row">
+					<?php if ( $data->have_posts() ) : ?>
+					<?php while ( $data->have_posts() ) : $data->the_post(); 
 
-<div class="shop-area">
-<div class="shop-list-item">
-<div class="wpew-row">
+						$product = new \WC_Product(get_the_ID());
+						$price_html = $product->get_price_html();
+						$offer_tag = get_post_meta( get_the_ID(), 'wpew_offertag_text_field', true );
 
-	<?php if ( $data->have_posts() ) : ?>
-	<?php while ( $data->have_posts() ) : $data->the_post(); 
-		$product = new \WC_Product(get_the_ID());
-		$price_html = $product->get_price_html(); 
+						if( $product->is_on_sale() ) {
+							$sales_price = $product->get_sale_price();
+							$regular_price = $product->get_regular_price();
+							$descount =  ((( $regular_price - $sales_price ) * 100 ) / $regular_price); 
+    					}
 
-		?>
+						$average = $product->get_average_rating();
+						$avg_rating = ($average / 5 ) * 100; ?>
 
-
-			<div class="col-sm-<?php echo $woo_column; ?> col-lg-4 col-xl-3">
-				<div class="shop_item">
-					<div class="thumb">
-						<div class="offer_badge">
-							<ul class="mb0">
-							<li><a class="offr_tag" href="#"><span>HOT</span></a></li>
-							<li><a class="comison_rate" href="#"><span>-4 %</span></a></li>
-							</ul>
-						</div>
-						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'img-fluid')); ?></a>
-						<!-- <img src="https://creativelayers.net/themes/freshen-html/images/shop-items/fp1.png" alt="fp1.png"> -->
-						<div class="thumb_info">
-							<ul class="mb0">
-								<li><a href="page-dashboard-wish-list.html"><span class="flaticon-heart"></span></a></li>
-								<li><a href="page-dashboard-wish-list.html"><span class="flaticon-search"></span></a></li>
-								<li><a href="page-shop-list-v6.html"><span class="flaticon-shuffle"></span></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="details text-center">
-						<div class="title"><?php echo get_the_term_list( get_the_ID(), 'product_cat', ' ', ', ', ' ' ); ?></div>
-						<div class="review">
-							<ul class="mb0">
-								<?php
-									$product = wc_get_product( get_the_ID() );
-
-									$rating  = $product->get_average_rating();
+						<div class="wpew-col-<?php echo $woo_column; ?>">
+							<div class="shop_item">
+								<div class="thumb">
+									<div class="offer_badge">
+										<ul class="mb0">
+											<?php if( !empty($offer_tag) ) { ?>
+												<li><a class="offr_tag" href="#"><span><?php echo $offer_tag; ?></span></a></li>
+											<?php } ?>
+											<?php if( $product->is_on_sale() ) { ?>
+												<li><a class="comison_rate" href="#"><span><?php echo '-'.$descount.'%'; ?></span></a></li>
+											<?php } ?>
+										</ul>
+									</div>
+									<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'img-fluid')); ?></a>
+									<div class="thumb_info">
+										<ul class="mb0">
+											<li><a href="page-dashboard-wish-list.html"><span class="flaticon-heart"></span></a></li>
+											<li><a href="page-dashboard-wish-list.html"><span class="flaticon-search"></span></a></li>
+											<li><a href="page-shop-list-v6.html"><span class="flaticon-shuffle"></span></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="details text-center">
+									<div class="title"><?php echo get_the_term_list( get_the_ID(), 'product_cat', ' ', ', ', ' ' ); ?></div>
 									
-									$count   = $product->get_rating_count();
+									<div class="star-rating">
+										<span style="width:<?php echo ( ( $average / 5 ) * 100 ); ?>%">
+										<strong itemprop="ratingValue" class="rating"><?php echo $average; ?></strong>
+										<?php echo __( 'out of 5', 'wpew' ); ?></span>
+									</div>	
 									
-									echo wc_get_rating_html( $rating, $count );
-
-									?>
-
-<div id="wrapper">
-  <div class="star-rating">
-    <span style="width:30%"></span>
-  </div>
-</div>
-
-
-								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-								<li class="list-inline-item"><a href="#"><i class="flaticon-star"></i></a></li>
-							</ul>
+									<div class="sub_title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></div>
+									<div class="si_footer">
+										<div class="price"><span><?php echo $price_html; ?></span></div>
+										<a rel="nofollow" href="?add-to-cart=<?php echo $data->post->ID ?>" data-quantity="1" data-product_id="<?php echo $data->post->ID ?>" data-product_sku="" class="cart_btn btn-thm filled-button button product_type_simple add_to_cart_button ajax_add_to_cart"><span class="flaticon-shopping-cart mr10"></span> <?php _e('Add to cart','charity-essential'); ?></a>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="sub_title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></div>
-						<div class="si_footer">
-							<div class="price"><span><?php echo $price_html; ?></span></div>
-							<a rel="nofollow" href="?add-to-cart=<?php echo $data->post->ID ?>" data-quantity="1" data-product_id="<?php echo $data->post->ID ?>" data-product_sku="" class="cart_btn btn-thm filled-button button product_type_simple add_to_cart_button ajax_add_to_cart"><span class="flaticon-shopping-cart mr10"></span> <?php _e('Add to cart','charity-essential'); ?></a>
-						</div>
-					</div>
+
+					<?php endwhile; ?>
+					<?php wp_reset_query(); ?>
+					<?php endif; ?>
 				</div>
 			</div>
+			
+			<!-- Pagination -->
+			<?php if($woo_pagination === 'yes') { ?>
+				<div class="mbp_pagination mt10">
+					<?php                                 
+						$page_numb = max( 1, get_query_var('paged') );
+						$max_page = $data->max_num_pages;
+						wpew_pagination( $page_numb, $max_page ); 
+					?>
+				</div>
+			<?php } ?>
 
-	<?php endwhile; ?>
-	<?php wp_reset_query(); ?>
-	<?php endif; ?>
-
-</div>
-</div>
-</div>
-        <div class="mbp_pagination mt10">
-            <ul class="page_navigation">
-                <li class="page-item">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span class="fa fa-arrow-left"></span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">3 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item"><a class="page-link" href="#">15</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#"><span class="fa fa-arrow-right"></span></a>
-                </li>
-            </ul>
-          </div>
-
+		</div>
+		
 		<?php 
     }
-
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Products_List() );

@@ -380,3 +380,60 @@ function wpew_add_flaticon_list_column_sortable( $sortable ){
 }
 
 
+/**
+ * Woocommerce Display Fields @Offer Tag
+ * */ 
+add_action('woocommerce_product_options_general_product_data', 'wpew_product_custom_fields');
+function wpew_product_custom_fields()
+{
+    global $woocommerce, $post;
+    echo '<div class="product_custom_field">';
+    woocommerce_wp_text_input(
+        array(
+            'id' => 'wpew_offertag_text_field',
+            'placeholder' => 'Offer Tag',
+            'label' => __('Offer Tag', 'wpew'),
+            'desc_tip' => 'true'
+        )
+    );
+    echo '</div>';
+}
+    
+// Save Fields
+add_action('woocommerce_process_product_meta', 'wpew_product_custom_fields_save');
+function wpew_product_custom_fields_save($post_id)
+{
+    // Offer Tag
+    $woocommerce_wpew_offertag_text_field = $_POST['wpew_offertag_text_field'];
+    update_post_meta($post_id, 'wpew_offertag_text_field', esc_attr($woocommerce_wpew_offertag_text_field));
+}
+
+
+
+/*-------------------------------------------*
+ *      WPEW Pagination
+ *------------------------------------------- */
+if(!function_exists('wpew_pagination')):
+    function wpew_pagination( $page_numb , $max_page ){
+        $pagination = paginate_links( array(
+            'base'          => get_pagenum_link(1) . '%_%',
+            'format'        => '?paged=%#%',
+            'type'          => 'array', 
+            'current'       => $page_numb,
+            'total'         => $max_page,
+            'prev_text'     => '<span class="flaticon-left-arrow"></span>',
+            'next_text'     => '<span class="flaticon-chevron"></span>',
+        )); ?>
+
+        <?php if ( ! empty( $pagination ) ) { ?>
+            <ul class="page_navigation">
+                <?php foreach ( $pagination as $page_link ) : ?>
+                    <li class="page-item <?php if ( strpos( $page_link, 'current' ) !== false ) { echo 'active'; } ?>">
+                        <?php echo wp_kses_post($page_link); ?>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        <?php 
+        }
+    }
+endif;
