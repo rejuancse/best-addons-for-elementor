@@ -50,32 +50,6 @@ class Widget_WPEW_Tree_Diagram extends Widget_Base {
 				'label_block' => true,
             ],
 		);
- 
-		$repeater->add_control(
-			'child_tree',
-			[
-				'label' => __( 'Child Tree', 'wpew' ),
-				'type' => Controls_Manager::REPEATER,
-				'default' => __( 'Child Tree', 'wpew' ),
-				'fields' => [
-					[
-						'name' => 'childtree_text',
-						'label' => __( 'Button Text', 'wpew' ),
-						'type' => Controls_Manager::TEXT,
-						'default' => __( 'Button Text', 'wpew' ),
-						'label_block' => true,
-					],
-				],
-				// 'default' => [
-				// 	[
-				// 		'childtree_text' => __( 'Child #1', 'wpew' ),
-				// 	],
-				// 	[
-				// 		'childtree_text' => __( 'Child #2', 'wpew' ),
-				// 	],
-				// ],
-            ]
-		);
 
 		$this->add_control(
 			'diagram_tree_list',
@@ -86,14 +60,6 @@ class Widget_WPEW_Tree_Diagram extends Widget_Base {
 				'default' => [
 					[
 						'tree_name' 	=> esc_html__( 'Parent', 'wpew' ),
-						'child_tree' 	=> [
-							[
-								'childtree_text' => __( 'Child #1', 'wpew' ),
-							],
-							[
-								'childtree_text' => __( 'Child #2', 'wpew' ),
-							],
-						],
 					],
 				],
 			]
@@ -206,19 +172,6 @@ class Widget_WPEW_Tree_Diagram extends Widget_Base {
 								<a href="javascript:void(0)" class="btn">
 									<?php echo $item['tree_name']; ?>
 								</a>
-
-								<ul>
-									<?php
-									if( isset( $item['child_tree'] ) && !empty( $item['child_tree'] ) ) { ?>
-									<?php foreach ( $item['child_tree'] as $value ) : ?>
-										<li class="top-level">
-											<a href="javascript:void(0)" class="btn">
-												<?php echo $value['childtree_text']; ?>
-											</a>
-										</li>
-									<?php endforeach; ?>
-									<?php } ?>
-								</ul>
 							</li>
 						<?php endforeach; } ?>
 					</ul>

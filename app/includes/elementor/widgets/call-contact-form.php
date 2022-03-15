@@ -3,13 +3,28 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_WPEW_Call_Action_Wrap extends Widget_Base {
+function wpew_contact_form(){
+
+	$args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
+	$contact_forms = array();
+	if( $data = get_posts($args)){
+		foreach($data as $key){
+			$contact_forms[$key->ID] = $key->post_title;
+		}
+	}else{
+		$contact_forms['0'] = esc_html__('No Contact Form found', 'wpew');
+	}
+
+    return $contact_forms;
+}
+
+class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 	public function get_name() {
-		return 'wpew-call-action-wrap';
+		return 'wpew-call-contact-form';
 	}
 
 	public function get_title() {
-		return __( 'Call Action Wrap', 'wpew' );
+		return __( 'Call Contact Form', 'wpew' );
 	}
 
 	public function get_icon() {
@@ -24,7 +39,7 @@ class Widget_WPEW_Call_Action_Wrap extends Widget_Base {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Call to Action Element', 'wpew' )
+                'label' => __( 'Call Contact Form', 'wpew' )
             ]
         );
 
@@ -38,6 +53,7 @@ class Widget_WPEW_Call_Action_Wrap extends Widget_Base {
                 'default' => __( 'This is heading', 'wpew' ),
             ]
         );
+
         $this->add_control(
             'subtitle_content',
             [
@@ -61,15 +77,14 @@ class Widget_WPEW_Call_Action_Wrap extends Widget_Base {
         );
 
 		$this->add_control(
-            'action_button_url',
-            [
-                'label' => __( 'Button URL', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Use url', 'wpew' ),
-                'default' => '#',
-            ]
-        );
+			'contact_button',
+			[
+				'label' 		=> __( 'Contact Form', 'elementor' ),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> '',
+				'options'		=> wpew_contact_form(),
+			]
+		);
 
         $this->end_controls_section();
         # Option End
@@ -186,35 +201,32 @@ class Widget_WPEW_Call_Action_Wrap extends Widget_Base {
 	}
 
 	protected function render( ) {
-		$settings = $this->get_settings();  ?>
+		$settings = $this->get_settings(); 
+		$contact_button = $settings['contact_button'];
 
-		<section class="theme-bg call_action_wrap-wrap">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						
-						<div class="call_action_wrap">
-							<div class="call_action_wrap-head">
-								<?php if( $settings['callto_action_title'] ){ ?>
-									<h3><?php echo $settings['callto_action_title']; ?></h3>
-								<?php } ?>
-								<?php if( $settings['subtitle_content'] ){ ?>
-									<span><?php echo $settings['subtitle_content']; ?></span>
-								<?php } ?>
-							</div>
-							<?php if( $settings['action_button_url'] ){ ?>
-								<a href="<?php echo $settings['action_button_url']; ?>" class="btn btn-call_action_wrap"><?php echo $settings['action_button']; ?></a>
-							<?php } ?>
-						</div>
-						
-					</div>
+		?>
+
+		<div class="call_action_wrap-wrap">		
+			<div class="call_action_wrap">
+				<div class="call_action_wrap-head">
+					<?php if( $settings['callto_action_title'] ){ ?>
+						<h3><?php echo $settings['callto_action_title']; ?></h3>
+					<?php } ?>
+					<?php if( $settings['subtitle_content'] ){ ?>
+						<span><?php echo $settings['subtitle_content']; ?></span>
+					<?php } ?>
 				</div>
-			</div>
-		</section>
+
+				<?php if( $settings['action_button_url'] ){ ?>
+					<a class="btn btn-call_action_wrap" data-toggle="modal" data-target="#myModal" href="#"><?php echo $settings['action_button']; ?></a>
+				<?php } ?>
+
+			</div>	
+		</div>
 
 		<?php 
     }
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Call_Action_Wrap() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Call_Contact_Form() );

@@ -243,7 +243,7 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 	protected function render( ) {
 		$settings = $this->get_settings();  ?>
 
-		<div class="lmp_caption">
+		<div class="wpew_heading_caption">
 			<?php if( $settings['title_txt'] ){ ?>
 				<h2><?php echo $settings['title_txt']; ?> <?php if( $settings['title_txt'] ){ ?><span class="theme-cl"><?php echo $settings['title_txt2']; ?></span><?php } ?></h2>
 			<?php } ?>

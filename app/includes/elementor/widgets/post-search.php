@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_WPEW_Callto_Action extends Widget_Base {
+class Widget_WPEW_Post_Search extends Widget_Base {
 	public function get_name() {
-		return 'wpew-callto-action';
+		return 'wpew-post-search';
 	}
 
 	public function get_title() {
-		return __( 'Call to Action', 'wpew' );
+		return __( 'Post Ajax Search', 'wpew' );
 	}
 
 	public function get_icon() {
@@ -24,41 +24,11 @@ class Widget_WPEW_Callto_Action extends Widget_Base {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Call to Action Element', 'wpew' )
+                'label' => __( 'Post Ajax Search', 'wpew' )
             ]
         );
 
-        $this->add_control(
-            'title_tags',
-            [
-                'label' => __( 'Title Tags', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter tag title', 'wpew' ),
-                'default' => __( 'LISTEN TO OUR NEW ANTHEM', 'wpew' ),
-            ]
-        );
-
-        $this->add_control(
-            'callto_action_txt',
-            [
-                'label' => __( 'Title', 'wpew' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter title', 'wpew' ),
-                'default' => __( 'This is heading', 'wpew' ),
-            ]
-        );
-        $this->add_control(
-            'subtitle_content',
-            [
-                'label' => __( 'Sub Title Content', 'wpew' ),
-                'type' => Controls_Manager::TEXTAREA,
-                'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
-                'default' => __( 'Write your sub title content of this section.', 'wpew' ),
-            ]
-        );  
+        
 		
 		$this->add_control(
 			'enable_search',
@@ -259,21 +229,10 @@ class Widget_WPEW_Callto_Action extends Widget_Base {
 
         <div class="simple-search-wrap">
             <div class="hero_search-2">
-                <?php if( $settings['title_tags'] ){ ?>
-                    <div class="elsio_tag"><?php echo $settings['title_tags']; ?></div>
-                <?php } ?>
-
-                <?php if( $settings['callto_action_txt'] ){ ?>
-                    <h1 class="banner_title mb-4"><?php echo $settings['callto_action_txt']; ?></h1>
-                <?php } ?>
-
-                <?php if( $settings['subtitle_content'] ){ ?>
-                    <p class="font-lg mb-4"><?php echo $settings['subtitle_content']; ?></p>
-                <?php } ?>
-				
 				<?php if($enable_search == 'yes') { ?> 
 					<form class="input-group simple_search" action="<?php echo esc_url($action); ?>" method="get" role="search">
-						<i class="fa fa-search ico"></i>
+						<i class="flaticon-search ico"></i>
+						<!-- flaticon-search -->
 						<input type="text" name="s" value="<?php echo get_search_query(); ?>" class="form-control" placeholder="<?php esc_html_e('Search Your Cources', 'wpew'); ?>">
 						<div class="input-group-append">
 							<button class="btn theme-bg" type="submit"><?php esc_html_e('Search', 'wpew'); ?></button>
@@ -288,4 +247,4 @@ class Widget_WPEW_Callto_Action extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Callto_Action() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Post_Search() );

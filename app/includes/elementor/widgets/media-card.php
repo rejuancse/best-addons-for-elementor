@@ -487,7 +487,6 @@ class Widget_Media_Card extends Widget_Base {
 			]
 		);
 
-
 		# Media footer padding
 		$this->add_responsive_control(
             'media_footer_padding',
