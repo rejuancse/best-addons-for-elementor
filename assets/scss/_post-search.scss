@@ -1,15 +1,80 @@
 .simple_search {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
+	position: relative;
+	max-width: 600px;
+	margin: 0 auto;
+	.form-control {
+		height: 58px;
+		background: #ffffff;
+		border-color: #f0f4f7;
+		padding-left: 40px;
+		border-top-left-radius: 6px;
+		border-bottom-left-radius: 6px;
+	}
+	.btn {
+		height: 58px;
+		align-items: center;
+		justify-content: center;
+		height: 58px;
+		align-items: center;
+		justify-content: center;
+		min-width: 120px;
+		border: 1px solid #efefef;
+	}
 }
-
 .input-group {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	&.simple_search {
+		.ico {
+			position: absolute;
+			left: 15px;
+			top: 20px;
+			z-index: 22;
+			font-size: 18px;
+			color: #ccd7de;
+			position: absolute;
+			left: 15px;
+			top: 25%;
+			z-index: 22;
+			font-size: 18px;
+			color: #ccd7de;
+		}
+		i {
+			&.fa-spin {
+				&.ico {
+					background: #fff;
+					padding: 2px;
+					width: 22px;
+					height: 22px;
+					border-radius: 50%;
+					text-align: center;
+					top: 18px;
+					left: 13px;
+					border: 3px dotted #e0e0e0;
+				}
+			}
+		}
+	}
+	& > .form-control {
+		position: relative;
+		-webkit-box-flex: 1;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+		width: 1%;
+		margin-bottom: 0;
+	}
+	.form-control {
+		position: relative;
+		z-index: 2;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+		width: 1%;
+		margin-bottom: 0;
+	}
 }
+<<<<<<< HEAD
 
 .input-group.simple_search .ico {
     position: absolute;
@@ -38,54 +103,99 @@
     margin-bottom: 0;
 }
 
+=======
+>>>>>>> dev
 .input-group .form-control, .input-group-addon, .input-group-btn {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
 }
-
-.input-group .form-control {
-    position: relative;
-    z-index: 2;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    width: 1%;
-    margin-bottom: 0;
-}
-
 .form-control, .woocommerce-Input {
-    height: 54px;
-    padding-left: 15px;
-    margin: 0 !important;
-    box-shadow: none !important;
-    background: #ffffff;
-    border: 1px solid #e6ebf5;
-    color: #707e9c;
-    border-radius: 4px;
+	height: 54px;
+	padding-left: 15px;
+	margin: 0;
+	box-shadow: none;
+	background: #ffffff;
+	border: 1px solid #e6ebf5;
+	color: #707e9c;
+	border-radius: 4px;
 }
-
 .form-control {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.25;
-    color: #495057;
-    background-color: #fff;
-    background-image: none;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: 0.25rem;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	display: block;
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.25;
+	color: #495057;
+	background-color: #fff;
+	background-image: none;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: 0.25rem;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-
 .input-group-append {
-    margin-left: -1px;
+	margin-left: -1px;
 }
-
-.simple_search .btn {
-    height: 58px;
-    align-items: center;
-    justify-content: center;
+.close-btn {
+	position: absolute;
+	right: 30px;
+	top: 10px;
+	cursor: pointer;
+	z-index: 99;
+	color: #333;
+	background: #fafafa;
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	font-weight: 700;
+	display: inline-block;
+	line-height: 1;
+}
+.custom-model-wrap {
+	input {
+		&.wpcf7-form-control {
+			&.has-spinner {
+				&.wpcf7-submit {
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+}
+.wpew-search-results {
+	.search-results-list {
+		background: #fafafa;
+		padding: 10px 15px;
+		max-width: 600px;
+		margin: 4px auto;
+		text-align: left;
+		border-radius: 4px;
+	}
+}
+ul {
+	&.search-results-list {
+		li {
+			border-bottom: 1px solid #eeeeee;
+			padding: 10px 0;
+			list-style: none;
+			&:first-child {
+				padding-top: 0;
+			}
+			&:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+		}
+	}
+}
+.pack-thumb {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	img {
+		width: 42px;
+		margin-right: 15px;
+	}
 }

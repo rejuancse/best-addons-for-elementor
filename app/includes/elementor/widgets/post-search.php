@@ -436,7 +436,7 @@ class Widget_WPEW_Post_Search extends Widget_Base {
             <div class="hero_search-2">
 				<form class="input-group simple_search" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
 	            	<i class="flaticon-search ico"></i>
-		            <input class="wpew-ajax-search form-control" data-url="<?php echo plugin_dir_url('', __FILE__).'wp-elementor-widgets-lite/app/extensions/product-search/classes/search-data.php'; ?>" type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="<?php esc_html_e('Search Your Post', 'wpew'); ?>"/>
+		            <input class="wpew-ajax-search form-control" data-url="<?php echo plugin_dir_url('', __FILE__).'wp-elementor-widgets-lite/app/extensions/post-search/classes/search-data.php'; ?>" type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="<?php esc_html_e('Search Your Post', 'wpew'); ?>"/>
 		            <div class="input-group-append">
 		            	<button class="btn theme-bg" type="submit"><?php esc_html_e('Search', 'wpew'); ?></button>
 		            </div>
