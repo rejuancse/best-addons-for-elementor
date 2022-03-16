@@ -1,0 +1,78 @@
+.close-btn {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 99;
+    color: #333;
+    background: #fafafa;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 1;
+}
+.custom-model-wrap input.wpcf7-form-control.has-spinner.wpcf7-submit {
+    margin-top: 20px;
+}
+
+
+
+.wpew-search-results .search-results-list{
+    background: #fafafa;
+    padding: 10px 15px;
+    max-width: 600px;
+    margin: 4px auto;
+    text-align: left;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px 0 rgb(51 51 51 / 15%);
+}
+
+.input-group.simple_search i.fa-spin.ico {
+    background: #fff;
+    padding: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    text-align: center;
+    top: 18px;
+    left: 13px;
+    border: 3px dotted #e0e0e0;
+}
+.input-group.simple_search .ico {
+    position: absolute;
+    left: 15px;
+    top: 25%;
+    z-index: 22;
+    font-size: 18px;
+    color: #ccd7de;
+}
+ul.search-results-list li {
+    border-bottom: 1px solid #eeeeee;
+    padding: 10px 0;
+    list-style: none;
+}
+ul.search-results-list li:first-child {
+    padding-top: 0;
+}
+ul.search-results-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.pack-thumb {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.pack-thumb img {
+    width: 42px;
+    margin-right: 15px;
+}
+.simple_search .btn {
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    border: 1px solid #efefef;
+}

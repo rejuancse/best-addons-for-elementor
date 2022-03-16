@@ -2,7 +2,49 @@
 
 
 jQuery(document).ready(function($){
-    //set animation timing
+
+
+    /**
+    * WPEW POST SEARCH
+    * */ 
+    $('.wpew-ajax-search').bind('keyup', function (e) {
+        var $that = $(this);
+        $that.addClass('search-active');
+        var raw_data = $that.val(), // Item Container
+            ajaxUrl = $that.data('url');
+  
+        $.ajax({ 
+            url: ajaxUrl,
+            type: 'POST',
+            data: {
+                raw_data: raw_data
+            },
+            beforeSend: function () {
+                if (!$that.parent().find('.fa-spinner').length) {
+                    $('<i class="fa-spin ico"></i>').appendTo($that.parent()).fadeIn(100);
+                }
+            },
+            complete: function () {
+                $that.parent().find('.fa-spin ').remove();
+            }
+        })
+        .done(function (data) {
+            if (e.type == 'blur') {
+                $('.wpew-search-results').html('');
+            } else {
+                $('.wpew-search-results').html(data);
+            }
+        })
+        .fail(function () {
+            console.log("error");
+        });
+    });
+    // End Search post.
+
+
+    /**
+    *  Set animation timing
+    **/
     var animationDelay = 2500,
         //loading bar effect
         barAnimationDelay = 3800,
@@ -178,5 +220,16 @@ jQuery(document).ready(function($){
         $(".seconds").html(seconds + "<span> Sec</span>");
     }
     setInterval(function() { makeTimer(); }, 1000);
+
+
+    $(".Click-here").on('click', function() {
+        $(".custom-model-main").addClass('model-open');
+    }); 
+    $(".close-btn, .bg-overlay").click(function(){
+        $(".custom-model-main").removeClass('model-open');
+    });
+      
+      
+
 
 });

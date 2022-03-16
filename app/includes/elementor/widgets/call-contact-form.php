@@ -103,10 +103,37 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 				'label'		=> __( 'Section Background Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .theme-bg' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .call_action_wrap-wrap' => 'background: {{VALUE}};',
 				],
 			]
 		);
+
+		$this->add_responsive_control(
+            'call_form_padding',
+            [
+                'label' 		=> __( 'Padding', 'wpew' ),
+                'type' 			=> Controls_Manager::DIMENSIONS,
+                'size_units' 	=> [ 'px', 'em', '%' ],
+                'selectors' 	=> [
+                    '{{WRAPPER}} .call_action_wrap-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' 	=> 'before',
+            ]
+        );
+
+        $this->add_responsive_control(
+			'contact_form_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .call_action_wrap-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+
 		$this->add_control(
 			'title_color',
 			[
@@ -179,12 +206,34 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		);
 
 		$this->add_control(
+			'button_hover_color',
+			[
+				'label'		=> __( 'Button Text Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .btn.btn-call_action_wrap:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'button_background',
 			[
 				'label'		=> __( 'Button BG Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_hover_background',
+			[
+				'label'		=> __( 'Button Hover BG Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .btn.btn-call_action_wrap:hover' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -194,6 +243,31 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 			[
 				'name' 		=> 'typography3',
 				'selector' 	=> '{{WRAPPER}} .btn.btn-call_action_wrap',
+			]
+		);
+
+		$this->add_responsive_control(
+            'call_form_btn_padding',
+            [
+                'label' 		=> __( 'Padding', 'wpew' ),
+                'type' 			=> Controls_Manager::DIMENSIONS,
+                'size_units' 	=> [ 'px', 'em', '%' ],
+                'selectors' 	=> [
+                    '{{WRAPPER}} .btn.btn-call_action_wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' 	=> 'before',
+            ]
+        );
+
+		$this->add_responsive_control(
+			'contact_form_btn_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -217,9 +291,21 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 					<?php } ?>
 				</div>
 
-				<?php if( $settings['action_button_url'] ){ ?>
-					<a class="btn btn-call_action_wrap" data-toggle="modal" data-target="#myModal" href="#"><?php echo $settings['action_button']; ?></a>
+				<?php if( $settings['contact_button'] ){ ?>
+					<a class="btn btn-call_action_wrap Click-here" data-toggle="modal" data-target="#myModal" href="#"><?php echo $settings['action_button']; ?></a>
 				<?php } ?>
+
+				<div class="custom-model-main">
+					<div class="custom-model-inner">        
+					<div class="close-btn">×</div>
+						<div class="custom-model-wrap">
+							<div class="pop-up-content-wrap">
+							<?php echo '[contact-form-7 id="'.$contact_button.'" title="Contact Form"]'; ?>
+							</div>
+						</div>  
+					</div>  
+					<div class="bg-overlay"></div>
+				</div> 
 
 			</div>	
 		</div>

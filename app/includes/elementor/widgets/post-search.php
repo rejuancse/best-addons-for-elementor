@@ -28,8 +28,6 @@ class Widget_WPEW_Post_Search extends Widget_Base {
             ]
         );
 
-        
-		
 		$this->add_control(
 			'enable_search',
 			[
@@ -41,33 +39,44 @@ class Widget_WPEW_Post_Search extends Widget_Base {
 			]
 		);
 
-        $this->add_responsive_control(
+		$this->add_control(
+            'search_width',
+            [
+                'label' => __( 'Fixed Search Width', 'wpew' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Enter width', 'wpew' ),
+                'default' => '600',
+            ]
+        );
+
+		$this->add_responsive_control(
 			'align',
 			[
-				'label' 	=> __( 'Alignment', 'wpew' ),
-				'type' 		=> Controls_Manager::CHOOSE,
-				'options' 	=> [
-					'left' 		=> [
-						'title' => __( 'Left', 'wpew' ),
-						'icon' 	=> 'fa fa-align-left',
+				'label' => esc_html__( 'Alignment', 'wpew' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'wpew' ),
+						'icon' => 'eicon-text-align-left',
 					],
-					'center' 	=> [
-						'title' => __( 'Center', 'wpew' ),
-						'icon' 	=> 'fa fa-align-center',
+					'center' => [
+						'title' => esc_html__( 'Center', 'wpew' ),
+						'icon' => 'eicon-text-align-center',
 					],
-					'right' 	=> [
-						'title' => __( 'Right', 'wpew' ),
-						'icon' 	=> 'fa fa-align-right',
+					'right' => [
+						'title' => esc_html__( 'Right', 'wpew' ),
+						'icon' => 'eicon-text-align-right',
 					],
-					'justify' 	=> [
-						'title' => __( 'Justified', 'wpew' ),
-						'icon' 	=> 'fa fa-align-justify',
+					'justify' => [
+						'title' => esc_html__( 'Justified', 'wpew' ),
+						'icon' => 'eicon-text-align-justify',
 					],
 				],
-				'default' 	=> 'center',
-                'selectors' => [
-                    '{{WRAPPER}} .simple-search-wrap .hero_search-2' => 'text-align: {{VALUE}};',
-                ],
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .simple-search-wrap .hero_search-2' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
         $this->end_controls_section();
@@ -123,6 +132,7 @@ class Widget_WPEW_Post_Search extends Widget_Base {
                 'separator' 	=> 'before',
             ]
         );
+
 		$this->end_controls_section();
 		# Title Section end 1
 
@@ -167,6 +177,7 @@ class Widget_WPEW_Post_Search extends Widget_Base {
                 'separator' => 'before',
             ]
         );
+
         $this->end_controls_section();
 		# Subtitle part 2 end
 
@@ -224,21 +235,18 @@ class Widget_WPEW_Post_Search extends Widget_Base {
 	protected function render( ) {
 		$settings = $this->get_settings(); 
 		$enable_search = $settings['enable_search'];
-		$action = function_exists('tutor_utils') ? tutor_utils()->course_archive_page_url() : site_url('/');
 		?>
 
         <div class="simple-search-wrap">
             <div class="hero_search-2">
-				<?php if($enable_search == 'yes') { ?> 
-					<form class="input-group simple_search" action="<?php echo esc_url($action); ?>" method="get" role="search">
-						<i class="flaticon-search ico"></i>
-						<!-- flaticon-search -->
-						<input type="text" name="s" value="<?php echo get_search_query(); ?>" class="form-control" placeholder="<?php esc_html_e('Search Your Cources', 'wpew'); ?>">
-						<div class="input-group-append">
-							<button class="btn theme-bg" type="submit"><?php esc_html_e('Search', 'wpew'); ?></button>
-						</div>
-					</form>
-				<?php } ?>
+				<form class="input-group simple_search" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+	            	<i class="flaticon-search ico"></i>
+		            <input class="wpew-ajax-search form-control" data-url="<?php echo plugin_dir_url('', __FILE__).'wp-elementor-widgets-lite/app/extensions/product-search/classes/search-data.php'; ?>" type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="<?php esc_html_e('Search Your Post', 'wpew'); ?>"/>
+		            <div class="input-group-append">
+		            	<button class="btn theme-bg" type="submit"><?php esc_html_e('Search', 'wpew'); ?></button>
+		            </div>
+		        </form>
+		        <div class="wpew-search-results"></div>
             </div>
         </div>
 
