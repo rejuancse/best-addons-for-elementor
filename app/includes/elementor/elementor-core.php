@@ -16,7 +16,7 @@ add_action( 'elementor/init', 'wpew_elementor_init' );
 /**
  * Elementor addons
  * */ 
-function add_new_elements() {
+function wpew_add_new_elements() {
     $widgets_lists = array_filter(glob(WPEW_DIR_PATH.'app/includes/elementor/widgets/*'));
     
     if (count($widgets_lists) > 0) {
@@ -30,7 +30,7 @@ function add_new_elements() {
         }
     }
 }
-add_action( 'elementor/widgets/widgets_registered', 'add_new_elements' );
+add_action( 'elementor/widgets/widgets_registered', 'wpew_add_new_elements' );
 
 
 # Category List
