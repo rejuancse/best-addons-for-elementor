@@ -10,7 +10,7 @@ class Widget_WPEW_Post_Search extends Widget_Base {
 
 	public function get_title() {
 		return __( 'Post Ajax Search', 'wpew' );
-	}
+	} 
 
 	public function get_icon() {
 		return 'eicon-call-to-action wts-eae-pe';
@@ -82,154 +82,349 @@ class Widget_WPEW_Post_Search extends Widget_Base {
         $this->end_controls_section();
         # Option End
 
+		# Post Search Box Text
 		$this->start_controls_section(
-			'section_title_style',
+			'post_search_box_test_tyle',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Search Box Text', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
+
+		# Text color
 		$this->add_control(
-			'title_color',
+			'post_search_box_text_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .banner_title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .input-group .form-control' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-        $this->add_group_control(
-			Group_Control_Typography::get_type(),
+		# Input placeholder color
+		$this->add_control(
+			'post_search_box_placeholder_color',
 			[
-				'name' 		=> 'typography',
-				'selector' 	=> '{{WRAPPER}} .banner_title',
+				'label'		=> __( 'Input Placeholder Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .input-group .form-control::placeholder' => 'color: {{VALUE}};',
+				],
 			]
 		);
 
+
+		# Typography
+		 $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'post_search_box_text_typography',
+				'selector' 	=> '{{WRAPPER}} .input-group .form-control',
+			]
+		);
+
+		$this->end_controls_section();
+
+		# Post Search Box Icon Style
+		$this->start_controls_section(
+			'post_search_box_icon_tyle',
+			[
+				'label' 	=> __( 'Search Box Icon', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		# Icon color
+		$this->add_control(
+			'post_search_box_icon_color',
+			[
+				'label'		=> __( 'Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .input-group.simple_search .ico' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Icon size
+		 $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'post_search_box_text_typography',
+				'selector' 	=> '{{WRAPPER}} .input-group .form-control',
+			]
+		);
+
+		$this->end_controls_section();
+
+		# Post Search Box Background Style
+		$this->start_controls_section(
+			'post_search_box_background_style',
+			[
+				'label' 	=> __( 'Search Box Background', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		# Background Color
+		$this->add_control(
+			'post_search_box_background_color',
+			[
+				'label'		=> __( 'Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .input-group .form-control' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+		# Background Border Color
+		$this->add_control(
+			'post_search_box_background_border_color',
+			[
+				'label'		=> __( 'Border Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .input-group .form-control' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Background Border Radius
 		$this->add_responsive_control(
-            'text_padding',
+			'post_search_box_background_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .input-group .simple_search' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		# Background Padding
+		$this->add_responsive_control(
+            'post_search_box_background_padding',
             [
-                'label' 		=> __( 'Title Padding', 'wpew' ),
+                'label' 		=> __( 'Padding', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
-                    '{{WRAPPER}} .banner_title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .input-group .form-control' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator' 	=> 'before', 
             ]
         );
-        $this->add_responsive_control(
-            'text_margin',
+
+		$this->end_controls_section();
+
+		# Post Search Box Bottom Style
+		$this->start_controls_section(
+			'post_search_box_bottom_style',
+			[
+				'label' 	=> __( 'Search Box Bottom Style', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		# Search box bottom spacing
+		$this->add_responsive_control(
+			'post_search_box_result_bottom_spacing',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .simple_search' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		# Title Section end 1
+
+		# Post Search Box Results Style
+		$this->start_controls_section(
+			'post_search_box_result_style',
+			[
+				'label' 	=> __( 'Search Result', 'wpew' ),
+				'tab' 		=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		# Text color
+		$this->add_control(
+			'post_search_box_search_result_text_color',
+			[
+				'label'		=> __( 'Text Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .search-results-list .pack-thumb a' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Text Hover color
+		$this->add_control(
+			'post_search_box_search_result_text_hover_color',
+			[
+				'label'		=> __( 'Text Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .search-results-list .pack-thumb a:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Text typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'post_search_box_search_result_text_typography_color',
+				'selector' 	=> '{{WRAPPER}} .search-results-list .pack-thumb a',
+			]
+		);
+
+		# Background color
+		$this->add_control(
+			'post_search_box_search_result_background_color',
+			[
+				'label'		=> __( 'Background Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .search-results-list' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+
+		# Background Border Radius
+		$this->add_responsive_control(
+			'post_search_box_search_result_background_border_color',
+			[
+				'label' => esc_html__( 'Background Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .search-results-list' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		# Background Padding
+		$this->add_responsive_control(
+            'post_search_box_search_result_background_padding_color',
             [
-                'label' 		=> __( 'Title Margin', 'wpew' ),
+                'label' 		=> __( 'Background Padding', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
-                    '{{WRAPPER}} .banner_title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .search-results-list' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'separator' 	=> 'before',
+                'separator' 	=> 'before', 
             ]
         );
 
 		$this->end_controls_section();
-		# Title Section end 1
 
 
-		# Sub Title Section 2
+		# Post Search Box Button Style
 		$this->start_controls_section(
-			'section_subtitle_style',
+			'post_search_box_result_button_style',
 			[
-				'label' 	=> __( 'Sub Title', 'wpew' ),
+				'label' 	=> __( 'Button', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
+		# Text color
 		$this->add_control(
-			'subtitle_color',
+			'post_search_box_button_text_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .hero_search-2 .font-lg' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .simple_search .btn' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-        $this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' 		=> 'typography2',
-				'selector' 	=> '{{WRAPPER}} .hero_search-2 .font-lg',
-			]
-		);
-
-		$this->add_responsive_control(
-            'sub_text_padding',
-            [
-                'label' => __( 'Sub Title Padding', 'wpew' ),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors' => [
-                    '{{WRAPPER}} .hero_search-2 .font-lg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' => 'before',
-            ]
-        );
-
-        $this->end_controls_section();
-		# Subtitle part 2 end
-
-        # Title Tags Section 3
-		$this->start_controls_section(
-			'section_title_tag_style',
-			[
-				'label' 	=> __( 'Title Tag', 'wpew' ),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
-			]
-		);
-
+		# Text hover color
 		$this->add_control(
-			'title_tag_color',
+			'post_search_box_button_text_hover_color',
 			[
-				'label'		=> __( 'Title Tag Color', 'wpew' ),
+				'label'		=> __( 'Text Hover Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elsio_tag' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .simple_search .btn:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'section_background',
-                'selector' => '{{WRAPPER}} .elsio_tag',
-            ]
-        );
-
-        $this->add_group_control(
+		# Text typography
+		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'typography3',
-				'selector' 	=> '{{WRAPPER}} .hero_search-2 .font-lg',
+				'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'post_search_box_button_text_typography',
+				'selector' 	=> '{{WRAPPER}} .simple_search .btn',
 			]
 		);
 
+		# Background color
+		$this->add_control(
+			'post_search_box_button_background_color',
+			[
+				'label'		=> __( 'Background Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .simple_search .btn' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+		# Background hover color
+		$this->add_control(
+			'post_search_box_button_background_hover_color',
+			[
+				'label'		=> __( 'Background Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .simple_search .btn:hover' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+		# Background Padding
 		$this->add_responsive_control(
-            'title_tag_padding',
+            'post_search_box_button_background_padding',
             [
-                'label' => __( 'Title Tag Padding', 'wpew' ),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors' => [
-                    '{{WRAPPER}} .hero_search-2 .font-lg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                'label' 		=> __( 'Background Padding', 'wpew' ),
+                'type' 			=> Controls_Manager::DIMENSIONS,
+                'size_units' 	=> [ 'px', 'em', '%' ],
+                'selectors' 	=> [
+                    '{{WRAPPER}} .simple_search .btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-                'separator' => 'before',
+                'separator' 	=> 'before', 
             ]
         );
-		# Subtitle part 2 end
+
+		$this->end_controls_section();
 	}
 
 	protected function render( ) {

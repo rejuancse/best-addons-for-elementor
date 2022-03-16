@@ -74,6 +74,37 @@
 		margin-bottom: 0;
 	}
 }
+<<<<<<< HEAD
+
+.input-group.simple_search .ico {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    z-index: 22;
+    font-size: 18px;
+    color: #ccd7de;
+}
+
+.simple_search .form-control {
+    height: 58px;
+    background: #ffffff;
+    border-color: #f0f4f7;
+    padding-left: 40px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.input-group > .form-control {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+=======
+>>>>>>> dev
 .input-group .form-control, .input-group-addon, .input-group-btn {
 	display: -ms-flexbox;
 	display: flex;
