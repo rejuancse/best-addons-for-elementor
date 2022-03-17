@@ -1,3 +1,42 @@
-.event-list {
-    display: block;
+.event-single-wrapper {
+    background: #fafafa;
+    box-shadow: 0 3px 6px 0 #33333326;
+    .event-content-inner {
+        padding: 30px 0;
+        h2 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+            &:before {
+                display: none;
+            }
+        }
+        p {
+            word-wrap: break-word;
+            margin: 10px 0 20px;
+            line-height: 26px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        a {
+            padding: 10px 30px;
+            border-radius: 6px;
+            text-decoration: none !important;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .btn-1 {
+            color: #fff;
+            background: #333;
+        }
+        .btn.btn-transparent {
+            color: #333;
+        }
+    }
+    .wpew-row.align-items-center {
+        margin-bottom: 30px;
+    }
 }
+
+
+

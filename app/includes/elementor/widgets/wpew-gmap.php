@@ -62,8 +62,8 @@ class Widget_WPEW_Gmap extends Widget_Base {
             [
                 'label'         => __( 'MAP Height', 'wpew' ),
                 'type'          => Controls_Manager::NUMBER,
-                'label_block'   => true,
-                'default'       => 60,
+                'label_block'   => false,
+                'default'       => 400,
             ]
         );
         $this->add_control(

@@ -13,7 +13,7 @@ class Widget_CountDown extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-site-title';
+		return 'eicon-countdown';
 	}
 
 	public function get_categories() {

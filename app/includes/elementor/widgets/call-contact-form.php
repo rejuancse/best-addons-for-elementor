@@ -276,9 +276,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings(); 
-		$contact_button = $settings['contact_button'];
-
-		?>
+		$contact_button = $settings['contact_button']; ?>
 
 		<div class="call_action_wrap-wrap">		
 			<div class="call_action_wrap">

@@ -20,20 +20,26 @@
 
         .btn.btn-call_action_wrap {
             background: #ffffff;
-            padding: 18px 40px;
+            padding: 16px 20px;
             border-radius: 50px;
             color: #333640;
             font-weight: 600;
-            box-shadow: 0px 0px 0px 5px #ffffff33;
-            -webkit-box-shadow: 0px 0px 0px 5px #ffffff33;
+            text-decoration: none;
         }
     }
 }
 
+.pop-up-content-wrap {
+    input[type="text"] {
+        width: 100%;
+    }
+    input.wpcf7-submit {
+        margin-top: 30px;
+    }
+} 
 
 
-
-  .Click-here {
+.Click-here {
     cursor: pointer;
     background-image: linear-gradient(190deg, #f83600 0%, #fee140 100%);
     color: #fff;
@@ -43,7 +49,7 @@
     padding: 18px 0;
     margin: 0 auto;
     transition:background-image 3s ease-in-out;
-  }
+}
   .Click-here:hover{
     transition:background-image 3s ease-in-out;
     background-image: linear-gradient(90deg, #fee140 0%, #f83600 100%);

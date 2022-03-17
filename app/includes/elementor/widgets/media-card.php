@@ -205,7 +205,7 @@ class Widget_Media_Card extends Widget_Base {
 
 		# Media card content style
 		$this->start_controls_section(
-			'media_content_style',
+			'media_card_style',
 			[
 				'label' 	=> __( 'Settings', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
@@ -214,13 +214,13 @@ class Widget_Media_Card extends Widget_Base {
 
 		# Media content padding
 		$this->add_responsive_control(
-            'media_content_padding',
+            'media_border-radius',
             [
-                'label' 		=> __( 'Padding', 'wpew' ),
+                'label' 		=> __( 'Border Radius', 'wpew' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
-                    '{{WRAPPER}} .content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .media-card-container .wpew-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator' 	=> 'before',
             ]
@@ -231,7 +231,7 @@ class Widget_Media_Card extends Widget_Base {
 			[
 				'name' => 'box_shadow',
 				'label' => esc_html__( 'Box Shadow', 'wpew' ),
-				'selector' => '{{WRAPPER}} .wpew-card',
+				'selector' => '{{WRAPPER}} .media-card-container .wpew-card',
 			]
 		);
 
@@ -239,9 +239,9 @@ class Widget_Media_Card extends Widget_Base {
 
 		# Media card title
 		$this->start_controls_section(
-			'media_title_style',
+			'media_content_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Content Settings', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -289,14 +289,12 @@ class Widget_Media_Card extends Widget_Base {
 			]
 		);
 
-		$this->end_controls_section();
-
-		# Media card sub-title
-		$this->start_controls_section(
-			'media_subtitle_style',
+		$this->add_control(
+			'subtitle_settings',
 			[
-				'label' 	=> __( 'Sub-title', 'wpew' ),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'label' => esc_html__( 'Sub Title Settings', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -343,14 +341,13 @@ class Widget_Media_Card extends Widget_Base {
 			]
 		);
 
-		$this->end_controls_section();
-
 		# Media card description
-		$this->start_controls_section(
+		$this->add_control(
 			'media_description_style',
 			[
-				'label' 	=> __( 'Description', 'wpew' ),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
+				'label' => esc_html__( 'Description Settings', 'wpew' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -397,6 +394,20 @@ class Widget_Media_Card extends Widget_Base {
 			]
 		);
 
+		# Media content padding
+		$this->add_responsive_control(
+            'media_content_padding',
+            [
+                'label' 		=> __( 'Padding', 'wpew' ),
+                'type' 			=> Controls_Manager::DIMENSIONS,
+                'size_units' 	=> [ 'px', 'em', '%' ],
+                'selectors' 	=> [
+                    '{{WRAPPER}} .media-card-container .wpew-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' 	=> 'before',
+            ]
+        );
+
 		$this->end_controls_section();
 
 		# Media card footer
@@ -428,6 +439,18 @@ class Widget_Media_Card extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpew-card__unit-stats--barbarian .stat' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Media border color
+		$this->add_control(
+			'media_footer_border_color',
+			[
+				'label'		=> __( 'Border Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .media-card-container .wpew-card__unit-stats--barbarian .one-third' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
