@@ -7,22 +7,42 @@ BREAKPOINTS
     margin-right: -15px;
     margin-left: -15px;
 
-    .wpew-col-3 {
+    .wpew-col-8 {
         flex: 0 0 auto;
-        width: 25%;
+        width: 12.5%;
     }
 
-    .wpew-col-4 {
+    .wpew-col-7 {
         flex: 0 0 auto;
-        width: 33.33333333%;
+        width: 14.28%;
     }
 
     .wpew-col-6 {
         flex: 0 0 auto;
+        width: 16.66%;
+    }
+
+    .wpew-col-5 {
+        flex: 0 0 auto;
+        width: 20%;
+    }
+
+    .wpew-col-4 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+
+    .wpew-col-3 {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+
+    .wpew-col-2 {
+        flex: 0 0 auto;
         width: 50%;
     }
 
-    .wpew-col-12 {
+    .wpew-col-1 {
         flex: 0 0 auto;
         width: 100%;
     }
