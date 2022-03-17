@@ -154,52 +154,58 @@ class Widget_Products_Category_List extends Widget_Base {
 		$coulmn_number = $settings['coulmn_number'];
 		$category_limit = $settings['category_limit'];
 		$category_order = $settings['category_order'];
-        
-        $parent_terms = get_terms( 
-            'product_cat', 
-            array( 
-                'parent' => 0, 
-                'number' => $category_limit, 
-                'order' => $category_order,
-                'hide_empty' => true 
-            ) 
-        ); ?>
 
-		<div class="header-carousel position-relative">
-			<div class="wpew-row">
-				<?php
-					$i = 0;
-					if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
-						foreach ( $parent_terms as $pterm ) { 
+		if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			$parent_terms = get_terms( 
+				'product_cat', 
+				array( 
+					'parent' => 0, 
+					'number' => $category_limit, 
+					'order' => $category_order,
+					'hide_empty' => true 
+				) 
+			); ?>
 
-							$terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );
-							$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
-							$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; ?>
+			<div class="header-carousel position-relative">
+				<div class="wpew-row">
+					<?php
+						$i = 0;
+						if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
+							foreach ( $parent_terms as $pterm ) { 
+
+								$terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );
+								$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
+								$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; ?>
+					
+								<div class="wpew-col-<?php echo $coulmn_number; ?>">
+								<div class="item">
+									<a href="<?php echo get_term_link($pterm->term_id); ?>">
+										<div class="iconbox">
+											<div class="icon">
+												<img src="<?php echo esc_url($image_url); ?>" alt="">
+											</div>
+											<div class="details">
+												<h5 class="title"><?php echo esc_html($pterm->name); ?></h5>
+												<p><?php echo esc_html($pterm->count).' '.__('Products', 'wpew'); ?></p>
+											</div>
+										</div>
+									</a>
+								</div>
+								</div>
 				
-							<div class="wpew-col-<?php echo $coulmn_number; ?>">
-							<div class="item">
-								<a href="<?php echo get_term_link($pterm->term_id); ?>">
-									<div class="iconbox">
-										<div class="icon">
-											<img src="<?php echo esc_url($image_url); ?>" alt="">
-										</div>
-										<div class="details">
-											<h5 class="title"><?php echo esc_html($pterm->name); ?></h5>
-											<p><?php echo esc_html($pterm->count).' '.__('Products', 'wpew'); ?></p>
-										</div>
-									</div>
-								</a>
-							</div>
-							</div>
-			
-						<?php 
+							<?php 
+							} 
 						} 
-					} 
-				?>
+					?>
+				</div>
 			</div>
-		</div>
-	
 		<?php
+		} else { ?>
+			<div class="info-woo">
+				<h3>You need to install or activate woocommer plugin</h3>
+				<p><a href="#">Woocommerce enable</a></p>
+			</div>
+		<?php }
 	}
 }
 
