@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WP Elementor Widgets for Elementor
+ * Plugin Name: Easy Addons For Elementor
  * Description: Simple Elementor Widgets
  * Version: 1.0.0
  * Author: Rejuan Ahamed

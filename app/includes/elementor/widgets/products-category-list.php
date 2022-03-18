@@ -34,16 +34,14 @@ class Widget_Products_Category_List extends Widget_Base {
             [
                 'label'     => __( 'Coulmn Number', 'wpew' ),
                 'type'      => Controls_Manager::SELECT,
-                'default'   => '6',
+                'default'   => '71',
                 'options'   => [
-                        '1' 	=> __( 'Column 1', 'wpew' ),
-                        '2' 	=> __( 'Column 2', 'wpew' ),
-						'3' 	=> __( 'Column 3', 'wpew' ),
-                        '4' 	=> __( 'Column 4', 'wpew' ),
-						'5' 	=> __( 'Column 5', 'wpew' ),
-                        '6' 	=> __( 'Column 6', 'wpew' ),
-						'7' 	=> __( 'Column 7', 'wpew' ),
-                        '8' 	=> __( 'Column 8', 'wpew' ),
+                        '12' 	=> __( 'Column 1', 'wpew' ),
+                        '6' 	=> __( 'Column 2', 'wpew' ),
+						'4' 	=> __( 'Column 3', 'wpew' ),
+                        '3' 	=> __( 'Column 4', 'wpew' ),
+                        '2' 	=> __( 'Column 6', 'wpew' ),
+						'71'	=> __( 'Column 7', 'wpew' ),
                     ],
             ]
         );
@@ -54,7 +52,7 @@ class Widget_Products_Category_List extends Widget_Base {
                 'label' 		=> __( 'Category Limit', 'wpew' ),
                 'type' 			=> Controls_Manager::NUMBER,
                 'label_block' 	=> false,
-                'default' 		=> '5',
+                'default' 		=> '7',
             ]
         );
 
@@ -264,52 +262,54 @@ class Widget_Products_Category_List extends Widget_Base {
 		$coulmn_number = $settings['coulmn_number'];
 		$category_limit = $settings['category_limit'];
 		$category_order = $settings['category_order'];
-        
-        $parent_terms = get_terms( 
-            'product_cat', 
-            array( 
-                'parent' => 0, 
-                'number' => $category_limit, 
-                'order' => $category_order,
-                'hide_empty' => true 
-            ) 
-        ); ?>
 
-		<div class="header-carousel position-relative">
-			<div class="wpew-row">
-				<?php
-					$i = 0;
-					if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
-						foreach ( $parent_terms as $pterm ) { 
+		if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+			$parent_terms = get_terms( 
+				'product_cat', 
+				array( 
+					'parent' 		=> 0, 
+					'number' 		=> $category_limit, 
+					'order' 		=> $category_order,
+					'hide_empty' 	=> true 
+				) 
+			); ?>
 
-							$terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );
-							$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
-							$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; ?>
-				
-							<div class="wpew-col-<?php echo $coulmn_number; ?>">
-							<div class="item">
-								<a href="<?php echo get_term_link($pterm->term_id); ?>">
-									<div class="iconbox">
-										<div class="icon">
-											<img src="<?php echo esc_url($image_url); ?>" alt="">
-										</div>
-										<div class="details">
-											<h5 class="title"><?php echo esc_html($pterm->name); ?></h5>
-											<p><?php echo esc_html($pterm->count).' '.__('Products', 'wpew'); ?></p>
-										</div>
+			<div class="header-carousel position-relative">
+				<div class="wpew-row">
+					<?php
+						if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
+							foreach ( $parent_terms as $pterm ) { 
+								$terms = get_terms('product_cat', array( 'parent' => $pterm->term_id, 'orderby' => 'title', 'hide_empty' => true ) );
+								$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
+								$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; ?>
+					
+								<div class="wpew-col-<?php echo $coulmn_number; ?>">
+									<div class="item">
+										<a href="<?php echo get_term_link($pterm->term_id); ?>">
+											<div class="iconbox">
+												<div class="icon">
+													<img src="<?php echo esc_url($image_url); ?>" alt="">
+												</div>
+												<div class="details">
+													<h5 class="title"><?php echo esc_html($pterm->name); ?></h5>
+													<p><?php echo esc_html($pterm->count).' '.__('Products', 'wpew'); ?></p>
+												</div>
+											</div>
+										</a>
 									</div>
-								</a>
-							</div>
-							</div>
-			
-						<?php 
+								</div>
+							<?php 
+							} 
 						} 
-					} 
-				?>
+					?>
+				</div>
 			</div>
-		</div>
-	
 		<?php
+		} else { ?>
+			<div class="info-woo">
+				<h3><?php esc_html_e('You need to install or activate woocommer plugin', 'wpew'); ?></h3>
+			</div>
+		<?php }
 	}
 }
 

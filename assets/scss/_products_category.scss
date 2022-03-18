@@ -132,20 +132,24 @@
 		.icon {
 			border: 1px solid #EBEBEB;
 			border-radius: 50%;
-			height: 115px;
+			height: 120px;
 			margin: 0 auto 20px;
 			text-align: center;
-			width: 115px;
+			width: 120px;
 			-webkit-transition: all .3s ease;
 			-moz-transition: all .3s ease;
 			-o-transition: all .3s ease;
 			transition: all .3s ease;
+			overflow: hidden;
 			img {
-				display: inline;
-				height: 50px;
-				margin: 35px auto 0;
-				width: 50px;
+				height: 100%;
+				width: 100%;
 				transition: all .3s ease;
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				margin: 0;
+				padding: 40px;
 			}
 		}
 		&:hover .icon {
