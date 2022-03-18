@@ -73,80 +73,190 @@ class Widget_Products_Category_List extends Widget_Base {
 
         $this->end_controls_section();
 
-		/**
-		 * All Categories Style
-		 */
+		# Categories product title text style
 		$this->start_controls_section(
-			'all_categories_title_style',
+			'categories_product_title_text_style',
 			[
-				'label' 	=> __( 'ALL Categories', 'wpew' ),
+				'label' 	=> __( 'Categories Name', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
+		# Categories product title text color
 		$this->add_control(
-			'all_category_text_color',
+			'categories_product_title_text_color',
 			[
-				'label'		=> __( 'All Category Text Color', 'wpew' ),
+				'label'		=> __( 'Products Title Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .iconbox .details .title' => 'color: {{VALUE}};',
 				],
 			]
 		);
+
+		# Categories product title text hover color
+		$this->add_control(
+			'categories_product_title_text_hover_color',
+			[
+				'label'		=> __( 'Products Title Text Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .iconbox .details .title:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Categories product title text typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Title Text Typography', 'wpew' ),
+				'name' 		=> 'categories_product_title_text_typography',
+				'selector' 	=> '{{WRAPPER}} .iconbox .details .title',
+			]
+		);
+
+
+		# Categories product title text spacing
+		$this->add_responsive_control(
+			'categories_product_title_text_spacing',
+			[
+				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .iconbox .details .title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 
 		$this->end_controls_section();
 		# End All Categories
 
-		/**
-		 * All Categories List Style
-		 */
+		# Categories product style
 		$this->start_controls_section(
-			'all_categories_list_style',
+			'categories_product_style',
 			[
-				'label' 	=> __( 'Categories List Style', 'wpew' ),
+				'label' 	=> __( 'Categories Product', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
+		# Categories product number text color
 		$this->add_control(
-			'all_category_list_color',
+			'categories_product_number_text_color',
 			[
-				'label'		=> __( 'Category Text Color', 'wpew' ),
+				'label'		=> __( 'Products Number Text Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .details p' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-		$this->end_controls_section();
-		# End All Categories List
-
-		/**
-		 * All Categories Megamenu Style
-		 */
-		$this->start_controls_section(
-			'all_categories_megamenu_style',
+		# Categories product number text typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
 			[
-				'label' 	=> __( 'Megamenu Style', 'wpew' ),
+				'label'		=> __( 'Typography', 'wpew' ),
+				'name' 		=> 'categories_product_number_text_typography',
+				'selector' 	=> '{{WRAPPER}} .details p',
+			]
+		);
+
+		$this->end_controls_section();
+
+		# Categories Images Style
+		$this->start_controls_section(
+			'categories_image_style',
+			[
+				'label' 	=> __( 'Images Style', 'wpew' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
+		# Image border color
 		$this->add_control(
-			'all_category_megamenu_color',
+			'categories_image_border_color',
 			[
-				'label'		=> __( 'Megamenu Color', 'wpew' ),
+				'label'		=> __( 'Border Color', 'wpew' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .header-carousel .iconbox .icon' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
 
+		# Image border hover color
+		$this->add_control(
+			'categories_image_border_hover_color',
+			[
+				'label'		=> __( 'Border Hover Color', 'wpew' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .header-carousel .iconbox .icon:hover' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Image border radius
+		$this->add_responsive_control(
+			'categories_image_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .header-carousel .iconbox .icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		# Image size
+		$this->add_responsive_control(
+			'categories_image_size',
+			[
+				'label' => esc_html__( 'Image Size', 'wpew' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 30,
+				],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 300,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .header-carousel .iconbox .icon img' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		# Image padding
+		$this->add_responsive_control(
+            'categories_image_padding',
+            [
+                'label' 		=> __( 'Padding', 'wpew' ),
+                'type' 			=> Controls_Manager::DIMENSIONS,
+                'size_units' 	=> [ 'px', 'em', '%' ],
+                'selectors' 	=> [
+                    '{{WRAPPER}} .header-carousel .iconbox .icon img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' 	=> 'before', 
+            ]
+        );
+
 		$this->end_controls_section();
-		# End All Categories megamenu
 	}
 
 	protected function render( ) {
