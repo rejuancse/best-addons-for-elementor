@@ -34,7 +34,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'placeholder' => 'Enter Address',
-                'default' => '',
+                'default' => 'Dhaka',
             ]
         );
         $this->add_control(
@@ -44,7 +44,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
                 'type' 	=> Controls_Manager::TEXT,
                 'label_block' => true,
                 'placeholder' => 'Enter Latitude',
-                'default' => '40.7324319',
+                'default' => '23.777176',
             ]
         );
         $this->add_control(
@@ -54,7 +54,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'placeholder' => 'Enter Longitude',
-                'default' => '-73.82480799999996',
+                'default' => '90.399452',
             ]
         );
         $this->add_control(
@@ -152,8 +152,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
         );
         $this->end_controls_section();
 
-
-
+        
 		$this->start_controls_section(
 			'section_title_style',
 			[
@@ -251,8 +250,20 @@ class Widget_WPEW_Gmap extends Widget_Base {
         }
 		?>
 
-		<div id="map" data-zoomcontrol="<?php echo $gmap_zoomcontrol; ?>" data-controls="<?php echo $gmap_controls; ?>" data-styles="<?php echo $gmap_styles; ?>" data-flugurl="<?php echo $image; ?>" data-address="<?php echo $gmap_address;  ?>"  data-latitude="<?php echo $gmap_latitude; ?>"  data-longitude="<?php echo $gmap_longitude; ?>"  data-height="<?php echo $gmap_height; ?>"  data-type="<?php echo $gmap_type; ?>"  data-zoom="<?php echo $gmap_zoom; ?>"></div>
+		<div id="map" 
+            data-zoomcontrol="<?php echo $gmap_zoomcontrol; ?>" 
+            data-controls="<?php echo $gmap_controls; ?>" 
+            data-styles="<?php echo $gmap_styles; ?>" 
+            data-flugurl="<?php echo $image; ?>" 
+            data-address="<?php echo $gmap_address;  ?>" 
+            data-latitude="<?php echo $gmap_latitude; ?>" 
+            data-longitude="<?php echo $gmap_longitude; ?>" 
+            data-height="<?php echo $gmap_height; ?>" 
+            data-type="<?php echo $gmap_type; ?>"  
+            data-zoom="<?php echo $gmap_zoom; ?>"></div>
 
-		<?php }
+		<?php 
+    }
 }
+
 Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Gmap() );

@@ -79,7 +79,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'contact_button',
 			[
-				'label' 		=> __( 'Contact Form', 'elementor' ),
+				'label' 		=> __( 'Contact Form', 'wpew' ),
 				'type' 			=> Controls_Manager::SELECT,
 				'default' 		=> '',
 				'options'		=> wpew_contact_form(),
@@ -310,7 +310,5 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 
 		<?php 
     }
-
 }
-
 Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Call_Contact_Form() );
