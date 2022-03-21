@@ -86,12 +86,15 @@ class Base {
      * @ Frontend
      */
     public function frontend_script(){
+        wp_enqueue_style( 'eafe-flaticon', EAFE_DIR_URL .'assets/css/flaticon.css', false, EAFE_VERSION );
+        wp_enqueue_style( 'eafe-slick', EAFE_DIR_URL .'assets/css/slick.css', false, EAFE_VERSION );
         wp_enqueue_style( 'eafe-css-front', EAFE_DIR_URL .'assets/css/eafe-front.css', false, EAFE_VERSION );
         wp_enqueue_style( 'jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' );
          
         #JS
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-ui-datepicker', array( 'jquery' ) );
+        wp_enqueue_script( 'eafe-slick', EAFE_DIR_URL .'assets/js/slick.min.js', array('jquery'), EAFE_VERSION, true);
         wp_enqueue_script( 'wp-eafe-front', EAFE_DIR_URL .'assets/js/eafe-front.js', array('jquery'), EAFE_VERSION, true);
         wp_localize_script( 'wp-eafe-front', 'eafe_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
         wp_enqueue_media();

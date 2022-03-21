@@ -125,7 +125,6 @@ class Widget_Online_Delivery extends Widget_Base {
 
 		$this->end_controls_section();
 		# Title Section end 1
-
 	}
 
 	protected function render( ) {
@@ -134,8 +133,6 @@ class Widget_Online_Delivery extends Widget_Base {
 		$hotline_text = $settings['hotline_text'];
 		$delivery_image = $settings['delivery_image'];
 		?>
-
-		<!-- https://creativelayers.net/themes/freshen-html/images/shop-items/delivery.png -->
 
 		<div class="online_delivery text-center">
             <div class="delivery_bike">

@@ -5,7 +5,7 @@ function eafe_elementor_init(){
     Elementor\Plugin::instance()->elements_manager->add_category(
         'eafe-elementor',
         [
-            'title'     => 'WP Elements Widgets',
+            'title'     => 'Easy Addons For Elementor',
             'icon'      => 'apps'
         ],
         1
@@ -16,7 +16,7 @@ add_action( 'elementor/init', 'eafe_elementor_init' );
 /**
  * Elementor addons
  * */ 
-function add_new_elements() {
+function eafe_add_new_elements() {
     $widgets_lists = array_filter(glob(EAFE_DIR_PATH.'app/includes/elementor/widgets/*'));
     
     if (count($widgets_lists) > 0) {
@@ -29,9 +29,8 @@ function add_new_elements() {
             }
         }
     }
-
 }
-add_action( 'elementor/widgets/widgets_registered', 'add_new_elements' );
+add_action( 'elementor/widgets/widgets_registered', 'eafe_add_new_elements' );
 
 
 # Category List

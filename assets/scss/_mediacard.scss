@@ -1,0 +1,154 @@
+$barbarian: #ec9b3b;
+$archer: #ee5487;
+$giant: #f6901a;
+$goblin: #82bb30;
+$wizard: #4facff;
+
+.media-card-container {
+    text-align: center;
+    .wrapper {
+        &:focus {
+            outline: 0;
+        }
+    }
+    .eafe-card {
+        background: white;
+        width: 100%;
+        display: inline-block;
+        margin: auto;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        box-shadow: 0px 3px 6px 0px #00000026;
+        z-index: 9999;
+        overflow: hidden;
+        .content {
+            text-align: center;
+            padding: 0 20px;
+        }
+    }
+    .eafe-card__image {
+        position: relative;
+        height: 230px;
+        margin-bottom: 35px;
+    }
+    .eafe-card__image--barbarian {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        img {
+            width: 92%;
+            position: absolute;
+            top: -60px;
+            left: 0;
+        }
+    }
+    .eafe-card__level {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 3px;
+    }
+    .eafe-card__level--barbarian {
+        color: $barbarian;
+    }
+    .eafe-card__level--archer {
+        color: $archer;
+    }
+    .eafe-card__level--giant {
+        color: $giant;
+    }
+    .eafe-card__level--goblin {
+        color: $goblin;
+    }
+    .eafe-card__level--wizard {
+        color: $wizard;
+    }
+    .eafe-card__unit-name {
+        font-size: 26px;
+        color: black;
+        font-weight: 900;
+        margin-bottom: 5px;
+    }
+    .eafe-card__unit-description {
+        padding: 20px 0;
+    }
+    .eafe-card__unit-stats--barbarian {
+        background: $barbarian;
+        .one-third {
+            border-right: 1px solid #bd7c2f;
+        }
+        .one-third.val-1 {
+            border-right: none;
+        }
+    }
+    .eafe-card__unit-stats--archer {
+        background: $archer;
+        .one-third {
+            border-right: 1px solid #d04976;
+        }
+    }
+    .eafe-card__unit-stats--giant {
+        background: $giant;
+        .one-third {
+            border-right: 1px solid darken($giant, 8%);
+        }
+    }
+    .eafe-card__unit-stats--goblin {
+        background: $goblin;
+        .one-third {
+            border-right: 1px solid darken($goblin, 6%);
+        }
+    }
+    .eafe-card__unit-stats--wizard {
+        background: $wizard;
+        .one-third {
+            border-right: 1px solid darken($wizard, 6%);
+        }
+    }
+    .eafe-card__unit-stats {
+        color: white;
+        font-weight: 700;
+        .one-third {
+            width: 100%;
+            float: left;
+            padding: 20px 15px;
+            &.val-2 {
+                width: 50%;
+            }
+        
+            &.val-3 {
+                width: 33%;
+            }
+            &.val-4 {
+                width: 25%;
+            }
+        
+            &.val-5 {
+                width: 20%;
+            }
+        }
+        .one-third:last-child {
+            border-right: none;
+        }
+        .stat {
+            position: relative;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .stat-value {
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 12px;
+        }
+    }
+
+    .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+}
