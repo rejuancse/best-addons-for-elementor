@@ -1,5 +1,5 @@
 /*
-* WPEW admin CSS
+* EAFE admin CSS
 * File Description: The main stylesheet of this plugins for main design part.
 */
 @import "breakpoint";
@@ -7,7 +7,7 @@
 /* --------------------------
 * Shortcode CSS 
 * --------------------------- */
-.wpew-list-table {
+.eafe-list-table {
     .plugin-card {
         .name.column-name {
             display: flex;
@@ -27,17 +27,17 @@
             } 
         }
     }
-    .wpew-settings-panel{
+    .eafe-settings-panel{
         margin-top: 20px;
         padding: 0;
         display: flex; 
-        .wpew-tabs-content {
+        .eafe-tabs-content {
             max-height: 700px;
             overflow-y: scroll;
             background-color: #ffffff;
             box-shadow: 0 15px 25px #f0f0f1;
         }
-        .wpew-main-setting-table {
+        .eafe-main-setting-table {
             margin: 0;
             th {
                 width: 280px;
@@ -75,12 +75,12 @@
 /*
 * Extensions List css
 *------------------------------ */ 
-.wp-wpew-extensions-list {
+.wp-eafe-extensions-list {
     .plugin-icon{
         width: 64px;
         height: 64px;
     }
-    .wpew-list-table {
+    .eafe-list-table {
         a{
             color: #fff;
             margin-top: 100px;

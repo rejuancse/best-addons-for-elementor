@@ -3,7 +3,7 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-function wpew_contact_form(){
+function eafe_contact_form(){
 
 	$args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
 	$contact_forms = array();
@@ -12,19 +12,19 @@ function wpew_contact_form(){
 			$contact_forms[$key->ID] = $key->post_title;
 		}
 	}else{
-		$contact_forms['0'] = esc_html__('No Contact Form found', 'wpew');
+		$contact_forms['0'] = esc_html__('No Contact Form found', 'eafe');
 	}
 
     return $contact_forms;
 }
 
-class Widget_WPEW_Call_Contact_Form extends Widget_Base {
+class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 	public function get_name() {
-		return 'wpew-call-contact-form';
+		return 'eafe-call-contact-form';
 	}
 
 	public function get_title() {
-		return __( 'Call Contact Form', 'wpew' );
+		return __( 'Call Contact Form', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -32,57 +32,57 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Call Contact Form', 'wpew' )
+                'label' => __( 'Call Contact Form', 'eafe' )
             ]
         );
 
         $this->add_control(
             'callto_action_title',
             [
-                'label' => __( 'Title', 'wpew' ),
+                'label' => __( 'Title', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'wpew' ),
-                'default' => __( 'This is heading', 'wpew' ),
+                'placeholder' => __( 'Enter title', 'eafe' ),
+                'default' => __( 'This is heading', 'eafe' ),
             ]
         );
 
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'wpew' ),
+                'label' => __( 'Sub Title Content', 'eafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
-                'default' => __( 'Write your sub title content of this section.', 'wpew' ),
+                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
+                'default' => __( 'Write your sub title content of this section.', 'eafe' ),
             ]
         );    
 		
 		$this->add_control(
             'action_button',
             [
-                'label' => __( 'Button Name', 'wpew' ),
+                'label' => __( 'Button Name', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Button Name', 'wpew' ),
-                'default' => __( 'Contact us Today', 'wpew' ),
+                'placeholder' => __( 'Button Name', 'eafe' ),
+                'default' => __( 'Contact us Today', 'eafe' ),
             ]
         );
 
 		$this->add_control(
 			'contact_button',
 			[
-				'label' 		=> __( 'Contact Form', 'wpew' ),
+				'label' 		=> __( 'Contact Form', 'eafe' ),
 				'type' 			=> Controls_Manager::SELECT,
 				'default' 		=> '',
-				'options'		=> wpew_contact_form(),
+				'options'		=> eafe_contact_form(),
 			]
 		);
 
@@ -92,7 +92,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -100,7 +100,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'section_bg_color',
 			[
-				'label'		=> __( 'Section Background Color', 'wpew' ),
+				'label'		=> __( 'Section Background Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .call_action_wrap-wrap' => 'background: {{VALUE}};',
@@ -111,7 +111,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_responsive_control(
             'call_form_padding',
             [
-                'label' 		=> __( 'Padding', 'wpew' ),
+                'label' 		=> __( 'Padding', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -124,7 +124,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
         $this->add_responsive_control(
 			'contact_form_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'label' => esc_html__( 'Border Radius', 'eafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -137,7 +137,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .call_action_wrap h3' => 'color: {{VALUE}};',
@@ -159,7 +159,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'wpew' ),
+				'label' 	=> __( 'Sub Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -167,7 +167,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'wpew' ),
+				'label'		=> __( 'Subtitle Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .call_action_wrap span' => 'color: {{VALUE}};',
@@ -189,7 +189,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->start_controls_section(
 			'action_button_style',
 			[
-				'label' 	=> __( 'Button Style', 'wpew' ),
+				'label' 	=> __( 'Button Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -197,7 +197,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_color',
 			[
-				'label'		=> __( 'Button Text Color', 'wpew' ),
+				'label'		=> __( 'Button Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'color: {{VALUE}};',
@@ -208,7 +208,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_hover_color',
 			[
-				'label'		=> __( 'Button Text Hover Color', 'wpew' ),
+				'label'		=> __( 'Button Text Hover Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap:hover' => 'color: {{VALUE}};',
@@ -219,7 +219,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_background',
 			[
-				'label'		=> __( 'Button BG Color', 'wpew' ),
+				'label'		=> __( 'Button BG Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'background: {{VALUE}};',
@@ -230,7 +230,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_hover_background',
 			[
-				'label'		=> __( 'Button Hover BG Color', 'wpew' ),
+				'label'		=> __( 'Button Hover BG Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap:hover' => 'background: {{VALUE}};',
@@ -249,7 +249,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_responsive_control(
             'call_form_btn_padding',
             [
-                'label' 		=> __( 'Padding', 'wpew' ),
+                'label' 		=> __( 'Padding', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -262,7 +262,7 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		$this->add_responsive_control(
 			'contact_form_btn_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'label' => esc_html__( 'Border Radius', 'eafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -311,4 +311,4 @@ class Widget_WPEW_Call_Contact_Form extends Widget_Base {
 		<?php 
     }
 }
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Call_Contact_Form() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Call_Contact_Form() );

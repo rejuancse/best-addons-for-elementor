@@ -9,7 +9,7 @@ class Widget_Media_Card extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Media Card', 'wpew' );
+		return __( 'Media Card', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,21 +17,21 @@ class Widget_Media_Card extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
         $this->add_control(
             'mediacard_image',
             [
-                'label' => esc_html__( 'Upload Background Image', 'wpew' ),
+                'label' => esc_html__( 'Upload Background Image', 'eafe' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -43,7 +43,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_image',
 			[
-				'label' => esc_html__( 'Upload Image', 'wpew' ),
+				'label' => esc_html__( 'Upload Image', 'eafe' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [],
 			]
@@ -53,7 +53,7 @@ class Widget_Media_Card extends Widget_Base {
         $this->add_responsive_control(
 			'vertical_image_position',
 			[
-				'label' => esc_html__( 'Vertical Image Position', 'wpew' ),
+				'label' => esc_html__( 'Vertical Image Position', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -30,
@@ -65,7 +65,7 @@ class Widget_Media_Card extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__image--barbarian img' => 'top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-card__image--barbarian img' => 'top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -74,7 +74,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
 			'horizontal_image_position',
 			[
-				'label' => esc_html__( 'Horizontal Image Position', 'wpew' ),
+				'label' => esc_html__( 'Horizontal Image Position', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -30,
@@ -86,7 +86,7 @@ class Widget_Media_Card extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__image--barbarian img' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-card__image--barbarian img' => 'left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -94,7 +94,7 @@ class Widget_Media_Card extends Widget_Base {
         $this->add_control(
 			'content_wrap_section',
 			[
-				'label' => esc_html__( 'Main Contents', 'wpew' ),
+				'label' => esc_html__( 'Main Contents', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -104,22 +104,22 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
             'media_title',
             [
-                'label' => __( 'Title Text', 'wpew' ),
+                'label' => __( 'Title Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title text', 'wpew' ),
-                'default' => __( 'The Barbarian', 'wpew' ),
+                'placeholder' => __( 'Enter title text', 'eafe' ),
+                'default' => __( 'The Barbarian', 'eafe' ),
             ]
         );
 
         $this->add_control(
             'media_subtitle',
             [
-                'label' => __( 'Sub Title Text', 'wpew' ),
+                'label' => __( 'Sub Title Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter subtitle text', 'wpew' ),
-                'default' => __( 'LEVEL 1', 'wpew' ),
+                'placeholder' => __( 'Enter subtitle text', 'eafe' ),
+                'default' => __( 'LEVEL 1', 'eafe' ),
             ]
         );
 
@@ -127,39 +127,39 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
             'media_description',
             [
-                'label' => __( 'Description Text', 'wpew' ),
+                'label' => __( 'Description Text', 'eafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'default' => __( 'The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready expression, hungry for destruction. He has Killer yellow horseshoe mustache.', 'wpew' ),
+                'default' => __( 'The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready expression, hungry for destruction. He has Killer yellow horseshoe mustache.', 'eafe' ),
             ]
         );
 
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => esc_html__( 'Alignment', 'wpew' ),
+				'label' => esc_html__( 'Alignment', 'eafe' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'wpew' ),
+						'title' => esc_html__( 'Left', 'eafe' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'wpew' ),
+						'title' => esc_html__( 'Center', 'eafe' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'wpew' ),
+						'title' => esc_html__( 'Right', 'eafe' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpew' ),
+						'title' => esc_html__( 'Justified', 'eafe' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card .content' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .eafe-card .content' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -169,7 +169,7 @@ class Widget_Media_Card extends Widget_Base {
         $repeater->add_control(
 			'footer_title',
 			[
-				'label' => __( 'Footer Title', 'wpew' ),
+				'label' => __( 'Footer Title', 'eafe' ),
 				'type' => Controls_Manager::TEXT,
                 'default'   => '20',   
             ]
@@ -178,21 +178,21 @@ class Widget_Media_Card extends Widget_Base {
 		$repeater->add_control(
 			'footer_subtitle',
 			[
-				'label' => __( 'Footer Sub-Title', 'wpew' ),
+				'label' => __( 'Footer Sub-Title', 'eafe' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Tranning', 'wpew' ),
+				'default' => __( 'Tranning', 'eafe' ),
             ]
 		);
 
 		$this->add_control(
 			'footer',
 			[
-				'label' => esc_html__( 'Footer', 'wpew' ),
+				'label' => esc_html__( 'Footer', 'eafe' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'footer_title' => esc_html__( '20', 'wpew' ),
+						'footer_title' => esc_html__( '20', 'eafe' ),
 						'footer_subtitle' => 'Tranning'
 					],
 				],
@@ -207,7 +207,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->start_controls_section(
 			'media_card_style',
 			[
-				'label' 	=> __( 'Settings', 'wpew' ),
+				'label' 	=> __( 'Settings', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -216,11 +216,11 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
             'media_border-radius',
             [
-                'label' 		=> __( 'Border Radius', 'wpew' ),
+                'label' 		=> __( 'Border Radius', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
-                    '{{WRAPPER}} .media-card-container .wpew-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .media-card-container .eafe-card' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator' 	=> 'before',
             ]
@@ -230,8 +230,8 @@ class Widget_Media_Card extends Widget_Base {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'wpew' ),
-				'selector' => '{{WRAPPER}} .media-card-container .wpew-card',
+				'label' => esc_html__( 'Box Shadow', 'eafe' ),
+				'selector' => '{{WRAPPER}} .media-card-container .eafe-card',
 			]
 		);
 
@@ -241,7 +241,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->start_controls_section(
 			'media_content_style',
 			[
-				'label' 	=> __( 'Content Settings', 'wpew' ),
+				'label' 	=> __( 'Content Settings', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -250,10 +250,10 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_title_text_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-card__unit-name' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -262,9 +262,9 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Text Typography', 'wpew' ),
+				'label'		=> __( 'Text Typography', 'eafe' ),
 				'name' 		=> 'media_title_typography',
-				'selector' 	=> '{{WRAPPER}} .wpew-card__unit-name',
+				'selector' 	=> '{{WRAPPER}} .eafe-card__unit-name',
 			]
 		);
 
@@ -272,7 +272,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
 			'media_title_space',
 			[
-				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -284,7 +284,7 @@ class Widget_Media_Card extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-name' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-card__unit-name' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -292,7 +292,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'subtitle_settings',
 			[
-				'label' => esc_html__( 'Sub Title Settings', 'wpew' ),
+				'label' => esc_html__( 'Sub Title Settings', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -302,10 +302,10 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_sub_title_text_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__level--barbarian' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-card__level--barbarian' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -314,9 +314,9 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Text Typography', 'wpew' ),
+				'label'		=> __( 'Text Typography', 'eafe' ),
 				'name' 		=> 'media_subtitle_typography',
-				'selector' 	=> '{{WRAPPER}} .wpew-card__level--barbarian',
+				'selector' 	=> '{{WRAPPER}} .eafe-card__level--barbarian',
 			]
 		);
 
@@ -324,7 +324,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
 			'media_subtitle_space',
 			[
-				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -336,7 +336,7 @@ class Widget_Media_Card extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__level--barbarian' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-card__level--barbarian' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -345,7 +345,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_description_style',
 			[
-				'label' => esc_html__( 'Description Settings', 'wpew' ),
+				'label' => esc_html__( 'Description Settings', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -355,10 +355,10 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_media_description_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-card__unit-description' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -367,9 +367,9 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Text Typography', 'wpew' ),
+				'label'		=> __( 'Text Typography', 'eafe' ),
 				'name' 		=> 'media_description_typography',
-				'selector' 	=> '{{WRAPPER}} .wpew-card__unit-description',
+				'selector' 	=> '{{WRAPPER}} .eafe-card__unit-description',
 			]
 		);
 
@@ -377,7 +377,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
 			'media_description_space',
 			[
-				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -389,7 +389,7 @@ class Widget_Media_Card extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-card__unit-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -398,11 +398,11 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
             'media_content_padding',
             [
-                'label' 		=> __( 'Padding', 'wpew' ),
+                'label' 		=> __( 'Padding', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
-                    '{{WRAPPER}} .media-card-container .wpew-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .media-card-container .eafe-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator' 	=> 'before',
             ]
@@ -414,7 +414,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->start_controls_section(
 			'media_card_footer_style',
 			[
-				'label' 	=> __( 'Footer', 'wpew' ),
+				'label' 	=> __( 'Footer', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -423,10 +423,10 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_footer_background_color',
 			[
-				'label'		=> __( 'Background Color', 'wpew' ),
+				'label'		=> __( 'Background Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-stats--barbarian' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .eafe-card__unit-stats--barbarian' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -435,10 +435,10 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_footer_title_text_color',
 			[
-				'label'		=> __( 'Title Text Color', 'wpew' ),
+				'label'		=> __( 'Title Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-stats--barbarian .stat' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-card__unit-stats--barbarian .stat' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -447,10 +447,10 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_footer_border_color',
 			[
-				'label'		=> __( 'Border Color', 'wpew' ),
+				'label'		=> __( 'Border Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .media-card-container .wpew-card__unit-stats--barbarian .one-third' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .media-card-container .eafe-card__unit-stats--barbarian .one-third' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -459,7 +459,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
 			'media_footer_title_space',
 			[
-				'label' => esc_html__( 'Title Spacing', 'wpew' ),
+				'label' => esc_html__( 'Title Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -471,7 +471,7 @@ class Widget_Media_Card extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-stats--barbarian .stat' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-card__unit-stats--barbarian .stat' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -480,10 +480,10 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_control(
 			'media_footer_subtitle_text_color',
 			[
-				'label'		=> __( 'Sub-title Text Color', 'wpew' ),
+				'label'		=> __( 'Sub-title Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-stats--barbarian .stat-value' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-card__unit-stats--barbarian .stat-value' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -493,7 +493,7 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
 			'media_sub_title_space',
 			[
-				'label' => esc_html__( 'Sub-title Spacing', 'wpew' ),
+				'label' => esc_html__( 'Sub-title Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -505,7 +505,7 @@ class Widget_Media_Card extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-card__unit-stats--barbarian .stat-value' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-card__unit-stats--barbarian .stat-value' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -514,11 +514,11 @@ class Widget_Media_Card extends Widget_Base {
 		$this->add_responsive_control(
             'media_footer_padding',
             [
-                'label' 		=> __( 'Padding', 'wpew' ),
+                'label' 		=> __( 'Padding', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
-                    '{{WRAPPER}} .wpew-card__unit-stats--barbarian' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eafe-card__unit-stats--barbarian' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
                 'separator' 	=> 'before',
             ]
@@ -539,8 +539,8 @@ class Widget_Media_Card extends Widget_Base {
 
         <div class="media-card-container">
             <div class="wrapper">
-                <div class="wpew-card barbarian">
-                    <div class="wpew-card__image wpew-card__image--barbarian" style="background-image: url(<?php echo $mediacard_image['url']; ?>)">
+                <div class="eafe-card barbarian">
+                    <div class="eafe-card__image eafe-card__image--barbarian" style="background-image: url(<?php echo $mediacard_image['url']; ?>)">
                         <?php if( ! empty($media_image['url']) ) { ?>
                             <img src="<?php echo $media_image['url']; ?>" alt="barbarian" />
                         <?php } ?>
@@ -548,19 +548,19 @@ class Widget_Media_Card extends Widget_Base {
 
                     <div class="content">
 						<?php if( !empty( $media_subtitle ) ) { ?>
-                        	<div class="wpew-card__level wpew-card__level--barbarian"><?php echo $media_subtitle; ?></div>
+                        	<div class="eafe-card__level eafe-card__level--barbarian"><?php echo $media_subtitle; ?></div>
 						<?php } ?>
 
 						<?php if( !empty( $media_title ) ) { ?>
-                        	<div class="wpew-card__unit-name"><?php echo $media_title ?></div>
+                        	<div class="eafe-card__unit-name"><?php echo $media_title ?></div>
 						<?php } ?>
 
 						<?php if( !empty( $media_description ) ) { ?>
-                        	<div class="wpew-card__unit-description"><?php echo $media_description ?></div>
+                        	<div class="eafe-card__unit-description"><?php echo $media_description ?></div>
 						<?php } ?>
                     </div>
                     
-                    <div class="wpew-card__unit-stats wpew-card__unit-stats--barbarian clearfix">
+                    <div class="eafe-card__unit-stats eafe-card__unit-stats--barbarian clearfix">
 						<?php 
 						$col = count($footer);
 						foreach($footer as $value) { ?>
@@ -571,7 +571,7 @@ class Widget_Media_Card extends Widget_Base {
 						<?php } ?>
                     </div>
                 </div>
-                <!-- end wpew-card barbarian-->
+                <!-- end eafe-card barbarian-->
             </div>
             <!-- end wrapper -->
 

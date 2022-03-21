@@ -1,5 +1,4 @@
-=== WP Elementor Widgets for Elementor ===
-
+=== Easy Addons for Elementor ===
 Contributors: rejuancse
 Tags: woocommerce, quick view, woocommerce quick view, products quick view, search, product search, search product, products listing, variable products, woocommerce wishlist, wishlist, delivery slots, product delivery slots, woocommerce delivery slots, social share, social login, variation swatches, woocommerce variation, product gallery, donate, reword, extensions
 Requires at least: 5.0
@@ -9,16 +8,16 @@ Stable tag:  1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WP Elementor Widgets for Elementor plugin is an extensible plugin that lets you easily manage woocommerce extensions by the wpew.club. Quick view, WooCommerce product search and Product listing extension easy to use in your woocommerce platform..
+Easy Addons for Elementor plugin is an extensible plugin that lets you easily manage woocommerce extensions by the eafe.club. Quick view, WooCommerce product search and Product listing extension easy to use in your woocommerce platform..
 
 == Description ==
-WP Elementor Widgets for Elementor is a multiple addons with one solution. In this plugin you can easily handle your everyday needed addons. quick view, product search, and listing your awesome produsts.
+Easy Addons for Elementor is a multiple addons with one solution. In this plugin you can easily handle your everyday needed addons. quick view, product search, and listing your awesome produsts.
 
 = Shortcode List =
 To use these shortcodes, just place the required shortcode(s) on your desired location.
 
   * Product list [product_listing]
-  * Product search [wpew_product_search]
+  * Product search [eafe_product_search]
 
 = Features =
 
@@ -42,7 +41,7 @@ Please let us know your feedback, if you think something can be more awesome in 
 
 The automatic installation is the easiest way to install any plugin in WordPress. You can perform an automatic installation of logging in to your WordPress dashboard, navigating to the “Plugins” menu and click on the "Add New" button.
 
-This will open up a page showing all the available plugins in WordPress. In the search field, type WP Elementor Widgets for Elementor or xextensions. The search result will show you our WP Elementor Widgets for Elementor plugin, you can then see the detailed info by clicking on "More Details" and to install just click on the "Install Now" button.
+This will open up a page showing all the available plugins in WordPress. In the search field, type Easy Addons for Elementor or xextensions. The search result will show you our Easy Addons for Elementor plugin, you can then see the detailed info by clicking on "More Details" and to install just click on the "Install Now" button.
 
 
 = Manual installation =
@@ -66,7 +65,7 @@ Go to Dashboard > Plugins > Add New, then upload xextensions-for-wooCommerce.zip
 A. You can get support by posting on the support section of this plugin on WordPress plugin directory, or on the support mail: rejuan.17bd@gmail.com
 
 = Q. Can I use my existing WordPress theme? =
-A. Sure, you can use your existing WordPress theme with WP Elementor Widgets for Elementor.
+A. Sure, you can use your existing WordPress theme with Easy Addons for Elementor.
 
 = Q. Where can I report a bug? =
 A. Found a bug? Please let us know by posting on the support section of this plugin on WordPress plugin directory or directly on our support mail: rejuan.17bd@gmail.com

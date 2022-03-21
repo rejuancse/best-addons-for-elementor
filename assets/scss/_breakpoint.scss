@@ -1,80 +1,80 @@
 /*********************
 BREAKPOINTS
 *********************/
-.wpew-row {
+.eafe-row {
     display: flex;
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
   
-    .wpew-col-12 {
+    .eafe-col-12 {
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .wpew-col-11 {
+    .eafe-col-11 {
         -ms-flex: 0 0 91.666667%;
         flex: 0 0 91.666667%;
         max-width: 91.666667%;
     }
-    .wpew-col-10 {
+    .eafe-col-10 {
         -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
         max-width: 83.333333%;
     }
-    .wpew-col-9 {
+    .eafe-col-9 {
         -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%;
     }
-    .wpew-col-8 {
+    .eafe-col-8 {
         -ms-flex: 0 0 66.666667%;
         flex: 0 0 66.666667%;
         max-width: 66.666667%;
     }
-    .wpew-col-7 {
+    .eafe-col-7 {
         -ms-flex: 0 0 58.333333%;
         flex: 0 0 58.333333%;
         max-width: 58.333333%;
     }
-    .wpew-col-6 {
+    .eafe-col-6 {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .wpew-col-5 {
+    .eafe-col-5 {
         -ms-flex: 0 0 41.666667%;
         flex: 0 0 41.666667%;
         max-width: 41.666667%;
     }
-    .wpew-col-4 {
+    .eafe-col-4 {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
-    .wpew-col-3 {
+    .eafe-col-3 {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
     }
-    .wpew-col-2 {
+    .eafe-col-2 {
         -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
-    .wpew-col-1 {
+    .eafe-col-1 {
         -ms-flex: 0 0 8.333333%;
         flex: 0 0 8.333333%;
         max-width: 8.333333%;
     }
 
-    .wpew-col-71 {
+    .eafe-col-71 {
         flex: 0 0 auto;
         width: 14.28%;
     }
 }
 
-.wpew-row>* {
+.eafe-row>* {
     flex-shrink: 0;
     width: 100%;
     max-width: 100%;

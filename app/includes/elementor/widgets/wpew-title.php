@@ -2,13 +2,13 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-class Widget_WPEW_Title extends \Elementor\Widget_Base {
+class Widget_EAFE_Title extends \Elementor\Widget_Base {
 	public function get_name() {
-		return 'wpew-title';
+		return 'eafe-title';
 	}
 
 	public function get_title() {
-		return __( 'WPEW Title', 'wpew' );
+		return __( 'EAFE Title', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -16,70 +16,70 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
         $this->add_control(
             'title_txt',
             [
-                'label' => __( 'First Title Text', 'wpew' ),
+                'label' => __( 'First Title Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'wpew' ),
-                'default' => __( 'Explore Featured', 'wpew' ),
+                'placeholder' => __( 'Enter title', 'eafe' ),
+                'default' => __( 'Explore Featured', 'eafe' ),
             ]
         );
 
 		$this->add_control(
             'title_txt2',
             [
-                'label' => __( 'Second Title Text', 'wpew' ),
+                'label' => __( 'Second Title Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'wpew' ),
-                'default' => __( 'Cources', 'wpew' ),
+                'placeholder' => __( 'Enter title two', 'eafe' ),
+                'default' => __( 'Cources', 'eafe' ),
             ]
         );
 
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'wpew' ),
+                'label' => __( 'Sub Title Content', 'eafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
-                'default' => __( 'Write your sub title content of this section.', 'wpew' ),
+                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
+                'default' => __( 'Write your sub title content of this section.', 'eafe' ),
             ]
         );
 
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => esc_html__( 'Alignment', 'wpew' ),
+				'label' => esc_html__( 'Alignment', 'eafe' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'wpew' ),
+						'title' => esc_html__( 'Left', 'eafe' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'wpew' ),
+						'title' => esc_html__( 'Center', 'eafe' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'wpew' ),
+						'title' => esc_html__( 'Right', 'eafe' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpew' ),
+						'title' => esc_html__( 'Justified', 'eafe' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -96,17 +96,17 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'forst_title_color',
 			[
-				'label'		=> __( 'First Text Color', 'wpew' ),
+				'label'		=> __( 'First Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew_heading_caption h2' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe_heading_caption h2' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -114,10 +114,10 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 		$this->add_control(
 			'second_title_color',
 			[
-				'label'		=> __( 'Second Text Color', 'wpew' ),
+				'label'		=> __( 'Second Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew_heading_caption .theme-cl' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe_heading_caption .theme-cl' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -126,14 +126,14 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 		=> 'typography',
-				'selector' 	=> '{{WRAPPER}} .wpew_heading_caption h2',
+				'selector' 	=> '{{WRAPPER}} .eafe_heading_caption h2',
 			]
 		);
 
         $this->add_responsive_control(
-			'wpew_title_space',
+			'eafe_title_space',
 			[
-				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -145,7 +145,7 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew_heading_caption h2' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe_heading_caption h2' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -158,7 +158,7 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'wpew' ),
+				'label' 	=> __( 'Sub Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -166,10 +166,10 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'wpew' ),
+				'label'		=> __( 'Subtitle Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew_heading_caption p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe_heading_caption p' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -178,7 +178,7 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 		=> 'typography2',
-				'selector' 	=> '{{WRAPPER}} .wpew_heading_caption p',
+				'selector' 	=> '{{WRAPPER}} .eafe_heading_caption p',
 			]
 		);
 
@@ -189,7 +189,7 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
 	protected function render( ) {
 		$settings = $this->get_settings();  ?>
 
-		<div class="wpew_heading_caption">
+		<div class="eafe_heading_caption">
 			<?php if( $settings['title_txt'] ){ ?>
 				<h2><?php echo $settings['title_txt']; ?> <?php if( $settings['title_txt'] ){ ?><span class="theme-cl"><?php echo $settings['title_txt2']; ?></span><?php } ?></h2>
 			<?php } ?>
@@ -203,4 +203,4 @@ class Widget_WPEW_Title extends \Elementor\Widget_Base {
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Title() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Title() );

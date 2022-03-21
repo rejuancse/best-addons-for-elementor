@@ -9,7 +9,7 @@ class Widget_Online_Delivery extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Online Delivery', 'wpew' );
+		return __( 'Online Delivery', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,14 +17,14 @@ class Widget_Online_Delivery extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
@@ -32,11 +32,11 @@ class Widget_Online_Delivery extends Widget_Base {
         $this->add_control(
             'title_text',
             [
-                'label' => __( 'Title Text', 'wpew' ),
+                'label' => __( 'Title Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title text', 'wpew' ),
-                'default' => __( 'WHATSAPP ORDERING SERVICE PLACE YOUR ORDERS AT', 'wpew' ),
+                'placeholder' => __( 'Enter title text', 'eafe' ),
+                'default' => __( 'WHATSAPP ORDERING SERVICE PLACE YOUR ORDERS AT', 'eafe' ),
             ]
         );
 		
@@ -45,11 +45,11 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->add_control(
             'hotline_text',
             [
-                'label' => __( 'Hotline Text', 'wpew' ),
+                'label' => __( 'Hotline Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter hotline', 'wpew' ),
-                'default' => __( '392 96 32', 'wpew' ),
+                'placeholder' => __( 'Enter hotline', 'eafe' ),
+                'default' => __( '392 96 32', 'eafe' ),
             ]
         );
 
@@ -84,7 +84,7 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -93,7 +93,7 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->add_control(
 			'title_text_color',
 			[
-				'label'		=> __( 'Title Text Color', 'wpew' ),
+				'label'		=> __( 'Title Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .online_delivery .title' => 'color: {{VALUE}};',
@@ -105,7 +105,7 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->add_control(
 			'hotline_text_color',
 			[
-				'label'		=> __( 'Hotline Text Color', 'wpew' ),
+				'label'		=> __( 'Hotline Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .online_delivery .text-thm' => 'color: {{VALUE}};',
@@ -117,7 +117,7 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Timeline Title Typography', 'wpew' ),
+				'label'		=> __( 'Timeline Title Typography', 'eafe' ),
 				'name' 		=> 'title_typography',
 				'selector' 	=> '{{WRAPPER}} .online_delivery h3',
 			]

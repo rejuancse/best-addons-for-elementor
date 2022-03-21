@@ -1,6 +1,6 @@
-<div class="wp-wpew-extensions-list">
+<div class="wp-eafe-extensions-list">
     <h2 class="addon-list-heading">
-        <?php _e('WPEW Addons List', 'wpew'); ?>
+        <?php _e('EAFE Addons List', 'eafe'); ?>
     </h2>
     
     <?php
@@ -11,7 +11,7 @@
             "path"          => "animated-headine",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
             "url"           => $site_url.'animated-headine',
         ],
         [
@@ -19,7 +19,7 @@
             "path"          => "breaking-news",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
             "url"           => $site_url.'breaking-news',
         ],
 
@@ -28,7 +28,7 @@
             "path"          => "call-contact-form",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
             "url"           => $site_url.'call-contact-form',
         ],
         [
@@ -36,7 +36,7 @@
             "path"          => "countdown",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
             "url"           => $site_url.'countdown',
         ],
 
@@ -45,23 +45,23 @@
             "path"          => "events-list",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
             "url"           => $site_url.'events-list',
         ],
         [
-            "name"          => "WPEW Features",
-            "path"          => "wpew-features",
+            "name"          => "EAFE Features",
+            "path"          => "eafe-features",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/headline.png',
-            "url"           => $site_url.'wpew-features',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
+            "url"           => $site_url.'eafe-features',
         ],
         [
             "name"          => "Media Card",
             "path"          => "media-card",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/cards.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/cards.png',
             "url"           => $site_url.'media-card',
         ],   
         [
@@ -69,7 +69,7 @@
             "path"          => "online-delivery",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/delivery-man.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/delivery-man.png',
             "url"           => $site_url.'online-delivery',
         ],  
 
@@ -78,7 +78,7 @@
             "path"          => "photo-gallery",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/price-tag.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/price-tag.png',
             "url"           => $site_url.'photo-gallery',
         ],
 
@@ -87,7 +87,7 @@
             "path"          => "post-ajax-search",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/price-tag.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/price-tag.png',
             "url"           => $site_url.'post-ajax-search',
         ],
 
@@ -96,7 +96,7 @@
             "path"          => "products-category-list",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/price-tag.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/price-tag.png',
             "url"           => $site_url.'products-category-list',
         ],
 
@@ -105,40 +105,40 @@
             "path"          => "shop-banner",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/price-tag.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/price-tag.png',
             "url"           => $site_url.'animated-headine',
         ],  
         
         [
-            "name"          => "WPEW Gmap",
-            "path"          => "wpew-gmap",
+            "name"          => "EAFE Gmap",
+            "path"          => "eafe-gmap",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/countdown.png',
-            "url"           => $site_url.'wpew-gmap',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/countdown.png',
+            "url"           => $site_url.'eafe-gmap',
         ],   
         [
             "name"          => "Member",
             "path"          => "member",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/gallery.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/gallery.png',
             "url"           => $site_url.'member',
         ],   
         [
-            "name"          => "WPEW Title",
-            "path"          => "wpew-title",
+            "name"          => "EAFE Title",
+            "path"          => "eafe-title",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => WPEW_DIR_URL .'assets/images/icons/blog.png',
-            "url"           => $site_url.'wpew-title',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/blog.png',
+            "url"           => $site_url.'eafe-title',
         ],   
         // [
         //     "name"          => "Pricing Table",
         //     "path"          => "pricing-table",
         //     "useability"    => "go pro",
         //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => WPEW_DIR_URL .'assets/images/icons/pricing.png',
+        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/pricing.png',
         //     "url"           => $site_url.'animated-headine',
         // ], 
         // [
@@ -146,7 +146,7 @@
         //     "path"          => "products-category-list",
         //     "useability"    => "go pro",
         //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => WPEW_DIR_URL .'assets/images/icons/note.png',
+        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/note.png',
         //     "url"           => $site_url.'animated-headine',
         // ], 
         // [
@@ -154,7 +154,7 @@
         //     "path"          => "products-category-megamenu",
         //     "useability"    => "go pro",
         //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => WPEW_DIR_URL .'assets/images/icons/hamburger.png',
+        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/hamburger.png',
         //     "url"           => $site_url.'animated-headine',
         // ], 
         // [
@@ -162,7 +162,7 @@
         //     "path"          => "products-list",
         //     "useability"    => "go pro",
         //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => WPEW_DIR_URL .'assets/images/icons/box.png',
+        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/box.png',
         //     "url"           => $site_url.'animated-headine',
         // ], 
         // [
@@ -170,7 +170,7 @@
         //     "path"          => "time-line",
         //     "useability"    => "go pro",
         //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => WPEW_DIR_URL .'assets/images/icons/timeline.png',
+        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/timeline.png',
         //     "url"           => $site_url.'animated-headine',
         // ], 
         // [
@@ -178,21 +178,21 @@
         //     "path"          => "tree-diagram",
         //     "useability"    => "go pro",
         //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => WPEW_DIR_URL .'assets/images/icons/hierarchical.png',
+        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/hierarchical.png',
         //     "url"           => $site_url.'animated-headine',
         // ], 
         // [
-        //     "name"          => "WPEW Table",
-        //     "path"          => "wpew-table",
+        //     "name"          => "EAFE Table",
+        //     "path"          => "eafe-table",
         //     "useability"    => "go pro",
         //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => WPEW_DIR_URL .'assets/images/icons/table.png',
+        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/table.png',
         //     "url"           => $site_url.'animated-headine',
         // ], 
     ];
  
     if (is_array($config) && count($config)){ ?>
-        <div class="wpew-list-table widefat plugin-install">
+        <div class="eafe-list-table widefat plugin-install">
             <?php foreach ( $config as $basName => $addon ) { ?>
 
                 <div class="plugin-card">

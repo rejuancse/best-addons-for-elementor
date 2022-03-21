@@ -2,13 +2,13 @@
 namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_WPEW_Gmap extends Widget_Base {
+class Widget_EAFE_Gmap extends Widget_Base {
 	public function get_name() {
-		return 'wpew-gmap';
+		return 'eafe-gmap';
 	}
 
 	public function get_title() {
-		return __( 'WPEW GMap', 'wpew' );
+		return __( 'EAFE GMap', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -16,7 +16,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function _register_controls() {
@@ -24,13 +24,13 @@ class Widget_WPEW_Gmap extends Widget_Base {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'GMap Content', 'wpew' )
+                'label' => __( 'GMap Content', 'eafe' )
             ]
         );
 		$this->add_control(
             'gmap_address',
             [
-                'label' => __( 'Address', 'wpew' ),
+                'label' => __( 'Address', 'eafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'placeholder' => 'Enter Address',
@@ -40,7 +40,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
         $this->add_control(
             'gmap_latitude',
             [
-                'label' => __( 'Latitude', 'wpew' ),
+                'label' => __( 'Latitude', 'eafe' ),
                 'type' 	=> Controls_Manager::TEXT,
                 'label_block' => true,
                 'placeholder' => 'Enter Latitude',
@@ -50,7 +50,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
         $this->add_control(
             'gmap_longitude',
             [
-                'label' => __( 'Longitude', 'wpew' ),
+                'label' => __( 'Longitude', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'placeholder' => 'Enter Longitude',
@@ -60,7 +60,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
         $this->add_control(
             'gmap_height',
             [
-                'label'         => __( 'MAP Height', 'wpew' ),
+                'label'         => __( 'MAP Height', 'eafe' ),
                 'type'          => Controls_Manager::NUMBER,
                 'label_block'   => false,
                 'default'       => 400,
@@ -69,29 +69,29 @@ class Widget_WPEW_Gmap extends Widget_Base {
         $this->add_control(
             'gmap_type',
             [
-                'label'     => __( 'Map Type', 'wpew' ),
+                'label'     => __( 'Map Type', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'hybrid',
                 'options'   => [
-                        'roadmap' 	=> __( 'Roadmap', 'wpew' ),
-                        'satellite' => __( 'Satellite', 'wpew' ),
-                        'hybrid' 	=> __( 'Hybrid', 'wpew' ),
-                        'terrain' 	=> __( 'Terrain', 'wpew' ),
+                        'roadmap' 	=> __( 'Roadmap', 'eafe' ),
+                        'satellite' => __( 'Satellite', 'eafe' ),
+                        'hybrid' 	=> __( 'Hybrid', 'eafe' ),
+                        'terrain' 	=> __( 'Terrain', 'eafe' ),
                     ],
             ]
         );
         $this->add_control(
             'gmap_styles',
             [
-                'label'     => __( 'Map Type', 'wpew' ),
+                'label'     => __( 'Map Type', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'style1',
                 'options'   => [
-                        'style1' 	=> __( 'Map Style 1', 'wpew' ),
-                        'style2' 	=> __( 'Map Style 2', 'wpew' ),
-                        'style3' 	=> __( 'Map Style 3', 'wpew' ),
-                        'style4'    => __( 'Map Style 4', 'wpew' ),
-                        'default' 	=> __( 'Map Style Default', 'wpew' ),
+                        'style1' 	=> __( 'Map Style 1', 'eafe' ),
+                        'style2' 	=> __( 'Map Style 2', 'eafe' ),
+                        'style3' 	=> __( 'Map Style 3', 'eafe' ),
+                        'style4'    => __( 'Map Style 4', 'eafe' ),
+                        'default' 	=> __( 'Map Style Default', 'eafe' ),
                     ],
             ]
         );
@@ -99,7 +99,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
         $this->add_control(
             'gmap_zoom',
             [
-                'label'     => __( 'Map Zoom', 'wpew' ),
+                'label'     => __( 'Map Zoom', 'eafe' ),
                 'type'      => Controls_Manager::SLIDER,
                 'default'   => [
                     'size'  => 10,
@@ -116,12 +116,12 @@ class Widget_WPEW_Gmap extends Widget_Base {
         $this->add_control(
             'gmap_controls',
             [
-                'label'     => __( 'Map Controls', 'wpew' ),
+                'label'     => __( 'Map Controls', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'false',
                 'options'   => [
-                        'true'      => __( 'Map Control Off', 'wpew' ),
-                        'false'     => __( 'Map Control On', 'wpew' ),
+                        'true'      => __( 'Map Control Off', 'eafe' ),
+                        'false'     => __( 'Map Control On', 'eafe' ),
                     ],
             ]
         );
@@ -129,12 +129,12 @@ class Widget_WPEW_Gmap extends Widget_Base {
         $this->add_control(
             'gmap_zoomcontrol',
             [
-                'label'     => __( 'Map Zoom Wheel', 'wpew' ),
+                'label'     => __( 'Map Zoom Wheel', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'false',
                 'options'   => [
-                        'false'     => __( 'Zoom Wheel Off', 'wpew' ),
-                        'true'      => __( 'Zoom Wheel On', 'wpew' ),
+                        'false'     => __( 'Zoom Wheel Off', 'eafe' ),
+                        'true'      => __( 'Zoom Wheel On', 'eafe' ),
                     ],
             ]
         );
@@ -142,7 +142,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
         $this->add_control(
             'gmap_icon',
             [
-                'label'         => __( 'Flug Icon (Optional)', 'wpew' ),
+                'label'         => __( 'Flug Icon (Optional)', 'eafe' ),
                 'type'          => Controls_Manager::MEDIA,
                 'label_block'   => true,
                 'default'       => [
@@ -156,14 +156,14 @@ class Widget_WPEW_Gmap extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'GMap Style', 'wpew' ),
+				'label' 	=> __( 'GMap Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Title Color', 'wpew' ),
+				'label'		=> __( 'Title Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .thm-heading-title' => 'color: {{VALUE}};',
@@ -173,7 +173,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
 		$this->add_responsive_control(
             'text_padding',
             [
-                'label' => __( 'Title Padding', 'wpew' ),
+                'label' => __( 'Title Padding', 'eafe' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -197,7 +197,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'wpew' ),
+				'label' 	=> __( 'Sub Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -205,7 +205,7 @@ class Widget_WPEW_Gmap extends Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'wpew' ),
+				'label'		=> __( 'Subtitle Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .sub-title-content' => 'color: {{VALUE}};',
@@ -266,4 +266,4 @@ class Widget_WPEW_Gmap extends Widget_Base {
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Gmap() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Gmap() );
