@@ -6,12 +6,12 @@ jQuery(document).ready(function($){
 	/**
 	 * x-extension color picker
 	 *--------------------------------- */ 
-	$('.wpew-color-field').wpColorPicker();
+	$('.eafe-color-field').wpColorPicker();
 
 	/*
 	 * x-extension enable/disable.
 	 *---------------------------------- */ 
-	$(document).on('change', '.wpew_extensions_list_item', function(e) {
+	$(document).on('change', '.eafe_extensions_list_item', function(e) {
         var $that = $(this);
         var isEnable = $that.prop('checked') ? 1 : 0;
 
@@ -24,7 +24,7 @@ jQuery(document).ready(function($){
             data : { 
 				isEnable: isEnable, 
 				addonFieldName: addonFieldName, 
-				action: 'wpew_addon_enable_disable'
+				action: 'eafe_addon_enable_disable'
 			},
             success: function (data) {
                 if (data.success){

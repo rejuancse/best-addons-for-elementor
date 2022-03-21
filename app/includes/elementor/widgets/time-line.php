@@ -9,7 +9,7 @@ class Widget_Time_Line extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Time Line', 'wpew' );
+		return __( 'Time Line', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,14 +17,14 @@ class Widget_Time_Line extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
@@ -33,7 +33,7 @@ class Widget_Time_Line extends Widget_Base {
         $repeater->add_control(
 			'timeline_title',
 			[
-				'label' => __( 'Timeline Title', 'wpew' ),
+				'label' => __( 'Timeline Title', 'eafe' ),
 				'type' => Controls_Manager::TEXT,
                 'default'   => 'Co-Founder',   
             ]
@@ -42,30 +42,30 @@ class Widget_Time_Line extends Widget_Base {
         $repeater->add_control(
 			'timeline_intro',
 			[
-				'label' => __( 'Timeline Intro', 'wpew' ),
+				'label' => __( 'Timeline Intro', 'eafe' ),
 				'type' => Controls_Manager::TEXTAREA,
-				'default' => __( 'Lorem ipsum dolor sit amet', 'wpew' ),
+				'default' => __( 'Lorem ipsum dolor sit amet', 'eafe' ),
             ]
 		);
 
 		$repeater->add_control(
 			'timeline_datetime',
 			[
-				'label' => __( 'Timeline date Intro', 'wpew' ),
+				'label' => __( 'Timeline date Intro', 'eafe' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( '18 March, 2021', 'wpew' ),
+				'default' => __( '18 March, 2021', 'eafe' ),
             ]
 		);
 
 		$this->add_control(
 			'timeline_list',
 			[
-				'label' => esc_html__( 'Timeline List', 'wpew' ),
+				'label' => esc_html__( 'Timeline List', 'eafe' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'timeline_title' => esc_html__( 'Co-Founder', 'wpew' ),
+						'timeline_title' => esc_html__( 'Co-Founder', 'eafe' ),
 						'timeline_intro' => 'Lorem ipsum dolor sit amet',
 						'timeline_datetime' => '18 March, 2021'
 					],
@@ -81,7 +81,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title Style', 'wpew' ),
+				'label' 	=> __( 'Title Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -90,7 +90,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_control(
 			'timeline_title',
 			[
-				'label'		=> __( 'Timeline Title Color', 'wpew' ),
+				'label'		=> __( 'Timeline Title Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeline-description h6' => 'color: {{VALUE}};',
@@ -104,7 +104,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Timeline Title Typography', 'wpew' ),
+				'label'		=> __( 'Timeline Title Typography', 'eafe' ),
 				'name' 		=> 'title_typography',
 				'selector' 	=> '{{WRAPPER}} .timeline-description h6',
 			]
@@ -113,7 +113,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_responsive_control(
 			'timeline_title_space',
 			[
-				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -136,7 +136,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_control(
 			'timeline_intro_section',
 			[
-				'label' => esc_html__( 'Intro Text Style', 'wpew' ),
+				'label' => esc_html__( 'Intro Text Style', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -146,7 +146,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_control(
 			'timeline_intro',
 			[
-				'label'		=> __( 'Timeline Intro Color', 'wpew' ),
+				'label'		=> __( 'Timeline Intro Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeline-description p' => 'color: {{VALUE}};',
@@ -158,7 +158,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Timeline Intro Typography', 'wpew' ),
+				'label'		=> __( 'Timeline Intro Typography', 'eafe' ),
 				'name' 		=> 'intro_typography',
 				'selector' 	=> '{{WRAPPER}} .timeline-description p',
 			]
@@ -167,7 +167,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_control(
 			'timeline_datetime_section',
 			[
-				'label' => esc_html__( 'Datetime Style', 'wpew' ),
+				'label' => esc_html__( 'Datetime Style', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -177,7 +177,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_control(
 			'timeline_datetime',
 			[
-				'label'		=> __( 'Timeline Datetime Color', 'wpew' ),
+				'label'		=> __( 'Timeline Datetime Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeline-date p' => 'color: {{VALUE}};',
@@ -189,7 +189,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Timeline Datetime Typography', 'wpew' ),
+				'label'		=> __( 'Timeline Datetime Typography', 'eafe' ),
 				'name' 		=> 'datetime_typography',
 				'selector' 	=> '{{WRAPPER}} .timeline-date p',
 			]
@@ -198,7 +198,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_control(
 			'timeline_style',
 			[
-				'label' => esc_html__( 'Timeline Style', 'wpew' ),
+				'label' => esc_html__( 'Timeline Style', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -207,7 +207,7 @@ class Widget_Time_Line extends Widget_Base {
 		$this->add_control(
 			'timeline_row',
 			[
-				'label'		=> __( 'Timeline Line Color', 'wpew' ),
+				'label'		=> __( 'Timeline Line Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeline-row' => 'background-color: {{VALUE}};',

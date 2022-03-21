@@ -8,13 +8,13 @@ use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_WPEW_Tree extends Widget_Base {
+class Widget_EAFE_Tree extends Widget_Base {
 	public function get_name() {
-		return 'wpew-tree';
+		return 'eafe-tree';
 	}
 
 	public function get_title() {
-		return __( 'Simple Tree', 'wpew' );
+		return __( 'Simple Tree', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -22,25 +22,25 @@ class Widget_WPEW_Tree extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
 		$this->add_control(
             'service_tree',
             [
-                'label' => __( 'Service Tree', 'wpew' ),
+                'label' => __( 'Service Tree', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Tree Name', 'wpew' ),
-                'default' => __( 'Our Service', 'wpew' ),
+                'placeholder' => __( 'Tree Name', 'eafe' ),
+                'default' => __( 'Our Service', 'eafe' ),
             ]
         );
 
@@ -103,19 +103,19 @@ class Widget_WPEW_Tree extends Widget_Base {
 		$repeater->add_control(
 			'tree_name',
 			[
-				'label' => __( 'Name of Tree', 'wpew' ),
+				'label' => __( 'Name of Tree', 'eafe' ),
 				'type' => Controls_Manager::TEXT,
-				'default' 		=> __( 'Client | Project Base', 'wpew' ),
+				'default' 		=> __( 'Client | Project Base', 'eafe' ),
 				'label_block' => true,
-            ],
+            ]
 		);
 
 		$repeater->add_control(
 			'custom_url',
 			[
-				'label' => __( 'Custom URL', 'wpew' ),
+				'label' => __( 'Custom URL', 'eafe' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( '#', 'wpew' ),
+				'default' => __( '#', 'eafe' ),
 				'label_block' => true,
             ]
 		);
@@ -123,9 +123,9 @@ class Widget_WPEW_Tree extends Widget_Base {
 		$repeater->add_control(
 			'child_tree',
 			[
-				'label' => __( 'Custom URL', 'wpew' ),
+				'label' => __( 'Custom URL', 'eafe' ),
 				'type' => Controls_Manager::REPEATER,
-				'default' => __( '#', 'wpew' ),
+				'default' => __( '#', 'eafe' ),
 				'fields' => [
 					[
 						'name' => 'treebutton_text',
@@ -149,14 +149,14 @@ class Widget_WPEW_Tree extends Widget_Base {
 		$this->add_control(
 			'service_list_tree',
 			[
-				'label' => esc_html__( 'Service Tree List', 'wpew' ),
+				'label' => esc_html__( 'Service Tree List', 'eafe' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				// 'default' => [
 				// 	[
-				// 		'custom_url' 			=> esc_html__( '#', 'wpew' ),
-				// 		'tree_name' 	=> esc_html__( 'Client | Project Base', 'wpew' ),
-				// 		'child_tree' 	=> esc_html__( 'Client | Project Base', 'wpew' ),
+				// 		'custom_url' 			=> esc_html__( '#', 'eafe' ),
+				// 		'tree_name' 	=> esc_html__( 'Client | Project Base', 'eafe' ),
+				// 		'child_tree' 	=> esc_html__( 'Client | Project Base', 'eafe' ),
 				// 	],
 				// ], 
 			]
@@ -211,5 +211,5 @@ class Widget_WPEW_Tree extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Tree() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Tree() );
 

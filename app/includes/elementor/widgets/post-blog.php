@@ -5,11 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_Blog_List extends Widget_Base {
 	public function get_name() {
-		return 'wpew-blog-list';
+		return 'eafe-blog-list';
 	}
 
 	public function get_title() {
-		return __( 'Blog List', 'wpew' );
+		return __( 'Blog List', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,21 +17,21 @@ class Widget_Blog_List extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
         $this->add_control(
             'blog_number',
             [
-                'label' => __( 'Category Count', 'wpew' ),
+                'label' => __( 'Category Count', 'eafe' ),
                 'type' => Controls_Manager::NUMBER,
                 'label_block' => true,
                 'default' => '6',
@@ -41,14 +41,14 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_control(
             'post_column',
             [
-                'label'     => __( 'Number of Column', 'wpew' ),
+                'label'     => __( 'Number of Column', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 4,
                 'options'   => [
-                        '12' 	=> __( 'One Column', 'wpew' ),
-                        '6' 	=> __( 'Two Column', 'wpew' ),
-                        '4' 	=> __( 'Three Column', 'wpew' ),
-                        '3' 	=> __( 'Four Column', 'wpew' ),
+                        '12' 	=> __( 'One Column', 'eafe' ),
+                        '6' 	=> __( 'Two Column', 'eafe' ),
+                        '4' 	=> __( 'Three Column', 'eafe' ),
+                        '3' 	=> __( 'Four Column', 'eafe' ),
                     ],
             ]
         );
@@ -56,9 +56,9 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_control(
 			'post_cat',
 			[
-			   'label'    => __( 'Product Category', 'wpew' ),
+			   'label'    => __( 'Product Category', 'eafe' ),
 			   'type'     => Controls_Manager::SELECT,
-			   'options'  => wpew_all_category_list( 'category' ),
+			   'options'  => eafe_all_category_list( 'category' ),
 			   'multiple' => true,
 			   'default'  => 'allpost'
 			]
@@ -67,12 +67,12 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_control(
 			  'post_order',
 			  [
-				  'label'     => __( 'Order', 'wpew' ),
+				  'label'     => __( 'Order', 'eafe' ),
 				  'type'      => Controls_Manager::SELECT,
 				  'default'   => 'DESC',
 				  'options'   => [
-						  'DESC' 		=> __( 'Descending', 'wpew' ),
-						  'ASC' 		=> __( 'Ascending', 'wpew' ),
+						  'DESC' 		=> __( 'Descending', 'eafe' ),
+						  'ASC' 		=> __( 'Ascending', 'eafe' ),
 					  ],
 			  ]
 		);
@@ -84,7 +84,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->start_controls_section(
                 'section_blogtime_style',
                 [
-                    'label' 	=> __( 'DateTime Style', 'wpew' ),
+                    'label' 	=> __( 'DateTime Style', 'eafe' ),
                     'tab' 		=> Controls_Manager::TAB_STYLE,
                 ]
             );
@@ -92,7 +92,7 @@ class Widget_Blog_List extends Widget_Base {
             $this->add_control(
                 'datetime_color',
                 [
-                    'label'		=> __( 'DateTime Color', 'wpew' ),
+                    'label'		=> __( 'DateTime Color', 'eafe' ),
                     'type'		=> Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .wpqx-our-blog .for_blog .thumb .post_time .mont' => 'color: {{VALUE}};',
@@ -104,7 +104,7 @@ class Widget_Blog_List extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
-					'label'		=> __( 'Month Typography', 'wpew' ),
+					'label'		=> __( 'Month Typography', 'eafe' ),
                     'name' 		=> 'month_typography',
                     'selector' 	=> '{{WRAPPER}} .wpqx-our-blog .for_blog .thumb .post_time .mont',
                 ]
@@ -113,7 +113,7 @@ class Widget_Blog_List extends Widget_Base {
 			$this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
-					'label'		=> __( 'Date Typography', 'wpew' ),
+					'label'		=> __( 'Date Typography', 'eafe' ),
                     'name' 		=> 'date_typography',
                     'selector' 	=> '{{WRAPPER}} .wpqx-our-blog .for_blog .thumb .post_time .date',
                 ]
@@ -122,7 +122,7 @@ class Widget_Blog_List extends Widget_Base {
 			$this->add_control(
                 'datetime_bgcolor',
                 [
-                    'label'		=> __( 'Background Color', 'wpew' ),
+                    'label'		=> __( 'Background Color', 'eafe' ),
                     'type'		=> Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .wpqx-our-blog .for_blog .thumb .post_time' => 'background: {{VALUE}};',
@@ -137,7 +137,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_category_style',
 			[
-				'label' 	=> __( 'Category Style', 'wpew' ),
+				'label' 	=> __( 'Category Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -145,7 +145,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_control(
 			'category_color',
 			[
-				'label'		=> __( 'Category Color', 'wpew' ),
+				'label'		=> __( 'Category Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpqx-our-blog .for_blog .tag' => 'color: {{VALUE}};',
@@ -157,7 +157,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Category Typography', 'wpew' ),
+				'label'		=> __( 'Category Typography', 'eafe' ),
 				'name' 		=> 'category_typography',
 				'selector' 	=> '{{WRAPPER}} .wpqx-our-blog .for_blog .bgc-thm a',
 			]
@@ -166,7 +166,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_control(
 			'category_bgcolor',
 			[
-				'label'		=> __( 'Background Color', 'wpew' ),
+				'label'		=> __( 'Background Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpqx-our-blog .for_blog .bgc-thm' => 'background: {{VALUE}};',
@@ -180,7 +180,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Blog Title Style', 'wpew' ),
+				'label' 	=> __( 'Blog Title Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -188,7 +188,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Title Color', 'wpew' ),
+				'label'		=> __( 'Title Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpqx-our-blog .for_blog .details .tc_content .title a' => 'color: {{VALUE}};',
@@ -199,7 +199,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Title Typography', 'wpew' ),
+				'label'		=> __( 'Title Typography', 'eafe' ),
 				'name' 		=> 'title_typography',
 				'selector' 	=> '{{WRAPPER}} .wpqx-our-blog .for_blog .details .tc_content .title',
 			]
@@ -212,7 +212,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_meta_style',
 			[
-				'label' 	=> __( 'Blog MetaTag Style', 'wpew' ),
+				'label' 	=> __( 'Blog MetaTag Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -220,7 +220,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_control(
 			'meta_color',
 			[
-				'label'		=> __( 'Meta Color', 'wpew' ),
+				'label'		=> __( 'Meta Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wpqx-our-blog .for_blog .details .bp_meta ul li a' => 'color: {{VALUE}};',
@@ -231,7 +231,7 @@ class Widget_Blog_List extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Meta Typography', 'wpew' ),
+				'label'		=> __( 'Meta Typography', 'eafe' ),
 				'name' 		=> 'meta_typography',
 				'selector' 	=> '{{WRAPPER}} .wpqx-our-blog .for_blog .details .bp_meta ul li a',
 			]
@@ -280,14 +280,14 @@ class Widget_Blog_List extends Widget_Base {
         $query = new \WP_Query($args); ?>
 
         <div class="wpqx-our-blog">
-			<div class="wpew-row">
+			<div class="eafe-row">
 				<?php
 					$i = 0;
 					if($query->have_posts()){
 						while ($query->have_posts()) {
 							$query->the_post(); ?>
 
-							<div class="wpew-col-<?php echo $post_column; ?>">
+							<div class="eafe-col-<?php echo $post_column; ?>">
 								<div class="for_blog">
 									<div class="thumb">
 										<div class="post_time">
@@ -310,8 +310,8 @@ class Widget_Blog_List extends Widget_Base {
 											<?php the_title( sprintf( '<h4 class="title"><a href="%s" class="skip-link">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
 											<div class="bp_meta">
 												<ul>
-													<li class="list-inline-item"><a href="<?php the_permalink(); ?>"><span class="flaticon-user fz15 mr10"></span> <?php esc_html_e('By', 'wpew'); ?> <?php echo esc_html(get_the_author_meta('display_name')); ?></a></li>
-													<li class="list-inline-item"><a href="<?php the_permalink(); ?>"><span class="flaticon-chat fz15 mr10"></span> <?php echo get_comments_number(get_the_ID()); ?><?php esc_html_e(' Comments', 'wpew'); ?></a></li>
+													<li class="list-inline-item"><a href="<?php the_permalink(); ?>"><span class="flaticon-user fz15 mr10"></span> <?php esc_html_e('By', 'eafe'); ?> <?php echo esc_html(get_the_author_meta('display_name')); ?></a></li>
+													<li class="list-inline-item"><a href="<?php the_permalink(); ?>"><span class="flaticon-chat fz15 mr10"></span> <?php echo get_comments_number(get_the_ID()); ?><?php esc_html_e(' Comments', 'eafe'); ?></a></li>
 												</ul>
 											</div>
 										</div>

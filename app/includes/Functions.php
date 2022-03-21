@@ -1,13 +1,13 @@
 <?php
-namespace WPEW;
+namespace EAFE;
 
 defined( 'ABSPATH' ) || exit;
 
 class Functions {
 
     public function generator( $arr ){
-        require_once WPEW_DIR_PATH . 'app/settings/Generator.php';
-        $generator = new \WPEW\settings\Settings_Generator();
+        require_once EAFE_DIR_PATH . 'app/settings/Generator.php';
+        $generator = new \EAFE\settings\Settings_Generator();
         $generator->generator( $arr );
     }
 
@@ -28,7 +28,7 @@ class Functions {
     }
 
     public function is_free(){
-        if (is_plugin_active('wpew-pro/wpew-pro.php')) {
+        if (is_plugin_active('eafe-pro/eafe-pro.php')) {
             return false;
         } else {
             return true;
@@ -72,8 +72,8 @@ class Functions {
         return $pages;
     }
 
-    // public function include_wpew_widgets() {
-	// 	include_once WPEW_DIR_PATH.'app/includes/elementor/elementor-core.php';
+    // public function include_eafe_widgets() {
+	// 	include_once EAFE_DIR_PATH.'app/includes/elementor/elementor-core.php';
 	// }
 
     // public function wc_version($version = '3.0'){
@@ -96,16 +96,16 @@ class Functions {
     
     public function get_screen_id(){
         $screen_ids = array(
-            'toplevel_page_wpew',
+            'toplevel_page_eafe',
         );
-        return apply_filters('wpew_screen_id', $screen_ids);
+        return apply_filters('eafe_screen_id', $screen_ids);
     }
     
     public function get_addon_config($addon_field = null){
         if ( ! $addon_field){
             return false;
         }
-        $extensionsConfig = maybe_unserialize(get_option('wpew_extensions_config'));
+        $extensionsConfig = maybe_unserialize(get_option('eafe_extensions_config'));
         if (isset($extensionsConfig[$addon_field])){
             return $extensionsConfig[$addon_field];
         }

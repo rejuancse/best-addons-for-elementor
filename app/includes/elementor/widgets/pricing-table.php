@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_WPEW_Pricing_Table extends Widget_Base {
+class Widget_EAFE_Pricing_Table extends Widget_Base {
 	public function get_name() {
-		return 'wpew-pricing-table';
+		return 'eafe-pricing-table';
 	}
 
 	public function get_title() {
-		return __( 'Pricing Table', 'wpew' );
+		return __( 'Pricing Table', 'eafe' );
 	}
 
 	public function get_icon() {	
@@ -17,27 +17,27 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Pricing Table', 'wpew' ),
+				'label' => __( 'Pricing Table', 'eafe' ),
 			]
 		);
 
         $this->add_control(
             'pricing_plan',
             [
-                'label'     => __( 'Pricing Plan', 'wpew' ),
+                'label'     => __( 'Pricing Plan', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'basic',
                 'options'   => [
-                        'basic' 	=> __( 'Basic', 'wpew' ),
-                        'standard' 	=> __( 'Standard', 'wpew' ),
-                        'platinum' 	=> __( 'Platinum', 'wpew' ),
+                        'basic' 	=> __( 'Basic', 'eafe' ),
+                        'standard' 	=> __( 'Standard', 'eafe' ),
+                        'platinum' 	=> __( 'Platinum', 'eafe' ),
                     ],
             ]
         );
@@ -45,42 +45,42 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $this->add_control(
             'pricing_intro_text',
             [
-                'label' => __( 'Price intro text', 'wpew' ),
+                'label' => __( 'Price intro text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your pricing intro text', 'wpew' ),
-                'default' => __( 'Best Value', 'wpew' ),
+                'placeholder' => __( 'Enter your pricing intro text', 'eafe' ),
+                'default' => __( 'Best Value', 'eafe' ),
             ]
         ); 
 
         $this->add_control(
             'currency',
             [
-                'label' => __( 'Add your currency', 'wpew' ),
+                'label' => __( 'Add your currency', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
+                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
                 'default' => '$',
             ]
         );
         $this->add_control(
             'price',
             [
-                'label' => __( 'Price', 'wpew' ),
+                'label' => __( 'Price', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your price', 'wpew' ),
+                'placeholder' => __( 'Enter your price', 'eafe' ),
                 'default' => '29',
             ]
         );
         $this->add_control(
             'plan_users',
             [
-                'label' => __( 'Pricing Plan users', 'wpew' ),
+                'label' => __( 'Pricing Plan users', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your pricing plan users', 'wpew' ),
-                'default' => __( 'per user, per month', 'wpew' ),
+                'placeholder' => __( 'Enter your pricing plan users', 'eafe' ),
+                'default' => __( 'per user, per month', 'eafe' ),
             ]
         );
 
@@ -89,12 +89,12 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $repeater->add_control(
 			'features_enable',
 			[
-				'label' => __( 'Pricing Features', 'wpew' ),
+				'label' => __( 'Pricing Features', 'eafe' ),
 				'type' => Controls_Manager::SELECT,
                 'default'   => 'show',
                 'options'   => [
-                        'show' 	=> __( 'Show', 'wpew' ),
-                        'none' 	=> __( 'cross', 'wpew' ),
+                        'show' 	=> __( 'Show', 'eafe' ),
+                        'none' 	=> __( 'cross', 'eafe' ),
                     ],
                     
             ]
@@ -103,21 +103,21 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $repeater->add_control(
 			'features_intro',
 			[
-				'label' => __( 'Features Intro', 'wpew' ),
+				'label' => __( 'Features Intro', 'eafe' ),
 				'type' => Controls_Manager::TEXTAREA,
-				'default' => __( '99.5% Uptime Guarantee', 'wpew' ),
+				'default' => __( '99.5% Uptime Guarantee', 'eafe' ),
             ]
 		);
 
 		$this->add_control(
 			'pricing_table_list',
 			[
-				'label' => esc_html__( 'Accordion Items', 'wpew' ),
+				'label' => esc_html__( 'Accordion Items', 'eafe' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'features_intro' => esc_html__( 'Lorem ipsum', 'wpew' ),
+						'features_intro' => esc_html__( 'Lorem ipsum', 'eafe' ),
 						'features_enable' => 'show',
 					],
 				],
@@ -127,21 +127,21 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $this->add_control(
             'pricing_button',
             [
-                'label' => __( 'Button Name', 'wpew' ),
+                'label' => __( 'Button Name', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your button name', 'wpew' ),
-                'default' => __( 'Start Basic', 'wpew' ),
+                'placeholder' => __( 'Enter your button name', 'eafe' ),
+                'default' => __( 'Start Basic', 'eafe' ),
             ]
         );
 
 		$this->add_control(
             'pricing_button_url',
             [
-                'label' => __( 'Button Name URL', 'wpew' ),
+                'label' => __( 'Button Name URL', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your url', 'wpew' ),
+                'placeholder' => __( 'Enter your url', 'eafe' ),
                 'default' => '#',
             ]
         );
@@ -152,7 +152,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Pricing Table Style', 'wpew' ),
+				'label' 	=> __( 'Pricing Table Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -160,10 +160,10 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$this->add_control(
 			'pricing_table_bgcolor',
 			[
-				'label'		=> __( 'Table Background Color', 'wpew' ),
+				'label'		=> __( 'Table Background Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-pricing .pricing_wrap' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .eafe-pricing .pricing_wrap' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -172,11 +172,11 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'table_border',
 			[
-				'label' => esc_html__( 'Table Radius', 'wpew' ),
+				'label' => esc_html__( 'Table Radius', 'eafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-pricing .pricing_wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-pricing .pricing_wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -185,7 +185,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$this->add_control(
 			'table_section_style',
 			[
-				'label' => esc_html__( 'Table Section Style', 'wpew' ),
+				'label' => esc_html__( 'Table Section Style', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -194,7 +194,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$this->add_control(
 			'pricing_table_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .prt_price h2, 
@@ -208,7 +208,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'pricing_table_icon_color',
 			[
-				'label'		=> __( 'Icons Color', 'wpew' ),
+				'label'		=> __( 'Icons Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .prt_body ul li:before' => 'color: {{VALUE}};',
@@ -219,7 +219,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'pricing_table_icon_bg_color',
 			[
-				'label'		=> __( 'Icons BG Color', 'wpew' ),
+				'label'		=> __( 'Icons BG Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .prt_body ul li:before' => 'background: {{VALUE}};',
@@ -240,7 +240,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label' 	=> __( 'Button Style', 'wpew' ),
+				'label' 	=> __( 'Button Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -258,14 +258,14 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'wpew' ),
+				'label' => esc_html__( 'Normal', 'eafe' ),
 			]
 		);
 
 		$this->add_control(
 			'button_color',
 			[
-				'label'		=> __( 'Button Text Color', 'wpew' ),
+				'label'		=> __( 'Button Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package' => 'color: {{VALUE}};',
@@ -275,7 +275,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'button_bg_color',
 			[
-				'label'		=> __( 'Button BG Color', 'wpew' ),
+				'label'		=> __( 'Button BG Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package' => 'background: {{VALUE}};',
@@ -296,7 +296,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'wpew' ),
+				'label' => esc_html__( 'Hover', 'eafe' ),
 			]
 		);
 
@@ -304,7 +304,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'button_text_hover_color',
 			[
-				'label'		=> __( 'Button Text Hover Color', 'wpew' ),
+				'label'		=> __( 'Button Text Hover Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package:hover' => 'color: {{VALUE}};',
@@ -316,7 +316,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 			'button_bg_hover_color',
 			[
 				'label'		=> __( 'Button BG Hover
-                 Color', 'wpew' ),
+                 Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package:hover' => 'background: {{VALUE}};',
@@ -327,7 +327,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
         $this->add_control(
 			'button_border_hover_color',
 			[
-				'label'		=> __( 'Button Border Hover Color', 'wpew' ),
+				'label'		=> __( 'Button Border Hover Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.choose_package:hover' => 'border-color: {{VALUE}};',
@@ -346,7 +346,7 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 		$settings = $this->get_settings_for_display(); 
         $pricing_plan = $settings['pricing_plan']; ?>
 
-        <div class="wpew-pricing">
+        <div class="eafe-pricing">
 			<div class="pricing_wrap <?php echo $pricing_plan; ?>">
 				<div class="prt_head">
 					<?php if($settings['pricing_intro_text']) { ?>
@@ -380,4 +380,4 @@ class Widget_WPEW_Pricing_Table extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Pricing_Table() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Pricing_Table() );

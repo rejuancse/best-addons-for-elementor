@@ -9,7 +9,7 @@ class Widget_Photo_Gallery extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Photo Gallery', 'wpew' );
+		return __( 'Photo Gallery', 'eafe' );
 	}
 
 	public function get_icon() {	
@@ -17,14 +17,14 @@ class Widget_Photo_Gallery extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Photo Gallery', 'wpew' ),
+				'label' => __( 'Photo Gallery', 'eafe' ),
 			]
 		);
 
@@ -51,7 +51,7 @@ class Widget_Photo_Gallery extends Widget_Base {
 			return;
 		} ?>
 
-		<div class="wpew-photo-gallery">
+		<div class="eafe-photo-gallery">
 			<div class="row">
 			<?php foreach ( $settings['photogallery'] as $item ) {
 				$photo_gallery_url = wp_get_attachment_image_url( $item['id'], 'full' ); ?>
