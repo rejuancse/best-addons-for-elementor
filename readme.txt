@@ -1,6 +1,6 @@
 === Easy Addons for Elementor ===
 Contributors: rejuancse
-Tags: woocommerce, quick view, woocommerce quick view, products quick view, search, product search, search product, products listing, variable products, woocommerce wishlist, wishlist, delivery slots, product delivery slots, woocommerce delivery slots, social share, social login, variation swatches, woocommerce variation, product gallery, donate, reword, extensions
+Tags: Elementor, Addons, Widgets, woocommerce
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 5.4.0
@@ -73,7 +73,7 @@ A. Found a bug? Please let us know by posting on the support section of this plu
 
 == Changelog ==
 
-= 1.0.0 [04/06/2021] =
+= 1.0.0 [01/04/2022] =
 * Initial version released
 
 == Upgrade Notice ==
