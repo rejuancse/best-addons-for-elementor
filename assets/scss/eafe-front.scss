@@ -1,5 +1,5 @@
 /*
- * WPEW Front CSS
+ * EAFE Front CSS
  * File Description: The main stylesheet of this plugins for main design part.
  */
  
@@ -15,10 +15,14 @@
 @import "treediagram"; 
 @import "features"; 
 @import "call-contact-form"; 
-@import "wpew-title"; 
+@import "eafe-title"; 
 @import "post-search"; 
 @import "events-list";
- 
+@import "member-list";
+@import "restaurant-menu";
+@import "restaurant-schedule";
+@import "special-menu";
+
  /*
  * Animated Headine
  **/
@@ -319,11 +323,3 @@
 .words-wrapper b.is-hidden {
 	opacity: 0;
 }
-
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 <?php
-namespace WPEW\settings;
+namespace EAFE\settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -9,39 +9,39 @@ class Admin_Menu {
         add_action('admin_menu', array($this, 'register_menu_page' ));
     }
     /**
-     * WPEW Menu Option Page
+     * EAFE Menu Option Page
      */
     public function register_menu_page(){
         add_menu_page( 
-            'Elementor Widgets',
-            'Elementor Widgets',
+            'Easy Addons',
+            'Easy Addons',
             'manage_options',
-            'wpew',
+            'eafe',
             '',
             'dashicons-xing', 
             null
         );
 
-        $addon_pro =  __('Widgets', 'wpew');
+        $addon_pro =  __('Widgets', 'eafe');
 
         add_submenu_page(
-            'wpew',
-            __('Widgets', 'wpew'),
+            'eafe',
+            __('Widgets', 'eafe'),
             $addon_pro,
             'manage_options',
-            'wpew',
-            array( $this, 'wpew_manage_widgets' )
+            'eafe',
+            array( $this, 'eafe_manage_widgets' )
         );
 
-        add_submenu_page( 'wpew', __( 'Get Pro', 'wpew' ), __( '<span class="dashicons dashicons-awards wpew-get-pro-text"></span> Get Pro', 'wpew' ), 'manage_options', 'wpew-get-pro', array($this, 'wpew_get_pro') );
+        add_submenu_page( 'eafe', __( 'Get Pro', 'eafe' ), __( '<span class="dashicons dashicons-awards eafe-get-pro-text"></span> Get Pro', 'eafe' ), 'manage_options', 'eafe-get-pro', array($this, 'eafe_get_pro') );
     }
     
     // Addon Listing
-    public function wpew_manage_widgets() {
-        include WPEW_DIR_PATH.'app/settings/view/Addons.php';
+    public function eafe_manage_widgets() {
+        include EAFE_DIR_PATH.'app/settings/view/Addons.php';
     }
 
-    public function wpew_get_pro(){
-		include WPEW_DIR_PATH.'app/settings/view/pages/get-pro.php';
+    public function eafe_get_pro(){
+		include EAFE_DIR_PATH.'app/settings/view/pages/get-pro.php';
 	}
 }

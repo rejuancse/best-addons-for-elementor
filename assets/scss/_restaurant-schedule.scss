@@ -1,0 +1,70 @@
+#eafe-restaurant-schedule {
+    margin: 0px auto 0px auto;
+    width: 97%;
+}
+#restaurant-schedule {
+    box-shadow: 0 0 0 0 #ffffff;
+}
+.clearfix:before {
+    content: " ";
+    display: table;
+}
+.eafe-diner-schedule-info {
+    position: relative;
+}
+.eafe-text-center {
+    text-align: center;
+}
+.eafe-diner-schedule-info:before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid #A78963;
+}
+.eafe-diner-schedule-info:after, 
+.eafe-diner-schedule-info:before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+.eafe-diner-schedule-info:after {
+    top: 15px;
+    bottom: 15px;
+    left: -15px;
+    right: -15px;
+    border: 1px solid #A78963;
+}
+#restaurant-schedule .eafe-addon-title {
+    margin-top: -50px;
+    margin-bottom: 0px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+.eafe-diner-schedule-info .eafe-addon-title {
+    display: inline-block;
+    background: #fff;
+    position: relative;
+    z-index: 10;
+    padding: 10px 100px;
+    position: relative;
+    top: -13px;
+    color: #A78963;
+}
+.eafe-diner-schedule-info .eafe-addon-content {
+    padding: 45px 50px 70px;
+}
+.eafe-diner-schedule-info .eafe-addon-content h4 {
+    font-size: 32px;
+}
+.eafe-diner-schedule-info .eafe-addon-content .spdiner-time {
+    font-size: 18px;
+    line-height: 1.5;
+    opacity: 0.55;
+    margin-top: 20px;
+}

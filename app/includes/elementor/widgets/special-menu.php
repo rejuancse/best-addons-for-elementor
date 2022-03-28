@@ -2,13 +2,14 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-class Widget_EAFE_Title extends \Elementor\Widget_Base {
+
+class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 	public function get_name() {
-		return 'eafe-title';
+		return 'eafe-special-menu';
 	}
 
 	public function get_title() {
-		return __( 'EAFE Title', 'eafe' );
+		return __( 'Special Menu', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -189,18 +190,25 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 	protected function render( ) {
 		$settings = $this->get_settings();  ?>
 
-		<div class="eafe_heading_caption">
-			<?php if( $settings['title_txt'] ){ ?>
-				<h2><?php echo $settings['title_txt']; ?> <?php if( $settings['title_txt'] ){ ?><span class="theme-cl"><?php echo $settings['title_txt2']; ?></span><?php } ?></h2>
-			<?php } ?>
-
-			<?php if( $settings['subtitle_content'] ){ ?>
-                <p><?php echo $settings['subtitle_content']; ?></p>
-            <?php } ?>
-		</div>
+		<!-- <section class="special_menu mt-60 mb-60"> -->
+			<div class="section-title text-center">
+				<p>Famous for good food</p>
+				<h4>special menu</h4>
+			</div>
+			<div class="single_special">
+				<img src="http://infinityflamesoft.com/html/restarunt-preview/assets/img/sp1.jpg" alt="">
+				<ul class="set_menu">
+					<li>Fried Rice x 1<span>Price: $9.00</span></li>
+					<li>Checken x 2<span>Price: $15.00</span></li>
+					<li>Salad x 1<span>Price: $7.00</span></li>
+					<li>1 250ml x 1<span>Price: $3.00</span></li>
+					<li class="total">Total:<span>$24.00</span></li>
+				</ul>
+			</div>
+		<!-- </section> -->
 
 		<?php 
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Title() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Special_Menu() );

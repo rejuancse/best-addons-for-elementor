@@ -9,7 +9,7 @@ class Widget_Animated_Headine extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Animated Headine', 'wpew' );
+		return __( 'Animated Headine', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,37 +17,37 @@ class Widget_Animated_Headine extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
         $this->add_control(
             'headine_text',
             [
-                'label' => __( 'Headine Text', 'wpew' ),
+                'label' => __( 'Headine Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter heading', 'wpew' ),
-                'default' => __( 'My favourite food is', 'wpew' ),
+                'placeholder' => __( 'Enter heading', 'eafe' ),
+                'default' => __( 'My favourite food is', 'eafe' ),
             ]
         );
 
 		$this->add_control(
             'animated_text',
             [
-                'label' => __( 'Animated Text', 'wpew' ),
+                'label' => __( 'Animated Text', 'eafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'default' => __( 'Pizza Sushi Steak', 'wpew' ),
+                'default' => __( 'Pizza Sushi Steak', 'eafe' ),
 				'description' => sprintf(
-					esc_html__( 'For animated text please use space or new line, For example, Pizza Sushi Steak', 'wpew' ),
+					esc_html__( 'For animated text please use space or new line, For example, Pizza Sushi Steak', 'eafe' ),
 					'<code>',
 					'</code>'
 				),
@@ -57,18 +57,18 @@ class Widget_Animated_Headine extends Widget_Base {
 		$this->add_control(
             'headine_text2',
             [
-                'label' => __( 'Headine Text2', 'wpew' ),
+                'label' => __( 'Headine Text2', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'wpew' ),
-                'default' => __( 'Course', 'wpew' ),
+                'placeholder' => __( 'Enter title two', 'eafe' ),
+                'default' => __( 'Course', 'eafe' ),
             ]
         );
 
 		$this->add_control(
 			'headine_size',
 			[
-				'label' => esc_html__( 'HTML Tag', 'wpew' ),
+				'label' => esc_html__( 'HTML Tag', 'eafe' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'h1' => 'H1',
@@ -88,23 +88,23 @@ class Widget_Animated_Headine extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => esc_html__( 'Alignment', 'wpew' ),
+				'label' => esc_html__( 'Alignment', 'eafe' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'wpew' ),
+						'title' => esc_html__( 'Left', 'eafe' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'wpew' ),
+						'title' => esc_html__( 'Center', 'eafe' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'wpew' ),
+						'title' => esc_html__( 'Right', 'eafe' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpew' ),
+						'title' => esc_html__( 'Justified', 'eafe' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -121,7 +121,7 @@ class Widget_Animated_Headine extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -129,20 +129,20 @@ class Widget_Animated_Headine extends Widget_Base {
 		$this->add_control(
             'animated_name',
             [
-                'label'     => __( 'Animated Name', 'wpew' ),
+                'label'     => __( 'Animated Name', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'clip is-full-width',
                 'options'   => [
-                        'clip is-full-width' 	=> __( 'Clip', 'wpew' ),
-                        'rotate-1' 	=> __( 'Rotate-1', 'wpew' ),
-                        'rotate-2' 	=> __( 'Rotate-2', 'wpew' ),
-                        'letters rotate-3' 	=> __( 'Letters Rotate-3', 'wpew' ),
-                        'letters type' 	=> __( 'Letters Type', 'wpew' ),
-                        'loading-bar' 	=> __( 'Loading Bar', 'wpew' ),
-                        'letters scale' 	=> __( 'Letters Scale', 'wpew' ),
-                        'slide' 	=> __( 'Slide', 'wpew' ),
-                        'zoom' 	=> __( 'Zoom', 'wpew' ),
-                        'push' 	=> __( 'Push', 'wpew' ),
+                        'clip is-full-width' 	=> __( 'Clip', 'eafe' ),
+                        'rotate-1' 	=> __( 'Rotate-1', 'eafe' ),
+                        'rotate-2' 	=> __( 'Rotate-2', 'eafe' ),
+                        'letters rotate-3' 	=> __( 'Letters Rotate-3', 'eafe' ),
+                        'letters type' 	=> __( 'Letters Type', 'eafe' ),
+                        'loading-bar' 	=> __( 'Loading Bar', 'eafe' ),
+                        'letters scale' 	=> __( 'Letters Scale', 'eafe' ),
+                        'slide' 	=> __( 'Slide', 'eafe' ),
+                        'zoom' 	=> __( 'Zoom', 'eafe' ),
+                        'push' 	=> __( 'Push', 'eafe' ),
                     ],
             ]
         );
@@ -150,7 +150,7 @@ class Widget_Animated_Headine extends Widget_Base {
 		$this->add_control(
 			'animated_text_color',
 			[
-				'label'		=> __( 'Animated Text Color', 'wpew' ),
+				'label'		=> __( 'Animated Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .animated-headine .headline .words-wrapper' => 'color: {{VALUE}};',
@@ -161,7 +161,7 @@ class Widget_Animated_Headine extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Headine Text Color', 'wpew' ),
+				'label'		=> __( 'Headine Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .animated-headine .headline' => 'color: {{VALUE}};',
@@ -180,7 +180,7 @@ class Widget_Animated_Headine extends Widget_Base {
 		$this->add_responsive_control(
             'text_padding',
             [
-                'label' 		=> __( 'Title Padding', 'wpew' ),
+                'label' 		=> __( 'Title Padding', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -193,7 +193,7 @@ class Widget_Animated_Headine extends Widget_Base {
         $this->add_responsive_control(
             'text_margin',
             [
-                'label' 		=> __( 'Title Margin', 'wpew' ),
+                'label' 		=> __( 'Title Margin', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -241,7 +241,6 @@ class Widget_Animated_Headine extends Widget_Base {
 
 		<?php 
     }
-
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Widget_Animated_Headine() );

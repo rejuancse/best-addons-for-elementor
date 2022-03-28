@@ -2,13 +2,13 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-class Widget_EAFE_Title extends \Elementor\Widget_Base {
+class Widget_EAFE_Restaurant_Schedule extends \Elementor\Widget_Base {
 	public function get_name() {
-		return 'eafe-title';
+		return 'eafe-restaurant-schedule';
 	}
 
 	public function get_title() {
-		return __( 'EAFE Title', 'eafe' );
+		return __( 'Restaurant Schedule', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -188,19 +188,26 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings();  ?>
-
-		<div class="eafe_heading_caption">
-			<?php if( $settings['title_txt'] ){ ?>
-				<h2><?php echo $settings['title_txt']; ?> <?php if( $settings['title_txt'] ){ ?><span class="theme-cl"><?php echo $settings['title_txt2']; ?></span><?php } ?></h2>
-			<?php } ?>
-
-			<?php if( $settings['subtitle_content'] ){ ?>
-                <p><?php echo $settings['subtitle_content']; ?></p>
-            <?php } ?>
+<!-- eafe-restaurant-schedule -->
+		<div id="eafe-restaurant-schedule">
+			<div id="restaurant-schedule" class="clearfix ">
+				<div class="eafe-addon eafe-addon-text-block eafe-text-center eafe-diner-schedule-info">
+					<h5 class="eafe-addon-title">Schedule</h5>
+					<div class="eafe-addon-content">
+						<h4>Tuesday - Thursday</h4>
+						<h4 class="spdiner-time">@ 6pm and 9:30pm <br>
+							<br>
+							<br>
+						</h4>
+						<h4>Friday and Saturday</h4>
+						<h4 class="spdiner-time">@ 1:30pm, 6pm, and 9:30pm</h4>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<?php 
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Title() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Restaurant_Schedule() );

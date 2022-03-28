@@ -10,7 +10,7 @@ class Widget_Products_Category_List extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Products Category List', 'wpew' );
+		return __( 'Products Category List', 'eafe' );
 	}
 
 	public function get_icon() {	
@@ -18,30 +18,30 @@ class Widget_Products_Category_List extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Product Category List', 'wpew' ),
+				'label' => __( 'Product Category List', 'eafe' ),
 			]
 		);
 
 		$this->add_control(
             'coulmn_number',
             [
-                'label'     => __( 'Coulmn Number', 'wpew' ),
+                'label'     => __( 'Coulmn Number', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => '71',
                 'options'   => [
-                        '12' 	=> __( 'Column 1', 'wpew' ),
-                        '6' 	=> __( 'Column 2', 'wpew' ),
-						'4' 	=> __( 'Column 3', 'wpew' ),
-                        '3' 	=> __( 'Column 4', 'wpew' ),
-                        '2' 	=> __( 'Column 6', 'wpew' ),
-						'71'	=> __( 'Column 7', 'wpew' ),
+                        '12' 	=> __( 'Column 1', 'eafe' ),
+                        '6' 	=> __( 'Column 2', 'eafe' ),
+						'4' 	=> __( 'Column 3', 'eafe' ),
+                        '3' 	=> __( 'Column 4', 'eafe' ),
+                        '2' 	=> __( 'Column 6', 'eafe' ),
+						'71'	=> __( 'Column 7', 'eafe' ),
                     ],
             ]
         );
@@ -49,7 +49,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
             'category_limit',
             [
-                'label' 		=> __( 'Category Limit', 'wpew' ),
+                'label' 		=> __( 'Category Limit', 'eafe' ),
                 'type' 			=> Controls_Manager::NUMBER,
                 'label_block' 	=> false,
                 'default' 		=> '7',
@@ -59,12 +59,12 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'category_order',
 			[
-				'label'     => __( 'Order', 'wpew' ),
+				'label'     => __( 'Order', 'eafe' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'DESC',
 				'options'   => [
-						'DESC' 		=> __( 'Descending', 'wpew' ),
-						'ASC' 		=> __( 'Ascending', 'wpew' ),
+						'DESC' 		=> __( 'Descending', 'eafe' ),
+						'ASC' 		=> __( 'Ascending', 'eafe' ),
 					],
 			]
 	  	);
@@ -75,7 +75,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->start_controls_section(
 			'categories_product_title_text_style',
 			[
-				'label' 	=> __( 'Categories Name', 'wpew' ),
+				'label' 	=> __( 'ALL Categories', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -84,7 +84,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'categories_product_title_text_color',
 			[
-				'label'		=> __( 'Products Title Text Color', 'wpew' ),
+				'label'		=> __( 'All Category Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .iconbox .details .title' => 'color: {{VALUE}};',
@@ -144,7 +144,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->start_controls_section(
 			'categories_product_style',
 			[
-				'label' 	=> __( 'Categories Product', 'wpew' ),
+				'label' 	=> __( 'Categories List Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -153,7 +153,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'categories_product_number_text_color',
 			[
-				'label'		=> __( 'Products Number Text Color', 'wpew' ),
+				'label'		=> __( 'Category Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .details p' => 'color: {{VALUE}};',
@@ -177,7 +177,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->start_controls_section(
 			'categories_image_style',
 			[
-				'label' 	=> __( 'Images Style', 'wpew' ),
+				'label' 	=> __( 'Megamenu Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -186,7 +186,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'categories_image_border_color',
 			[
-				'label'		=> __( 'Border Color', 'wpew' ),
+				'label'		=> __( 'Megamenu Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .header-carousel .iconbox .icon' => 'border-color: {{VALUE}};',
@@ -275,7 +275,7 @@ class Widget_Products_Category_List extends Widget_Base {
 			); ?>
 
 			<div class="header-carousel position-relative">
-				<div class="wpew-row">
+				<div class="eafe-row">
 					<?php
 						if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
 							foreach ( $parent_terms as $pterm ) { 
@@ -283,7 +283,7 @@ class Widget_Products_Category_List extends Widget_Base {
 								$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
 								$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : ''; ?>
 					
-								<div class="wpew-col-<?php echo $coulmn_number; ?>">
+								<div class="eafe-col-<?php echo $coulmn_number; ?>">
 									<div class="item">
 										<a href="<?php echo get_term_link($pterm->term_id); ?>">
 											<div class="iconbox">
@@ -292,7 +292,7 @@ class Widget_Products_Category_List extends Widget_Base {
 												</div>
 												<div class="details">
 													<h5 class="title"><?php echo esc_html($pterm->name); ?></h5>
-													<p><?php echo esc_html($pterm->count).' '.__('Products', 'wpew'); ?></p>
+													<p><?php echo esc_html($pterm->count).' '.__('Products', 'eafe'); ?></p>
 												</div>
 											</div>
 										</a>
@@ -307,7 +307,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		<?php
 		} else { ?>
 			<div class="info-woo">
-				<h3><?php esc_html_e('You need to install or activate woocommer plugin', 'wpew'); ?></h3>
+				<h3><?php esc_html_e('You need to install or activate woocommer plugin', 'eafe'); ?></h3>
 			</div>
 		<?php }
 	}

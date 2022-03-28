@@ -9,7 +9,7 @@ class Widget_Shop_Banner extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Shop Banner', 'wpew' );
+		return __( 'Shop Banner', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,14 +17,14 @@ class Widget_Shop_Banner extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
@@ -42,55 +42,55 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_control(
             'sales',
             [
-                'label' => __( 'Seasonal Sales', 'wpew' ),
+                'label' => __( 'Seasonal Sales', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your sales name', 'wpew' ),
-                'default' => __( 'Seasonal Sales', 'wpew' ),
+                'placeholder' => __( 'Enter your sales name', 'eafe' ),
+                'default' => __( 'Seasonal Sales', 'eafe' ),
             ]
         );
 
 		$this->add_control(
             'sales_offer',
             [
-                'label' => __( 'Sales Offers', 'wpew' ),
+                'label' => __( 'Sales Offers', 'eafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your offer', 'wpew' ),
-                'default' => __( 'Up To Breads', 'wpew' ),
+                'placeholder' => __( 'Enter your offer', 'eafe' ),
+                'default' => __( 'Up To Breads', 'eafe' ),
             ]
         );
 
 		$this->add_control(
             'highlight_text',
             [
-                'label' => __( 'Highlight Text', 'wpew' ),
+                'label' => __( 'Highlight Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your Highlight text', 'wpew' ),
-                'default' => __( '50% Off', 'wpew' ),
+                'placeholder' => __( 'Enter your Highlight text', 'eafe' ),
+                'default' => __( '50% Off', 'eafe' ),
             ]
         );
 
 		$this->add_control(
             'shop_button_name',
             [
-                'label' => __( 'Shop Button Name', 'wpew' ),
+                'label' => __( 'Shop Button Name', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your button name', 'wpew' ),
-                'default' => __( 'Shop Now', 'wpew' ),
+                'placeholder' => __( 'Enter your button name', 'eafe' ),
+                'default' => __( 'Shop Now', 'eafe' ),
             ]
         );
 
         $this->add_control(
             'shop_button_url', 
             [
-                'label' => __( 'Shop Button URL', 'wpew' ),
+                'label' => __( 'Shop Button URL', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your url', 'wpew' ),
-                'default' => __( '#', 'wpew' ),
+                'placeholder' => __( 'Enter your url', 'eafe' ),
+                'default' => __( '#', 'eafe' ),
             ]
         );
 
@@ -98,19 +98,19 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_responsive_control(
 			'vertical_align',
 			[
-				'label' => esc_html__( 'Vertical Alignment', 'wpew' ),
+				'label' => esc_html__( 'Vertical Alignment', 'eafe' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'flex-start' => [
-						'title' => esc_html__( 'Top', 'wpew' ),
+						'title' => esc_html__( 'Top', 'eafe' ),
 						'icon' => 'eicon-justify-start-v', 
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'wpew' ),
+						'title' => esc_html__( 'Center', 'eafe' ),
 						'icon' => 'eicon-justify-space-between-v',
 					],
 					'flex-end' => [
-						'title' => esc_html__( 'Bottom', 'wpew' ),
+						'title' => esc_html__( 'Bottom', 'eafe' ),
 						'icon' => ' eicon-justify-end-v',
 					],
 				],
@@ -125,23 +125,23 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => esc_html__( 'Alignment', 'wpew' ),
+				'label' => esc_html__( 'Alignment', 'eafe' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'wpew' ),
+						'title' => esc_html__( 'Left', 'eafe' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'wpew' ),
+						'title' => esc_html__( 'Center', 'eafe' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'wpew' ),
+						'title' => esc_html__( 'Right', 'eafe' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'wpew' ),
+						'title' => esc_html__( 'Justified', 'eafe' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -160,7 +160,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->start_controls_section(
 			'section_banner_image',
 			[
-				'label' 	=> __( 'Banner Image', 'wpew' ),
+				'label' 	=> __( 'Banner Image', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -169,7 +169,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_responsive_control(
 			'banner_image_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'label' => esc_html__( 'Border Radius', 'eafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -182,7 +182,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_control(
 			'banner_image_bgColor',
 			[
-				'label'		=> __( 'Image overlay color', 'wpew' ),
+				'label'		=> __( 'Image overlay color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .banner_one .details' => 'background: {{VALUE}};',
@@ -197,7 +197,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->start_controls_section(
 			'section_banner_style',
 			[
-				'label' 	=> __( 'Banner Section', 'wpew' ),
+				'label' 	=> __( 'Banner Section', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -206,7 +206,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_control(
 			'seasonal_title_sales',
 			[
-				'label'		=> __( 'Seasonal Sales Color', 'wpew' ),
+				'label'		=> __( 'Seasonal Sales Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .banner_one .details .para' => 'color: {{VALUE}};',
@@ -217,7 +217,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Sales Text Typography', 'wpew' ),
+				'label'		=> __( 'Sales Text Typography', 'eafe' ),
 				'name' 		=> 'sales_typography',
 				'selector' 	=> '{{WRAPPER}} .banner_one .details .para',
 			]
@@ -226,7 +226,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_responsive_control(
 			'section_title_space',
 			[
-				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -247,7 +247,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_control(
 			'banner_title',
 			[
-				'label' => esc_html__( 'Banner Title', 'wpew' ),
+				'label' => esc_html__( 'Banner Title', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -257,7 +257,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_control(
 			'title_sales',
 			[
-				'label'		=> __( 'Sales Title Color', 'wpew' ),
+				'label'		=> __( 'Sales Title Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .banner_one .details .title' => 'color: {{VALUE}};',
@@ -269,7 +269,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Sales Title Typography', 'wpew' ),
+				'label'		=> __( 'Sales Title Typography', 'eafe' ),
 				'name' 		=> 'title_typography',
 				'selector' 	=> '{{WRAPPER}} .banner_one .details .title',
 			]
@@ -279,7 +279,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_control(
 			'highlight_title',
 			[
-				'label'		=> __( 'Highlight Text Color', 'wpew' ),
+				'label'		=> __( 'Highlight Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .banner_one .details .title .text-thm2' => 'color: {{VALUE}};',
@@ -291,7 +291,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Highlight Text Typography', 'wpew' ),
+				'label'		=> __( 'Highlight Text Typography', 'eafe' ),
 				'name' 		=> 'highlight_typography',
 				'selector' 	=> '{{WRAPPER}} .banner_one .details .title .text-thm2',
 			]
@@ -300,7 +300,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_responsive_control(
 			'banner_title_space',
 			[
-				'label' => esc_html__( 'Title Spacing', 'wpew' ),
+				'label' => esc_html__( 'Title Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -320,7 +320,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_responsive_control(
             'banner_padding',
             [
-                'label' 		=> __( 'Banner Padding', 'wpew' ),
+                'label' 		=> __( 'Banner Padding', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -337,7 +337,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->start_controls_section(
 			'section_btn_style',
 			[
-				'label' 	=> __( 'Button', 'wpew' ),
+				'label' 	=> __( 'Button', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -345,7 +345,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_control(
 			'shopnow_btn_color',
 			[
-				'label'		=> __( 'Shop Now Button Color', 'wpew' ),
+				'label'		=> __( 'Shop Now Button Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_btn' => 'color: {{VALUE}};',
@@ -359,7 +359,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_control(
 			'shopnow_btn_hover_color',
 			[
-				'label'		=> __( 'Shop Now Button Hover Color', 'wpew' ),
+				'label'		=> __( 'Shop Now Button Hover Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .shop_btn:hover' => 'color: {{VALUE}};',
@@ -372,7 +372,7 @@ class Widget_Shop_Banner extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Button Typography', 'wpew' ),
+				'label'		=> __( 'Button Typography', 'eafe' ),
 				'name' 		=> 'btn_typography',
 				'selector' 	=> '{{WRAPPER}} .shop_btn',
 			]

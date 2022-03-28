@@ -11,7 +11,7 @@ $wizard: #4facff;
             outline: 0;
         }
     }
-    .wpew-card {
+    .eafe-card {
         background: white;
         width: 100%;
         display: inline-block;
@@ -27,12 +27,12 @@ $wizard: #4facff;
             padding: 0 20px;
         }
     }
-    .wpew-card__image {
+    .eafe-card__image {
         position: relative;
         height: 230px;
         margin-bottom: 35px;
     }
-    .wpew-card__image--barbarian {
+    .eafe-card__image--barbarian {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -43,37 +43,37 @@ $wizard: #4facff;
             left: 0;
         }
     }
-    .wpew-card__level {
+    .eafe-card__level {
         text-transform: uppercase;
         font-size: 12px;
         font-weight: 700;
         margin-bottom: 3px;
     }
-    .wpew-card__level--barbarian {
+    .eafe-card__level--barbarian {
         color: $barbarian;
     }
-    .wpew-card__level--archer {
+    .eafe-card__level--archer {
         color: $archer;
     }
-    .wpew-card__level--giant {
+    .eafe-card__level--giant {
         color: $giant;
     }
-    .wpew-card__level--goblin {
+    .eafe-card__level--goblin {
         color: $goblin;
     }
-    .wpew-card__level--wizard {
+    .eafe-card__level--wizard {
         color: $wizard;
     }
-    .wpew-card__unit-name {
+    .eafe-card__unit-name {
         font-size: 26px;
         color: black;
         font-weight: 900;
         margin-bottom: 5px;
     }
-    .wpew-card__unit-description {
+    .eafe-card__unit-description {
         padding: 20px 0;
     }
-    .wpew-card__unit-stats--barbarian {
+    .eafe-card__unit-stats--barbarian {
         background: $barbarian;
         .one-third {
             border-right: 1px solid #bd7c2f;
@@ -82,31 +82,31 @@ $wizard: #4facff;
             border-right: none;
         }
     }
-    .wpew-card__unit-stats--archer {
+    .eafe-card__unit-stats--archer {
         background: $archer;
         .one-third {
             border-right: 1px solid #d04976;
         }
     }
-    .wpew-card__unit-stats--giant {
+    .eafe-card__unit-stats--giant {
         background: $giant;
         .one-third {
             border-right: 1px solid darken($giant, 8%);
         }
     }
-    .wpew-card__unit-stats--goblin {
+    .eafe-card__unit-stats--goblin {
         background: $goblin;
         .one-third {
             border-right: 1px solid darken($goblin, 6%);
         }
     }
-    .wpew-card__unit-stats--wizard {
+    .eafe-card__unit-stats--wizard {
         background: $wizard;
         .one-third {
             border-right: 1px solid darken($wizard, 6%);
         }
     }
-    .wpew-card__unit-stats {
+    .eafe-card__unit-stats {
         color: white;
         font-weight: 700;
         .one-third {

@@ -2,13 +2,13 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-class Widget_EAFE_Title extends \Elementor\Widget_Base {
+class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 	public function get_name() {
-		return 'eafe-title';
+		return 'eafe-restaurant-menu';
 	}
 
 	public function get_title() {
-		return __( 'EAFE Title', 'eafe' );
+		return __( 'EAFE Restaurant Menu', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -189,18 +189,115 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 	protected function render( ) {
 		$settings = $this->get_settings();  ?>
 
-		<div class="eafe_heading_caption">
-			<?php if( $settings['title_txt'] ){ ?>
-				<h2><?php echo $settings['title_txt']; ?> <?php if( $settings['title_txt'] ){ ?><span class="theme-cl"><?php echo $settings['title_txt2']; ?></span><?php } ?></h2>
-			<?php } ?>
+		<div id="popular" class="restaurent-menu-item">
+	
+			<div class="module-header wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+				<h2 class="module-title">Popular Dishes</h2>
+				<h3 class="module-subtitle">Our most popular menu</h3>
+			</div>
+				
+			<div class="menu-item-list">
+				<div class="eafe-row">
+					<div class="eafe-col-6">
+						<div class="menu">
+							<div class="eafe-row">
+								<div class="eafe-col-8">
+									<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
+									<div class="menu-detail">Mushroom / Veggie / White Sources</div>
+								</div>
+								<div class="col-sm-4 menu-price-detail">
+									<h4 class="menu-price">$10.5</h4>
+								</div>
+							</div>
+						</div>
+					</div>
 
-			<?php if( $settings['subtitle_content'] ){ ?>
-                <p><?php echo $settings['subtitle_content']; ?></p>
-            <?php } ?>
+					<div class="eafe-col-6">
+						<div class="menu">
+							<div class="eafe-row">
+								<div class="eafe-col-8">
+									<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
+									<div class="menu-detail">Mushroom / Veggie / White Sources</div>
+								</div>
+								<div class="col-sm-4 menu-price-detail">
+									<h4 class="menu-price">$10.5</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="eafe-col-6">
+						<div class="menu">
+							<div class="eafe-row">
+								<div class="eafe-col-8">
+									<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
+									<div class="menu-detail">Mushroom / Veggie / White Sources</div>
+								</div>
+								<div class="col-sm-4 menu-price-detail">
+									<h4 class="menu-price">$10.5</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="eafe-col-6">
+						<div class="menu">
+							<div class="eafe-row">
+								<div class="eafe-col-8">
+									<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
+									<div class="menu-detail">Mushroom / Veggie / White Sources</div>
+								</div>
+								<div class="col-sm-4 menu-price-detail">
+									<h4 class="menu-price">$10.5</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- <div class="menu">
+						<div class="row">
+							<div class="col-sm-8">
+								<h4 class="menu-title">Lemon and Garlic Green Beans</h4>
+								<div class="menu-detail">Lemon / Garlic / Beans</div>
+							</div>
+							<div class="col-sm-4 menu-price-detail">
+								<h4 class="menu-price">$14.5</h4>
+								<div class="menu-label">New</div>
+							</div>
+						</div>
+					</div>
+
+				
+					<div class="menu">
+						<div class="row">
+							<div class="col-sm-8">
+								<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
+								<div class="menu-detail">Mushroom / Veggie / White Sources</div>
+							</div>
+							<div class="col-sm-4 menu-price-detail">
+								<h4 class="menu-price">$14.5</h4>
+							</div>
+						</div>
+					</div>
+
+					<div class="menu">
+						<div class="row">
+							<div class="col-sm-8">
+								<h4 class="menu-title">Lemon and Garlic Green Beans</h4>
+								<div class="menu-detail">Lemon / Garlic / Beans</div>
+							</div>
+							<div class="col-sm-4 menu-price-detail">
+								<h4 class="menu-price">$14.5</h4>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+					
 		</div>
 
 		<?php 
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Title() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Restaurant_Menu() );

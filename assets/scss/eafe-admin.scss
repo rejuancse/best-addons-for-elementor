@@ -1,5 +1,5 @@
 /*
-* WPEW admin CSS
+* EAFE admin CSS
 * File Description: The main stylesheet of this plugins for main design part.
 */
 @import "breakpoint";
@@ -7,19 +7,19 @@
 /* --------------------------
 * Shortcode CSS 
 * --------------------------- */
-.wpew-list-table {
+.eafe-list-table {
     .plugin-card {
         .name.column-name {
             display: flex;
             align-items: center;
 
             .icons {
-                margin-right: 20px;
+                margin-right: 15px;
                 @include breakpoint(ipadpro) {
                     margin-right: 12px;
                 }
                 img {
-                    width: 50px;
+                    width: 36px;
                     @include breakpoint(ipadpro) {
                         width: 38px;
                     }
@@ -27,17 +27,17 @@
             } 
         }
     }
-    .wpew-settings-panel{
+    .eafe-settings-panel{
         margin-top: 20px;
         padding: 0;
         display: flex; 
-        .wpew-tabs-content {
+        .eafe-tabs-content {
             max-height: 700px;
             overflow-y: scroll;
             background-color: #ffffff;
             box-shadow: 0 15px 25px #f0f0f1;
         }
-        .wpew-main-setting-table {
+        .eafe-main-setting-table {
             margin: 0;
             th {
                 width: 280px;
@@ -75,12 +75,12 @@
 /*
 * Extensions List css
 *------------------------------ */ 
-.wp-wpew-extensions-list {
+.wp-eafe-extensions-list {
     .plugin-icon{
         width: 64px;
         height: 64px;
     }
-    .wpew-list-table {
+    .eafe-list-table {
         a{
             color: #fff;
             margin-top: 100px;
@@ -101,7 +101,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 23.8%;
+        width: 18.9%;
         margin: 0 16px 16px 0 !important;
         clear: initial;
 
@@ -143,12 +143,11 @@
         }
         h3, h2 {
             margin: 0;
-            font-size: 18px;
+            font-size: 15px;
             line-height: 22px;
-            font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 600;
             color: #3c434a;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
 
             @include breakpoint(ipadpro) {
                 font-size: 16px;
@@ -157,10 +156,9 @@
         }
         p {
             margin: 0;
-            font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 400;
             color: #3c434a;
-            font-size: 14px;
+            font-size: 13px;
 
             @include breakpoint(ipadpro) {
                 font-size: 13px;

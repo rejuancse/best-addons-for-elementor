@@ -9,7 +9,7 @@ class Widget_Breaking_News extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Breaking News', 'wpew' );
+		return __( 'Breaking News', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,44 +17,44 @@ class Widget_Breaking_News extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
 		$this->add_control(
             'breaking_news_title',
             [
-                'label' => __( 'Heading Title', 'wpew' ),
+                'label' => __( 'Heading Title', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your title', 'wpew' ),
-                'default' => __( 'Breaking News', 'wpew' ),
+                'placeholder' => __( 'Enter your title', 'eafe' ),
+                'default' => __( 'Breaking News', 'eafe' ),
             ]
         );
 
 		$this->add_control(
 			'post_number',
 			[
-				'label'         => __( 'Number of Posts', 'wpew' ),
+				'label'         => __( 'Number of Posts', 'eafe' ),
 				'type'          => Controls_Manager::NUMBER,
 				'label_block'   => false,
-				'default'       => __( '5', 'wpew' ),
+				'default'       => __( '5', 'eafe' ),
 			]
 		);
 
 		$this->add_control(
 			'post_cat',
 			[
-				'label'    => __( 'News Category', 'wpew' ),
+				'label'    => __( 'News Category', 'eafe' ),
 				'type'     => Controls_Manager::SELECT,
-				'options'  => wpew_all_category_list( 'category' ),
+				'options'  => eafe_all_category_list( 'category' ),
 				'multiple' => true,
 				'default'  => 'allpost'
 			]
@@ -63,12 +63,12 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'post_order_by',
 			[
-				'label'     => __( 'Order', 'wpew' ),
+				'label'     => __( 'Order', 'eafe' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'DESC',
 				'options'   => [
-						'DESC' 		=> __( 'Descending', 'wpew' ),
-						'ASC' 		=> __( 'Ascending', 'wpew' ),
+						'DESC' 		=> __( 'Descending', 'eafe' ),
+						'ASC' 		=> __( 'Ascending', 'eafe' ),
 					],
 			]
 		);
@@ -84,7 +84,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->start_controls_section(
 			'news_settings_style',
 			[
-				'label' 	=> __( 'Settings', 'wpew' ),
+				'label' 	=> __( 'Settings', 'eafe' ),
 			]
 		);
 
@@ -92,7 +92,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_responsive_control(
 			'section_height_space',
 			[
-				'label' => esc_html__( 'Height', 'wpew' ),
+				'label' => esc_html__( 'Height', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 50,
@@ -104,9 +104,9 @@ class Widget_Breaking_News extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap' => 'height: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker' => 'height: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -114,7 +114,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_responsive_control(
 			'animation_speed',
 			[
-				'label' => esc_html__( 'Animation Speed', 'wpew' ),
+				'label' => esc_html__( 'Animation Speed', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -126,7 +126,7 @@ class Widget_Breaking_News extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker' => 'animation-duration: {{SIZE}}s;',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker' => 'animation-duration: {{SIZE}}s;',
 				],
 			]
 		);
@@ -135,11 +135,11 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_responsive_control(
 			'news_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'wpew' ),
+				'label' => esc_html__( 'Border Radius', 'eafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-breaking-news' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -155,7 +155,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->start_controls_section(
 			'news_title_style',
 			[
-				'label' 	=> __( 'Heading Section', 'wpew' ),
+				'label' 	=> __( 'Heading Section', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -164,10 +164,10 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_title_text_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -176,12 +176,12 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_title_backgound_color',
 			[
-				'label'		=> __( 'Backgound Color', 'wpew' ),
+				'label'		=> __( 'Backgound Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item:before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading:after' => 'border-left-color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading:after' => 'border-left-color: {{VALUE}};',
 				],
 			]
 		);
@@ -190,9 +190,9 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Heading Typography', 'wpew' ),
+				'label'		=> __( 'Heading Typography', 'eafe' ),
 				'name' 		=> 'breaking_news_title_typography',
-				'selector' 	=> '{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker-heading',
+				'selector' 	=> '{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading',
 			]
 		);
 
@@ -205,7 +205,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->start_controls_section(
 			'news_headline_title_style',
 			[
-				'label' 	=> __( 'Headline', 'wpew' ),
+				'label' 	=> __( 'Headline', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -214,11 +214,11 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_headline_title_text_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -227,10 +227,10 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_headline_title_link_hover_color',
 			[
-				'label'		=> __( 'Link Hover Color', 'wpew' ),
+				'label'		=> __( 'Link Hover Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -239,10 +239,10 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_headline_title_backgound_color',
 			[
-				'label'		=> __( 'Backgound Color', 'wpew' ),
+				'label'		=> __( 'Backgound Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -251,16 +251,16 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Text Typography', 'wpew' ),
+				'label'		=> __( 'Text Typography', 'eafe' ),
 				'name' 		=> 'breaking_news_headline_text_typography',
-				'selector' 	=> '{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item',
+				'selector' 	=> '{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item',
 			]
 		);
 
 		$this->add_responsive_control(
 			'media_title_space',
 			[
-				'label' => esc_html__( 'Title Gap', 'wpew' ),
+				'label' => esc_html__( 'Title Gap', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 20,
@@ -272,7 +272,7 @@ class Widget_Breaking_News extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .wpew-breaking-news .ticker-wrap .ticker__item' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item' => 'padding-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -282,8 +282,8 @@ class Widget_Breaking_News extends Widget_Base {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'wpew' ),
-				'selector' => '{{WRAPPER}} .wpew-breaking-news',
+				'label' => esc_html__( 'Box Shadow', 'eafe' ),
+				'selector' => '{{WRAPPER}} .eafe-breaking-news',
 			]
 		);
 
@@ -323,7 +323,7 @@ class Widget_Breaking_News extends Widget_Base {
 
 	  	$data = new \WP_Query( $args ); ?>
 
-		<div class="wpew-breaking-news">
+		<div class="eafe-breaking-news">
 			<div class="ticker-wrap">
 				<?php if( ! empty( $breaking_news_title  ) ) { ?>
 					<div class="ticker-heading"><?php echo $breaking_news_title; ?></div>
@@ -342,7 +342,6 @@ class Widget_Breaking_News extends Widget_Base {
 
 		<?php 
     }
-
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Widget_Breaking_News() );

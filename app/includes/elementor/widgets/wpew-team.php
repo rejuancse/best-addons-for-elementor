@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_WPEW_Team_Member extends Widget_Base {
+class Widget_EAFE_Team_Member extends Widget_Base {
 	public function get_name() {
 		return 'team-member';
 	}
 
 	public function get_title() {
-		return __( 'Member', 'wpew' );
+		return __( 'Member', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,21 +17,21 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
 		$this->add_control(
 		    'team_layout',
 		    [
-		        'label'     => __( 'Layout', 'wpew' ),
+		        'label'     => __( 'Layout', 'eafe' ),
 		        'type'      => Controls_Manager::SELECT,
 		        'default'   => '1',
 		        'options'   => [
@@ -44,33 +44,33 @@ class Widget_WPEW_Team_Member extends Widget_Base {
         $this->add_control(
            	'team_title',
             [
-                'label' => __( 'Name', 'wpew' ),
+                'label' => __( 'Name', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Name', 'wpew' ),
-                'default' => __( 'Alex Carry', 'wpew' ),
+                'placeholder' => __( 'Enter Name', 'eafe' ),
+                'default' => __( 'Alex Carry', 'eafe' ),
             ]
         );
 
         $this->add_control(
            	'team_subtitle',
             [
-                'label' => __( 'Designation', 'wpew' ),
+                'label' => __( 'Designation', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Designation', 'wpew' ),
-                'default' => __( 'Developer', 'wpew' ),
+                'placeholder' => __( 'Enter Designation', 'eafe' ),
+                'default' => __( 'Developer', 'eafe' ),
             ]
         );
 
         $this->add_control(
             'team_desc',
             [
-                'label' => __( 'Description', 'wpew' ),
+                'label' => __( 'Description', 'eafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Description', 'wpew' ),
-                'default' => __( 'Write your description content of this section.', 'wpew' ),
+                'placeholder' => __( 'Enter Description', 'eafe' ),
+                'default' => __( 'Write your description content of this section.', 'eafe' ),
 				'condition' => ['team_layout' => '2'],
             ]
         );
@@ -78,7 +78,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_control(
 		    'team_image',
 		    [
-		        'label'         => __( 'Team Image', 'wpew' ),
+		        'label'         => __( 'Team Image', 'eafe' ),
 		        'type'          => Controls_Manager::MEDIA,
 		        'label_block'   => true,
 		        'default'       => [
@@ -96,7 +96,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Settings', 'wpew' ),
+				'label' 	=> __( 'Settings', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -104,11 +104,11 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_control(
 			'name_color',
 			[
-				'label'		=> __( 'Background Color', 'wpew' ),
+				'label'		=> __( 'Background Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .member-single-item:before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .wpew-members-wrap.style-2 .member-single-item .member-info' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .eafe-members-wrap.style-2 .member-single-item .member-info' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -116,7 +116,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_responsive_control(
             'contents_padding',
             [
-                'label' => __( 'Content Padding', 'wpew' ),
+                'label' => __( 'Content Padding', 'eafe' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -130,7 +130,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_control(
 			'member_name_title',
 			[
-				'label' => esc_html__( 'Member Name', 'wpew' ),
+				'label' => esc_html__( 'Member Name', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -139,7 +139,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_control(
 			'member_name_color',
 			[
-				'label'		=> __( 'Name Color', 'wpew' ),
+				'label'		=> __( 'Name Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .member-info h3' => 'color: {{VALUE}};',
@@ -158,7 +158,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_responsive_control(
 			'name_title_space',
 			[
-				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -179,7 +179,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_control(
 			'designation_title',
 			[
-				'label' => esc_html__( 'Designation Title', 'wpew' ),
+				'label' => esc_html__( 'Designation Title', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -188,7 +188,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_control(
 			'designation_color',
 			[
-				'label'		=> __( 'Designation Color', 'wpew' ),
+				'label'		=> __( 'Designation Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .member-info span' => 'color: {{VALUE}};',
@@ -207,7 +207,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_responsive_control(
 			'designation_space',
 			[
-				'label' => esc_html__( 'Spacing', 'wpew' ),
+				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -228,7 +228,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_control(
 			'description_title',
 			[
-				'label' => esc_html__( 'Description Title', 'wpew' ),
+				'label' => esc_html__( 'Description Title', 'eafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => ['team_layout' => '2'],
@@ -238,7 +238,7 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 		$this->add_control(
 			'description_color',
 			[
-				'label'		=> __( 'Description Color', 'wpew' ),
+				'label'		=> __( 'Description Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .style-2 .member-info p.description' => 'color: {{VALUE}};',
@@ -290,9 +290,9 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 	        $data_desc .= '</p>';
 	    } ?>
 
-		<div class="wpew-members-wrap style-<?php echo $layout; ?>">
-		    <div class="wpew-team-wrap">
-		        <div class="item wpew_team">
+		<div class="eafe-members-wrap style-<?php echo $layout; ?>">
+		    <div class="eafe-team-wrap">
+		        <div class="item eafe_team">
 		            <?php
 		            	switch ( $layout ) {
 			                case '2':
@@ -335,4 +335,4 @@ class Widget_WPEW_Team_Member extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Team_Member() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Team_Member() );

@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_WPEW_Features extends \Elementor\Widget_Base {
+class Widget_EAFE_Features extends \Elementor\Widget_Base {
 	public function get_name() {
-		return 'wpew-features';
+		return 'eafe-features';
 	}
 
 	public function get_title() {
-		return __( 'WPEW Features', 'wpew' );
+		return __( 'EAFE Features', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -17,21 +17,21 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'wpew-elementor' ];
+		return [ 'eafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'wpew' )
+                'label' => __( 'Title Element', 'eafe' )
             ]
         );
 
 		$this->add_control(
 			'feature_icon',
 			[
-				'label' 	=> esc_html__( 'Feature Icon', 'wpew' ),
+				'label' 	=> esc_html__( 'Feature Icon', 'eafe' ),
 				'type' 		=> Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' 		=> [
@@ -44,22 +44,22 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
         $this->add_control(
             'title_txt',
             [
-                'label' => __( 'Title', 'wpew' ),
+                'label' => __( 'Title', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'wpew' ),
-                'default' => __( 'Explore Featured', 'wpew' ),
+                'placeholder' => __( 'Enter title', 'eafe' ),
+                'default' => __( 'Explore Featured', 'eafe' ),
             ]
         );
 
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'wpew' ),
+                'label' => __( 'Sub Title Content', 'eafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'wpew' ),
-                'default' => __( 'Write your sub title content of this section.', 'wpew' ),
+                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
+                'default' => __( 'Write your sub title content of this section.', 'eafe' ),
             ]
         );         
 
@@ -72,14 +72,14 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label' 	=> __( 'Icon', 'wpew' ),
+				'label' 	=> __( 'Icon', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'icon_color',
 			[
-				'label'		=> __( 'Icon Color', 'wpew' ),
+				'label'		=> __( 'Icon Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .crp_box.fl_color .dro_141' => 'color: {{VALUE}};',
@@ -89,7 +89,7 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
 		$this->add_control(
 			'icon_bg_color',
 			[
-				'label'		=> __( 'Icon BG Color', 'wpew' ),
+				'label'		=> __( 'Icon BG Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .crp_box.fl_color .dro_141' => 'background: {{VALUE}};',
@@ -111,14 +111,14 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'wpew' ),
+				'label' 	=> __( 'Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Text Color', 'wpew' ),
+				'label'		=> __( 'Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .banner_title' => 'color: {{VALUE}};',
@@ -137,7 +137,7 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
             'text_padding',
             [
-                'label' 		=> __( 'Title Padding', 'wpew' ),
+                'label' 		=> __( 'Title Padding', 'eafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -154,7 +154,7 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'wpew' ),
+				'label' 	=> __( 'Sub Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -162,7 +162,7 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'wpew' ),
+				'label'		=> __( 'Subtitle Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hero_search-2 .font-lg' => 'color: {{VALUE}};',
@@ -181,7 +181,7 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
             'sub_text_padding',
             [
-                'label' => __( 'Sub Title Padding', 'wpew' ),
+                'label' => __( 'Sub Title Padding', 'eafe' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -217,4 +217,4 @@ class Widget_WPEW_Features extends \Elementor\Widget_Base {
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_WPEW_Features() );
+Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Features() );

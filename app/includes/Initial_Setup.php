@@ -1,5 +1,5 @@
 <?php
-namespace WPEW;
+namespace EAFE;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -14,12 +14,12 @@ if (! class_exists('Initial_Setup')) {
         }
 
         public function initial_compatibility_check() {
-            if (version_compare( WPEW_VERSION, '1.0.0', '>')) {
-                $option_check = get_option('wpew_show_description');
+            if (version_compare( EAFE_VERSION, '1.0.0', '>')) {
+                $option_check = get_option('eafe_show_description');
                 if($option_check != 'true' && $option_check != 'false'){
                     $default_value = array(
-                        'wpew_show_description' => 'true',
-                        'wpew_show_terms_and_conditions' => 'true'
+                        'eafe_show_description' => 'true',
+                        'eafe_show_terms_and_conditions' => 'true'
                     );
                     foreach ($default_value as $key => $value ) {
                         update_option( $key , $value );
@@ -32,7 +32,7 @@ if (! class_exists('Initial_Setup')) {
          * Do some task during plugin activation
          */
         public function initial_plugin_activation() {
-            if (get_option('wp_wpew_is_used')) { // Check is plugin used before or not
+            if (get_option('wp_eafe_is_used')) { // Check is plugin used before or not
                 return false;
             }
             self::update_option();
@@ -43,9 +43,9 @@ if (! class_exists('Initial_Setup')) {
          */
         public function update_option() {
             $init_setup_data = array(
-                'wp_wpew_is_used' => WPEW_VERSION,
+                'wp_eafe_is_used' => EAFE_VERSION,
                 'vendor_type' => 'elementor',
-                'wpew_show_description' => 'true',
+                'eafe_show_description' => 'true',
             );
 
             foreach ($init_setup_data as $key => $value ) {
@@ -76,7 +76,7 @@ if (! class_exists('Initial_Setup')) {
         }
 
         /**
-         * Deactivation Hook For WPEW
+         * Deactivation Hook For EAFE
          */
         public function initial_plugin_deactivation(){
 
@@ -85,34 +85,34 @@ if (! class_exists('Initial_Setup')) {
         public function activation_css() {
             ?>
             <style type="text/css">
-                .wpew-install-notice{
+                .eafe-install-notice{
                     padding: 20px;
                 }
-                .wpew-install-notice-inner{
+                .eafe-install-notice-inner{
                     display: flex;
                     align-items: center;
                 }
-                .wpew-install-notice-inner .button{
+                .eafe-install-notice-inner .button{
                     padding: 5px 30px;
                     height: auto;
                     line-height: 20px;
                     text-transform: capitalize;
                 }
-                .wpew-install-notice-content{
+                .eafe-install-notice-content{
                     flex-grow: 1;
                     padding-left: 20px;
                     padding-right: 20px;
                 }
-                .wpew-install-notice-icon img{
+                .eafe-install-notice-icon img{
                     width: 64px;
                     border-radius: 4px;
                     display: block;
                 }
-                .wpew-install-notice-content h2{
+                .eafe-install-notice-content h2{
                     margin-top: 0;
                     margin-bottom: 5px;
                 }
-                .wpew-install-notice-content p{
+                .eafe-install-notice-content p{
                     margin-top: 0;
                     margin-bottom: 0px;
                     padding: 0;
@@ -122,7 +122,7 @@ if (! class_exists('Initial_Setup')) {
             <script type="text/javascript">
                 jQuery(document).ready(function($){
                     'use strict';
-                    $(document).on('click', '.install-wpew-button', function(e){
+                    $(document).on('click', '.install-eafe-button', function(e){
                         e.preventDefault();
                         var $btn = $(this);
                         $.ajax({
@@ -133,8 +133,8 @@ if (! class_exists('Initial_Setup')) {
                                 $btn.addClass('updating-message');
                             },
                             success: function (data) {
-                                $('.install-wpew-button').remove();
-                                $('#wpew_install_msg').html(data);
+                                $('.install-eafe-button').remove();
+                                $('#eafe_install_msg').html(data);
                             },
                             complete: function () {
                                 $btn.removeClass('updating-message');
@@ -152,25 +152,25 @@ if (! class_exists('Initial_Setup')) {
         public function free_plugin_installed_but_inactive_notice(){
             $this->activation_css();
             ?>
-            <div class="notice notice-error wpew-install-notice">
-                <div class="wpew-install-notice-inner">
-                    <div class="wpew-install-notice-icon">
-                        <img src="<?php echo WPEW_DIR_URL.'assets/images/elementor-icon.png'; ?>" alt="logo" />
+            <div class="notice notice-error eafe-install-notice">
+                <div class="eafe-install-notice-inner">
+                    <div class="eafe-install-notice-icon">
+                        <img src="<?php echo EAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
                     </div>
-                    <div class="wpew-install-notice-content">
-                        <h2><?php _e('Thanks for using WP Elementor Widgets for Elementor', 'wpew'); ?></h2>
+                    <div class="eafe-install-notice-content">
+                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'eafe'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
-                                __('You must have','wpew'), 
+                                __('You must have','eafe'), 
                                 'https://wordpress.org/plugins/elementor/', 
-                                __('elementor','wpew'), 
-                                __('installed and activated on this website in order to use WP WPEW.','wpew')
+                                __('Elementor', 'eafe'), 
+                                __('installed and activated on this website in order to use Easy Addons For Elementor.','eafe')
                             );
                         ?>
                     </div>
-                    <div class="wpew-install-notice-button">
-                        <a  class="button button-primary" href="<?php echo add_query_arg(array('action' => 'activate_elementor_free'), admin_url()); ?>"><?php _e('Activate Elementor', 'wpew'); ?></a>
+                    <div class="eafe-install-notice-button">
+                        <a  class="button button-primary" href="<?php echo add_query_arg(array('action' => 'activate_elementor_free'), admin_url()); ?>"><?php _e('Activate Elementor', 'eafe'); ?></a>
                     </div>
                 </div>
             </div>
@@ -181,35 +181,35 @@ if (! class_exists('Initial_Setup')) {
             include( ABSPATH . 'wp-admin/includes/plugin-install.php' );
             $this->activation_css();
             ?>
-            <div class="notice notice-error wpew-install-notice">
-                <div class="wpew-install-notice-inner">
-                    <div class="wpew-install-notice-icon">
-                        <img src="<?php echo WPEW_DIR_URL.'assets/images/elementor-icon.png'; ?>" alt="logo" />
+            <div class="notice notice-error eafe-install-notice">
+                <div class="eafe-install-notice-inner">
+                    <div class="eafe-install-notice-icon">
+                        <img src="<?php echo EAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
                     </div>
-                    <div class="wpew-install-notice-content">
-                        <h2><?php _e('Thanks for using WP Elementor Widgets for Elementor Plugins', 'wpew'); ?></h2>
+                    <div class="eafe-install-notice-content">
+                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'eafe'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
-                                __('You must have','wpew'), 
+                                __('You must have','eafe'), 
                                 'https://wordpress.org/plugins/elementor/', 
-                                __('elementor','wpew'), 
-                                __('installed and activated on this website in order to use WPEW.','wpew')
+                                __('Elementor', 'eafe'), 
+                                __('installed and activated on this website in order to use Easy Addons For Elementor..','eafe')
                             );
                         ?>
                     </div>
-                    <div class="wpew-install-notice-button">
-                        <a class="install-wpew-button button button-primary" data-slug="elementor" href="<?php echo add_query_arg(array('action' => 'install_elementor_free'), admin_url()); ?>"><?php _e('Install Elementor', 'wpew'); ?></a>
+                    <div class="eafe-install-notice-button">
+                        <a class="install-eafe-button button button-primary" data-slug="elementor" href="<?php echo add_query_arg(array('action' => 'install_elementor_free'), admin_url()); ?>"><?php _e('Install Elementor', 'eafe'); ?></a>
                     </div>
                 </div>
-                <div id="wpew_install_msg"></div>
+                <div id="eafe_install_msg"></div>
             </div>
             <?php
         }
 
         public function activate_elementor_free() {
             activate_plugin('elementor/elementor.php' );
-            wp_redirect(admin_url('admin.php?page=wpew'));
+            wp_redirect(admin_url('admin.php?page=eafe'));
 		    exit();
         }
 
@@ -260,10 +260,10 @@ if (! class_exists('Initial_Setup')) {
         public static function wc_low_version(){
             printf(
                 '<div class="notice notice-error is-dismissible"><p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p></div>', 
-                __('Your','wpew'), 
+                __('Your','eafe'), 
                 'https://wordpress.org/plugins/elementor/', 
-                __('elementor','wpew'), 
-                __('version is below then 3.0, please update.','wpew') 
+                __('elementor','eafe'), 
+                __('version is below then 3.0, please update.','eafe') 
             );
         }
     }
