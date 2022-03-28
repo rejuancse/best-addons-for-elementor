@@ -13,8 +13,8 @@ class Admin_Menu {
      */
     public function register_menu_page(){
         add_menu_page( 
-            'Elementor Widgets',
-            'Elementor Widgets',
+            'Easy Addons',
+            'Easy Addons',
             'manage_options',
             'eafe',
             '',

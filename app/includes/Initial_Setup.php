@@ -155,17 +155,17 @@ if (! class_exists('Initial_Setup')) {
             <div class="notice notice-error eafe-install-notice">
                 <div class="eafe-install-notice-inner">
                     <div class="eafe-install-notice-icon">
-                        <img src="<?php echo EAFE_DIR_URL.'assets/images/elementor-icon.png'; ?>" alt="logo" />
+                        <img src="<?php echo EAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
                     </div>
                     <div class="eafe-install-notice-content">
-                        <h2><?php _e('Thanks for using WP Elementor Widgets for Elementor', 'eafe'); ?></h2>
+                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'eafe'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
                                 __('You must have','eafe'), 
                                 'https://wordpress.org/plugins/elementor/', 
-                                __('elementor','eafe'), 
-                                __('installed and activated on this website in order to use WP EAFE.','eafe')
+                                __('Elementor', 'eafe'), 
+                                __('installed and activated on this website in order to use Easy Addons For Elementor.','eafe')
                             );
                         ?>
                     </div>
@@ -184,17 +184,17 @@ if (! class_exists('Initial_Setup')) {
             <div class="notice notice-error eafe-install-notice">
                 <div class="eafe-install-notice-inner">
                     <div class="eafe-install-notice-icon">
-                        <img src="<?php echo EAFE_DIR_URL.'assets/images/elementor-icon.png'; ?>" alt="logo" />
+                        <img src="<?php echo EAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
                     </div>
                     <div class="eafe-install-notice-content">
-                        <h2><?php _e('Thanks for using WP Elementor Widgets for Elementor Plugins', 'eafe'); ?></h2>
+                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'eafe'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
                                 __('You must have','eafe'), 
                                 'https://wordpress.org/plugins/elementor/', 
-                                __('elementor','eafe'), 
-                                __('installed and activated on this website in order to use EAFE.','eafe')
+                                __('Elementor', 'eafe'), 
+                                __('installed and activated on this website in order to use Easy Addons For Elementor..','eafe')
                             );
                         ?>
                     </div>
