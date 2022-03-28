@@ -18,7 +18,11 @@
 @import "eafe-title"; 
 @import "post-search"; 
 @import "events-list";
- 
+@import "member-list";
+@import "restaurant-menu";
+@import "restaurant-schedule";
+@import "special-menu";
+
  /*
  * Animated Headine
  **/
@@ -319,11 +323,3 @@
 .words-wrapper b.is-hidden {
 	opacity: 0;
 }
-
-
-
-
-
-
-
-
