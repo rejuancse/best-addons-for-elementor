@@ -28,67 +28,50 @@ class Widget_EAFE_Restaurant_Schedule extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
-            'title_txt',
+            'schedule_header_text',
             [
-                'label' => __( 'First Title Text', 'eafe' ),
+                'label' => __( 'Header Text', 'eafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'placeholder' => __( 'Enter title', 'eafe' ),
-                'default' => __( 'Explore Featured', 'eafe' ),
+                'default' => __( 'SCHEDULE', 'eafe' ),
             ]
         );
 
+		# Special Menu List
 		$this->add_control(
-            'title_txt2',
-            [
-                'label' => __( 'Second Title Text', 'eafe' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'eafe' ),
-                'default' => __( 'Cources', 'eafe' ),
-            ]
-        );
-
-        $this->add_control(
-            'subtitle_content',
-            [
-                'label' => __( 'Sub Title Content', 'eafe' ),
-                'type' => Controls_Manager::TEXTAREA,
-                'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
-                'default' => __( 'Write your sub title content of this section.', 'eafe' ),
-            ]
-        );
-
-		$this->add_responsive_control(
-			'align',
+			'schedule_menu_list',
 			[
-				'label' => esc_html__( 'Alignment', 'eafe' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__( 'Left', 'eafe' ),
-						'icon' => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'eafe' ),
-						'icon' => 'eicon-text-align-center',
-					],
-					'right' => [
-						'title' => esc_html__( 'Right', 'eafe' ),
-						'icon' => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => esc_html__( 'Justified', 'eafe' ),
-						'icon' => 'eicon-text-align-justify',
-					],
+				'label' 		=> __( 'Schedule Menu Items', 'eafe' ),
+				'type' 			=> Controls_Manager::REPEATER,
+				'show_label'  	=> true,
+				'default' 		=> [
+					[
+						'text' => __( 'Event #1', 'eafe' ),
+						'icon' => 'fa fa-check',
+					],	
 				],
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+				'fields' 		=> [
+					[
+						'name' 			=> 'schedule_title_text',
+						'label' 		=> __( 'Title Text', 'eafe' ),
+						'type' 			=> Controls_Manager::TEXT,
+						'label_block' 	=> true,
+						'placeholder' 	=> __( 'Button Text', 'eafe' ),
+						'default' => __( 'Tuesday - Thursday', 'eafe' ),
+					],
+					[
+						'name' 			=> 'schedule_time_text',
+						'label' 		=> __( 'Time Text', 'eafe' ),
+						'type' 			=> Controls_Manager::TEXT,
+						'label_block' 	=> true,
+						'placeholder' 	=> __( 'Button Text', 'eafe' ),
+						'default' 		=> __( '@ 6pm and 9:30pm', 'eafe' ),
+					]
 				],
 			]
 		);
+
 
         $this->end_controls_section();
         # Option End
@@ -100,38 +83,86 @@ class Widget_EAFE_Restaurant_Schedule extends \Elementor\Widget_Base {
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
+
+		# Header text color
 		$this->add_control(
-			'forst_title_color',
+			'schedule_header_text_color',
 			[
-				'label'		=> __( 'First Text Color', 'eafe' ),
+				'label'		=> __( 'Header Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption h2' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .eafe-addon-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-		$this->add_control(
-			'second_title_color',
-			[
-				'label'		=> __( 'Second Text Color', 'eafe' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption .theme-cl' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-        $this->add_group_control(
+		# Header text typography
+		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'typography',
-				'selector' 	=> '{{WRAPPER}} .eafe_heading_caption h2',
+				'label'		=> __( 'Header Typography', 'eafe' ),
+				'name' 		=> 'schedule_header_header_text_typography',
+				'selector' 	=> '{{WRAPPER}} .eafe-addon-title',
+			]
+		);
+
+		# Title text color
+		$this->add_control(
+			'schedule_title_text_color',
+			[
+				'label'		=> __( 'Title Text Color', 'eafe' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eafe-addon-content h4' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Title text typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Title Text Typography', 'eafe' ),
+				'name' 		=> 'schedule_title_text__typography',
+				'selector' 	=> '{{WRAPPER}} .eafe-addon-content h4',
+			]
+		);
+
+		# Time text color
+		$this->add_control(
+			'schedule_time_text_color',
+			[
+				'label'		=> __( 'Time Text Color', 'eafe' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eafe-addon-content .spdiner-time' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		# Time text typography
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Header Typography', 'eafe' ),
+				'name' 		=> 'schedule_time_text_typography',
+				'selector' 	=> '{{WRAPPER}} .eafe-addon-content .spdiner-time',
+			]
+		);
+
+		$this->add_control(
+			'schedule_border_one_color',
+			[
+				'label'		=> __( 'Border-1 Color', 'eafe' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .eafe-diner-schedule-info:befter' => 'color: {{VALUE}};',
+				],
 			]
 		);
 
         $this->add_responsive_control(
-			'eafe_title_space',
+			'schedule_spacing',
 			[
 				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
@@ -145,45 +176,10 @@ class Widget_EAFE_Restaurant_Schedule extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption h2' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .eafe-addon-content .spdiner-time' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
-
-		$this->end_controls_section();
-		# Title Section end 1
-
-
-		# Sub Title Section 2
-		$this->start_controls_section(
-			'section_subtitle_style',
-			[
-				'label' 	=> __( 'Sub Title', 'eafe' ),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'subtitle_color',
-			[
-				'label'		=> __( 'Subtitle Color', 'eafe' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption p' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-        $this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' 		=> 'typography2',
-				'selector' 	=> '{{WRAPPER}} .eafe_heading_caption p',
-			]
-		);
-
-        $this->end_controls_section();
-		# Subtitle part 2 end
 	}
 
 	protected function render( ) {
@@ -192,15 +188,16 @@ class Widget_EAFE_Restaurant_Schedule extends \Elementor\Widget_Base {
 		<div id="eafe-restaurant-schedule">
 			<div id="restaurant-schedule" class="clearfix ">
 				<div class="eafe-addon eafe-addon-text-block eafe-text-center eafe-diner-schedule-info">
-					<h5 class="eafe-addon-title">Schedule</h5>
+					<h5 class="eafe-addon-title"><?php echo $settings['schedule_header_text'];?></h5>
 					<div class="eafe-addon-content">
-						<h4>Tuesday - Thursday</h4>
-						<h4 class="spdiner-time">@ 6pm and 9:30pm <br>
+						<?php foreach($settings['schedule_menu_list'] as $list) { ?>
+							<h4><?php echo $list['schedule_title_text'];?></h4>
+							<h4 class="spdiner-time"><?php echo $list['schedule_time_text'];?>
 							<br>
-							<br>
-						</h4>
-						<h4>Friday and Saturday</h4>
-						<h4 class="spdiner-time">@ 1:30pm, 6pm, and 9:30pm</h4>
+							</h4>
+						<?php } ?>
+						<!-- <h4>Friday and Saturday</h4>
+						<h4 class="spdiner-time">@ 1:30pm, 6pm, and 9:30pm</h4> -->
 					</div>
 				</div>
 			</div>
