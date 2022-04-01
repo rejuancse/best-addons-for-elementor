@@ -28,163 +28,133 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'title_txt',
-            [
-                'label' => __( 'First Title Text', 'eafe' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter title', 'eafe' ),
-                'default' => __( 'Explore Featured', 'eafe' ),
-            ]
-        );
-
+		# Special Menu List
 		$this->add_control(
-            'title_txt2',
-            [
-                'label' => __( 'Second Title Text', 'eafe' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'eafe' ),
-                'default' => __( 'Cources', 'eafe' ),
-            ]
-        );
-
-        $this->add_control(
-            'subtitle_content',
-            [
-                'label' => __( 'Sub Title Content', 'eafe' ),
-                'type' => Controls_Manager::TEXTAREA,
-                'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
-                'default' => __( 'Write your sub title content of this section.', 'eafe' ),
-            ]
-        );
-
-		$this->add_responsive_control(
-			'align',
+			'special_menu_list',
 			[
-				'label' => esc_html__( 'Alignment', 'eafe' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__( 'Left', 'eafe' ),
-						'icon' => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'eafe' ),
-						'icon' => 'eicon-text-align-center',
-					],
-					'right' => [
-						'title' => esc_html__( 'Right', 'eafe' ),
-						'icon' => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => esc_html__( 'Justified', 'eafe' ),
-						'icon' => 'eicon-text-align-justify',
-					],
+				'label' 		=> __( 'Special Menu Items', 'eafe' ),
+				'type' 			=> Controls_Manager::REPEATER,
+				'show_label'  	=> true,
+				'default' 		=> [
+					[
+						'text' => __( 'Event #1', 'eafe' ),
+						'icon' => 'fa fa-check',
+					],	
 				],
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+				'fields' 		=> [
+					[
+						'name' 			=> 'items_title_text',
+						'label' 		=> __( 'Items Title Text', 'eafe' ),
+						'type' 			=> Controls_Manager::TEXT,
+						'label_block' 	=> true,
+						'placeholder' 	=> __( 'Button Text', 'eafe' ),
+						'default' 		=> __( 'Fried Rice x 1', 'eafe' ),
+					],
+					[
+						'name' 			=> 'items_sub_title_text',
+						'label' 		=> __( 'Items Sub-Title Text', 'eafe' ),
+						'type' 			=> Controls_Manager::TEXT,
+						'label_block' 	=> true,
+						'placeholder' 	=> __( 'Button Text', 'eafe' ),
+						'default' 		=> __( 'Price: ', 'eafe' ),
+					],
+					[
+						'name' 			=> 'items_currency_text',
+						'label' 		=> __( 'Items Currency Text', 'eafe' ),
+						'type' 			=> Controls_Manager::TEXT,
+						'label_block' 	=> true,
+						'placeholder' 	=> __( 'Button Text', 'eafe' ),
+						'default' 		=> __( '$', 'eafe' ),
+					],
+					[
+						'name' 			=> 'items_price_text',
+						'label' 		=> __( 'Items Price Text', 'eafe' ),
+						'type' 			=> Controls_Manager::TEXT,
+						'label_block' 	=> true,
+						'placeholder' 	=> __( 'Button Text', 'eafe' ),
+						'default' 		=> __( '7.00', 'eafe' ),
+					],
 				],
 			]
 		);
+
+		$this->add_control(
+            'items_total_text',
+            [
+                'label' => __( 'Items Total Text', 'eafe' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Enter your sales name', 'eafe' ),
+                'default' => __( 'Total:', 'eafe' ),
+            ]
+        );
 
         $this->end_controls_section();
         # Option End
 
 		$this->start_controls_section(
-			'section_title_style',
+			'special_menu_items_style',
 			[
 				'label' 	=> __( 'Title', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
-			'forst_title_color',
+			'special_items_title_text_color',
 			[
-				'label'		=> __( 'First Text Color', 'eafe' ),
+				'label'		=> __( 'Items Title Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption h2' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .set_menu li' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
 		$this->add_control(
-			'second_title_color',
+			'special_items_price_text_color',
 			[
-				'label'		=> __( 'Second Text Color', 'eafe' ),
+				'label'		=> __( 'Items Price Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption .theme-cl' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .single_special .set_menu li span' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
-        $this->add_group_control(
+		$this->add_control(
+			'special_items_total_text_color',
+			[
+				'label'		=> __( 'Items Total Text Color', 'eafe' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .single_special .set_menu .total' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'special_items_price_totat_text_color',
+			[
+				'label'		=> __( 'Items Price Total Text Color', 'eafe' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .single_special .set_menu .total span' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+
+		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' 		=> 'typography',
-				'selector' 	=> '{{WRAPPER}} .eafe_heading_caption h2',
-			]
-		);
-
-        $this->add_responsive_control(
-			'eafe_title_space',
-			[
-				'label' => esc_html__( 'Spacing', 'eafe' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 5,
-				],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption h2' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				],
+				'label'		=> __( 'Items Text Typography', 'eafe' ),
+				'name' 		=> 'items_price_text_color_typography',
+				'selector' 	=> '{{WRAPPER}} .single_special .set_menu li',
 			]
 		);
 
 		$this->end_controls_section();
 		# Title Section end 1
-
-
-		# Sub Title Section 2
-		$this->start_controls_section(
-			'section_subtitle_style',
-			[
-				'label' 	=> __( 'Sub Title', 'eafe' ),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'subtitle_color',
-			[
-				'label'		=> __( 'Subtitle Color', 'eafe' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption p' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-        $this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' 		=> 'typography2',
-				'selector' 	=> '{{WRAPPER}} .eafe_heading_caption p',
-			]
-		);
-
-        $this->end_controls_section();
-		# Subtitle part 2 end
 	}
 
 	protected function render( ) {
@@ -198,11 +168,17 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 			<div class="single_special">
 				<img src="http://infinityflamesoft.com/html/restarunt-preview/assets/img/sp1.jpg" alt="">
 				<ul class="set_menu">
-					<li>Fried Rice x 1<span>Price: $9.00</span></li>
-					<li>Checken x 2<span>Price: $15.00</span></li>
+					<?php $sum_of_value = 0; $currency = "$";?>
+					<?php foreach($settings['special_menu_list'] as $list) { ?>
+						<?php $currency = $list['items_currency_text']; $sum_of_value+=$list['items_price_text']; ?>
+						<li> <?php echo $list['items_title_text']; ?> <span> <?php echo $list['items_sub_title_text'];?> <?php echo $list['items_currency_text'];?> <?php echo $list['items_price_text'];?> </span></li>
+					<?php } ?>
+					<!-- <li>Fried Rice x 1<span>Price: $9.00</span></li> -->
+					<!-- <li>Checken x 2<span>Price: $15.00</span></li>
 					<li>Salad x 1<span>Price: $7.00</span></li>
-					<li>1 250ml x 1<span>Price: $3.00</span></li>
-					<li class="total">Total:<span>$24.00</span></li>
+					 <li>1 250ml x 1<span>Price: $3.00</span></li> -->
+					<!-- <li class="total">Total:<span>$24.00</span></li> -->
+					<li class="total"><?php echo $settings['items_total_text'] ?><span><?php echo $currency;?> <?php echo $sum_of_value;?></span></li>
 				</ul>
 			</div>
 		<!-- </section> -->
