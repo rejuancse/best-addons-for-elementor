@@ -2,13 +2,15 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
+
+class Widget_EAFE_Restaurant_Menu extends Widget_Base {
+	
 	public function get_name() {
 		return 'eafe-restaurant-menu';
 	}
 
 	public function get_title() {
-		return __( 'EAFE Restaurant Menu', 'eafe' );
+		return __( 'Restaurant Menu', 'eafe' );
 	}
 
 	public function get_icon() {
@@ -50,7 +52,7 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
         );
 
 		$this->add_control(
-            'popular_dishes_menu_column',
+            'menu_column',
             [
                 'label'     => __( 'Coulmn Number', 'eafe' ),
                 'type'      => Controls_Manager::SELECT,
@@ -69,35 +71,33 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 		$this->add_control(
 			'popular_dishes_menu_list',
 			[
-				'label' 		=> __( 'Popular Dishes Menu Items', 'eafe' ),
+				'label' 		=> __( 'Dishes Menu Items', 'eafe' ),
 				'type' 			=> Controls_Manager::REPEATER,
 				'show_label'  	=> true,
 				'default' 		=> [
 					[
-						'text' => __( 'Event #1', 'eafe' ),
-						'icon' => 'fa fa-check',
+						'text' => __( 'Dishes #1', 'eafe' ),
 					],	
 				],
 				'fields' 		=> [
 					[
-						'name' 			=> 'popular_dishes_menu_title_text',
+						'name' 			=> 'dishes_menu_title',
 						'label' 		=> __( 'Menu Title Text', 'eafe' ),
 						'type' 			=> Controls_Manager::TEXT,
 						'label_block' 	=> true,
 						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' => __( 'Wild Mushroom Bucatini with Kale', 'eafe' ),
+						'default' 		=> __( 'Wild Mushroom Bucatini with Kale', 'eafe' ),
 					],
 					[
-						'name' 			=> 'popular_dishes_menu_details_text',
+						'name' 			=> 'dishes_menu_details',
 						'label' 		=> __( 'Menu Details Text', 'eafe' ),
 						'type' 			=> Controls_Manager::TEXT,
 						'label_block' 	=> true,
 						'placeholder' 	=> __( 'Button Text', 'eafe' ),
 						'default' 		=> __( 'Mushroom / Veggie / White Sources', 'eafe' ),
 					],
-
 					[
-						'name' 			=> 'popular_dishes_menu_price_text',
+						'name' 			=> 'dishes_menu_price',
 						'label' 		=> __( 'Menu Price Text', 'eafe' ),
 						'type' 			=> Controls_Manager::TEXT,
 						'label_block' 	=> true,
@@ -108,33 +108,14 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'align',
+		$this->add_control(
+			'currency',
 			[
-				'label' => esc_html__( 'Alignment', 'eafe' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__( 'Left', 'eafe' ),
-						'icon' => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'eafe' ),
-						'icon' => 'eicon-text-align-center',
-					],
-					'right' => [
-						'title' => esc_html__( 'Right', 'eafe' ),
-						'icon' => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => esc_html__( 'Justified', 'eafe' ),
-						'icon' => 'eicon-text-align-justify',
-					],
-				],
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
-				],
+				'label'    => __( 'Currency', 'eafe' ),
+				'type'     => Controls_Manager::SELECT,
+				'options'  => getCurrencyList(),
+				'multiple' => false,
+				'default'  => 'USD:$',
 			]
 		);
 
@@ -154,10 +135,10 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 		$this->add_control(
 			'popular_dishes_header_color',
 			[
-				'label'		=> __( 'Header Color', 'eafe' ),
+				'label'		=> __( 'Heading Title Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} #header' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .restaurent-menu-item .module-header .module-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -166,9 +147,9 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Header Typography', 'eafe' ),
+				'label'		=> __( 'Heading Title Typography', 'eafe' ),
 				'name' 		=> 'popular_dishes_header_typorgraphy',
-				'selector' 	=> '{{WRAPPER}} #header',
+				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .module-header .module-title',
 			]
 		);
 
@@ -179,7 +160,7 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 				'label'		=> __( 'Sub Header Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} #subheader' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .restaurent-menu-item .module-header .module-subtitle' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -190,7 +171,7 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 			[
 				'label'		=> __( 'Sub Header Typography', 'eafe' ),
 				'name' 		=> 'popular_dishes_sub_header_typorgraphy',
-				'selector' 	=> '{{WRAPPER}} #subheader',
+				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .module-header .module-subtitle',
 			]
 		);
 
@@ -212,7 +193,7 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 				'label'		=> __( 'Title Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .menu-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .restaurent-menu-item .menu-item-list .menu-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -223,7 +204,7 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 			[
 				'label'		=> __( 'Title Typography', 'eafe' ),
 				'name' 		=> 'popular_dishes_menu_title_typorgraphy',
-				'selector' 	=> '{{WRAPPER}} .menu-title',
+				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .menu-item-list .menu-title',
 			]
 		);
 
@@ -234,7 +215,7 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 				'label'		=> __( 'Details Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .menu-detail' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .restaurent-menu-item .menu-detail' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -245,7 +226,7 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 			[
 				'label'		=> __( 'Details Typography', 'eafe' ),
 				'name' 		=> 'popular_dishes_menu_details_typorgraphy',
-				'selector' 	=> '{{WRAPPER}} .menu-detail',
+				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .menu-detail',
 			]
 		);
 
@@ -256,7 +237,7 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 				'label'		=> __( 'Price Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .menu-price' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .restaurent-menu-item .menu-price' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -267,122 +248,55 @@ class Widget_EAFE_Restaurant_Menu extends \Elementor\Widget_Base {
 			[
 				'label'		=> __( 'Price Text Typography', 'eafe' ),
 				'name' 		=> 'popular_dishes_menu_price_typorgraphy',
-				'selector' 	=> '{{WRAPPER}} .menu-price',
+				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .menu-price',
 			]
 		);
         $this->end_controls_section();
 	}
 
 	protected function render( ) {
-		$settings = $this->get_settings();  ?>
+		$settings 	= $this->get_settings();
+		$currency   = $settings['currency'];
 
-		<div id="popular" class="restaurent-menu-item">
-	
-			<div class="module-header wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-				<h2 id="header" class="module-title"><?php echo $settings['popular_dishes_header_text']; ?></h2>
-				<h3 id="subheader" class="module-subtitle"><?php echo $settings['popular_dishes_sub_header_text']; ?></h3>
+		$crcy_code = explode(':', $currency); ?>
+
+		<div class="restaurent-menu-item">
+			<div class="module-header">
+				<?php if( !empty($settings['popular_dishes_header_text']) ) { ?>
+					<h2 class="module-title"><?php echo $settings['popular_dishes_header_text']; ?></h2>
+				<?php } ?>
+				<?php if( !empty($settings['popular_dishes_sub_header_text']) ) { ?>
+					<h3 class="module-subtitle"><?php echo $settings['popular_dishes_sub_header_text']; ?></h3>
+				<?php } ?>
 			</div>
 				
 			<div class="menu-item-list">
 				<div class="eafe-row">
 					<?php foreach($settings['popular_dishes_menu_list'] as $list){ ?>
-						<div class="eafe-col-<?php echo $settings['popular_dishes_menu_column'];?>">
+						<div class="eafe-col-<?php echo $settings['menu_column'];?>">
 							<div class="menu">
 								<div class="eafe-row">
 									<div class="eafe-col-8">
-										<h4 class="menu-title"><?php echo $list['popular_dishes_menu_title_text'];?></h4>
-										<div class="menu-detail"><?php echo $list['popular_dishes_menu_details_text'];?></div>
+										<?php if( !empty($list['dishes_menu_title']) ) { ?>
+											<h4 class="menu-title"><?php echo $list['dishes_menu_title']; ?></h4>
+										<?php } ?>
+
+										<?php if( !empty($list['dishes_menu_details']) ) { ?>
+											<div class="menu-detail"><?php echo $list['dishes_menu_details']; ?></div>
+										<?php } ?>
 									</div>
-									<div class="col-sm-4 menu-price-detail">
-										<h4 class="menu-price">$<?php echo $list['popular_dishes_menu_price_text'];?></h4>
+									
+									<div class="eafe-col-4 menu-price-detail">
+										<?php if( !empty($list['dishes_menu_price']) ) { ?>
+											<h4 class="menu-price"><?php echo $crcy_code[1]; ?><?php echo $list['dishes_menu_price'];?></h4>
+										<?php } ?>
 									</div>
 								</div>
 							</div>
 						</div>
 					<?php } ?>
-
-					<!-- <div class="eafe-col-6">
-						<div class="menu">
-							<div class="eafe-row">
-								<div class="eafe-col-8">
-									<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
-									<div class="menu-detail">Mushroom / Veggie / White Sources</div>
-								</div>
-								<div class="col-sm-4 menu-price-detail">
-									<h4 class="menu-price">$10.5</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="eafe-col-6">
-						<div class="menu">
-							<div class="eafe-row">
-								<div class="eafe-col-8">
-									<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
-									<div class="menu-detail">Mushroom / Veggie / White Sources</div>
-								</div>
-								<div class="col-sm-4 menu-price-detail">
-									<h4 class="menu-price">$10.5</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="eafe-col-6">
-						<div class="menu">
-							<div class="eafe-row">
-								<div class="eafe-col-8">
-									<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
-									<div class="menu-detail">Mushroom / Veggie / White Sources</div>
-								</div>
-								<div class="col-sm-4 menu-price-detail">
-									<h4 class="menu-price">$10.5</h4>
-								</div>
-							</div>
-						</div>
-					</div> -->
-
-					<!-- <div class="menu">
-						<div class="row">
-							<div class="col-sm-8">
-								<h4 class="menu-title">Lemon and Garlic Green Beans</h4>
-								<div class="menu-detail">Lemon / Garlic / Beans</div>
-							</div>
-							<div class="col-sm-4 menu-price-detail">
-								<h4 class="menu-price">$14.5</h4>
-								<div class="menu-label">New</div>
-							</div>
-						</div>
-					</div>
-
-				
-					<div class="menu">
-						<div class="row">
-							<div class="col-sm-8">
-								<h4 class="menu-title">Wild Mushroom Bucatini with Kale</h4>
-								<div class="menu-detail">Mushroom / Veggie / White Sources</div>
-							</div>
-							<div class="col-sm-4 menu-price-detail">
-								<h4 class="menu-price">$14.5</h4>
-							</div>
-						</div>
-					</div>
-
-					<div class="menu">
-						<div class="row">
-							<div class="col-sm-8">
-								<h4 class="menu-title">Lemon and Garlic Green Beans</h4>
-								<div class="menu-detail">Lemon / Garlic / Beans</div>
-							</div>
-							<div class="col-sm-4 menu-price-detail">
-								<h4 class="menu-price">$14.5</h4>
-							</div>
-						</div>
-					</div> -->
 				</div>
-			</div>
-					
+			</div>		
 		</div>
 
 		<?php 

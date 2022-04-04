@@ -1,39 +1,59 @@
-.menu {
-	border-bottom: 1px dotted #DDD;
-	padding: 0 0 10px;
-	margin: 0 0 20px;
-}
+.restaurent-menu-item {
+	// Heading Title box
+	.module-header {
+		margin-bottom: 30px;
+		text-align: center;
 
-.menu-classic img {
-	margin: 0 0 10px;
-}
+		.module-title {
+			font-size: 28px;
+			margin: 0;
+			line-height: normal;
+			font-weight: 500;
+			color: #333;
+		}
+		
+		.module-title:before {
+			display: none;
+		}
+	
+		.module-subtitle {
+			font-size: 20px;
+			line-height: normal;
+			margin: 0;
+			font-weight: 400;
+			color: #444;
+		}
+	}
 
-.menu-title,
-.menu-price {
-	font-size: 16px;
-	margin: 0;
-}
+	// menu-item-list
+	.menu-item-list {
+		.menu-price-detail {
+			position: relative;
+			text-align: right;
+		}
+	}
 
-.menu-detail {
-	font-size: 14px;
-}
-
-.menu-price-detail {
-	position: relative;
-	text-align: right;
-}
-
-.menu-label {
-	background: #fae7d7;
-	position: relative;
-	display: inline-block;
-	padding: 2px 10px 0px 10px;
-	font-family: 'Crimson Text', serif;
-	letter-spacing: 1px;
-	font-style: italic;
-	font-size: 13px;
-	float: right;
-	top: 5px;
+	.menu {
+		border-bottom: 1px dotted #DDD;
+		padding: 0 0 10px;
+		margin: 0 0 20px;
+	}
+	
+	.menu-classic img {
+		margin: 0 0 10px;
+	}
+	
+	.menu-title,
+	.menu-price {
+		font-size: 16px;
+		margin: 0;
+		color: #555;
+		font-weight: 600;
+	}
+	
+	.menu-detail {
+		font-size: 14px;
+	}
 }
 
 
