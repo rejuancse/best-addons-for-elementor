@@ -59,15 +59,16 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 						'default' 		=> __( 'Price: ', 'eafe' ),
 					],
 					[
-						'name' 			=> 'items_currency_text',
-						'label' 		=> __( 'Items Currency Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
+						'name' 			=> 'items_currency',
+						'label' 		=> __( 'Currency', 'eafe' ),
+						'type' 			=> Controls_Manager::SELECT,
+						'options'  		=> getCurrencyList(),
+						'multiple' 		=> false,
+						'default'  		=> 'USD:$',
 						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( '$', 'eafe' ),
 					],
 					[
-						'name' 			=> 'items_price_text',
+						'name' 			=> 'items_price',
 						'label' 		=> __( 'Items Price Text', 'eafe' ),
 						'type' 			=> Controls_Manager::TEXT,
 						'label_block' 	=> true,
@@ -111,7 +112,7 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'special_items_price_text_color',
+			'special_items_price_color',
 			[
 				'label'		=> __( 'Items Price Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
@@ -143,12 +144,11 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 			]
 		);
 
-
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
 				'label'		=> __( 'Items Text Typography', 'eafe' ),
-				'name' 		=> 'items_price_text_color_typography',
+				'name' 		=> 'items_price_color_typography',
 				'selector' 	=> '{{WRAPPER}} .single_special .set_menu li',
 			]
 		);
@@ -158,30 +158,31 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 	}
 
 	protected function render( ) {
-		$settings = $this->get_settings();  ?>
+		$settings = $this->get_settings(); ?>
 
-		<!-- <section class="special_menu mt-60 mb-60"> -->
-			<div class="section-title text-center">
-				<p>Famous for good food</p>
-				<h4>special menu</h4>
-			</div>
-			<div class="single_special">
-				<img src="http://infinityflamesoft.com/html/restarunt-preview/assets/img/sp1.jpg" alt="">
-				<ul class="set_menu">
-					<?php $sum_of_value = 0; $currency = "$";?>
-					<?php foreach($settings['special_menu_list'] as $list) { ?>
-						<?php $currency = $list['items_currency_text']; $sum_of_value+=$list['items_price_text']; ?>
-						<li> <?php echo $list['items_title_text']; ?> <span> <?php echo $list['items_sub_title_text'];?> <?php echo $list['items_currency_text'];?> <?php echo $list['items_price_text'];?> </span></li>
-					<?php } ?>
-					<!-- <li>Fried Rice x 1<span>Price: $9.00</span></li> -->
-					<!-- <li>Checken x 2<span>Price: $15.00</span></li>
-					<li>Salad x 1<span>Price: $7.00</span></li>
-					 <li>1 250ml x 1<span>Price: $3.00</span></li> -->
-					<!-- <li class="total">Total:<span>$24.00</span></li> -->
-					<li class="total"><?php echo $settings['items_total_text'] ?><span><?php echo $currency;?> <?php echo $sum_of_value;?></span></li>
-				</ul>
-			</div>
-		<!-- </section> -->
+		<div class="single_special">
+			<ul class="set_menu">
+				<?php $sum_of_value = 0;?>
+				<?php foreach($settings['special_menu_list'] as $list) { ?>
+					<?php 
+						$currency = $list['items_currency']; 
+						$crcy_code = explode(':', $currency);
+						$sum_of_value += $list['items_price']; 
+					?>
+					<li>
+						<?php echo $list['items_title_text']; ?> 
+						<span> 
+							<?php echo $list['items_sub_title_text'];?>
+							<?php echo $crcy_code[1].''.$list['items_price']; ?>
+						</span>
+					</li>
+				<?php } ?>
+				<li class="total">
+                    <?php echo $settings['items_total_text'] ?>
+					<span><?php echo $crcy_code[1].''.$sum_of_value;?></span>
+				</li>
+			</ul>
+		</div>
 
 		<?php 
     }

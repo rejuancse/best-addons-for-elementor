@@ -2,7 +2,7 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-class Widget_EAFE_Restaurant_Schedule extends \Elementor\Widget_Base {
+class Widget_EAFE_Restaurant_Schedule extends Widget_Base {
 	public function get_name() {
 		return 'eafe-restaurant-schedule';
 	}
@@ -184,7 +184,8 @@ class Widget_EAFE_Restaurant_Schedule extends \Elementor\Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings();  ?>
-<!-- eafe-restaurant-schedule -->
+		
+		<!-- eafe-restaurant-schedule -->
 		<div id="eafe-restaurant-schedule">
 			<div id="restaurant-schedule" class="clearfix ">
 				<div class="eafe-addon eafe-addon-text-block eafe-text-center eafe-diner-schedule-info">
@@ -192,12 +193,8 @@ class Widget_EAFE_Restaurant_Schedule extends \Elementor\Widget_Base {
 					<div class="eafe-addon-content">
 						<?php foreach($settings['schedule_menu_list'] as $list) { ?>
 							<h4><?php echo $list['schedule_title_text'];?></h4>
-							<h4 class="spdiner-time"><?php echo $list['schedule_time_text'];?>
-							<br>
-							</h4>
+							<h4 class="spdiner-time"><?php echo $list['schedule_time_text'];?></h4>
 						<?php } ?>
-						<!-- <h4>Friday and Saturday</h4>
-						<h4 class="spdiner-time">@ 1:30pm, 6pm, and 9:30pm</h4> -->
 					</div>
 				</div>
 			</div>
