@@ -4,8 +4,9 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
+	
 	public function get_name() {
-		return 'eafe-special-menu';
+		return 'eafe-special-menus';
 	}
 
 	public function get_title() {
@@ -37,8 +38,7 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 				'show_label'  	=> true,
 				'default' 		=> [
 					[
-						'text' => __( 'Event #1', 'eafe' ),
-						'icon' => 'fa fa-check',
+						'text' => __( 'Menu Item #1', 'eafe' ),
 					],	
 				],
 				'fields' 		=> [
@@ -59,15 +59,6 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 						'default' 		=> __( 'Price: ', 'eafe' ),
 					],
 					[
-						'name' 			=> 'items_currency',
-						'label' 		=> __( 'Currency', 'eafe' ),
-						'type' 			=> Controls_Manager::SELECT,
-						'options'  		=> getCurrencyList(),
-						'multiple' 		=> false,
-						'default'  		=> 'USD:$',
-						'label_block' 	=> true,
-					],
-					[
 						'name' 			=> 'items_price',
 						'label' 		=> __( 'Items Price Text', 'eafe' ),
 						'type' 			=> Controls_Manager::TEXT,
@@ -78,6 +69,17 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 				],
 			]
 		);
+
+		$this->add_control(
+            'items_currency',
+            [
+                'label' => __( 'Currency', 'eafe' ),
+				'type' 			=> Controls_Manager::SELECT,
+				'options'  		=> getCurrencyList(),
+				'multiple' 		=> false,
+				'default'  		=> 'USD:$',
+            ]
+        );
 
 		$this->add_control(
             'items_total_text',
@@ -101,12 +103,12 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 			]
 		);
 		$this->add_control(
-			'special_items_title_text_color',
+			'special_items_color',
 			[
-				'label'		=> __( 'Items Title Text Color', 'eafe' ),
+				'label'		=> __( 'Menu Item Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .set_menu li' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .single_special .set_menu li' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -128,18 +130,18 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 				'label'		=> __( 'Items Total Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single_special .set_menu .total' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .single_special .total' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
 		$this->add_control(
-			'special_items_price_totat_text_color',
+			'item_price_text_color',
 			[
-				'label'		=> __( 'Items Price Total Text Color', 'eafe' ),
+				'label'		=> __( 'Items Price Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single_special .set_menu .total span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .single_special .total span' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -147,8 +149,8 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Items Text Typography', 'eafe' ),
-				'name' 		=> 'items_price_color_typography',
+				'label'		=> __( 'Typography', 'eafe' ),
+				'name' 		=> 'menu_typography',
 				'selector' 	=> '{{WRAPPER}} .single_special .set_menu li',
 			]
 		);
@@ -165,7 +167,7 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 				<?php $sum_of_value = 0;?>
 				<?php foreach($settings['special_menu_list'] as $list) { ?>
 					<?php 
-						$currency = $list['items_currency']; 
+						$currency = $settings['items_currency']; 
 						$crcy_code = explode(':', $currency);
 						$sum_of_value += $list['items_price']; 
 					?>
