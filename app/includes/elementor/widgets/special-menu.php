@@ -29,44 +29,55 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
             ]
         );
 
-		# Special Menu List
+
+		$repeater = new \Elementor\Repeater();
+
+		$repeater->add_control(
+			'menu_item_name', [
+				'label' => esc_html__( 'Menu Title', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__( 'Fried Rice x 1' , 'eafe' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'items_price_text', [
+				'label' => esc_html__( 'Price Text', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__( 'Price: ' , 'eafe' ),
+				'show_label' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'items_price', [
+				'label' 	=> esc_html__( 'Item Price', 'eafe' ),
+				'type' 		=> \Elementor\Controls_Manager::TEXT,
+				'default' 	=> esc_html__( '7.00' , 'eafe' ),
+				'show_label' => true,
+			]
+		);
+
 		$this->add_control(
 			'special_menu_list',
 			[
-				'label' 		=> __( 'Special Menu Items', 'eafe' ),
-				'type' 			=> Controls_Manager::REPEATER,
-				'show_label'  	=> true,
-				'default' 		=> [
+				'label' => esc_html__( 'Special Menu Items', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
 					[
-						'text' => __( 'Menu Item #1', 'eafe' ),
-					],	
-				],
-				'fields' 		=> [
-					[
-						'name' 			=> 'items_title_text',
-						'label' 		=> __( 'Items Title Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
-						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( 'Fried Rice x 1', 'eafe' ),
+						'menu_item_name' => esc_html__( 'Fried Rice x 1', 'eafe' ),
+						'items_price_text' => esc_html__( 'Price: ', 'eafe' ),
+						'items_price' 	=> esc_html__( '7.00', 'eafe' ),
 					],
 					[
-						'name' 			=> 'items_sub_title_text',
-						'label' 		=> __( 'Items Sub-Title Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
-						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( 'Price: ', 'eafe' ),
-					],
-					[
-						'name' 			=> 'items_price',
-						'label' 		=> __( 'Items Price Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
-						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( '7.00', 'eafe' ),
+						'menu_item_name' => esc_html__( 'Salad x 1', 'eafe' ),
+						'items_price_text' => esc_html__( 'Price: ', 'eafe' ),
+						'items_price' => esc_html__( '1.00', 'eafe' ),
 					],
 				],
+				'title_field' => '{{{ menu_item_name }}}',
 			]
 		);
 
@@ -103,18 +114,34 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 			]
 		);
 		$this->add_control(
-			'special_items_color',
+			'special_items_title_text_color',
 			[
-				'label'		=> __( 'Menu Item Color', 'eafe' ),
+				'label'		=> __( 'Menu Items Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single_special .set_menu li' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .set_menu li' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Items Text Typography', 'eafe' ),
+				'name' 		=> 'menu_items_typography',
+				'selector' 	=> '{{WRAPPER}} .single_special .set_menu li',
+			]
+		);
+
 		$this->add_control(
-			'special_items_price_color',
+			'first_divider',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+			]
+		);
+
+		$this->add_control(
+			'special_items_price_text_color',
 			[
 				'label'		=> __( 'Items Price Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
@@ -124,24 +151,40 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Price Text Typography', 'eafe' ),
+				'name' 		=> 'menu_price_text_typography',
+				'selector' 	=> '{{WRAPPER}} .single_special .set_menu li span',
+			]
+		);
+
+		$this->add_control(
+			'hr',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+			]
+		);
+
 		$this->add_control(
 			'special_items_total_text_color',
 			[
 				'label'		=> __( 'Items Total Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single_special .total' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .single_special .set_menu .total' => 'color: {{VALUE}};',
 				],
 			]
 		);
 
 		$this->add_control(
-			'item_price_text_color',
+			'special_items_price_totat_text_color',
 			[
-				'label'		=> __( 'Items Price Color', 'eafe' ),
+				'label'		=> __( 'Items Price Total Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single_special .total span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .single_special .set_menu .total span' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -149,9 +192,18 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Typography', 'eafe' ),
-				'name' 		=> 'menu_typography',
-				'selector' 	=> '{{WRAPPER}} .single_special .set_menu li',
+				'label'		=> __( 'Total Typography', 'eafe' ),
+				'name' 		=> 'items_total_typography',
+				'selector' 	=> '{{WRAPPER}} .single_special .set_menu .total',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'label'		=> __( 'Total Price Typography', 'eafe' ),
+				'name' 		=> 'items_total_price_typography',
+				'selector' 	=> '{{WRAPPER}} .single_special .set_menu .total span',
 			]
 		);
 
@@ -172,9 +224,9 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 						$sum_of_value += $list['items_price']; 
 					?>
 					<li>
-						<?php echo $list['items_title_text']; ?> 
+						<?php echo $list['menu_item_name']; ?> 
 						<span> 
-							<?php echo $list['items_sub_title_text'];?>
+							<?php echo $list['items_price_text'];?>
 							<?php echo $crcy_code[1].''.$list['items_price']; ?>
 						</span>
 					</li>

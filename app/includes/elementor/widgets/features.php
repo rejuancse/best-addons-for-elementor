@@ -4,6 +4,7 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_EAFE_Features extends \Elementor\Widget_Base {
+	
 	public function get_name() {
 		return 'eafe-features';
 	}
