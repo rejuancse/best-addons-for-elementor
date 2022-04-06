@@ -5,11 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_Online_Delivery extends Widget_Base {
 	public function get_name() {
-		return 'online-delivery';
+		return 'online-delivery-banner';
 	}
 
 	public function get_title() {
-		return __( 'Online Delivery', 'eafe' );
+		return __( 'Online Delivery Banner', 'eafe' );
 	}
 
 	public function get_icon() {

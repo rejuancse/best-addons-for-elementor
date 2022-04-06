@@ -2,7 +2,9 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 class Widget_EAFE_Restaurant_Schedule extends Widget_Base {
+
 	public function get_name() {
 		return 'eafe-restaurant-schedule';
 	}
@@ -38,40 +40,45 @@ class Widget_EAFE_Restaurant_Schedule extends Widget_Base {
             ]
         );
 
-		# Special Menu List
-		$this->add_control(
-			'schedule_menu_list',
-			[
-				'label' 		=> __( 'Schedule Menu Items', 'eafe' ),
-				'type' 			=> Controls_Manager::REPEATER,
-				'show_label'  	=> true,
-				'default' 		=> [
-					[
-						'text' => __( 'Event #1', 'eafe' ),
-						'icon' => 'fa fa-check',
-					],	
-				],
-				'fields' 		=> [
-					[
-						'name' 			=> 'schedule_title_text',
-						'label' 		=> __( 'Title Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
-						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' => __( 'Tuesday - Thursday', 'eafe' ),
-					],
-					[
-						'name' 			=> 'schedule_time_text',
-						'label' 		=> __( 'Time Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
-						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( '@ 6pm and 9:30pm', 'eafe' ),
-					]
-				],
+		$repeater = new \Elementor\Repeater();
+
+		$repeater->add_control(
+			'schedule_title_text', [
+				'label' => esc_html__( 'Title Text', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__( 'Friday - Saturday' , 'eafe' ),
+				'label_block' => true,
 			]
 		);
 
+		$repeater->add_control(
+			'schedule_time_text', [
+				'label' => esc_html__( 'Time Text', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__( '@ 6pm and 9:30pm' , 'eafe' ),
+				'show_label' => true,
+			]
+		);
+
+		$this->add_control(
+			'schedule_menu_list',
+			[
+				'label' => esc_html__( 'Schedule Menu Items', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'schedule_title_text' => esc_html__( 'Friday - Saturday', 'eafe' ),
+						'schedule_time_text' => esc_html__( '@ 9am and 9:30pm', 'eafe' ),
+					],
+					[
+						'schedule_title_text' => esc_html__( 'Tuesday - Thursday', 'eafe' ),
+						'schedule_time_text' => esc_html__( '@ 6pm and 9:30pm', 'eafe' ),
+					],
+				],
+				'title_field' => '{{{ schedule_title_text }}}',
+			]
+		);
 
         $this->end_controls_section();
         # Option End
@@ -167,7 +174,7 @@ class Widget_EAFE_Restaurant_Schedule extends Widget_Base {
 				'label' => esc_html__( 'Spacing', 'eafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
-					'size' => 5,
+					'size' => 30,
 				],
 				'range' => [
 					'px' => [
@@ -183,13 +190,15 @@ class Widget_EAFE_Restaurant_Schedule extends Widget_Base {
 	}
 
 	protected function render( ) {
-		$settings = $this->get_settings();  ?>
+		$settings = $this->get_settings(); ?>
 		
 		<!-- eafe-restaurant-schedule -->
 		<div id="eafe-restaurant-schedule">
 			<div id="restaurant-schedule" class="clearfix ">
 				<div class="eafe-addon eafe-addon-text-block eafe-text-center eafe-diner-schedule-info">
-					<h5 class="eafe-addon-title"><?php echo $settings['schedule_header_text'];?></h5>
+					<?php if( !empty($settings['schedule_header_text']) ) { ?>
+						<h5 class="eafe-addon-title"><?php echo $settings['schedule_header_text']; ?></h5>
+					<?php } ?>
 					<div class="eafe-addon-content">
 						<?php foreach($settings['schedule_menu_list'] as $list) { ?>
 							<h4><?php echo $list['schedule_title_text'];?></h4>

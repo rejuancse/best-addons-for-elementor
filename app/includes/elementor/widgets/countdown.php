@@ -4,6 +4,7 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_CountDown extends Widget_Base {
+	
 	public function get_name() {
 		return 'count-down';
 	}

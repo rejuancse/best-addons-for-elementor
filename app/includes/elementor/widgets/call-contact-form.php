@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function eafe_contact_form(){
 
 	$args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
+
 	$contact_forms = array();
 	if( $data = get_posts($args)){
 		foreach($data as $key){

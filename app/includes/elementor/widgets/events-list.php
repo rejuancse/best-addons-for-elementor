@@ -474,7 +474,6 @@ class Widget_EAFE_Events_List extends Widget_Base {
         );
 		$this->end_controls_section();
 		# Button 2 End
-
 	}
 
 	protected function render( ) {
@@ -483,11 +482,11 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		<div class="event_content_wrapper">
 			<?php foreach ( $settings['events_list'] as $item ) : ?>	
 				<div class="event-single-wrapper">
-					
 					<div class="eafe-row align-items-center">
 						<div class="d-inline-block eafe-col-4 about_left_img">
 							<img src="<?php echo $item['event_image']['url'] ?>" alt="">
 						</div>
+
 						<div class="d-inline-block eafe-col-8 event_content">
 							<div class="event-content-inner">
 								<h2><?php echo $item['event_title']?></h2>
