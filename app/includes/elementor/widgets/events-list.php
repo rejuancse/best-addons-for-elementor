@@ -4,6 +4,7 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_EAFE_Events_List extends Widget_Base {
+	
 	public function get_name() {
 		return 'eafe-events-list';
 	}
@@ -20,7 +21,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		return [ 'eafe-elementor' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_title',
