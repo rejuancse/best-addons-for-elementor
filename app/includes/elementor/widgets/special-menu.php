@@ -113,6 +113,7 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
+
 		$this->add_control(
 			'special_items_title_text_color',
 			[
@@ -124,12 +125,44 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'special_items_price_text_color',
+			[
+				'label'		=> __( 'Price Text Color', 'eafe' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .single_special .set_menu li span' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Items Text Typography', 'eafe' ),
+				'label'		=> __( 'Global Typography', 'eafe' ),
 				'name' 		=> 'menu_items_typography',
 				'selector' 	=> '{{WRAPPER}} .single_special .set_menu li',
+			]
+		);
+
+
+		$this->add_responsive_control(
+			'item_gap',
+			[
+				'label' => esc_html__( 'Item Spacing', 'eafe' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .single_special .set_menu li' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -141,71 +174,52 @@ class Widget_EAFE_Special_Menu extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'special_items_price_text_color',
+			'divider_color',
 			[
-				'label'		=> __( 'Items Price Text Color', 'eafe' ),
+				'label'		=> __( 'Divider Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .single_special .set_menu li span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .single_special .total' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
+		$this->add_responsive_control(
+			'border_width',
 			[
-				'label'		=> __( 'Price Text Typography', 'eafe' ),
-				'name' 		=> 'menu_price_text_typography',
-				'selector' 	=> '{{WRAPPER}} .single_special .set_menu li span',
-			]
-		);
-
-		$this->add_control(
-			'hr',
-			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
-			]
-		);
-
-		$this->add_control(
-			'special_items_total_text_color',
-			[
-				'label'		=> __( 'Items Total Text Color', 'eafe' ),
-				'type'		=> Controls_Manager::COLOR,
+				'label' => esc_html__( 'Border Width', 'eafe' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
+				],
+				'range' => [
+					'px' => [
+						'min' => 1,
+						'max' => 10,
+					],
+				],
 				'selectors' => [
-					'{{WRAPPER}} .single_special .set_menu .total' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .single_special .total' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		$this->add_control(
-			'special_items_price_totat_text_color',
+			'divider_type',
 			[
-				'label'		=> __( 'Items Price Total Text Color', 'eafe' ),
-				'type'		=> Controls_Manager::COLOR,
+				'label'     => __( 'Border Type', 'eafe' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'dotted',
+				'options'   => [
+						'solid' 		=> __( 'Solid', 'eafe' ),
+						'dotted' 		=> __( 'Dotted', 'eafe' ),
+						'dashed' 		=> __( 'dashed', 'eafe' ),
+					],
 				'selectors' => [
-					'{{WRAPPER}} .single_special .set_menu .total span' => 'color: {{VALUE}};',
-				],
+						'{{WRAPPER}} .single_special .total' => 'border-style: {{VALUE}} none none;',
+					],
 			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Total Typography', 'eafe' ),
-				'name' 		=> 'items_total_typography',
-				'selector' 	=> '{{WRAPPER}} .single_special .set_menu .total',
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Total Price Typography', 'eafe' ),
-				'name' 		=> 'items_total_price_typography',
-				'selector' 	=> '{{WRAPPER}} .single_special .set_menu .total span',
-			]
-		);
+	  	);
 
 		$this->end_controls_section();
 		# Title Section end 1
