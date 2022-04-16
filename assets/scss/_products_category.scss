@@ -141,15 +141,14 @@
 			-o-transition: all .3s ease;
 			transition: all .3s ease;
 			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			img {
-				height: 100%;
 				width: 100%;
 				transition: all .3s ease;
-				align-items: center;
-				display: flex;
-				justify-content: center;
 				margin: 0;
-				padding: 40px;
+				padding: 0px;
 			}
 		}
 		&:hover .icon {
@@ -161,11 +160,18 @@
 		}
 	}
 }
-.iconbox .details .title {
-    text-transform: uppercase;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.2;
-    color: #121212;
-	margin: 0;
+.iconbox {
+	.details {
+		p {
+			margin: 0;
+		}
+		.title {
+			text-transform: uppercase;
+			font-size: 15px;
+			font-weight: 500;
+			line-height: 1.2;
+			color: #121212;
+			margin: 0;
+		}
+	}
 }
