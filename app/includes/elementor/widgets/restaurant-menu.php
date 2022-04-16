@@ -29,28 +29,6 @@ class Widget_EAFE_Restaurant_Menu extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'popular_dishes_header_text',
-            [
-                'label' => __( 'Header Text', 'eafe' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter title', 'eafe' ),
-                'default' => __( 'Popular Dishes', 'eafe' ),
-            ]
-        );
-
-		$this->add_control(
-            'popular_dishes_sub_header_text',
-            [
-                'label' => __( 'Sub Header Text', 'eafe' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'eafe' ),
-                'default' => __( 'Our Most Popular Menu', 'eafe' ),
-            ]
-        );
-
 		$this->add_control(
             'menu_column',
             [
@@ -67,44 +45,54 @@ class Widget_EAFE_Restaurant_Menu extends Widget_Base {
             ]
         );
 
-		# Menu List
+		$repeater = new \Elementor\Repeater();
+
+		$repeater->add_control(
+			'dishes_menu_title', [
+				'label' => esc_html__( 'Menu Title', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__( 'Grilled Angus Hamburger' , 'eafe' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'dishes_menu_details', [
+				'label' => esc_html__( 'Menu Details', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__( 'Mushroom / Veggie / White Sources' , 'eafe' ),
+				'show_label' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'dishes_menu_price', [
+				'label' 	=> esc_html__( 'Item Price', 'eafe' ),
+				'type' 		=> \Elementor\Controls_Manager::TEXT,
+				'default' 	=> esc_html__( '7.00' , 'eafe' ),
+				'show_label' => true,
+			]
+		);
+
 		$this->add_control(
-			'popular_dishes_menu_list',
+			'dishes_menu_list',
 			[
-				'label' 		=> __( 'Dishes Menu Items', 'eafe' ),
-				'type' 			=> Controls_Manager::REPEATER,
-				'show_label'  	=> true,
-				'default' 		=> [
+				'label' => esc_html__( 'Dishes Menu Items', 'eafe' ),
+				'type' => \Elementor\Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
 					[
-						'text' => __( 'Dishes #1', 'eafe' ),
-					],	
-				],
-				'fields' 		=> [
-					[
-						'name' 			=> 'dishes_menu_title',
-						'label' 		=> __( 'Menu Title Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
-						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( 'Wild Mushroom Bucatini with Kale', 'eafe' ),
+						'dishes_menu_title' 	=> esc_html__( 'Grilled Angus Hamburger', 'eafe' ),
+						'dishes_menu_details' 	=> esc_html__( 'Mushroom / Veggie / White Sources', 'eafe' ),
+						'dishes_menu_price' 	=> esc_html__( '7.00', 'eafe' ),
 					],
 					[
-						'name' 			=> 'dishes_menu_details',
-						'label' 		=> __( 'Menu Details Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
-						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( 'Mushroom / Veggie / White Sources', 'eafe' ),
+						'dishes_menu_title' 	=> esc_html__( 'Grilled Angus Hamburger', 'eafe' ),
+						'dishes_menu_details' 	=> esc_html__( 'Mushroom / Veggie / White Sources', 'eafe' ),
+						'dishes_menu_price' 	=> esc_html__( '5.00', 'eafe' ),
 					],
-					[
-						'name' 			=> 'dishes_menu_price',
-						'label' 		=> __( 'Menu Price Text', 'eafe' ),
-						'type' 			=> Controls_Manager::TEXT,
-						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( '10.5', 'eafe' ),
-					]
 				],
+				'title_field' => '{{{ dishes_menu_title }}}',
 			]
 		);
 
@@ -119,78 +107,78 @@ class Widget_EAFE_Restaurant_Menu extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'menu_divider',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+			]
+		);
+
+		$this->add_control(
+			'divider_color',
+			[
+				'label'		=> __( 'Divider Color', 'eafe' ),
+				'type'		=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .restaurent-menu-item .menu' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'border_width',
+			[
+				'label' => esc_html__( 'Border Width', 'eafe' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
+				],
+				'range' => [
+					'px' => [
+						'min' => 1,
+						'max' => 10,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .restaurent-menu-item .menu' => 'border-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'divider_type',
+			[
+				'label'     => __( 'Border Type', 'eafe' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'dotted',
+				'options'   => [
+						'solid' 		=> __( 'Solid', 'eafe' ),
+						'dotted' 		=> __( 'Dotted', 'eafe' ),
+						'dashed' 		=> __( 'dashed', 'eafe' ),
+					],
+				'selectors' => [
+						'{{WRAPPER}} .restaurent-menu-item .menu' => 'border-style: none none {{VALUE}} none;',
+					],
+			]
+	  	);
+
         $this->end_controls_section();
         # Option End
 
-		# Header style
-		$this->start_controls_section(
-			'popular_dishes_header_style',
-			[
-				'label' 	=> __( 'Header Title', 'eafe' ),
-				'tab' 		=> Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		# Header color
-		$this->add_control(
-			'popular_dishes_header_color',
-			[
-				'label'		=> __( 'Heading Title Color', 'eafe' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .restaurent-menu-item .module-header .module-title' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		# Header typography
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Heading Title Typography', 'eafe' ),
-				'name' 		=> 'popular_dishes_header_typorgraphy',
-				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .module-header .module-title',
-			]
-		);
-
-		# Sub header color
-		$this->add_control(
-			'popular_dishes_sub_header_color',
-			[
-				'label'		=> __( 'Sub Header Color', 'eafe' ),
-				'type'		=> Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .restaurent-menu-item .module-header .module-subtitle' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		# Sub header typography
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'label'		=> __( 'Sub Header Typography', 'eafe' ),
-				'name' 		=> 'popular_dishes_sub_header_typorgraphy',
-				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .module-header .module-subtitle',
-			]
-		);
-
-        $this->end_controls_section();
-		
 		# Menu style
 		$this->start_controls_section(
-			'popular_dishes_menu_style',
+			'dishes_menu_style',
 			[
-				'label' 	=> __( 'Menu', 'eafe' ),
+				'label' 	=> __( 'Menu Style', 'eafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		# Title color
 		$this->add_control(
-			'popular_dishes_menu_title_color',
+			'dishes_menu_title_color',
 			[
-				'label'		=> __( 'Title Color', 'eafe' ),
+				'label'		=> __( 'Dishes Menu Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .restaurent-menu-item .menu-item-list .menu-title' => 'color: {{VALUE}};',
@@ -202,17 +190,45 @@ class Widget_EAFE_Restaurant_Menu extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Title Typography', 'eafe' ),
-				'name' 		=> 'popular_dishes_menu_title_typorgraphy',
+				'label'		=> __( 'Dishes Menu Typography', 'eafe' ),
+				'name' 		=> 'dishes_menu_title_typorgraphy',
 				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .menu-item-list .menu-title',
+			]
+		);
+
+		$this->add_responsive_control(
+			'menu_item_gap',
+			[
+				'label' => esc_html__( 'Menu Item Spacing', 'eafe' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 5,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .restaurent-menu-item .menu-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .restaurent-menu-item .menu-price' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'first_divider',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
 			]
 		);
 
 		# Details color
 		$this->add_control(
-			'popular_dishes_menu_details_color',
+			'dishes_menu_details_color',
 			[
-				'label'		=> __( 'Details Color', 'eafe' ),
+				'label'		=> __( 'Menu Details Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .restaurent-menu-item .menu-detail' => 'color: {{VALUE}};',
@@ -224,17 +240,44 @@ class Widget_EAFE_Restaurant_Menu extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Details Typography', 'eafe' ),
-				'name' 		=> 'popular_dishes_menu_details_typorgraphy',
+				'label'		=> __( 'Menu Details Typography', 'eafe' ),
+				'name' 		=> 'dishes_menu_details_typorgraphy',
 				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .menu-detail',
+			]
+		);
+
+		$this->add_responsive_control(
+			'dishe_menu_item_gap',
+			[
+				'label' => esc_html__( 'Menu Details Spacing', 'eafe' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 12,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .restaurent-menu-item .menu' => 'padding-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'second_divider',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
 			]
 		);
 
 		# Price color
 		$this->add_control(
-			'popular_dishes_menu_price_color',
+			'dishes_menu_price_color',
 			[
-				'label'		=> __( 'Price Text Color', 'eafe' ),
+				'label'		=> __( 'Menu Price Text Color', 'eafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .restaurent-menu-item .menu-price' => 'color: {{VALUE}};',
@@ -247,32 +290,50 @@ class Widget_EAFE_Restaurant_Menu extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'label'		=> __( 'Price Text Typography', 'eafe' ),
-				'name' 		=> 'popular_dishes_menu_price_typorgraphy',
+				'name' 		=> 'dishes_menu_price_typorgraphy',
 				'selector' 	=> '{{WRAPPER}} .restaurent-menu-item .menu-price',
 			]
 		);
+
+		$this->add_control(
+			'four_divider',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+			]
+		);
+
+		$this->add_responsive_control(
+			'item_gap',
+			[
+				'label' => esc_html__( 'Menu Item Spacing', 'eafe' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 20,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .restaurent-menu-item .menu' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
         $this->end_controls_section();
 	}
 
 	protected function render( ) {
 		$settings 	= $this->get_settings();
 		$currency   = $settings['currency'];
-
 		$crcy_code = explode(':', $currency); ?>
 
-		<div class="restaurent-menu-item">
-			<div class="module-header">
-				<?php if( !empty($settings['popular_dishes_header_text']) ) { ?>
-					<h2 class="module-title"><?php echo $settings['popular_dishes_header_text']; ?></h2>
-				<?php } ?>
-				<?php if( !empty($settings['popular_dishes_sub_header_text']) ) { ?>
-					<h3 class="module-subtitle"><?php echo $settings['popular_dishes_sub_header_text']; ?></h3>
-				<?php } ?>
-			</div>
-				
+		<div class="restaurent-menu-item">			
 			<div class="menu-item-list">
 				<div class="eafe-row">
-					<?php foreach($settings['popular_dishes_menu_list'] as $list){ ?>
+					<?php foreach($settings['dishes_menu_list'] as $list){ ?>
 						<div class="eafe-col-<?php echo $settings['menu_column'];?>">
 							<div class="menu">
 								<div class="eafe-row">
