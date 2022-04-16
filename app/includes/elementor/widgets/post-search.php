@@ -4,6 +4,7 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Widget_EAFE_Post_Search extends Widget_Base {
+	
 	public function get_name() {
 		return 'eafe-post-search';
 	}
@@ -319,18 +320,17 @@ class Widget_EAFE_Post_Search extends Widget_Base {
             <div class="hero_search-2">
 				<form class="input-group simple_search" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
 	            	<i class="flaticon-search ico"></i>
-		            <input class="eafe-ajax-search form-control" data-url="<?php echo plugin_dir_url('', __FILE__).'wp-elementor-widgets-lite/app/extensions/post-search/classes/search-data.php'; ?>" type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="<?php esc_html_e('Search Your Post', 'eafe'); ?>"/>
+		            <input class="eafe-ajax-search form-control" data-url="<?php echo plugin_dir_url('', __FILE__).'easy-addons-for-elementor/app/extensions/post-search/classes/search-data.php'; ?>" type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="<?php esc_html_e('Search Your Post', 'eafe'); ?>"/>
 		            <div class="input-group-append">
 		            	<button class="btn theme-bg" type="submit"><?php esc_html_e('Search', 'eafe'); ?></button>
 		            </div>
-		        </form>
+				</form>
 		        <div class="eafe-search-results"></div>
             </div>
         </div>
 		
 		<?php 
     }
-
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Post_Search() );

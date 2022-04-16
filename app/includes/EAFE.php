@@ -46,11 +46,6 @@ final class EAFE_Elementor {
 			}
 		}
 	}
-	
-	// Include Shortcode
-	// public function include_eafe_widgets() {
-	// 	include_once EAFE_DIR_PATH.'app/includes/elementor/elementor-core.php';
-	// }
 
 	// Include Addons directory
 	public function include_extensions() {
