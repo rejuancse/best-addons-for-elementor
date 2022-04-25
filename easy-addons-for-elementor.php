@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Easy Addons for Elementor
- * Description: Simple Elementor Widgets
+ * Description: Expression of some beautiful, creative, awesome add-ons suitable for use in Element. Which will help in the development of WordPress and Element user.
  * Version: 1.0.0
  * Author: Rejuan Ahamed
  * Text Domain: eafe

@@ -6,20 +6,22 @@
     <?php
     $site_url = 'https://wpqxtheme.com/';
     $config = [
+
         [
             "name"          => "Animated Headine",
             "path"          => "animated-headine",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/h.png',
             "url"           => $site_url.'animated-headine',
         ],
+
         [
             "name"          => "Breaking News",
             "path"          => "breaking-news",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/news.png',
             "url"           => $site_url.'breaking-news',
         ],
 
@@ -28,7 +30,7 @@
             "path"          => "call-contact-form",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/phone-contact.png',
             "url"           => $site_url.'call-contact-form',
         ],
         [
@@ -36,7 +38,7 @@
             "path"          => "countdown",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/countdown.png',
             "url"           => $site_url.'countdown',
         ],
 
@@ -45,27 +47,30 @@
             "path"          => "events-list",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/event.png',
             "url"           => $site_url.'events-list',
         ],
+
         [
             "name"          => "EAFE Features",
             "path"          => "eafe-features",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/headline.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/extra-features.png',
             "url"           => $site_url.'eafe-features',
         ],
+
         [
             "name"          => "Media Card",
             "path"          => "media-card",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/cards.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/card-exchange.png',
             "url"           => $site_url.'media-card',
-        ],   
+        ],
+
         [
-            "name"          => "Online Delivery",
+            "name"          => "Online Delivery Banner",
             "path"          => "online-delivery",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
@@ -78,7 +83,7 @@
             "path"          => "photo-gallery",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/price-tag.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/photo-gallery.png',
             "url"           => $site_url.'photo-gallery',
         ],
 
@@ -87,7 +92,7 @@
             "path"          => "post-ajax-search",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/price-tag.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/search-bar.png',
             "url"           => $site_url.'post-ajax-search',
         ],
 
@@ -96,99 +101,63 @@
             "path"          => "products-category-list",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/price-tag.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/category.png',
             "url"           => $site_url.'products-category-list',
-        ],
+        ], 
+        
+        [
+            "name"          => "Restaurant Menu",
+            "path"          => "restaurant-menu",
+            "useability"    => "Free",
+            "description"   => "Make your addon easy and cool",
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/restaurant-menu.png',
+            "url"           => $site_url.'restaurant-menu',
+        ], 
 
+        [
+            "name"          => "Restaurant Schedule",
+            "path"          => "restaurant-schedule",
+            "useability"    => "Free",
+            "description"   => "Make your addon easy and cool",
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/restaurant-table.png',
+            "url"           => $site_url.'restaurant-schedule',
+        ],
+        
         [
             "name"          => "Shop Banner",
             "path"          => "shop-banner",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/price-tag.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/programming-flag.png',
             "url"           => $site_url.'animated-headine',
-        ],  
-        
+        ], 
+
         [
-            "name"          => "EAFE Gmap",
-            "path"          => "eafe-gmap",
+            "name"          => "Special Menu",
+            "path"          => "special-menu",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/countdown.png',
-            "url"           => $site_url.'eafe-gmap',
-        ],   
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/cuisine.png',
+            "url"           => $site_url.'special-menu',
+        ], 
+
         [
             "name"          => "Member",
             "path"          => "member",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/gallery.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/member.png',
             "url"           => $site_url.'member',
         ],   
+
         [
             "name"          => "EAFE Title",
             "path"          => "eafe-title",
             "useability"    => "Free",
             "description"   => "Make your addon easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/blog.png',
+            "icon"          => EAFE_DIR_URL .'assets/images/icons/title.png',
             "url"           => $site_url.'eafe-title',
-        ],   
-        // [
-        //     "name"          => "Pricing Table",
-        //     "path"          => "pricing-table",
-        //     "useability"    => "go pro",
-        //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/pricing.png',
-        //     "url"           => $site_url.'animated-headine',
-        // ], 
-        // [
-        //     "name"          => "Products Category List",
-        //     "path"          => "products-category-list",
-        //     "useability"    => "go pro",
-        //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/note.png',
-        //     "url"           => $site_url.'animated-headine',
-        // ], 
-        // [
-        //     "name"          => "Products Category Megamenu",
-        //     "path"          => "products-category-megamenu",
-        //     "useability"    => "go pro",
-        //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/hamburger.png',
-        //     "url"           => $site_url.'animated-headine',
-        // ], 
-        // [
-        //     "name"          => "Products List",
-        //     "path"          => "products-list",
-        //     "useability"    => "go pro",
-        //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/box.png',
-        //     "url"           => $site_url.'animated-headine',
-        // ], 
-        // [
-        //     "name"          => "Time Line",
-        //     "path"          => "time-line",
-        //     "useability"    => "go pro",
-        //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/timeline.png',
-        //     "url"           => $site_url.'animated-headine',
-        // ], 
-        // [
-        //     "name"          => "Tree Diagram",
-        //     "path"          => "tree-diagram",
-        //     "useability"    => "go pro",
-        //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/hierarchical.png',
-        //     "url"           => $site_url.'animated-headine',
-        // ], 
-        // [
-        //     "name"          => "EAFE Table",
-        //     "path"          => "eafe-table",
-        //     "useability"    => "go pro",
-        //     "description"   => "Make your addon easy and cool",
-        //     "icon"          => EAFE_DIR_URL .'assets/images/icons/table.png',
-        //     "url"           => $site_url.'animated-headine',
-        // ], 
+        ],
     ];
  
     if (is_array($config) && count($config)){ ?>
