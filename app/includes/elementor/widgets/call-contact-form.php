@@ -299,7 +299,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 					<div class="close-btn">×</div>
 						<div class="custom-model-wrap">
 							<div class="pop-up-content-wrap">
-							<?php echo '[contact-form-7 id="'.$contact_button.'" title="Contact Form"]'; ?>
+								<?php echo '[contact-form-7 id="'.$contact_button.'" title="Contact Form"]'; ?>
 							</div>
 						</div>  
 					</div>  

@@ -33,7 +33,7 @@ class Admin_Menu {
             array( $this, 'eafe_manage_widgets' )
         );
 
-        add_submenu_page( 'eafe', __( 'Get Pro', 'eafe' ), __( '<span class="dashicons dashicons-awards eafe-get-pro-text"></span> Get Pro', 'eafe' ), 'manage_options', 'eafe-get-pro', array($this, 'eafe_get_pro') );
+        // add_submenu_page( 'eafe', __( 'Get Pro', 'eafe' ), __( '<span class="dashicons dashicons-awards eafe-get-pro-text"></span> Get Pro', 'eafe' ), 'manage_options', 'eafe-get-pro', array($this, 'eafe_get_pro') );
     }
     
     // Addon Listing
