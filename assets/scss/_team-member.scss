@@ -33,6 +33,20 @@
         opacity: 0;
         z-index: 9;
         line-height: normal;
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+            display: block;
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            -ms-transform: translateY(20px);
+            transform: translateY(20px);
+            transition: .6s;
+            margin: 0;
+        } 
     
         span {
             font-size: 11px;
@@ -40,12 +54,12 @@
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin: 5px 0px 5px;
+            margin: 0;
             display: block;
             opacity: 0;
-            -webkit-transform: translateY(10px);
-            -ms-transform: translateY(10px);
-            transform: translateY(10px);
+            -webkit-transform: translateY(20px);
+            -ms-transform: translateY(20px);
+            transform: translateY(20px);
             -webkit-transition: all 0.3s ease 0.2s;
             -moz-transition: all 0.3s ease 0.2s;
             -ms-transition: all 0.3s ease 0.2s;
@@ -55,21 +69,9 @@
 
     &:hover {
         .member-info {
-            opacity: 1;
-            h3 {
-                font-size: 20px;
-                font-weight: 600;
-                color: #ffffff;
-                text-transform: uppercase;
-                display: block;
-                opacity: 0;
-                -webkit-transform: translateY(10px);
-                -ms-transform: translateY(10px);
-                transform: translateY(10px);
-                transition: .6s;
-                margin: 0;
-            }            
+            opacity: 1;           
         }
+        
         &:before {
             opacity: 1;
             transition: .3s;

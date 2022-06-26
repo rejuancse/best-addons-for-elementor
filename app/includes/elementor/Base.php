@@ -97,7 +97,7 @@ class Base {
         wp_enqueue_script( 'eafe-slick', EAFE_DIR_URL .'assets/js/slick.min.js', array('jquery'), EAFE_VERSION, true);
         wp_enqueue_script( 'wp-eafe-front', EAFE_DIR_URL .'assets/js/eafe-front.js', array('jquery'), EAFE_VERSION, true);
         wp_localize_script( 'wp-eafe-front', 'eafe_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-        wp_enqueue_media();
+        wp_enqueue_media(); 
     }
 
     // Register new button in the editor
@@ -107,7 +107,7 @@ class Base {
     }
 
     public function admin_footer_text($footer_text){
-        $footer_text = sprintf( __( 'Thanks so much for using <strong>WP-Elementor-Widgets</strong>', 'eafe' ));
+        $footer_text = sprintf( __( 'Thanks so much for using <strong>Easy Addons for Elementor</strong>', 'eafe' ));
         return $footer_text;
     }
 

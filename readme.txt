@@ -1,6 +1,6 @@
 === Easy Addons for Elementor ===
 Contributors: rejuancse
-Tags: Elementor, Addons, Widgets, woocommerce
+Tags: widgets, addons, elementor, elementor addons, elementor widget, elements
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 5.4.0
@@ -8,23 +8,10 @@ Stable tag:  1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easy Addons for Elementor plugin is an extensible plugin that lets you easily manage woocommerce extensions by the eafe.club. Quick view, WooCommerce product search and Product listing extension easy to use in your woocommerce platform..
 
 == Description ==
-Easy Addons for Elementor is a multiple addons with one solution. In this plugin you can easily handle your everyday needed addons. quick view, product search, and listing your awesome produsts.
 
-= Shortcode List =
-To use these shortcodes, just place the required shortcode(s) on your desired location.
-
-  * Product list [product_listing]
-  * Product search [eafe_product_search]
-
-= Features =
-
-1. Demo
-2. Every extensions has own Settings
-3. Initially three extensions are totally free.
-4. Easy to customize and easy to use.
+Easy Addons for Elementor is a multiple addons with one solution. In this plugin you can easily handle your everyday needed addons. Expression of some beautiful, creative, awesome add-ons suitable for use in Element. Which will help in the development of WordPress and Element user.
 
 
 Please let us know your feedback, if you think something can be more awesome in this plugin, we will love to add.
@@ -41,22 +28,40 @@ Please let us know your feedback, if you think something can be more awesome in 
 
 The automatic installation is the easiest way to install any plugin in WordPress. You can perform an automatic installation of logging in to your WordPress dashboard, navigating to the “Plugins” menu and click on the "Add New" button.
 
-This will open up a page showing all the available plugins in WordPress. In the search field, type Easy Addons for Elementor or xextensions. The search result will show you our Easy Addons for Elementor plugin, you can then see the detailed info by clicking on "More Details" and to install just click on the "Install Now" button.
+This will open up a page showing all the available plugins in WordPress. In the search field, type easy addons for elementor. The search result will show you our Easy addons for Elementor plugin, you can then see the detailed info by clicking on "More Details" and to install just click on the "Install Now" button.
 
 
 = Manual installation =
 
-Go to Dashboard > Plugins > Add New, then upload xextensions-for-wooCommerce.zip file and click Install Now.
+Go to Dashboard > Plugins > Add New, then upload easy-addons-for-elementor.zip file and click Install Now.
+
+### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
+
+### 18 FREE WIDGETS AND COUNTING
+
+1. [Animated Headine]
+2. [Breaking News]
+3. [Call Contact Form]
+4. [Count Down]
+5. [Event List]
+6. [EAFE Features]
+7. [Media Card]
+8. [Online Delivery Banner]
+9. [Photo Gallery]
+10. [Post Ajax Search]
+11. [Products Category List]
+12. [Restaurant Menu]
+13. [Restaurant Schedule]
+14. [Shop Banner]
+15. [Special Menu]
+16. [Member]
+17. [EAFE Title]
 
 
 == Screenshots ==
 
-1. WP-Elementor-Widgets List
-2. WP-Elementor-Widgets product settings
-3. Product listing view
-4. WP-Elementor-Widgets Search settings
-5. WP-Elementor-Widgets Quick view settings
-6. Quick view popup view
+1. Easy Addons for Elementor addons list
+2. Addons font view
 
 
 == Frequently Asked Questions ==
@@ -73,7 +78,7 @@ A. Found a bug? Please let us know by posting on the support section of this plu
 
 == Changelog ==
 
-= 1.0.0 [01/04/2022] =
+= 1.0.0 [04/06/2021] =
 * Initial version released
 
 == Upgrade Notice ==

@@ -1,0 +1,20 @@
+.single_special {
+	.set_menu {
+		margin: 0px;
+		padding: 0px;
+		list-style:none;
+
+		li {
+			font-size: 15px;
+			span {
+				float: right;
+				color: #FF5E18;
+			}
+		} 
+	}
+	.total {
+		border-top: 1px dotted #333;
+		margin-top: 12px;
+		padding-top: 5px;
+	}
+}

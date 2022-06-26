@@ -217,7 +217,7 @@ class Widget_Animated_Headine extends Widget_Base {
 		$words = explode(" ", $thetextstring); ?>
 
 		<div class="animated-headine">
-			<div class="headline <?php echo $animated_name; ?>">
+			<<?php echo esc_html($headine_size); ?> class="headline <?php echo $animated_name; ?>">
 				<span><?php echo $settings['headine_text']; ?></span>
 
 				<?php if(!empty($animated_text)) {?>
@@ -236,7 +236,7 @@ class Widget_Animated_Headine extends Widget_Base {
 				<?php } ?>
 
 				<span><?php echo $settings['headine_text2']; ?></span>
-			</div>
+			</<?php echo esc_html($headine_size); ?>>
 		</div>
 
 		<?php 

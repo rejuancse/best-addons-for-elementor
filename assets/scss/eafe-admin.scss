@@ -3,76 +3,74 @@
 * File Description: The main stylesheet of this plugins for main design part.
 */
 
+@import "breakpoint";
 
 /* --------------------------
 * Shortcode CSS 
 * --------------------------- */
-.plugin-card:nth-child(3n+1) {
-    clear: initial;
-}
-.plugin-card:nth-child(4n+1) {
-    clear: initial;
-}
-.plugin-card {
-    width: 23.7%
-}
-.plugin-card:nth-child(3n) {
-    margin-right: 8px;
-}
-.plugin-card:nth-child(odd) {
-    clear: initial;
-    margin-left: 8px;
-}
-.plugin-card:nth-child(4n+1) {
-    clear: initial;
-    margin-left: 8px;
-}
-.plugin-card:nth-child(3n+1) {
-    clear: initial;
-    margin-left: 8px;
-}
-.eafe-settings-panel{
-    margin-top: 20px;
-    padding: 0;
-    display: flex; 
-    .eafe-tabs-content {
-        max-height: 700px;
-        overflow-y: scroll;
-        background-color: #ffffff;
-        box-shadow: 0 15px 25px #f0f0f1;
-    }
-    .eafe-main-setting-table {
-        margin: 0;
-        th {
-            width: 280px;
-            padding: 22px 25px;
-            vertical-align: middle;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-        td {
-            vertical-align: middle;
-            font-size: 13px;
-            box-sizing: border-box;
-            display: inline-block;
-            padding: 12px 25px 12px 0;
-            .integration-code-row {
-                display: block;
-                margin-bottom: 10px;
-                min-height: 35px;
-                span {
-                    display: inline-block;
-                    width: 100px;
-                    font-size: 12px;
+.eafe-list-table {
+    .plugin-card {
+        .name.column-name {
+            display: flex;
+            align-items: center;
+
+            .icons {
+                margin-right: 15px;
+                @include breakpoint(ipadpro) {
+                    margin-right: 12px;
                 }
-                code {
-                    font-size: 12px;
-                    border-left: 2px solid #4E90E2;
-                    padding: 10px;
+                img {
+                    width: 36px;
+                    @include breakpoint(ipadpro) {
+                        width: 38px;
+                    }
+                }
+            } 
+        }
+    }
+    .eafe-settings-panel{
+        margin-top: 20px;
+        padding: 0;
+        display: flex; 
+        .eafe-tabs-content {
+            max-height: 700px;
+            overflow-y: scroll;
+            background-color: #ffffff;
+            box-shadow: 0 15px 25px #f0f0f1;
+        }
+        .eafe-main-setting-table {
+            margin: 0;
+            th {
+                width: 280px;
+                padding: 22px 25px;
+                vertical-align: middle;
+                font-size: 14px;
+                box-sizing: border-box;
+            }
+            td {
+                vertical-align: middle;
+                font-size: 13px;
+                box-sizing: border-box;
+                display: inline-block;
+                padding: 12px 25px 12px 0;
+                .integration-code-row {
+                    display: block;
+                    margin-bottom: 10px;
+                    min-height: 35px;
+                    span {
+                        display: inline-block;
+                        width: 100px;
+                        font-size: 12px;
+                    }
+                    code {
+                        font-size: 12px;
+                        border-left: 2px solid #4E90E2;
+                        padding: 10px;
+                    }
                 }
             }
-        }
-    } 
+        } 
+    }
 }
 
 /*
@@ -83,7 +81,7 @@
         width: 64px;
         height: 64px;
     }
-    .wp-list-table {
+    .eafe-list-table {
         a{
             color: #fff;
             margin-top: 100px;
@@ -96,14 +94,47 @@
             box-shadow: inset 0 -1px 0 #00648c;
             text-shadow: 0 -1px 1px #005d82, 1px 0 1px #005d82, 0 1px 1px #005d82, -1px 0 1px #005d82;
         }
-    } 
+    }
     .plugin-card {
         min-height: 60px;
         position: relative;
-        padding: 20px 5px 20px 20px;
+        padding: 30px 30px 30px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: 18.9%;
+        margin: 0 16px 16px 0 !important;
+        clear: initial;
+
+        .useability {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: #50C878;
+            color: #fff;
+            padding: 9px 16px;
+            border-radius: 4px;
+            line-height: 6px;
+            font-size: 12px;
+            text-transform: capitalize;
+            margin: 0;
+            border-color: inherit;
+            box-shadow: initial;
+            text-shadow: none;
+
+            &.go.pro {
+                background: #FF5733;
+            }
+        }
+
+        @include breakpoint(ipadpro) {
+            padding: 20px;
+            width: 23%;
+        }
+
+        @include breakpoint(mobileonly) {
+            width: 100%;
+        }
 
         .action-links {
             position: inherit;
@@ -113,13 +144,27 @@
         }
         h3, h2 {
             margin: 0;
-            font-size: 14px;
-            line-height: 30px;
-            font-family: 'Roboto';
-            font-weight: 400;
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 600;
+            color: #3c434a;
+            margin-bottom: 2px;
+
+            @include breakpoint(ipadpro) {
+                font-size: 16px;
+                margin-bottom: 4px;
+            }
         }
         p {
             margin: 0;
+            font-weight: 400;
+            color: #3c434a;
+            font-size: 13px;
+
+            @include breakpoint(ipadpro) {
+                font-size: 13px;
+                line-height: 18px;
+            }
         }
         .name, .desc {
             margin-left: 0;
