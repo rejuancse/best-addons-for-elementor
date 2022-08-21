@@ -1,16 +1,16 @@
-=== Easy Addons for Elementor ===
+=== Best Addons for Elementor ===
 Contributors: rejuancse
 Tags: widgets, addons, elementor, elementor addons, elementor widget, elements
 Requires at least: 4.7
 Tested up to: 6.0.0
 Requires PHP: 5.4.0
-Stable tag:  1.0.2
+Stable tag:  1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Easy Addons for Elementor is a multiple addons with one solution. In this plugin you can easily handle your everyday needed addons. Expression of some beautiful, creative, awesome add-ons suitable for use in Element. Which will help in the development of WordPress and Element user.
+Best Addons for Elementor is a multiple addons with one solution. In this plugin you can easily handle your everyday needed addons. Expression of some beautiful, creative, awesome add-ons suitable for use in Element. Which will help in the development of WordPress and Element user.
 
 
 Please let us know your feedback, if you think something can be more awesome in this plugin, we will love to add.
@@ -27,12 +27,12 @@ Please let us know your feedback, if you think something can be more awesome in 
 
 The automatic installation is the easiest way to install any plugin in WordPress. You can perform an automatic installation of logging in to your WordPress dashboard, navigating to the “Plugins” menu and click on the "Add New" button.
 
-This will open up a page showing all the available plugins in WordPress. In the search field, type easy addons for elementor. The search result will show you our Easy addons for Elementor plugin, you can then see the detailed info by clicking on "More Details" and to install just click on the "Install Now" button.
+This will open up a page showing all the available plugins in WordPress. In the search field, type best addons for elementor. The search result will show you our Best addons for Elementor plugin, you can then see the detailed info by clicking on "More Details" and to install just click on the "Install Now" button.
 
 
 = Manual installation =
 
-Go to Dashboard > Plugins > Add New, then upload easy-addons-for-elementor.zip file and click Install Now.
+Go to Dashboard > Plugins > Add New, then upload best-addons-for-elementor.zip file and click Install Now.
 
 ### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
 
@@ -58,7 +58,7 @@ Go to Dashboard > Plugins > Add New, then upload easy-addons-for-elementor.zip f
 
 == Screenshots ==
 
-1. Easy Addons for Elementor addons list
+1. Best Addons for Elementor addons list
 2. Addons font view
 
 
@@ -68,13 +68,16 @@ Go to Dashboard > Plugins > Add New, then upload easy-addons-for-elementor.zip f
 A. You can get support by posting on the support section of this plugin on WordPress plugin directory, or on the support mail: rejuan.17bd@gmail.com
 
 = Q. Can I use my existing WordPress theme? =
-A. Sure, you can use your existing WordPress theme with Easy Addons for Elementor.
+A. Sure, you can use your existing WordPress theme with Best Addons for Elementor.
 
 = Q. Where can I report a bug? =
 A. Found a bug? Please let us know by posting on the support section of this plugin on WordPress plugin directory or directly on our support mail: rejuan.17bd@gmail.com
 
 
 == Changelog ==
+
+= 1.0.3 [21/08/2022] =
+* Variables and options escape issue fixed
 
 = 1.0.2 [15/08/2022] =
 * Date, Invalid, or Missing issue fixed

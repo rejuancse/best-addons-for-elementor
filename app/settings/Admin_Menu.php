@@ -13,8 +13,8 @@ class Admin_Menu {
      */
     public function register_menu_page(){
         add_menu_page( 
-            'Easy Addons',
-            'Easy Addons',
+            'Best Addons',
+            'Best Addons',
             'manage_options',
             'bafe',
             '',

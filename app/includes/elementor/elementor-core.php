@@ -5,7 +5,7 @@ function bafe_elementor_init(){
     Elementor\Plugin::instance()->elements_manager->add_category(
         'bafe-elementor',
         [
-            'title'     => 'Easy Addons For Elementor',
+            'title'     => 'Best Addons For Elementor',
             'icon'      => 'apps'
         ],
         1

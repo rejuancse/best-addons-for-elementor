@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Best Addons for Elementor
  * Description: Expression of some beautiful, creative, awesome add-ons suitable for use in Element. Which will help in the development of WordPress and Element user.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Rejuan Ahamed
  * Text Domain: bafe
  * Domain Path: /languages/
@@ -29,7 +29,7 @@ if( !function_exists('is_plugin_active_for_network') ){
 * @Plugin BAFE_Base Name
 */
 define('BAFE_FILE', __FILE__);
-define('BAFE_VERSION', '1.0.2');
+define('BAFE_VERSION', '1.0.3');
 define('BAFE_DIR_URL', plugin_dir_url( BAFE_FILE ));
 define('BAFE_DIR_PATH', plugin_dir_path( BAFE_FILE ));
 define('BAFE_BASENAME', plugin_basename( BAFE_FILE ));

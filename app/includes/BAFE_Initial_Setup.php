@@ -156,14 +156,14 @@ if (! class_exists('BAFE_Initial_Setup')) {
                         <img src="<?php echo BAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
                     </div>
                     <div class="bafe-install-notice-content">
-                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'bafe'); ?></h2>
+                        <h2><?php _e('Thanks for using Best Addons For Elementor', 'bafe'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
                                 __('You must have','bafe'), 
                                 'https://wordpress.org/plugins/elementor/', 
                                 __('Elementor', 'bafe'), 
-                                __('installed and activated on this website in order to use Easy Addons For Elementor.','bafe')
+                                __('installed and activated on this website in order to use Best Addons For Elementor.','bafe')
                             );
                         ?>
                     </div>
@@ -185,14 +185,14 @@ if (! class_exists('BAFE_Initial_Setup')) {
                         <img src="<?php echo BAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
                     </div>
                     <div class="bafe-install-notice-content">
-                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'bafe'); ?></h2>
+                        <h2><?php _e('Thanks for using Best Addons For Elementor', 'bafe'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
                                 __('You must have','bafe'), 
                                 'https://wordpress.org/plugins/elementor/', 
                                 __('Elementor', 'bafe'), 
-                                __('installed and activated on this website in order to use Easy Addons For Elementor..','bafe')
+                                __('installed and activated on this website in order to use Best Addons For Elementor..','bafe')
                             );
                         ?>
                     </div>

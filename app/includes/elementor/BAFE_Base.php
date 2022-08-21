@@ -107,7 +107,7 @@ class BAFE_Base {
     }
 
     public function admin_footer_text($footer_text){
-        $footer_text = sprintf( __( 'Thanks so much for using <strong>Easy Addons for Elementor</strong>', 'bafe' ));
+        $footer_text = sprintf( __( 'Thanks so much for using <strong>Best Addons for Elementor</strong>', 'bafe' ));
         return $footer_text;
     }
 
