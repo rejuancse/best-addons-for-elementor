@@ -1,25 +1,25 @@
 <?php
-namespace EAFE;
+namespace BAFE;
 
 defined( 'ABSPATH' ) || exit;
 
-if (! class_exists('Initial_Setup')) {
+if (! class_exists('BAFE_Initial_Setup')) {
 
-    class Initial_Setup {
+    class BAFE_Initial_Setup {
 
         public function __construct() {
-            add_action( 'admin_init', array( $this, 'initial_compatibility_check') );
-            add_action('wp_ajax_install_elementor_plugin',        array($this, 'install_elementor_plugin'));
-            add_action('admin_action_activate_elementor_free',    array($this, 'activate_elementor_free'));
+            add_action( 'admin_init', array( $this, 'bafe_initial_compatibility_check') );
+            add_action('wp_ajax_bafe_install_elementor_plugin', array($this, 'bafe_install_elementor_plugin'));
+            add_action('admin_action_bafe_activate_elementor_free', array($this, 'bafe_activate_elementor_free'));
         }
 
-        public function initial_compatibility_check() {
-            if (version_compare( EAFE_VERSION, '1.0.0', '>')) {
-                $option_check = get_option('eafe_show_description');
+        public function bafe_initial_compatibility_check() {
+            if (version_compare( BAFE_VERSION, '1.0.0', '>')) {
+                $option_check = get_option('bafe_show_description');
                 if($option_check != 'true' && $option_check != 'false'){
                     $default_value = array(
-                        'eafe_show_description' => 'true',
-                        'eafe_show_terms_and_conditions' => 'true'
+                        'bafe_show_description' => 'true',
+                        'bafe_show_terms_and_conditions' => 'true'
                     );
                     foreach ($default_value as $key => $value ) {
                         update_option( $key , $value );
@@ -31,8 +31,8 @@ if (! class_exists('Initial_Setup')) {
         /**
          * Do some task during plugin activation
          */
-        public function initial_plugin_activation() {
-            if (get_option('wp_eafe_is_used')) { // Check is plugin used before or not
+        public function bafe_initial_plugin_activation() {
+            if (get_option('wp_bafe_is_used')) { // Check is plugin used before or not
                 return false;
             }
             self::update_option();
@@ -43,9 +43,9 @@ if (! class_exists('Initial_Setup')) {
          */
         public function update_option() {
             $init_setup_data = array(
-                'wp_eafe_is_used' => EAFE_VERSION,
+                'wp_bafe_is_used' => BAFE_VERSION,
                 'vendor_type' => 'elementor',
-                'eafe_show_description' => 'true',
+                'bafe_show_description' => 'true',
             );
 
             foreach ($init_setup_data as $key => $value ) {
@@ -76,43 +76,41 @@ if (! class_exists('Initial_Setup')) {
         }
 
         /**
-         * Deactivation Hook For EAFE
+         * Deactivation Hook For BAFE
          */
-        public function initial_plugin_deactivation(){
-
-        }
+        public function initial_plugin_deactivation(){}
 
         public function activation_css() {
             ?>
             <style type="text/css">
-                .eafe-install-notice{
+                .bafe-install-notice{
                     padding: 20px;
                 }
-                .eafe-install-notice-inner{
+                .bafe-install-notice-inner{
                     display: flex;
                     align-items: center;
                 }
-                .eafe-install-notice-inner .button{
+                .bafe-install-notice-inner .button{
                     padding: 5px 30px;
                     height: auto;
                     line-height: 20px;
                     text-transform: capitalize;
                 }
-                .eafe-install-notice-content{
+                .bafe-install-notice-content{
                     flex-grow: 1;
                     padding-left: 20px;
                     padding-right: 20px;
                 }
-                .eafe-install-notice-icon img{
+                .bafe-install-notice-icon img{
                     width: 64px;
                     border-radius: 4px;
                     display: block;
                 }
-                .eafe-install-notice-content h2{
+                .bafe-install-notice-content h2{
                     margin-top: 0;
                     margin-bottom: 5px;
                 }
-                .eafe-install-notice-content p{
+                .bafe-install-notice-content p{
                     margin-top: 0;
                     margin-bottom: 0px;
                     padding: 0;
@@ -122,19 +120,19 @@ if (! class_exists('Initial_Setup')) {
             <script type="text/javascript">
                 jQuery(document).ready(function($){
                     'use strict';
-                    $(document).on('click', '.install-eafe-button', function(e){
+                    $(document).on('click', '.install-bafe-button', function(e){
                         e.preventDefault();
                         var $btn = $(this);
                         $.ajax({
                             type: 'POST',
                             url: ajaxurl,
-                            data: {install_plugin: 'elementor', action: 'install_elementor_plugin'},
+                            data: {install_plugin: 'elementor', action: 'bafe_install_elementor_plugin'},
                             beforeSend: function(){
                                 $btn.addClass('updating-message');
                             },
                             success: function (data) {
-                                $('.install-eafe-button').remove();
-                                $('#eafe_install_msg').html(data);
+                                $('.install-bafe-button').remove();
+                                $('#bafe_install_msg').html(data);
                             },
                             complete: function () {
                                 $btn.removeClass('updating-message');
@@ -149,77 +147,78 @@ if (! class_exists('Initial_Setup')) {
         /**
          * Show notice if there is no elementor
          */
-        public function free_plugin_installed_but_inactive_notice(){
+        public function bafe_free_plugin_installed_but_inactive_notice(){
             $this->activation_css();
             ?>
-            <div class="notice notice-error eafe-install-notice">
-                <div class="eafe-install-notice-inner">
-                    <div class="eafe-install-notice-icon">
-                        <img src="<?php echo EAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
+            <div class="notice notice-error bafe-install-notice">
+                <div class="bafe-install-notice-inner">
+                    <div class="bafe-install-notice-icon">
+                        <img src="<?php echo BAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
                     </div>
-                    <div class="eafe-install-notice-content">
-                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'eafe'); ?></h2>
+                    <div class="bafe-install-notice-content">
+                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'bafe'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
-                                __('You must have','eafe'), 
+                                __('You must have','bafe'), 
                                 'https://wordpress.org/plugins/elementor/', 
-                                __('Elementor', 'eafe'), 
-                                __('installed and activated on this website in order to use Easy Addons For Elementor.','eafe')
+                                __('Elementor', 'bafe'), 
+                                __('installed and activated on this website in order to use Easy Addons For Elementor.','bafe')
                             );
                         ?>
                     </div>
-                    <div class="eafe-install-notice-button">
-                        <a  class="button button-primary" href="<?php echo add_query_arg(array('action' => 'activate_elementor_free'), admin_url()); ?>"><?php _e('Activate Elementor', 'eafe'); ?></a>
+                    <div class="bafe-install-notice-button">
+                        <a  class="button button-primary" href="<?php echo add_query_arg(array('action' => 'bafe_activate_elementor_free'), admin_url()); ?>"><?php _e('Activate Elementor', 'bafe'); ?></a>
                     </div>
                 </div>
             </div>
             <?php
         }
     
-        public function free_plugin_not_installed(){
+        public function bafe_free_plugin_not_installed(){
             include( ABSPATH . 'wp-admin/includes/plugin-install.php' );
             $this->activation_css();
             ?>
-            <div class="notice notice-error eafe-install-notice">
-                <div class="eafe-install-notice-inner">
-                    <div class="eafe-install-notice-icon">
-                        <img src="<?php echo EAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
+            <div class="notice notice-error bafe-install-notice">
+                <div class="bafe-install-notice-inner">
+                    <div class="bafe-install-notice-icon">
+                        <img src="<?php echo BAFE_DIR_URL.'assets/images/elementor-icon.jpg'; ?>" alt="logo" />
                     </div>
-                    <div class="eafe-install-notice-content">
-                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'eafe'); ?></h2>
+                    <div class="bafe-install-notice-content">
+                        <h2><?php _e('Thanks for using Easy Addons For Elementor', 'bafe'); ?></h2>
                         <?php 
                             printf(
                                 '<p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p>', 
-                                __('You must have','eafe'), 
+                                __('You must have','bafe'), 
                                 'https://wordpress.org/plugins/elementor/', 
-                                __('Elementor', 'eafe'), 
-                                __('installed and activated on this website in order to use Easy Addons For Elementor..','eafe')
+                                __('Elementor', 'bafe'), 
+                                __('installed and activated on this website in order to use Easy Addons For Elementor..','bafe')
                             );
                         ?>
                     </div>
-                    <div class="eafe-install-notice-button">
-                        <a class="install-eafe-button button button-primary" data-slug="elementor" href="<?php echo add_query_arg(array('action' => 'install_elementor_free'), admin_url()); ?>"><?php _e('Install Elementor', 'eafe'); ?></a>
+                    <div class="bafe-install-notice-button">
+                        <a class="install-bafe-button button button-primary" data-slug="elementor" href="<?php echo add_query_arg(array('action' => 'install_elementor_free'), admin_url()); ?>"><?php _e('Install Elementor', 'bafe'); ?></a>
                     </div>
                 </div>
-                <div id="eafe_install_msg"></div>
+                <div id="bafe_install_msg"></div>
             </div>
             <?php
         }
 
-        public function activate_elementor_free() {
+        public function bafe_activate_elementor_free() {
             activate_plugin('elementor/elementor.php' );
-            wp_redirect(admin_url('admin.php?page=eafe'));
+            wp_redirect(admin_url('admin.php?page=bafe'));
 		    exit();
         }
 
-        public function install_elementor_plugin(){
+        public function bafe_install_elementor_plugin(){
             include(ABSPATH . 'wp-admin/includes/plugin-install.php');
             include(ABSPATH . 'wp-admin/includes/class-wp-upgrader.php');
     
             if ( ! class_exists('Plugin_Upgrader')){
                 include(ABSPATH . 'wp-admin/includes/class-plugin-upgrader.php');
             }
+            
             if ( ! class_exists('Plugin_Installer_Skin')) {
                 include( ABSPATH . 'wp-admin/includes/class-plugin-installer-skin.php' );
             }
@@ -257,13 +256,13 @@ if (! class_exists('Initial_Setup')) {
             die();
         }
         
-        public static function wc_low_version(){
+        public static function bafe_wc_low_version(){
             printf(
                 '<div class="notice notice-error is-dismissible"><p>%1$s <a target="_blank" href="%2$s">%3$s</a> %4$s</p></div>', 
-                __('Your','eafe'), 
+                __('Your','bafe'), 
                 'https://wordpress.org/plugins/elementor/', 
-                __('elementor','eafe'), 
-                __('version is below then 3.0, please update.','eafe') 
+                __('elementor','bafe'), 
+                __('version is below then 3.0, please update.','bafe') 
             );
         }
     }

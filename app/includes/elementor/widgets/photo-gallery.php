@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Photo_Gallery extends Widget_Base {
+class BAFE_Widget_Photo_Gallery extends Widget_Base {
 	public function get_name() {
 		return 'photo-gallery';
 	}
 
 	public function get_title() {
-		return __( 'Photo Gallery', 'eafe' );
+		return __( 'Photo Gallery', 'bafe' );
 	}
 
 	public function get_icon() {	
@@ -17,21 +17,21 @@ class Widget_Photo_Gallery extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Photo Gallery', 'eafe' ),
+				'label' => __( 'Photo Gallery', 'bafe' ),
 			]
 		);
 
 		$this->add_control(
 			'photogallery',
 			[
-				'label' => esc_html__( 'Add Images', 'eafe' ),
+				'label' => esc_html__( 'Add Images', 'bafe' ),
 				'type' => Controls_Manager::GALLERY,
 				'default' => [],
 				'show_label' => false,
@@ -44,14 +44,14 @@ class Widget_Photo_Gallery extends Widget_Base {
 		$this->add_control(
             'gallery_column',
             [
-                'label'     => __( 'Number of Column', 'eafe' ),
+                'label'     => __( 'Number of Column', 'bafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 4,
                 'options'   => [
-                        '12' 	=> __( 'One Column', 'eafe' ),
-                        '6' 	=> __( 'Two Column', 'eafe' ),
-                        '4' 	=> __( 'Three Column', 'eafe' ),
-                        '3' 	=> __( 'Four Column', 'eafe' ),
+                        '12' 	=> __( 'One Column', 'bafe' ),
+                        '6' 	=> __( 'Two Column', 'bafe' ),
+                        '4' 	=> __( 'Three Column', 'bafe' ),
+                        '3' 	=> __( 'Four Column', 'bafe' ),
                     ],
             ]
         );
@@ -59,11 +59,11 @@ class Widget_Photo_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'gallery_border',
 			[
-				'label' => esc_html__( 'Border Radius', 'eafe' ),
+				'label' => esc_html__( 'Border Radius', 'bafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .eafe-photo-gallery .popup-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .bafe-photo-gallery .popup-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -71,10 +71,10 @@ class Widget_Photo_Gallery extends Widget_Base {
 		$this->add_control(
 			'image_overlay_color',
 			[
-				'label'		=> __( 'Background Overlay', 'eafe' ),
+				'label'		=> __( 'Background Overlay', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe-photo-gallery .popup-image:before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .bafe-photo-gallery .popup-image:before' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -82,10 +82,10 @@ class Widget_Photo_Gallery extends Widget_Base {
 		$this->add_control(
 			'image_overlay_hover_color',
 			[
-				'label'		=> __( 'Background Hover Color', 'eafe' ),
+				'label'		=> __( 'Background Hover Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe-photo-gallery .popup-image:hover:before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .bafe-photo-gallery .popup-image:hover:before' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -95,17 +95,16 @@ class Widget_Photo_Gallery extends Widget_Base {
 
 	protected function render( ) {
 		$settings = $this->get_settings(); 
-
 		$gallery_column = $settings['gallery_column'];
 
 		if ( empty( $settings['photogallery'] ) ) {
 			return;
 		} ?>
 
-		<div class="eafe-photo-gallery">
-			<div class="eafe-row">
+		<div class="bafe-photo-gallery">
+			<div class="bafe-row">
 			<?php foreach ( $settings['photogallery'] as $item ) { ?>
-				<div class="eafe-col-<?php echo $gallery_column; ?>">
+				<div class="bafe-col-<?php echo esc_attr($gallery_column); ?>">
 					<div class="gallery_grid_thumb">
 						<a class="popup-image" href="<?php echo esc_url( $item['url'] ); ?>">
 							<img class="slide-image" src="<?php echo esc_url( $item['url'] ); ?>" />
@@ -120,4 +119,4 @@ class Widget_Photo_Gallery extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Photo_Gallery() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_Photo_Gallery() );

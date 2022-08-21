@@ -11,7 +11,7 @@ $wizard: #4facff;
             outline: 0;
         }
     }
-    .eafe-card {
+    .bafe-card {
         background: white;
         width: 100%;
         display: inline-block;
@@ -27,12 +27,12 @@ $wizard: #4facff;
             padding: 0 20px;
         }
     }
-    .eafe-card__image {
+    .bafe-card__image {
         position: relative;
         height: 230px;
         margin-bottom: 35px;
     }
-    .eafe-card__image--barbarian {
+    .bafe-card__image--barbarian {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -43,37 +43,37 @@ $wizard: #4facff;
             left: 0;
         }
     }
-    .eafe-card__level {
+    .bafe-card__level {
         text-transform: uppercase;
         font-size: 12px;
         font-weight: 700;
         margin-bottom: 3px;
     }
-    .eafe-card__level--barbarian {
+    .bafe-card__level--barbarian {
         color: $barbarian;
     }
-    .eafe-card__level--archer {
+    .bafe-card__level--archer {
         color: $archer;
     }
-    .eafe-card__level--giant {
+    .bafe-card__level--giant {
         color: $giant;
     }
-    .eafe-card__level--goblin {
+    .bafe-card__level--goblin {
         color: $goblin;
     }
-    .eafe-card__level--wizard {
+    .bafe-card__level--wizard {
         color: $wizard;
     }
-    .eafe-card__unit-name {
+    .bafe-card__unit-name {
         font-size: 26px;
         color: black;
         font-weight: 900;
         margin-bottom: 5px;
     }
-    .eafe-card__unit-description {
+    .bafe-card__unit-description {
         padding: 20px 0;
     }
-    .eafe-card__unit-stats--barbarian {
+    .bafe-card__unit-stats--barbarian {
         background: $barbarian;
         .one-third {
             border-right: 1px solid #bd7c2f;
@@ -82,31 +82,31 @@ $wizard: #4facff;
             border-right: none;
         }
     }
-    .eafe-card__unit-stats--archer {
+    .bafe-card__unit-stats--archer {
         background: $archer;
         .one-third {
             border-right: 1px solid #d04976;
         }
     }
-    .eafe-card__unit-stats--giant {
+    .bafe-card__unit-stats--giant {
         background: $giant;
         .one-third {
             border-right: 1px solid darken($giant, 8%);
         }
     }
-    .eafe-card__unit-stats--goblin {
+    .bafe-card__unit-stats--goblin {
         background: $goblin;
         .one-third {
             border-right: 1px solid darken($goblin, 6%);
         }
     }
-    .eafe-card__unit-stats--wizard {
+    .bafe-card__unit-stats--wizard {
         background: $wizard;
         .one-third {
             border-right: 1px solid darken($wizard, 6%);
         }
     }
-    .eafe-card__unit-stats {
+    .bafe-card__unit-stats {
         color: white;
         font-weight: 700;
         .one-third {

@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_CountDown extends Widget_Base {
+class BAFE_Widget_CountDown extends Widget_Base {
 	
 	public function get_name() {
 		return 'count-down';
 	}
 
 	public function get_title() {
-		return __( 'Count Down', 'eafe' );
+		return __( 'Count Down', 'bafe' );
 	}
 
 	public function get_icon() {
@@ -18,26 +18,26 @@ class Widget_CountDown extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'eafe' )
+                'label' => __( 'Title Element', 'bafe' )
             ]
         );
 
 		$this->add_control(
             'countdown_style',
             [
-                'label'     => __( 'CountDown Style', 'eafe' ),
+                'label'     => __( 'CountDown Style', 'bafe' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'style1',
                 'options'   => [
-                        'style1' 	=> __( 'Style 1', 'eafe' ),
-                        'style2' 	=> __( 'Style 2', 'eafe' ),
+                        'style1' 	=> __( 'Style 1', 'bafe' ),
+                        'style2' 	=> __( 'Style 2', 'bafe' ),
                     ],
             ]
         );
@@ -46,11 +46,11 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_control(
             'countdown_intro',
             [
-                'label' => __( 'CountDown Intro', 'eafe' ),
+                'label' => __( 'CountDown Intro', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter intro text', 'eafe' ),
-                'default' => __( 'Ends In', 'eafe' ),
+                'placeholder' => __( 'Enter intro text', 'bafe' ),
+                'default' => __( 'Ends In', 'bafe' ),
             ]
         );
 
@@ -58,33 +58,33 @@ class Widget_CountDown extends Widget_Base {
         $this->add_control(
             'date_time',
             [
-                'label' => __( 'Choose Date Time', 'eafe' ),
+                'label' => __( 'Choose Date Time', 'bafe' ),
                 'type' => Controls_Manager::DATE_TIME,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Date Time', 'eafe' ),
+                'placeholder' => __( 'Enter Date Time', 'bafe' ),
             ]
         );
 
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => esc_html__( 'Alignment', 'eafe' ),
+				'label' => esc_html__( 'Alignment', 'bafe' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'eafe' ),
+						'title' => esc_html__( 'Left', 'bafe' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'eafe' ),
+						'title' => esc_html__( 'Center', 'bafe' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'eafe' ),
+						'title' => esc_html__( 'Right', 'bafe' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'eafe' ),
+						'title' => esc_html__( 'Justified', 'bafe' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -101,7 +101,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'CountDown Title', 'eafe' ),
+				'label' 	=> __( 'CountDown Title', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -110,7 +110,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_control(
 			'title_text_color',
 			[
-				'label'		=> __( 'Title Text Color', 'eafe' ),
+				'label'		=> __( 'Title Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .countdown-wrap .deal_counter .list-inline-item' => 'color: {{VALUE}};',
@@ -123,7 +123,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_control(
 			'countdown_bg_color',
 			[
-				'label'		=> __( 'Background Color', 'eafe' ),
+				'label'		=> __( 'Background Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .countdown-wrap .deal_counter.bgc-thm' => 'background-color: {{VALUE}};',
@@ -135,7 +135,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_control(
 			'countdown_bg2_color',
 			[
-				'label'		=> __( 'Background Color', 'eafe' ),
+				'label'		=> __( 'Background Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .countdown-wrap .style2 .deal_counter.bgc-thm .list-inline-item' => 'background-color: {{VALUE}};',
@@ -148,7 +148,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'CountDown Typography', 'eafe' ),
+				'label'		=> __( 'CountDown Typography', 'bafe' ),
 				'name' 		=> 'countdown_typography',
 				'selector' 	=> '{{WRAPPER}} .countdown-wrap .deal_counter .list-inline-item',
 				'condition' => ['countdown_style' => 'style1'],
@@ -158,7 +158,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Digit Typography', 'eafe' ),
+				'label'		=> __( 'Digit Typography', 'bafe' ),
 				'name' 		=> 'digit_typography',
 				'selector' 	=> '{{WRAPPER}} .countdown-wrap .style2 .deal_counter .list-inline-item',
 				'condition' => ['countdown_style' => 'style2'],
@@ -188,7 +188,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'countdown_border',
 			[
-				'label' => esc_html__( 'Border Radius', 'eafe' ),
+				'label' => esc_html__( 'Border Radius', 'bafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -201,7 +201,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'countdown_space',
 			[
-				'label' => esc_html__( 'Digit and Text Spacing', 'eafe' ),
+				'label' => esc_html__( 'Digit and Text Spacing', 'bafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -223,7 +223,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Countdown Text Typography', 'eafe' ),
+				'label'		=> __( 'Countdown Text Typography', 'bafe' ),
 				'name' 		=> 'text_typography',
 				'selector' 	=> '{{WRAPPER}} .countdown-wrap .style2 .deal_counter.bgc-thm .list-inline-item span',
 				'condition' => ['countdown_style' => 'style2'],
@@ -234,7 +234,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_responsive_control(
             'countdown_padding',
             [
-                'label' 		=> __( 'Padding', 'eafe' ),
+                'label' 		=> __( 'Padding', 'bafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -248,7 +248,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_responsive_control(
             'countdown_style2_padding',
             [
-                'label' 		=> __( 'Padding', 'eafe' ),
+                'label' 		=> __( 'Padding', 'bafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -262,7 +262,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'countdown_space_gap',
 			[
-				'label' => esc_html__( 'Between Spacing', 'eafe' ),
+				'label' => esc_html__( 'Between Spacing', 'bafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 20,
@@ -287,7 +287,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_control(
 			'timeline_intro_section',
 			[
-				'label' => esc_html__( 'Intro Text Style', 'eafe' ),
+				'label' => esc_html__( 'Intro Text Style', 'bafe' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -297,7 +297,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_control(
 			'intro_text_color',
 			[
-				'label'		=> __( 'Intro Text Color', 'eafe' ),
+				'label'		=> __( 'Intro Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .countdown-wrap .deal_counter .list-inline-item .title' => 'color: {{VALUE}};',
@@ -310,7 +310,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Intro Text Typography', 'eafe' ),
+				'label'		=> __( 'Intro Text Typography', 'bafe' ),
 				'name' 		=> 'intro_typography',
 				'selector' 	=> '{{WRAPPER}} .countdown-wrap .deal_counter .list-inline-item .title',
 				'condition' => ['countdown_style' => 'style1'],
@@ -320,7 +320,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Intro Text Typography', 'eafe' ),
+				'label'		=> __( 'Intro Text Typography', 'bafe' ),
 				'name' 		=> 'intro_style2_typography',
 				'selector' 	=> '{{WRAPPER}} .deal_countdown.style2 h2',
 				'condition' => ['countdown_style' => 'style2'],
@@ -330,7 +330,7 @@ class Widget_CountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'intro_text_space',
 			[
-				'label' => esc_html__( 'Spacing', 'eafe' ),
+				'label' => esc_html__( 'Spacing', 'bafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 10,
@@ -394,4 +394,4 @@ class Widget_CountDown extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_CountDown() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_CountDown() );

@@ -3,9 +3,9 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-function eafe_contact_form(){
+function bafe_contact_form(){
 
-	$args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
+	$args = array( 'post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1 );
 
 	$contact_forms = array();
 	if( $data = get_posts($args)){
@@ -13,19 +13,19 @@ function eafe_contact_form(){
 			$contact_forms[$key->ID] = $key->post_title;
 		}
 	}else{
-		$contact_forms['0'] = esc_html__('No Contact Form found', 'eafe');
+		$contact_forms['0'] = esc_html__('No Contact Form found', 'bafe');
 	}
 
     return $contact_forms;
 }
 
-class Widget_EAFE_Call_Contact_Form extends Widget_Base {
+class BAFE_Widget_BAFE_Call_Contact_Form extends Widget_Base {
 	public function get_name() {
-		return 'eafe-call-contact-form';
+		return 'bafe-call-contact-form';
 	}
 
 	public function get_title() {
-		return __( 'Call Contact Form', 'eafe' );
+		return __( 'Call Contact Form', 'bafe' );
 	}
 
 	public function get_icon() {
@@ -33,57 +33,57 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Call Contact Form', 'eafe' )
+                'label' => __( 'Call Contact Form', 'bafe' )
             ]
         );
 
         $this->add_control(
             'callto_action_title',
             [
-                'label' => __( 'Title', 'eafe' ),
+                'label' => __( 'Title', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'eafe' ),
-                'default' => __( 'This is heading', 'eafe' ),
+                'placeholder' => __( 'Enter title', 'bafe' ),
+                'default' => __( 'This is heading', 'bafe' ),
             ]
         );
 
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'eafe' ),
+                'label' => __( 'Sub Title Content', 'bafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
-                'default' => __( 'Write your sub title content of this section.', 'eafe' ),
+                'placeholder' => __( 'Enter Sub Title', 'bafe' ),
+                'default' => __( 'Write your sub title content of this section.', 'bafe' ),
             ]
         );    
 		
 		$this->add_control(
             'action_button',
             [
-                'label' => __( 'Button Name', 'eafe' ),
+                'label' => __( 'Button Name', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Button Name', 'eafe' ),
-                'default' => __( 'Contact us Today', 'eafe' ),
+                'placeholder' => __( 'Button Name', 'bafe' ),
+                'default' => __( 'Contact us Today', 'bafe' ),
             ]
         );
 
 		$this->add_control(
 			'contact_button',
 			[
-				'label' 		=> __( 'Contact Form', 'eafe' ),
+				'label' 		=> __( 'Contact Form', 'bafe' ),
 				'type' 			=> Controls_Manager::SELECT,
 				'default' 		=> '',
-				'options'		=> eafe_contact_form(),
+				'options'		=> bafe_contact_form(),
 			]
 		);
 
@@ -93,7 +93,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'eafe' ),
+				'label' 	=> __( 'Title', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -101,7 +101,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'section_bg_color',
 			[
-				'label'		=> __( 'Section Background Color', 'eafe' ),
+				'label'		=> __( 'Section Background Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .call_action_wrap-wrap' => 'background: {{VALUE}};',
@@ -112,7 +112,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_responsive_control(
             'call_form_padding',
             [
-                'label' 		=> __( 'Padding', 'eafe' ),
+                'label' 		=> __( 'Padding', 'bafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -125,7 +125,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
         $this->add_responsive_control(
 			'contact_form_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'eafe' ),
+				'label' => esc_html__( 'Border Radius', 'bafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -134,17 +134,17 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 			]
 		);
 
-
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Text Color', 'eafe' ),
+				'label'		=> __( 'Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .call_action_wrap h3' => 'color: {{VALUE}};',
 				],
 			]
 		);
+
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -152,15 +152,15 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 				'selector' 	=> '{{WRAPPER}} .call_action_wrap h3',
 			]
 		);
+
 		$this->end_controls_section();
 		# Title Section end 1
-
 
 		# Sub Title Section 2
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'eafe' ),
+				'label' 	=> __( 'Sub Title', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -168,7 +168,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'eafe' ),
+				'label'		=> __( 'Subtitle Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .call_action_wrap span' => 'color: {{VALUE}};',
@@ -190,7 +190,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->start_controls_section(
 			'action_button_style',
 			[
-				'label' 	=> __( 'Button Style', 'eafe' ),
+				'label' 	=> __( 'Button Style', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -198,7 +198,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_color',
 			[
-				'label'		=> __( 'Button Text Color', 'eafe' ),
+				'label'		=> __( 'Button Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'color: {{VALUE}};',
@@ -209,7 +209,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_hover_color',
 			[
-				'label'		=> __( 'Button Text Hover Color', 'eafe' ),
+				'label'		=> __( 'Button Text Hover Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap:hover' => 'color: {{VALUE}};',
@@ -220,7 +220,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_background',
 			[
-				'label'		=> __( 'Button BG Color', 'eafe' ),
+				'label'		=> __( 'Button BG Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap' => 'background: {{VALUE}};',
@@ -231,7 +231,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_hover_background',
 			[
-				'label'		=> __( 'Button Hover BG Color', 'eafe' ),
+				'label'		=> __( 'Button Hover BG Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .btn.btn-call_action_wrap:hover' => 'background: {{VALUE}};',
@@ -250,7 +250,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_responsive_control(
             'call_form_btn_padding',
             [
-                'label' 		=> __( 'Padding', 'eafe' ),
+                'label' 		=> __( 'Padding', 'bafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -263,7 +263,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		$this->add_responsive_control(
 			'contact_form_btn_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'eafe' ),
+				'label' => esc_html__( 'Border Radius', 'bafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -283,15 +283,15 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 			<div class="call_action_wrap">
 				<div class="call_action_wrap-head">
 					<?php if( $settings['callto_action_title'] ){ ?>
-						<h3><?php echo $settings['callto_action_title']; ?></h3>
+						<h3><?php echo esc_html($settings['callto_action_title']); ?></h3>
 					<?php } ?>
 					<?php if( $settings['subtitle_content'] ){ ?>
-						<span><?php echo $settings['subtitle_content']; ?></span>
+						<span><?php echo esc_html($settings['subtitle_content']); ?></span>
 					<?php } ?>
 				</div>
 
 				<?php if( $settings['contact_button'] ){ ?>
-					<a class="btn btn-call_action_wrap Click-here" data-toggle="modal" data-target="#myModal" href="#"><?php echo $settings['action_button']; ?></a>
+					<a class="btn btn-call_action_wrap Click-here" data-toggle="modal" data-target="#myModal" href="#"><?php echo esc_html($settings['action_button']); ?></a>
 				<?php } ?>
 
 				<div class="custom-model-main">
@@ -299,7 +299,7 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 					<div class="close-btn">×</div>
 						<div class="custom-model-wrap">
 							<div class="pop-up-content-wrap">
-								<?php echo '[contact-form-7 id="'.$contact_button.'" title="Contact Form"]'; ?>
+								<?php echo '[contact-form-7 id="'.__($contact_button, 'bafe').'" title="Contact Form"]'; ?>
 							</div>
 						</div>  
 					</div>  
@@ -312,4 +312,4 @@ class Widget_EAFE_Call_Contact_Form extends Widget_Base {
 		<?php 
     }
 }
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Call_Contact_Form() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_BAFE_Call_Contact_Form() );

@@ -3,13 +3,13 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Online_Delivery extends Widget_Base {
+class BAFE_Widget_Online_Delivery extends Widget_Base {
 	public function get_name() {
 		return 'online-delivery-banner';
 	}
 
 	public function get_title() {
-		return __( 'Online Delivery Banner', 'eafe' );
+		return __( 'Online Delivery Banner', 'bafe' );
 	}
 
 	public function get_icon() {
@@ -17,14 +17,14 @@ class Widget_Online_Delivery extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'eafe' )
+                'label' => __( 'Title Element', 'bafe' )
             ]
         );
 
@@ -32,11 +32,11 @@ class Widget_Online_Delivery extends Widget_Base {
         $this->add_control(
             'title_text',
             [
-                'label' => __( 'Title Text', 'eafe' ),
+                'label' => __( 'Title Text', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title text', 'eafe' ),
-                'default' => __( 'WHATSAPP ORDERING SERVICE PLACE YOUR ORDERS AT', 'eafe' ),
+                'placeholder' => __( 'Enter title text', 'bafe' ),
+                'default' => __( 'WHATSAPP ORDERING SERVICE PLACE YOUR ORDERS AT', 'bafe' ),
             ]
         );
 		
@@ -45,11 +45,11 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->add_control(
             'hotline_text',
             [
-                'label' => __( 'Hotline Text', 'eafe' ),
+                'label' => __( 'Hotline Text', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter hotline', 'eafe' ),
-                'default' => __( '392 96 32', 'eafe' ),
+                'placeholder' => __( 'Enter hotline', 'bafe' ),
+                'default' => __( '392 96 32', 'bafe' ),
             ]
         );
 
@@ -84,7 +84,7 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'eafe' ),
+				'label' 	=> __( 'Title', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -93,7 +93,7 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->add_control(
 			'title_text_color',
 			[
-				'label'		=> __( 'Title Text Color', 'eafe' ),
+				'label'		=> __( 'Title Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .online_delivery .title' => 'color: {{VALUE}};',
@@ -105,7 +105,7 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->add_control(
 			'hotline_text_color',
 			[
-				'label'		=> __( 'Hotline Text Color', 'eafe' ),
+				'label'		=> __( 'Hotline Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .online_delivery .text-thm' => 'color: {{VALUE}};',
@@ -117,7 +117,7 @@ class Widget_Online_Delivery extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Timeline Title Typography', 'eafe' ),
+				'label'		=> __( 'Timeline Title Typography', 'bafe' ),
 				'name' 		=> 'title_typography',
 				'selector' 	=> '{{WRAPPER}} .online_delivery h3',
 			]
@@ -136,14 +136,14 @@ class Widget_Online_Delivery extends Widget_Base {
 
 		<div class="online_delivery text-center">
             <div class="delivery_bike">
-				<img src=<?php echo $delivery_image['url'] ?> alt="delivery.png">
+				<img src=<?php echo esc_url($delivery_image['url']); ?> alt="<?php echo esc_html($title_text); ?>">
 			</div>
             <h3 class="title text-thm2">
 				<span class="flaticon-whatsapp text-thm vam mr15">
 					<?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
 				</span>
-				<?php echo $title_text ?>
-				<span class="text-thm"> <?php echo $hotline_text ?> </span>
+				<?php echo esc_html($title_text); ?>
+				<span class="text-thm"> <?php echo esc_html($hotline_text); ?> </span>
 			</h3>
         </div>
 
@@ -152,4 +152,4 @@ class Widget_Online_Delivery extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Online_Delivery() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_Online_Delivery() );

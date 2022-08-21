@@ -1,6 +1,6 @@
-<div class="wp-eafe-extensions-list">
+<div class="wp-bafe-extensions-list">
     <h2 class="addon-list-heading">
-        <?php _e('EAFE Addons List', 'eafe'); ?>
+        <?php _e('BAFE Addons List', 'bafe'); ?>
     </h2>
     
     <?php
@@ -12,7 +12,7 @@
             "path"          => "animated-headine",
             "useability"    => "Free",
             "description"   => "Make your addons with animation and dynamic",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/h.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/h.png',
             "url"           => $site_url.'animated-headine',
         ],
 
@@ -21,7 +21,7 @@
             "path"          => "breaking-news",
             "useability"    => "Free",
             "description"   => "Make your News/Magazines easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/news.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/news.png',
             "url"           => $site_url.'breaking-news',
         ],
 
@@ -30,7 +30,7 @@
             "path"          => "call-contact-form",
             "useability"    => "Free",
             "description"   => "Use contact form popup with call to actions",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/phone-contact.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/phone-contact.png',
             "url"           => $site_url.'call-contact-form',
         ],
         [
@@ -38,7 +38,7 @@
             "path"          => "countdown",
             "useability"    => "Free",
             "description"   => "Use this addons for date/time countdown",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/countdown.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/countdown.png',
             "url"           => $site_url.'countdown',
         ],
 
@@ -47,17 +47,17 @@
             "path"          => "events-list",
             "useability"    => "Free",
             "description"   => "Make your upcoming/previous events list.",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/event.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/event.png',
             "url"           => $site_url.'events-list',
         ],
 
         [
-            "name"          => "EAFE Features",
-            "path"          => "eafe-features",
+            "name"          => "BAFE Features",
+            "path"          => "bafe-features",
             "useability"    => "Free",
             "description"   => "Make your features single list",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/extra-features.png',
-            "url"           => $site_url.'eafe-features',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/extra-features.png',
+            "url"           => $site_url.'bafe-features',
         ],
 
         [
@@ -65,7 +65,7 @@
             "path"          => "media-card",
             "useability"    => "Free",
             "description"   => "Make your media card more informative",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/card-exchange.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/card-exchange.png',
             "url"           => $site_url.'media-card',
         ],
 
@@ -74,7 +74,7 @@
             "path"          => "online-delivery",
             "useability"    => "Free",
             "description"   => "Simple banner is more beautiful",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/delivery-man.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/delivery-man.png',
             "url"           => $site_url.'online-delivery',
         ],  
 
@@ -83,7 +83,7 @@
             "path"          => "photo-gallery",
             "useability"    => "Free",
             "description"   => "Make your photo gallery with popup view",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/photo-gallery.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/photo-gallery.png',
             "url"           => $site_url.'photo-gallery',
         ],
 
@@ -92,7 +92,7 @@
             "path"          => "post-ajax-search",
             "useability"    => "Free",
             "description"   => "aJax post search makes it easy to pick post",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/search-bar.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/search-bar.png',
             "url"           => $site_url.'post-ajax-search',
         ],
 
@@ -101,7 +101,7 @@
             "path"          => "products-category-list",
             "useability"    => "Free",
             "description"   => "Product category list with more functionality",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/category.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/category.png',
             "url"           => $site_url.'products-category-list',
         ], 
         
@@ -110,7 +110,7 @@
             "path"          => "restaurant-menu",
             "useability"    => "Free",
             "description"   => "Make your Menu the easiest way",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/restaurant-menu.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/restaurant-menu.png',
             "url"           => $site_url.'restaurant-menu',
         ], 
 
@@ -119,7 +119,7 @@
             "path"          => "restaurant-schedule",
             "useability"    => "Free",
             "description"   => "Start and End time is really important, so Use this addons",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/restaurant-table.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/restaurant-table.png',
             "url"           => $site_url.'restaurant-schedule',
         ],
         
@@ -128,7 +128,7 @@
             "path"          => "shop-banner",
             "useability"    => "Free",
             "description"   => "This banner can make beautiful design with your shop view",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/programming-flag.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/programming-flag.png',
             "url"           => $site_url.'animated-headine',
         ], 
 
@@ -137,7 +137,7 @@
             "path"          => "special-menu",
             "useability"    => "Free",
             "description"   => "List your Resturent special menu with total price",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/cuisine.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/cuisine.png',
             "url"           => $site_url.'special-menu',
         ], 
 
@@ -146,48 +146,44 @@
             "path"          => "member",
             "useability"    => "Free",
             "description"   => "Build single or multiple members list, this addons is best",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/member.png',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/member.png',
             "url"           => $site_url.'member',
         ],   
 
         [
-            "name"          => "EAFE Title",
-            "path"          => "eafe-title",
+            "name"          => "BAFE Title",
+            "path"          => "bafe-title",
             "useability"    => "Free",
             "description"   => "Make your Title with subtitle easy and cool",
-            "icon"          => EAFE_DIR_URL .'assets/images/icons/title.png',
-            "url"           => $site_url.'eafe-title',
+            "icon"          => BAFE_DIR_URL .'assets/images/icons/title.png',
+            "url"           => $site_url.'bafe-title',
         ],
     ];
  
     if (is_array($config) && count($config)){ ?>
-        <div class="eafe-list-table widefat plugin-install">
+        <div class="bafe-list-table widefat plugin-install">
             <?php foreach ( $config as $basName => $addon ) { ?>
-
                 <div class="plugin-card">
-                    
                     <?php if( $addon['useability'] === 'Free' ) { ?>
-                        <span class="useability <?php echo $addon['useability']; ?>">
-                            <?php echo $addon['useability']; ?>
+                        <span class="useability <?php echo esc_attr($addon['useability']); ?>">
+                            <?php echo esc_html($addon['useability']); ?>
                         </span>
                     <?php }else { ?>
-                        <a class="useability <?php echo $addon['useability']; ?>" href="<?php echo $site_url; ?>" target="_blank">
-                            <span><?php echo $addon['useability']; ?></span>
+                        <a class="useability <?php echo esc_attr($addon['useability']); ?>" href="<?php echo esc_url($site_url); ?>" target="_blank">
+                            <span><?php echo esc_html($addon['useability']); ?></span>
                         </a>
                     <?php } ?>
                     
                     <div class="name column-name">
-                        <div class="icons"><img src="<?php echo $addon['icon']; ?>" alt=""></div>
+                        <div class="icons"><img src="<?php echo esc_url($addon['icon']); ?>" alt=""></div>
                         <div class="content">
-                            <h2><?php echo $addon['name']; ?></h2>
-                            <p><?php echo $addon['description']; ?></p>
+                            <h2><?php echo esc_html($addon['name']); ?></h2>
+                            <p><?php echo esc_html($addon['description']); ?></p>
                         </div>
                     </div>
                 </div>
-
             <?php } ?>
         </div>
         <?php
     } ?>
-
 </div>

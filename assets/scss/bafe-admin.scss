@@ -1,5 +1,5 @@
 /*
-* EAFE admin CSS
+* BAFE admin CSS
 * File Description: The main stylesheet of this plugins for main design part.
 */
 
@@ -8,7 +8,7 @@
 /* --------------------------
 * Shortcode CSS 
 * --------------------------- */
-.eafe-list-table {
+.bafe-list-table {
     .plugin-card {
         .name.column-name {
             display: flex;
@@ -28,17 +28,17 @@
             } 
         }
     }
-    .eafe-settings-panel{
+    .bafe-settings-panel{
         margin-top: 20px;
         padding: 0;
         display: flex; 
-        .eafe-tabs-content {
+        .bafe-tabs-content {
             max-height: 700px;
             overflow-y: scroll;
             background-color: #ffffff;
             box-shadow: 0 15px 25px #f0f0f1;
         }
-        .eafe-main-setting-table {
+        .bafe-main-setting-table {
             margin: 0;
             th {
                 width: 280px;
@@ -76,12 +76,12 @@
 /*
 * Extensions List css
 *------------------------------ */ 
-.wp-eafe-extensions-list {
+.wp-bafe-extensions-list {
     .plugin-icon{
         width: 64px;
         height: 64px;
     }
-    .eafe-list-table {
+    .bafe-list-table {
         a{
             color: #fff;
             margin-top: 100px;

@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Products_Category_List extends Widget_Base {
+class BAFE_Widget_Products_Category_List extends Widget_Base {
 
 	public function get_name() {
 		return 'products-category-list';
 	}
 
 	public function get_title() {
-		return __( 'Products Category List', 'eafe' );
+		return __( 'Products Category List', 'bafe' );
 	}
 
 	public function get_icon() {	
@@ -18,30 +18,30 @@ class Widget_Products_Category_List extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Product Category List', 'eafe' ),
+				'label' => __( 'Product Category List', 'bafe' ),
 			]
 		);
 
 		$this->add_control(
             'coulmn_number',
             [
-                'label'     => __( 'Coulmn Number', 'eafe' ),
+                'label'     => __( 'Coulmn Number', 'bafe' ),
                 'type'      => Controls_Manager::SELECT,
-                'default'   => '71',
+                'default'   => '3',
                 'options'   => [
-                        '12' 	=> __( 'Column 1', 'eafe' ),
-                        '6' 	=> __( 'Column 2', 'eafe' ),
-						'4' 	=> __( 'Column 3', 'eafe' ),
-                        '3' 	=> __( 'Column 4', 'eafe' ),
-                        '2' 	=> __( 'Column 6', 'eafe' ),
-						'71'	=> __( 'Column 7', 'eafe' ),
+                        '12' 	=> __( 'Column 1', 'bafe' ),
+                        '6' 	=> __( 'Column 2', 'bafe' ),
+						'4' 	=> __( 'Column 3', 'bafe' ),
+                        '3' 	=> __( 'Column 4', 'bafe' ),
+                        '2' 	=> __( 'Column 6', 'bafe' ),
+						'71'	=> __( 'Column 7', 'bafe' ),
                     ],
             ]
         );
@@ -49,22 +49,22 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
             'category_limit',
             [
-                'label' 		=> __( 'Category Limit', 'eafe' ),
+                'label' 		=> __( 'Category Limit', 'bafe' ),
                 'type' 			=> Controls_Manager::NUMBER,
                 'label_block' 	=> false,
-                'default' 		=> '7',
+                'default' 		=> '4',
             ]
         );
 
 		$this->add_control(
 			'category_order',
 			[
-				'label'     => __( 'Order', 'eafe' ),
+				'label'     => __( 'Order', 'bafe' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'DESC',
 				'options'   => [
-						'DESC' 		=> __( 'Descending', 'eafe' ),
-						'ASC' 		=> __( 'Ascending', 'eafe' ),
+						'DESC' 		=> __( 'Descending', 'bafe' ),
+						'ASC' 		=> __( 'Ascending', 'bafe' ),
 					],
 			]
 	  	);
@@ -75,7 +75,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->start_controls_section(
 			'categories_text_style',
 			[
-				'label' 	=> __( 'Categories Text Style', 'eafe' ),
+				'label' 	=> __( 'Categories Text Style', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -84,7 +84,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'categories_text_color',
 			[
-				'label'		=> __( 'Category Text Color', 'eafe' ),
+				'label'		=> __( 'Category Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .iconbox .details .title' => 'color: {{VALUE}};',
@@ -96,7 +96,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'categories_text_hover_color',
 			[
-				'label'		=> __( 'Category Text Hover Color', 'eafe' ),
+				'label'		=> __( 'Category Text Hover Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .iconbox .details .title:hover' => 'color: {{VALUE}};',
@@ -108,7 +108,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Category Text Typography', 'eafe' ),
+				'label'		=> __( 'Category Text Typography', 'bafe' ),
 				'name' 		=> 'categories_text_typography',
 				'selector' 	=> '{{WRAPPER}} .iconbox .details .title',
 			]
@@ -118,7 +118,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_responsive_control(
 			'categories_text_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'eafe' ),
+				'label' => esc_html__( 'Spacing', 'bafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -142,7 +142,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->start_controls_section(
 			'categories_product_style',
 			[
-				'label' 	=> __( 'Products Count Style', 'eafe' ),
+				'label' 	=> __( 'Products Count Style', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -151,7 +151,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'categories_product_number_text_color',
 			[
-				'label'		=> __( 'Count Products Text Color', 'eafe' ),
+				'label'		=> __( 'Count Products Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .header-carousel .details p' => 'color: {{VALUE}};',
@@ -163,7 +163,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Typography', 'eafe' ),
+				'label'		=> __( 'Typography', 'bafe' ),
 				'name' 		=> 'count_product_typography',
 				'selector' 	=> '{{WRAPPER}} .header-carousel .details p',
 			]
@@ -175,7 +175,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->start_controls_section(
 			'categories_image_style',
 			[
-				'label' 	=> __( 'Category Image Style', 'eafe' ),
+				'label' 	=> __( 'Category Image Style', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -184,7 +184,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'categories_image_border_color',
 			[
-				'label'		=> __( 'Border Color', 'eafe' ),
+				'label'		=> __( 'Border Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .header-carousel .iconbox .icon' => 'border-color: {{VALUE}};',
@@ -196,7 +196,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'categories_image_border_hover_color',
 			[
-				'label'		=> __( 'Border Hover Color', 'eafe' ),
+				'label'		=> __( 'Border Hover Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .header-carousel .iconbox .icon:hover' => 'border-color: {{VALUE}};',
@@ -208,7 +208,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_responsive_control(
 			'categories_image_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'eafe' ),
+				'label' => esc_html__( 'Border Radius', 'bafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -221,7 +221,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_control(
 			'category_image_width',
 			[
-				'label' => esc_html__( 'Image Size', 'eafe' ),
+				'label' => esc_html__( 'Image Size', 'bafe' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -249,7 +249,7 @@ class Widget_Products_Category_List extends Widget_Base {
 		$this->add_responsive_control(
             'categories_image_padding',
             [
-                'label' 		=> __( 'Padding', 'eafe' ),
+                'label' 		=> __( 'Padding', 'bafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -273,14 +273,14 @@ class Widget_Products_Category_List extends Widget_Base {
 				'product_cat', 
 				array( 
 					'parent' 		=> 0, 
-					'number' 		=> $category_limit, 
-					'order' 		=> $category_order,
+					'number' 		=> esc_html($category_limit), 
+					'order' 		=> esc_html($category_order),
 					'hide_empty' 	=> true 
 				) 
 			); ?>
 
 			<div class="header-carousel position-relative">
-				<div class="eafe-row">
+				<div class="bafe-row">
 					<?php
 						if ( ! empty( $parent_terms ) && ! is_wp_error( $parent_terms ) ){ 
 							foreach ( $parent_terms as $pterm ) { 
@@ -288,7 +288,7 @@ class Widget_Products_Category_List extends Widget_Base {
 								$image_id = get_term_meta($pterm->term_id, 'thumbnail_id', true );
 								$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'full') : ''; ?>
 					
-								<div class="eafe-col-<?php echo $coulmn_number; ?>">
+								<div class="bafe-col-<?php echo esc_attr($coulmn_number); ?>">
 									<div class="item">
 										<a href="<?php echo get_term_link($pterm->term_id); ?>">
 											<div class="iconbox">
@@ -297,7 +297,7 @@ class Widget_Products_Category_List extends Widget_Base {
 												</div>
 												<div class="details">
 													<h5 class="title"><?php echo esc_html($pterm->name); ?></h5>
-													<p><?php echo esc_html($pterm->count).' '.__('Products', 'eafe'); ?></p>
+													<p><?php echo esc_html($pterm->count).' '.__('Products', 'bafe'); ?></p>
 												</div>
 											</div>
 										</a>
@@ -313,12 +313,12 @@ class Widget_Products_Category_List extends Widget_Base {
 		} else { ?>
 			<div class="info-woo">
 				<h3>
-					<?php esc_html_e('You need to install or activate woocommer plugin', 'eafe'); ?>
-					<a href="<?php echo esc_url(home_url()); ?>/wp-admin/plugin-install.php?s=woocommerce&tab=search"><?php esc_html_e('Install Woocommer', 'eafe'); ?></a>
+					<?php esc_html_e('You need to install or activate woocommer plugin', 'bafe'); ?>
+					<a href="<?php echo esc_url(home_url()); ?>/wp-admin/plugin-install.php?s=woocommerce&tab=search"><?php esc_html_e('Install Woocommer', 'bafe'); ?></a>
 				</h3>
 			</div>
 		<?php }
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Products_Category_List() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_Products_Category_List() );

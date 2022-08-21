@@ -1,5 +1,5 @@
 <?php
-namespace EAFE;
+namespace BAFE;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -7,7 +7,7 @@ class Functions {
 
     public function post($post_item){
         if (!empty($_POST[$post_item])) {
-            return $_POST[$post_item];
+            return wp_kses_post($_POST[$post_item]);
         }
         return null;
     }
@@ -22,7 +22,7 @@ class Functions {
     }
 
     public function is_free(){
-        if (is_plugin_active('eafe-pro/eafe-pro.php')) {
+        if (is_plugin_active('bafe-pro/bafe-pro.php')) {
             return false;
         } else {
             return true;
@@ -65,19 +65,6 @@ class Functions {
         $pages = get_pages($args);
         return $pages;
     }
-
-    // public function include_eafe_widgets() {
-	// 	include_once EAFE_DIR_PATH.'app/includes/elementor/elementor-core.php';
-	// }
-
-    // public function wc_version($version = '3.0'){
-    //     if (class_exists('elementor')) {
-    //         if (version_compare(WC()->version, $version, ">=")) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
     
     public function is_elementor(){
         $vendor = get_option('vendor_type', 'elementor');
@@ -90,22 +77,21 @@ class Functions {
     
     public function get_screen_id(){
         $screen_ids = array(
-            'toplevel_page_eafe',
+            'toplevel_page_bafe',
         );
-        return apply_filters('eafe_screen_id', $screen_ids);
+        return apply_filters('bafe_screen_id', $screen_ids);
     }
     
     public function get_addon_config($addon_field = null){
         if ( ! $addon_field){
             return false;
         }
-        $extensionsConfig = maybe_unserialize(get_option('eafe_extensions_config'));
+        $extensionsConfig = maybe_unserialize(get_option('bafe_extensions_config'));
         if (isset($extensionsConfig[$addon_field])){
             return $extensionsConfig[$addon_field];
         }
         return false;
     }
-
 
     public function avalue_dot($key = null, $array = array()){
         $array = (array) $array;

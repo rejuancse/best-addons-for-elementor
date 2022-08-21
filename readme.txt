@@ -1,13 +1,12 @@
 === Easy Addons for Elementor ===
 Contributors: rejuancse
 Tags: widgets, addons, elementor, elementor addons, elementor widget, elements
-Requires at least: 5.0
-Tested up to: 5.7
+Requires at least: 4.7
+Tested up to: 6.0.0
 Requires PHP: 5.4.0
-Stable tag:  1.0.0
+Stable tag:  1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
 
 == Description ==
 
@@ -44,18 +43,17 @@ Go to Dashboard > Plugins > Add New, then upload easy-addons-for-elementor.zip f
 3. [Call Contact Form]
 4. [Count Down]
 5. [Event List]
-6. [EAFE Features]
+6. [BAFE Features]
 7. [Media Card]
 8. [Online Delivery Banner]
 9. [Photo Gallery]
-10. [Post Ajax Search]
 11. [Products Category List]
 12. [Restaurant Menu]
 13. [Restaurant Schedule]
 14. [Shop Banner]
 15. [Special Menu]
 16. [Member]
-17. [EAFE Title]
+17. [BAFE Title]
 
 
 == Screenshots ==
@@ -78,7 +76,19 @@ A. Found a bug? Please let us know by posting on the support section of this plu
 
 == Changelog ==
 
-= 1.0.0 [04/06/2021] =
+= 1.0.2 [15/08/2022] =
+* Date, Invalid, or Missing issue fixed
+* Variables and options escape issue fixed
+* Prefix, namespace issue fixed
+* Unsafe SQL calls issue fixed 
+
+= 1.0.1 [11/08/2022] =
+* Data Sanitized, Escaped, and Validated issue fixed
+* Loading files removed
+* Variables and escaped issue fixed
+* Unsafe SQL calls issue fixed 
+
+= 1.0.0 [27/06/2022] =
 * Initial version released
 
 == Upgrade Notice ==

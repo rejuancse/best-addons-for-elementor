@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_EAFE_Events_List extends Widget_Base {
+class BAFE_Widget_BAFE_Events_List extends Widget_Base {
 	
 	public function get_name() {
-		return 'eafe-events-list';
+		return 'bafe-events-list';
 	}
 
 	public function get_title() {
-		return __( 'Events List', 'eafe' );
+		return __( 'Events List', 'bafe' );
 	}
 
 	public function get_icon() {
@@ -18,7 +18,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
@@ -26,26 +26,26 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Event List', 'eafe' ),
+				'label' => __( 'Event List', 'bafe' ),
 			]
 		);
 
 		$this->add_control(
 			'events_list',
 			[
-				'label' 		=> __( 'Event Items', 'eafe' ),
+				'label' 		=> __( 'Event Items', 'bafe' ),
 				'type' 			=> Controls_Manager::REPEATER,
 				'show_label'  	=> true,
 				'default' 		=> [
 					[
-						'text' => __( 'Event #1', 'eafe' ),
+						'text' => __( 'Event #1', 'bafe' ),
 						'icon' => 'fa fa-check',
 					],	
 				],
 				'fields' 		=> [
 				    [
 				    	'name' 			=> 'event_image',
-				        'label'         => __( 'Event Image', 'eafe' ),
+				        'label'         => __( 'Event Image', 'bafe' ),
 				        'type'          => Controls_Manager::MEDIA,
 				        'label_block'   => true,
 				        'default'       => [
@@ -54,46 +54,46 @@ class Widget_EAFE_Events_List extends Widget_Base {
 				    ],
 					[
 						'name' 			=> 'event_title',
-						'label' 		=> __( 'Title', 'eafe' ),
+						'label' 		=> __( 'Title', 'bafe' ),
 						'type' 			=> Controls_Manager::TEXTAREA,
 						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Title', 'eafe' ),
-						'default' 		=> __( 'Join the Biggest Rock Star Event 2022', 'eafe' ),
+						'placeholder' 	=> __( 'Title', 'bafe' ),
+						'default' 		=> __( 'Join the Biggest Rock Star Event 2022', 'bafe' ),
 					],
 					[
 						'name' 			=> 'event_content',
-						'label' 		=> __( 'Events Content', 'eafe' ),
+						'label' 		=> __( 'Events Content', 'bafe' ),
 						'type' 			=> Controls_Manager::TEXTAREA,
 						'label_block' 	=> true,
-						'placeholder' 	=> __( '', 'eafe' ),
-						'default' 		=> __('Audio player software is used to play back sound recordings in one of the many formats available for computers today. It can also play back music. There is audio player software that is native to the computer’s operating system', 'eafe'),
+						'placeholder' 	=> __( '', 'bafe' ),
+						'default' 		=> __('Audio player software is used to play back sound recordings in one of the many formats available for computers today. It can also play back music. There is audio player software that is native to the computer’s operating system', 'bafe'),
 					],
 					[
 						'name' 			=> 'event_button_1',
-						'label' 		=> __( 'Button Text 1', 'eafe' ),
+						'label' 		=> __( 'Button Text 1', 'bafe' ),
 						'type' 			=> Controls_Manager::TEXT,
 						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( 'Buy Now', 'eafe' ),
+						'placeholder' 	=> __( 'Button Text', 'bafe' ),
+						'default' 		=> __( 'Buy Now', 'bafe' ),
 					],
 					[
 						'name' 			=> 'event_button_link_1',
-						'label' 		=> __( 'Button Link 1', 'eafe' ),
+						'label' 		=> __( 'Button Link 1', 'bafe' ),
 						'type' 			=> Controls_Manager::TEXT,
 						'placeholder' 	=> 'http://your-link.com',
 						'default' 		=> '#'
 					],
 					[
 						'name' 			=> 'event_button_2',
-						'label' 		=> __( 'Button Text 2', 'eafe' ),
+						'label' 		=> __( 'Button Text 2', 'bafe' ),
 						'type' 			=> Controls_Manager::TEXT,
 						'label_block' 	=> true,
-						'placeholder' 	=> __( 'Button Text', 'eafe' ),
-						'default' 		=> __( 'Read More', 'eafe' ),
+						'placeholder' 	=> __( 'Button Text', 'bafe' ),
+						'default' 		=> __( 'Read More', 'bafe' ),
 					],
 					[
 						'name' 			=> 'event_button_link_2',
-						'label' 		=> __( 'Button Link 2', 'eafe' ),
+						'label' 		=> __( 'Button Link 2', 'bafe' ),
 						'type' 			=> Controls_Manager::TEXT,
 						'placeholder' 	=> 'http://your-link.com',
 						'default' 		=> '#'
@@ -107,14 +107,14 @@ class Widget_EAFE_Events_List extends Widget_Base {
         $this->start_controls_section(
 			'section_style',
 			[
-				'label' 	=> __( 'Title Style', 'eafe' ),
+				'label' 	=> __( 'Title Style', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label' 		=> __( 'Title Margin', 'eafe' ),
+				'label' 		=> __( 'Title Margin', 'bafe' ),
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> [ 'px', 'em', '%' ],
 				'selectors' 	=> [
@@ -125,7 +125,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
         $this->add_control(
 			'title_color',
 			[
-				'label' 	=> __( 'Title Color', 'eafe' ),
+				'label' 	=> __( 'Title Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -137,7 +137,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 		=> 'title_typography',
-				'label' 	=> __( 'Title Typography', 'eafe' ),
+				'label' 	=> __( 'Title Typography', 'bafe' ),
 				'selector' 	=> '{{WRAPPER}} .event-content-inner h1',
 			]
 		);
@@ -149,14 +149,14 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_style',
 			[
-				'label' 	=> __( 'Content Style', 'eafe' ),
+				'label' 	=> __( 'Content Style', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'content_padding',
 			[
-				'label' 		=> __( 'Content Margin', 'eafe' ),
+				'label' 		=> __( 'Content Margin', 'bafe' ),
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> [ 'px', 'em', '%' ],
 				'selectors' 	=> [
@@ -167,7 +167,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
         $this->add_control(
 			'content_color',
 			[
-				'label' 	=> __( 'Content Color', 'eafe' ),
+				'label' 	=> __( 'Content Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -179,7 +179,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 		=> 'content_typography',
-				'label' 	=> __( 'Content Typography', 'eafe' ),
+				'label' 	=> __( 'Content Typography', 'bafe' ),
 				'selector' 	=> '{{WRAPPER}} .event-content-inner p',
 			]
 		);
@@ -190,14 +190,14 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_button_1_style',
 			[
-				'label' 	=> __( 'Button 1 Style', 'eafe' ),
+				'label' 	=> __( 'Button 1 Style', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
         $this->add_control(
 			'button_1_color',
 			[
-				'label' 	=> __( 'Button 1 Color', 'eafe' ),
+				'label' 	=> __( 'Button 1 Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -208,7 +208,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		 $this->add_control(
 			'button_1_hover_color',
 			[
-				'label' 	=> __( 'Button 1 Hover Color', 'eafe' ),
+				'label' 	=> __( 'Button 1 Hover Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -219,7 +219,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_control(
 			'button_1_background_color',
 			[
-				'label' 	=> __( 'Background Color A', 'eafe' ),
+				'label' 	=> __( 'Background Color A', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -230,7 +230,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		 $this->add_control(
 			'button_1_background_gradient_color',
 			[
-				'label' 	=> __( 'Background Color B', 'eafe' ),
+				'label' 	=> __( 'Background Color B', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -241,7 +241,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_control(
 			'button_1_background_hover_color',
 			[
-				'label' 	=> __( 'Background Hover A Color', 'eafe' ),
+				'label' 	=> __( 'Background Hover A Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -252,7 +252,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		 $this->add_control(
 			'button_1_background_gradient_hover_color',
 			[
-				'label' 	=> __( 'Background Hover B Color', 'eafe' ),
+				'label' 	=> __( 'Background Hover B Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -264,7 +264,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 		=> 'button_1_typography',
-				'label' 	=> __( 'Button 1 Typography', 'eafe' ),
+				'label' 	=> __( 'Button 1 Typography', 'bafe' ),
 				'selector' 	=> '{{WRAPPER}} .event-content-inner .btn-1',
 			]
 		);
@@ -272,7 +272,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' 			=> 'button_1_border',
-				'label' 		=> __( 'Border', 'eafe' ),
+				'label' 		=> __( 'Border', 'bafe' ),
 				'placeholder' 	=> '1px',
 				'default' 		=> '1px',
 				'selector' 		=> '{{WRAPPER}} .event-content-inner .btn-1',
@@ -282,7 +282,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' 			=> 'button_1_hover_border',
-				'label' 		=> __( 'Border Hover', 'eafe' ),
+				'label' 		=> __( 'Border Hover', 'bafe' ),
 				'placeholder' 	=> '1px',
 				'default' 		=> '1px',
 				'selector' 		=> '{{WRAPPER}} .event-content-inner .btn-1:hover',
@@ -291,7 +291,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_control(
 			'button_1_border_radius',
 			[
-				'label' 		=> __( 'Border Radius', 'eafe' ),
+				'label' 		=> __( 'Border Radius', 'bafe' ),
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> [ 'px', '%' ],
 				'selectors' 	=> [
@@ -309,7 +309,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_control(
 			'button_1_padding',
 			[
-				'label' 		=> __( 'Button 1 Padding', 'eafe' ),
+				'label' 		=> __( 'Button 1 Padding', 'bafe' ),
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> [ 'px', 'em', '%' ],
 				'selectors' 	=> [
@@ -320,7 +320,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_responsive_control(
             'button_1_margin',
             [
-                'label' 		=> __( 'Button Margin', 'eafe' ),
+                'label' 		=> __( 'Button Margin', 'bafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -335,14 +335,14 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_button_2_style',
 			[
-				'label' 	=> __( 'Button 2 Style', 'eafe' ),
+				'label' 	=> __( 'Button 2 Style', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
         $this->add_control(
 			'button_2_color',
 			[
-				'label' 	=> __( 'Button 2 Color', 'eafe' ),
+				'label' 	=> __( 'Button 2 Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -353,7 +353,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		 $this->add_control(
 			'button_2_hover_color',
 			[
-				'label' 	=> __( 'Button 2 Hover Color', 'eafe' ),
+				'label' 	=> __( 'Button 2 Hover Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -364,7 +364,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_control(
 			'button_2_background_color',
 			[
-				'label' 	=> __( 'Background Color A', 'eafe' ),
+				'label' 	=> __( 'Background Color A', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -375,7 +375,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		 $this->add_control(
 			'button_2_background_gradient_color',
 			[
-				'label' 	=> __( 'Background Color B', 'eafe' ),
+				'label' 	=> __( 'Background Color B', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -386,7 +386,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_control(
 			'button_2_background_hover_color',
 			[
-				'label' 	=> __( 'Background Hover Color', 'eafe' ),
+				'label' 	=> __( 'Background Hover Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -397,7 +397,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		 $this->add_control(
 			'button_2_background_gradient_hover_color',
 			[
-				'label' 	=> __( 'Background Hover B Color', 'eafe' ),
+				'label' 	=> __( 'Background Hover B Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default' 	=> '',
 				'selectors' => [
@@ -409,7 +409,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 		=> 'button_2_typography',
-				'label' 	=> __( 'Button 2 Typography', 'eafe' ),
+				'label' 	=> __( 'Button 2 Typography', 'bafe' ),
 				'selector' 	=> '{{WRAPPER}} .event-content-inner .btn-transparent',
 			]
 		);
@@ -417,7 +417,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' 			=> 'button_2_border',
-				'label' 		=> __( 'Border', 'eafe' ),
+				'label' 		=> __( 'Border', 'bafe' ),
 				'placeholder' 	=> '1px',
 				'default' 		=> '1px',
 				'selector' 		=> '{{WRAPPER}} .event-content-inner .btn-transparent',
@@ -427,7 +427,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' 			=> 'button_2_hover_border',
-				'label' 		=> __( 'Border Hover', 'eafe' ),
+				'label' 		=> __( 'Border Hover', 'bafe' ),
 				'placeholder' 	=> '1px',
 				'default' 		=> '1px',
 				'selector' 		=> '{{WRAPPER}} .event-content-inner .btn-transparent:hover',
@@ -436,7 +436,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_control(
 			'button_2_border_radius',
 			[
-				'label' 		=> __( 'Border Radius', 'eafe' ),
+				'label' 		=> __( 'Border Radius', 'bafe' ),
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> [ 'px', '%' ],
 				'selectors' 	=> [
@@ -454,7 +454,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_control(
 			'button_2_padding',
 			[
-				'label' 		=> __( 'Button 2 Padding', 'eafe' ),
+				'label' 		=> __( 'Button 2 Padding', 'bafe' ),
 				'type' 			=> Controls_Manager::DIMENSIONS,
 				'size_units' 	=> [ 'px', 'em', '%' ],
 				'selectors' 	=> [
@@ -465,7 +465,7 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		$this->add_responsive_control(
             'button_2_margin',
             [
-                'label' 		=> __( 'Button Margin', 'eafe' ),
+                'label' 		=> __( 'Button Margin', 'bafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -483,23 +483,23 @@ class Widget_EAFE_Events_List extends Widget_Base {
 		<div class="event_content_wrapper">
 			<?php foreach ( $settings['events_list'] as $item ) : ?>	
 				<div class="event-single-wrapper">
-					<div class="eafe-row align-items-center">
-						<div class="d-inline-block eafe-col-4 about_left_img">
-							<img src="<?php echo $item['event_image']['url'] ?>" alt="">
+					<div class="bafe-row align-items-center">
+						<div class="d-inline-block bafe-col-4 about_left_img">
+							<img src="<?php echo esc_url($item['event_image']['url']); ?>" alt="">
 						</div>
 
-						<div class="d-inline-block eafe-col-8 event_content">
+						<div class="d-inline-block bafe-col-8 event_content">
 							<div class="event-content-inner">
-								<h2><?php echo $item['event_title']?></h2>
-								<p><?php echo $item['event_content']?></p>
+								<h2><?php echo esc_html($item['event_title']); ?></h2>
+								<p><?php echo esc_html($item['event_content']); ?></p>
 								<?php if($item['event_button_1']) { ?>
-								<a href="<?php echo $item['event_button_link_1']?>" class="btn btn-1">
-									<?php echo $item['event_button_1']?>
+								<a href="<?php echo esc_url($item['event_button_link_1']); ?>" class="btn btn-1">
+									<?php echo esc_html($item['event_button_1']); ?>
 								</a>
 								<?php } ?>
 								<?php if($item['event_button_2']) { ?>
-								<a href="<?php echo $item['event_button_link_2']?>"  class="btn btn-transparent">
-									<?php echo $item['event_button_2']?>
+								<a href="<?php echo esc_url($item['event_button_link_2']); ?>"  class="btn btn-transparent">
+									<?php echo esc_html($item['event_button_2']); ?>
 								</a>
 								<?php } ?>
 							</div>
@@ -514,4 +514,4 @@ class Widget_EAFE_Events_List extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_events_List() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_BAFE_events_List() );

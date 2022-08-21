@@ -1,80 +1,80 @@
 /*********************
 BREAKPOINTS
 *********************/
-.eafe-row {
+.bafe-row {
     display: flex;
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
   
-    .eafe-col-12 {
+    .bafe-col-12 {
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .eafe-col-11 {
+    .bafe-col-11 {
         -ms-flex: 0 0 91.666667%;
         flex: 0 0 91.666667%;
         max-width: 91.666667%;
     }
-    .eafe-col-10 {
+    .bafe-col-10 {
         -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
         max-width: 83.333333%;
     }
-    .eafe-col-9 {
+    .bafe-col-9 {
         -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         max-width: 75%;
     }
-    .eafe-col-8 {
+    .bafe-col-8 {
         -ms-flex: 0 0 66.666667%;
         flex: 0 0 66.666667%;
         max-width: 66.666667%;
     }
-    .eafe-col-7 {
+    .bafe-col-7 {
         -ms-flex: 0 0 58.333333%;
         flex: 0 0 58.333333%;
         max-width: 58.333333%;
     }
-    .eafe-col-6 {
+    .bafe-col-6 {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .eafe-col-5 {
+    .bafe-col-5 {
         -ms-flex: 0 0 41.666667%;
         flex: 0 0 41.666667%;
         max-width: 41.666667%;
     }
-    .eafe-col-4 {
+    .bafe-col-4 {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
-    .eafe-col-3 {
+    .bafe-col-3 {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
     }
-    .eafe-col-2 {
+    .bafe-col-2 {
         -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
-    .eafe-col-1 {
+    .bafe-col-1 {
         -ms-flex: 0 0 8.333333%;
         flex: 0 0 8.333333%;
         max-width: 8.333333%;
     }
 
-    .eafe-col-71 {
+    .bafe-col-71 {
         flex: 0 0 auto;
         width: 14.28%;
     }
 }
 
-.eafe-row>* {
+.bafe-row>* {
     flex-shrink: 0;
     width: 100%;
     max-width: 100%;

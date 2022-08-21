@@ -2,13 +2,14 @@
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-class Widget_EAFE_Title extends \Elementor\Widget_Base {
+class BAFE_Widget_BAFE_Title extends \Elementor\Widget_Base {
+
 	public function get_name() {
-		return 'eafe-title';
+		return 'bafe-title';
 	}
 
 	public function get_title() {
-		return __( 'EAFE Title', 'eafe' );
+		return __( 'BAFE Title', 'bafe' );
 	}
 
 	public function get_icon() {
@@ -16,70 +17,71 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
+		
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'eafe' )
+                'label' => __( 'Title Element', 'bafe' )
             ]
         );
 
         $this->add_control(
             'title_txt',
             [
-                'label' => __( 'First Title Text', 'eafe' ),
+                'label' => __( 'First Title Text', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'eafe' ),
-                'default' => __( 'Explore Featured', 'eafe' ),
+                'placeholder' => __( 'Enter title', 'bafe' ),
+                'default' => __( 'Explore Featured', 'bafe' ),
             ]
         );
 
 		$this->add_control(
             'title_txt2',
             [
-                'label' => __( 'Second Title Text', 'eafe' ),
+                'label' => __( 'Second Title Text', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title two', 'eafe' ),
-                'default' => __( 'Cources', 'eafe' ),
+                'placeholder' => __( 'Enter title two', 'bafe' ),
+                'default' => __( 'Cources', 'bafe' ),
             ]
         );
 
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'eafe' ),
+                'label' => __( 'Sub Title Content', 'bafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
-                'default' => __( 'Write your sub title content of this section.', 'eafe' ),
+                'placeholder' => __( 'Enter Sub Title', 'bafe' ),
+                'default' => __( 'Write your sub title content of this section.', 'bafe' ),
             ]
         );
 
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => esc_html__( 'Alignment', 'eafe' ),
+				'label' => esc_html__( 'Alignment', 'bafe' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'eafe' ),
+						'title' => esc_html__( 'Left', 'bafe' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'eafe' ),
+						'title' => esc_html__( 'Center', 'bafe' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'eafe' ),
+						'title' => esc_html__( 'Right', 'bafe' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'eafe' ),
+						'title' => esc_html__( 'Justified', 'bafe' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -96,17 +98,17 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'eafe' ),
+				'label' 	=> __( 'Title', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'forst_title_color',
 			[
-				'label'		=> __( 'First Text Color', 'eafe' ),
+				'label'		=> __( 'First Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption h2' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bafe_heading_caption h2' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -114,10 +116,10 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 		$this->add_control(
 			'second_title_color',
 			[
-				'label'		=> __( 'Second Text Color', 'eafe' ),
+				'label'		=> __( 'Second Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption .theme-cl' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bafe_heading_caption .theme-cl' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -126,14 +128,14 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 		=> 'typography',
-				'selector' 	=> '{{WRAPPER}} .eafe_heading_caption h2',
+				'selector' 	=> '{{WRAPPER}} .bafe_heading_caption h2',
 			]
 		);
 
         $this->add_responsive_control(
-			'eafe_title_space',
+			'bafe_title_space',
 			[
-				'label' => esc_html__( 'Spacing', 'eafe' ),
+				'label' => esc_html__( 'Spacing', 'bafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -145,7 +147,7 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption h2' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bafe_heading_caption h2' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -158,7 +160,7 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'eafe' ),
+				'label' 	=> __( 'Sub Title', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -166,10 +168,10 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'eafe' ),
+				'label'		=> __( 'Subtitle Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe_heading_caption p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bafe_heading_caption p' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -178,7 +180,7 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 		=> 'typography2',
-				'selector' 	=> '{{WRAPPER}} .eafe_heading_caption p',
+				'selector' 	=> '{{WRAPPER}} .bafe_heading_caption p',
 			]
 		);
 
@@ -189,13 +191,13 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
 	protected function render( ) {
 		$settings = $this->get_settings();  ?>
 
-		<div class="eafe_heading_caption">
+		<div class="bafe_heading_caption">
 			<?php if( $settings['title_txt'] ){ ?>
-				<h2><?php echo $settings['title_txt']; ?> <?php if( $settings['title_txt'] ){ ?><span class="theme-cl"><?php echo $settings['title_txt2']; ?></span><?php } ?></h2>
+				<h2><?php echo esc_html($settings['title_txt']); ?> <?php if( $settings['title_txt'] ){ ?><span class="theme-cl"><?php echo esc_html($settings['title_txt2']); ?></span><?php } ?></h2>
 			<?php } ?>
 
 			<?php if( $settings['subtitle_content'] ){ ?>
-                <p><?php echo $settings['subtitle_content']; ?></p>
+                <p><?php echo esc_html($settings['subtitle_content']); ?></p>
             <?php } ?>
 		</div>
 
@@ -203,4 +205,4 @@ class Widget_EAFE_Title extends \Elementor\Widget_Base {
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Title() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_BAFE_Title() );

@@ -6,6 +6,6 @@ jQuery(document).ready(function($){
 	/**
 	 * x-extension color picker
 	 *--------------------------------- */ 
-	$('.eafe-color-field').wpColorPicker();
+	$('.bafe-color-field').wpColorPicker();
 
 });

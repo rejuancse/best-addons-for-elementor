@@ -1,5 +1,5 @@
 <div class="wrap">
-	<a href="#"><?php _e('Get pro plugin from ...', 'eafe'); ?></a>
+	<a href="#"><?php _e('Get pro plugin from ...', 'bafe'); ?></a>
 </div>
 
 <script>

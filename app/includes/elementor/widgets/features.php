@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_EAFE_Features extends \Elementor\Widget_Base {
+class BAFE_Widget_BAFE_Features extends \Elementor\Widget_Base {
 	
 	public function get_name() {
-		return 'eafe-features';
+		return 'bafe-features';
 	}
 
 	public function get_title() {
-		return __( 'EAFE Features', 'eafe' );
+		return __( 'BAFE Features', 'bafe' );
 	}
 
 	public function get_icon() {
@@ -18,21 +18,21 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'eafe' )
+                'label' => __( 'Title Element', 'bafe' )
             ]
         );
 
 		$this->add_control(
 			'feature_icon',
 			[
-				'label' 	=> esc_html__( 'Feature Icon', 'eafe' ),
+				'label' 	=> esc_html__( 'Feature Icon', 'bafe' ),
 				'type' 		=> Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' 		=> [
@@ -45,22 +45,22 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
         $this->add_control(
             'title_txt',
             [
-                'label' => __( 'Title', 'eafe' ),
+                'label' => __( 'Title', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter title', 'eafe' ),
-                'default' => __( 'Explore Featured', 'eafe' ),
+                'placeholder' => __( 'Enter title', 'bafe' ),
+                'default' => __( 'Explore Featured', 'bafe' ),
             ]
         );
 
         $this->add_control(
             'subtitle_content',
             [
-                'label' => __( 'Sub Title Content', 'eafe' ),
+                'label' => __( 'Sub Title Content', 'bafe' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter Sub Title', 'eafe' ),
-                'default' => __( 'Write your sub title content of this section.', 'eafe' ),
+                'placeholder' => __( 'Enter Sub Title', 'bafe' ),
+                'default' => __( 'Write your sub title content of this section.', 'bafe' ),
             ]
         );         
 
@@ -73,14 +73,14 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label' 	=> __( 'Icon', 'eafe' ),
+				'label' 	=> __( 'Icon', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'icon_color',
 			[
-				'label'		=> __( 'Icon Color', 'eafe' ),
+				'label'		=> __( 'Icon Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .crp_box.fl_color .dro_141' => 'color: {{VALUE}};',
@@ -90,7 +90,7 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 		$this->add_control(
 			'icon_bg_color',
 			[
-				'label'		=> __( 'Icon BG Color', 'eafe' ),
+				'label'		=> __( 'Icon BG Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .crp_box.fl_color .dro_141' => 'background: {{VALUE}};',
@@ -112,14 +112,14 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' 	=> __( 'Title', 'eafe' ),
+				'label' 	=> __( 'Title', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'title_color',
 			[
-				'label'		=> __( 'Text Color', 'eafe' ),
+				'label'		=> __( 'Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .banner_title' => 'color: {{VALUE}};',
@@ -138,7 +138,7 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
             'text_padding',
             [
-                'label' 		=> __( 'Title Padding', 'eafe' ),
+                'label' 		=> __( 'Title Padding', 'bafe' ),
                 'type' 			=> Controls_Manager::DIMENSIONS,
                 'size_units' 	=> [ 'px', 'em', '%' ],
                 'selectors' 	=> [
@@ -155,7 +155,7 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_subtitle_style',
 			[
-				'label' 	=> __( 'Sub Title', 'eafe' ),
+				'label' 	=> __( 'Sub Title', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -163,7 +163,7 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 		$this->add_control(
 			'subtitle_color',
 			[
-				'label'		=> __( 'Subtitle Color', 'eafe' ),
+				'label'		=> __( 'Subtitle Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .hero_search-2 .font-lg' => 'color: {{VALUE}};',
@@ -182,7 +182,7 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
             'sub_text_padding',
             [
-                'label' => __( 'Sub Title Padding', 'eafe' ),
+                'label' => __( 'Sub Title Padding', 'bafe' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -205,10 +205,10 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
 				</div>
 				<div class="dro_142">
 					<?php if( $settings['title_txt'] ){ ?>
-						<h6><?php echo $settings['title_txt']; ?></h6>
+						<h6><?php echo esc_html($settings['title_txt']); ?></h6>
 					<?php } ?>
 					<?php if( $settings['subtitle_content'] ){ ?>
-						<p><?php echo $settings['subtitle_content']; ?></p>
+						<p><?php echo esc_html($settings['subtitle_content']); ?></p>
 					<?php } ?>
 				</div>
 			</div>
@@ -218,4 +218,4 @@ class Widget_EAFE_Features extends \Elementor\Widget_Base {
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_EAFE_Features() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_BAFE_Features() );

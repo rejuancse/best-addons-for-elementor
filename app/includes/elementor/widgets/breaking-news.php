@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Widget_Breaking_News extends Widget_Base {
+class BAFE_Widget_Breaking_News extends Widget_Base {
 	
 	public function get_name() {
 		return 'breaking-news';
 	}
 
 	public function get_title() {
-		return __( 'Breaking News', 'eafe' );
+		return __( 'Breaking News', 'bafe' );
 	}
 
 	public function get_icon() {
@@ -18,44 +18,44 @@ class Widget_Breaking_News extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'eafe-elementor' ];
+		return [ 'bafe-elementor' ];
 	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Title Element', 'eafe' )
+                'label' => __( 'Title Element', 'bafe' )
             ]
         );
 
 		$this->add_control(
             'breaking_news_title',
             [
-                'label' => __( 'Heading Title', 'eafe' ),
+                'label' => __( 'Heading Title', 'bafe' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your title', 'eafe' ),
-                'default' => __( 'Breaking News', 'eafe' ),
+                'placeholder' => __( 'Enter your title', 'bafe' ),
+                'default' => __( 'Breaking News', 'bafe' ),
             ]
         );
 
 		$this->add_control(
 			'post_number',
 			[
-				'label'         => __( 'Number of Posts', 'eafe' ),
+				'label'         => __( 'Number of Posts', 'bafe' ),
 				'type'          => Controls_Manager::NUMBER,
 				'label_block'   => false,
-				'default'       => __( '5', 'eafe' ),
+				'default'       => __( '5', 'bafe' ),
 			]
 		);
 
 		$this->add_control(
 			'post_cat',
 			[
-				'label'    => __( 'News Category', 'eafe' ),
+				'label'    => __( 'News Category', 'bafe' ),
 				'type'     => Controls_Manager::SELECT,
-				'options'  => eafe_all_category_list( 'category' ),
+				'options'  => bafe_all_category_list( 'category' ),
 				'multiple' => true,
 				'default'  => 'allpost'
 			]
@@ -64,12 +64,12 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'post_order_by',
 			[
-				'label'     => __( 'Order', 'eafe' ),
+				'label'     => __( 'Order', 'bafe' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'DESC',
 				'options'   => [
-						'DESC' 		=> __( 'Descending', 'eafe' ),
-						'ASC' 		=> __( 'Ascending', 'eafe' ),
+						'DESC' 		=> __( 'Descending', 'bafe' ),
+						'ASC' 		=> __( 'Ascending', 'bafe' ),
 					],
 			]
 		);
@@ -85,7 +85,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->start_controls_section(
 			'news_settings_style',
 			[
-				'label' 	=> __( 'Settings', 'eafe' ),
+				'label' 	=> __( 'Settings', 'bafe' ),
 			]
 		);
 
@@ -93,7 +93,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_responsive_control(
 			'section_height_space',
 			[
-				'label' => esc_html__( 'Height', 'eafe' ),
+				'label' => esc_html__( 'Height', 'bafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 50,
@@ -105,9 +105,9 @@ class Widget_Breaking_News extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap' => 'height: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker' => 'height: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker-heading' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -115,7 +115,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_responsive_control(
 			'animation_speed',
 			[
-				'label' => esc_html__( 'Animation Speed', 'eafe' ),
+				'label' => esc_html__( 'Animation Speed', 'bafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -127,7 +127,7 @@ class Widget_Breaking_News extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker' => 'animation-duration: {{SIZE}}s;',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker' => 'animation-duration: {{SIZE}}s;',
 				],
 			]
 		);
@@ -136,18 +136,17 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_responsive_control(
 			'news_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'eafe' ),
+				'label' => esc_html__( 'Border Radius', 'bafe' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .bafe-breaking-news' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		$this->end_controls_section();
 		# Title Section end 1
-
 
 		/**
 		 * Heading Section
@@ -156,7 +155,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->start_controls_section(
 			'news_title_style',
 			[
-				'label' 	=> __( 'Heading Section', 'eafe' ),
+				'label' 	=> __( 'Heading Section', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -165,10 +164,10 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_title_text_color',
 			[
-				'label'		=> __( 'Text Color', 'eafe' ),
+				'label'		=> __( 'Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker-heading' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -177,12 +176,12 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_title_backgound_color',
 			[
-				'label'		=> __( 'Backgound Color', 'eafe' ),
+				'label'		=> __( 'Backgound Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item:before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading:after' => 'border-left-color: {{VALUE}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker-heading' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker__item:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker-heading:after' => 'border-left-color: {{VALUE}};',
 				],
 			]
 		);
@@ -191,9 +190,9 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Heading Typography', 'eafe' ),
+				'label'		=> __( 'Heading Typography', 'bafe' ),
 				'name' 		=> 'breaking_news_title_typography',
-				'selector' 	=> '{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker-heading',
+				'selector' 	=> '{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker-heading',
 			]
 		);
 
@@ -206,7 +205,7 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->start_controls_section(
 			'news_headline_title_style',
 			[
-				'label' 	=> __( 'Headline', 'eafe' ),
+				'label' 	=> __( 'Headline', 'bafe' ),
 				'tab' 		=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -215,11 +214,11 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_headline_title_text_color',
 			[
-				'label'		=> __( 'Text Color', 'eafe' ),
+				'label'		=> __( 'Text Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker__item' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker__item a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -228,10 +227,10 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_headline_title_link_hover_color',
 			[
-				'label'		=> __( 'Link Hover Color', 'eafe' ),
+				'label'		=> __( 'Link Hover Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker__item a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -240,10 +239,10 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_control(
 			'news_headline_title_backgound_color',
 			[
-				'label'		=> __( 'Backgound Color', 'eafe' ),
+				'label'		=> __( 'Backgound Color', 'bafe' ),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -252,16 +251,16 @@ class Widget_Breaking_News extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'		=> __( 'Text Typography', 'eafe' ),
+				'label'		=> __( 'Text Typography', 'bafe' ),
 				'name' 		=> 'breaking_news_headline_text_typography',
-				'selector' 	=> '{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item',
+				'selector' 	=> '{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker__item',
 			]
 		);
 
 		$this->add_responsive_control(
 			'media_title_space',
 			[
-				'label' => esc_html__( 'Title Gap', 'eafe' ),
+				'label' => esc_html__( 'Title Gap', 'bafe' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 20,
@@ -273,7 +272,7 @@ class Widget_Breaking_News extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eafe-breaking-news .ticker-wrap .ticker__item' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bafe-breaking-news .ticker-wrap .ticker__item' => 'padding-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -283,8 +282,8 @@ class Widget_Breaking_News extends Widget_Base {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'box_shadow',
-				'label' => esc_html__( 'Box Shadow', 'eafe' ),
-				'selector' => '{{WRAPPER}} .eafe-breaking-news',
+				'label' => esc_html__( 'Box Shadow', 'bafe' ),
+				'selector' => '{{WRAPPER}} .bafe-breaking-news',
 			]
 		);
 
@@ -299,41 +298,43 @@ class Widget_Breaking_News extends Widget_Base {
 		$post_orderby 		= $settings['post_order_by'];
 
 		# Query Build
-		if( $post_cat = 'allpost' ){
+		if( $post_cat == 'allpost' ){
 			$args = array(
 			  'post_type'     	=> 'post',
-			  'post_status' 		=> 'publish',
+			  'post_status' 	=> 'publish',
 			  'posts_per_page' 	=> esc_attr($post_number),			
-			  'order' 			=> $post_orderby,  
+			  'order' 			=> esc_html($post_orderby),  
 		  );
 		}else{
 			$args = array(
 				'post_type'     	=> 'post',
 				'post_status' 		=> 'publish',
 				'posts_per_page' 	=> esc_attr($post_number),			
-				'order' 			=> $post_orderby,
-					'tax_query'    		=> array(
+				'order' 			=> esc_html($post_orderby),
+				'tax_query'    		=> array(
 					array(
 						'taxonomy' => 'category',
 						'field'    => 'slug',
 						'terms'    => esc_attr($post_cat),
 					),
 				),
-		  );
+		  	);
 		}
 
 	  	$data = new \WP_Query( $args ); ?>
 
-		<div class="eafe-breaking-news">
+		<div class="bafe-breaking-news">
 			<div class="ticker-wrap">
 				<?php if( ! empty( $breaking_news_title  ) ) { ?>
-					<div class="ticker-heading"><?php echo $breaking_news_title; ?></div>
+					<div class="ticker-heading"><?php echo esc_html($breaking_news_title); ?></div>
 				<?php } ?>
 				<div class="ticker">
 					<?php if ( $data->have_posts() ) : ?>
 					<?php while ( $data->have_posts() ) : $data->the_post(); 
 						$permalink 	= get_permalink(); ?>
-						<div class="ticker__item"><a href="<?php echo esc_url($permalink); ?>"><?php the_title(); ?></a></div>
+						<div class="ticker__item">
+							<a href="<?php echo esc_url($permalink); ?>"><?php the_title(); ?></a>
+						</div>
 					<?php endwhile; ?>
 					<?php wp_reset_query(); ?>
 					<?php endif; ?>
@@ -345,4 +346,4 @@ class Widget_Breaking_News extends Widget_Base {
     }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Widget_Breaking_News() );
+Plugin::instance()->widgets_manager->register_widget_type( new BAFE_Widget_Breaking_News() );
