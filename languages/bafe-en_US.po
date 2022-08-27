@@ -1,0 +1,1521 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Best Addons for Elementor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-27 17:30+0000\n"
+"PO-Revision-Date: 2022-08-27 17:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: English (United States)\n"
+"Language: en-US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.2; wp-6.0.1\n"
+"X-Domain: bafe"
+
+#: app/includes/BAFE_Initial_Setup.php:159 
+#: app/includes/BAFE_Initial_Setup.php:188
+msgid "Thanks for using Best Addons For Elementor"
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:163 
+#: app/includes/BAFE_Initial_Setup.php:192
+msgid "You must have"
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:165 
+#: app/includes/BAFE_Initial_Setup.php:194
+msgid "Elementor"
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:166
+msgid ""
+"installed and activated on this website in order to use Best Addons For "
+"Elementor."
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:171
+msgid "Activate Elementor"
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:195
+msgid ""
+"installed and activated on this website in order to use Best Addons For "
+"Elementor.."
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:200
+msgid "Install Elementor"
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:262
+msgid "Your"
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:264
+msgid "elementor"
+msgstr ""
+
+#: app/includes/BAFE_Initial_Setup.php:265
+msgid "version is below then 3.0, please update."
+msgstr ""
+
+#: app/settings/Admin_Menu.php:25 app/settings/Admin_Menu.php:29
+msgid "Widgets"
+msgstr ""
+
+#: app/includes/elementor/BAFE_Base.php:110
+msgid "Thanks so much for using <strong>Best Addons for Elementor</strong>"
+msgstr ""
+
+#: app/settings/view/Addons.php:3
+msgid "BAFE Addons List"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:13
+msgid "Media Card"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:28 
+#: app/includes/elementor/widgets/wpew-team.php:28 
+#: app/includes/elementor/widgets/special-menu.php:28 
+#: app/includes/elementor/widgets/animated-headine.php:27 
+#: app/includes/elementor/widgets/restaurant-schedule.php:28 
+#: app/includes/elementor/widgets/countdown.php:28 
+#: app/includes/elementor/widgets/breaking-news.php:28 
+#: app/includes/elementor/widgets/shop-banner.php:28 
+#: app/includes/elementor/widgets/restaurant-menu.php:28 
+#: app/includes/elementor/widgets/online-delivery-banner.php:27 
+#: app/includes/elementor/widgets/wpew-title.php:28 
+#: app/includes/elementor/widgets/features.php:28
+msgid "Title Element"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:35
+msgid "Upload Background Image"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:47
+msgid "Upload Image"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:57
+msgid "Vertical Image Position"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:78
+msgid "Horizontal Image Position"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:98
+msgid "Main Contents"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:108 
+#: app/includes/elementor/widgets/restaurant-schedule.php:47 
+#: app/includes/elementor/widgets/online-delivery-banner.php:35
+msgid "Title Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:111 
+#: app/includes/elementor/widgets/online-delivery-banner.php:38
+msgid "Enter title text"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:112
+msgid "The Barbarian"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:119
+msgid "Sub Title Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:122
+msgid "Enter subtitle text"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:123
+msgid "LEVEL 1"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:131
+msgid "Description Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:134
+msgid ""
+"The Barbarian is a kilt-clad Scottish warrior with an angry, battle-ready "
+"expression, hungry for destruction. He has Killer yellow horseshoe mustache."
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:141 
+#: app/includes/elementor/widgets/animated-headine.php:91 
+#: app/includes/elementor/widgets/countdown.php:71 
+#: app/includes/elementor/widgets/shop-banner.php:129 
+#: app/includes/elementor/widgets/wpew-title.php:68
+msgid "Alignment"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:145 
+#: app/includes/elementor/widgets/animated-headine.php:95 
+#: app/includes/elementor/widgets/countdown.php:75 
+#: app/includes/elementor/widgets/shop-banner.php:133 
+#: app/includes/elementor/widgets/wpew-title.php:72
+msgid "Left"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:149 
+#: app/includes/elementor/widgets/animated-headine.php:99 
+#: app/includes/elementor/widgets/countdown.php:79 
+#: app/includes/elementor/widgets/shop-banner.php:110 
+#: app/includes/elementor/widgets/shop-banner.php:137 
+#: app/includes/elementor/widgets/wpew-title.php:76
+msgid "Center"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:153 
+#: app/includes/elementor/widgets/animated-headine.php:103 
+#: app/includes/elementor/widgets/countdown.php:83 
+#: app/includes/elementor/widgets/shop-banner.php:141 
+#: app/includes/elementor/widgets/wpew-title.php:80
+msgid "Right"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:157 
+#: app/includes/elementor/widgets/animated-headine.php:107 
+#: app/includes/elementor/widgets/countdown.php:87 
+#: app/includes/elementor/widgets/shop-banner.php:145 
+#: app/includes/elementor/widgets/wpew-title.php:84
+msgid "Justified"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:173
+msgid "Footer Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:182
+msgid "Footer Sub-Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:184
+msgid "Tranning"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:191 
+#: app/includes/elementor/widgets/media-card.php:418
+msgid "Footer"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:196
+msgid "20"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:211 
+#: app/includes/elementor/widgets/wpew-team.php:100 
+#: app/includes/elementor/widgets/breaking-news.php:88
+msgid "Settings"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:220 
+#: app/includes/elementor/widgets/call-contact-form.php:128 
+#: app/includes/elementor/widgets/call-contact-form.php:266 
+#: app/includes/elementor/widgets/photo-gallery.php:62 
+#: app/includes/elementor/widgets/events-list.php:294 
+#: app/includes/elementor/widgets/events-list.php:439 
+#: app/includes/elementor/widgets/countdown.php:191 
+#: app/includes/elementor/widgets/breaking-news.php:139 
+#: app/includes/elementor/widgets/shop-banner.php:171 
+#: app/includes/elementor/widgets/products-category-list.php:211
+msgid "Border Radius"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:234 
+#: app/includes/elementor/widgets/breaking-news.php:285
+msgid "Box Shadow"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:245
+msgid "Content Settings"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:254 
+#: app/includes/elementor/widgets/media-card.php:306 
+#: app/includes/elementor/widgets/media-card.php:359 
+#: app/includes/elementor/widgets/call-contact-form.php:140 
+#: app/includes/elementor/widgets/breaking-news.php:167 
+#: app/includes/elementor/widgets/breaking-news.php:217 
+#: app/includes/elementor/widgets/features.php:122
+msgid "Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:266 
+#: app/includes/elementor/widgets/media-card.php:318 
+#: app/includes/elementor/widgets/media-card.php:371 
+#: app/includes/elementor/widgets/breaking-news.php:254
+msgid "Text Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:276 
+#: app/includes/elementor/widgets/media-card.php:328 
+#: app/includes/elementor/widgets/media-card.php:381 
+#: app/includes/elementor/widgets/wpew-team.php:162 
+#: app/includes/elementor/widgets/wpew-team.php:211 
+#: app/includes/elementor/widgets/restaurant-schedule.php:174 
+#: app/includes/elementor/widgets/countdown.php:333 
+#: app/includes/elementor/widgets/shop-banner.php:227 
+#: app/includes/elementor/widgets/wpew-title.php:138 
+#: app/includes/elementor/widgets/products-category-list.php:121
+msgid "Spacing"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:296
+msgid "Sub Title Settings"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:349
+msgid "Description Settings"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:402 
+#: app/includes/elementor/widgets/media-card.php:518 
+#: app/includes/elementor/widgets/call-contact-form.php:115 
+#: app/includes/elementor/widgets/call-contact-form.php:253 
+#: app/includes/elementor/widgets/countdown.php:237 
+#: app/includes/elementor/widgets/countdown.php:251 
+#: app/includes/elementor/widgets/products-category-list.php:252
+msgid "Padding"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:427 
+#: app/includes/elementor/widgets/wpew-team.php:108 
+#: app/includes/elementor/widgets/countdown.php:126 
+#: app/includes/elementor/widgets/countdown.php:138
+msgid "Background Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:439 
+#: app/includes/elementor/widgets/restaurant-schedule.php:120 
+#: app/includes/elementor/widgets/countdown.php:113 
+#: app/includes/elementor/widgets/online-delivery-banner.php:96
+msgid "Title Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:451 
+#: app/includes/elementor/widgets/products-category-list.php:187
+msgid "Border Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:463 
+#: app/includes/elementor/widgets/shop-banner.php:301
+msgid "Title Spacing"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:484
+msgid "Sub-title Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/media-card.php:497
+msgid "Sub-title Spacing"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:13
+msgid "Member"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:35
+msgid "Layout"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:48
+msgid "Name"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:51
+msgid "Enter Name"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:52
+msgid "Alex Carry"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:59
+msgid "Designation"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:62
+msgid "Enter Designation"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:63
+msgid "Developer"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:70
+msgid "Description"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:73
+msgid "Enter Description"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:74
+msgid "Write your description content of this section."
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:82
+msgid "Team Image"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:120
+msgid "Content Padding"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:134
+msgid "Member Name"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:143
+msgid "Name Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:183
+msgid "Designation Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:192
+msgid "Designation Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:232
+msgid "Description Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-team.php:242
+msgid "Description Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:13
+msgid "Special Menu"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:36 
+#: app/includes/elementor/widgets/restaurant-menu.php:52
+msgid "Menu Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:38 
+#: app/includes/elementor/widgets/special-menu.php:69
+msgid "Fried Rice x 1"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:45
+msgid "Price Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:47 
+#: app/includes/elementor/widgets/special-menu.php:70 
+#: app/includes/elementor/widgets/special-menu.php:75
+msgid "Price: "
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:54 
+#: app/includes/elementor/widgets/restaurant-menu.php:70
+msgid "Item Price"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:56 
+#: app/includes/elementor/widgets/special-menu.php:71 
+#: app/includes/elementor/widgets/restaurant-menu.php:72 
+#: app/includes/elementor/widgets/restaurant-menu.php:87
+msgid "7.00"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:64
+msgid "Special Menu Items"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:74
+msgid "Salad x 1"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:76
+msgid "1.00"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:86 
+#: app/includes/elementor/widgets/restaurant-menu.php:102
+msgid "Currency"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:97
+msgid "Items Total Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:100 
+#: app/includes/elementor/widgets/shop-banner.php:49
+msgid "Enter your sales name"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:101
+msgid "Total:"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:111 
+#: app/includes/elementor/widgets/call-contact-form.php:50 
+#: app/includes/elementor/widgets/call-contact-form.php:96 
+#: app/includes/elementor/widgets/animated-headine.php:124 
+#: app/includes/elementor/widgets/events-list.php:57 
+#: app/includes/elementor/widgets/events-list.php:60 
+#: app/includes/elementor/widgets/restaurant-schedule.php:89 
+#: app/includes/elementor/widgets/online-delivery-banner.php:87 
+#: app/includes/elementor/widgets/wpew-title.php:101 
+#: app/includes/elementor/widgets/features.php:48 
+#: app/includes/elementor/widgets/features.php:115
+msgid "Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:119
+msgid "Menu Items Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:130
+msgid "Price Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:141
+msgid "Global Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:151
+msgid "Item Spacing"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:178 
+#: app/includes/elementor/widgets/restaurant-menu.php:120
+msgid "Divider Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:189 
+#: app/includes/elementor/widgets/restaurant-menu.php:131
+msgid "Border Width"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:209 
+#: app/includes/elementor/widgets/restaurant-menu.php:151
+msgid "Border Type"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:213 
+#: app/includes/elementor/widgets/restaurant-menu.php:155
+msgid "Solid"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:214 
+#: app/includes/elementor/widgets/restaurant-menu.php:156
+msgid "Dotted"
+msgstr ""
+
+#: app/includes/elementor/widgets/special-menu.php:215 
+#: app/includes/elementor/widgets/restaurant-menu.php:157
+msgid "dashed"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:16
+msgid "No Contact Form found"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:28 
+#: app/includes/elementor/widgets/call-contact-form.php:43
+msgid "Call Contact Form"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:53 
+#: app/includes/elementor/widgets/restaurant-schedule.php:38 
+#: app/includes/elementor/widgets/wpew-title.php:38 
+#: app/includes/elementor/widgets/features.php:51
+msgid "Enter title"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:54
+msgid "This is heading"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:61 
+#: app/includes/elementor/widgets/wpew-title.php:57 
+#: app/includes/elementor/widgets/features.php:59
+msgid "Sub Title Content"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:64 
+#: app/includes/elementor/widgets/wpew-title.php:60 
+#: app/includes/elementor/widgets/features.php:62
+msgid "Enter Sub Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:65 
+#: app/includes/elementor/widgets/wpew-title.php:61 
+#: app/includes/elementor/widgets/features.php:63
+msgid "Write your sub title content of this section."
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:72 
+#: app/includes/elementor/widgets/call-contact-form.php:75
+msgid "Button Name"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:76
+msgid "Contact us Today"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:83 
+#: app/includes/elementor/widgets/call-contact-form.php:304
+msgid "Contact Form"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:104
+msgid "Section Background Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:163 
+#: app/includes/elementor/widgets/wpew-title.php:163 
+#: app/includes/elementor/widgets/features.php:158
+msgid "Sub Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:171 
+#: app/includes/elementor/widgets/wpew-title.php:171 
+#: app/includes/elementor/widgets/features.php:166
+msgid "Subtitle Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:193
+msgid "Button Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:201
+msgid "Button Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:212
+msgid "Button Text Hover Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:223
+msgid "Button BG Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/call-contact-form.php:234
+msgid "Button Hover BG Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:12 
+#: app/includes/elementor/widgets/photo-gallery.php:27
+msgid "Photo Gallery"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:34
+msgid "Add Images"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:47
+msgid "Number of Column"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:51
+msgid "One Column"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:52
+msgid "Two Column"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:53
+msgid "Three Column"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:54
+msgid "Four Column"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:74
+msgid "Background Overlay"
+msgstr ""
+
+#: app/includes/elementor/widgets/photo-gallery.php:85 
+#: app/includes/elementor/widgets/events-list.php:389
+msgid "Background Hover Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:12
+msgid "Animated Headine"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:34
+msgid "Headine Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:37
+msgid "Enter heading"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:38
+msgid "My favourite food is"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:45
+msgid "Animated Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:48
+msgid "Pizza Sushi Steak"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:50
+msgid ""
+"For animated text please use space or new line, For example, Pizza Sushi "
+"Steak"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:60
+msgid "Headine Text2"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:63 
+#: app/includes/elementor/widgets/wpew-title.php:49
+msgid "Enter title two"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:64
+msgid "Course"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:71
+msgid "HTML Tag"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:132
+msgid "Animated Name"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:136
+msgid "Clip"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:137
+msgid "Rotate-1"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:138
+msgid "Rotate-2"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:139
+msgid "Letters Rotate-3"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:140
+msgid "Letters Type"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:141
+msgid "Loading Bar"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:142
+msgid "Letters Scale"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:143
+msgid "Slide"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:144
+msgid "Zoom"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:145
+msgid "Push"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:153
+msgid "Animated Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:164
+msgid "Headine Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:183 
+#: app/includes/elementor/widgets/features.php:141
+msgid "Title Padding"
+msgstr ""
+
+#: app/includes/elementor/widgets/animated-headine.php:196 
+#: app/includes/elementor/widgets/events-list.php:117
+msgid "Title Margin"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:13
+msgid "Events List"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:29
+msgid "Event List"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:36
+msgid "Event Items"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:41
+msgid "Event #1"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:48
+msgid "Event Image"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:61
+msgid "Join the Biggest Rock Star Event 2022"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:65
+msgid "Events Content"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:69
+msgid ""
+"Audio player software is used to play back sound recordings in one of the "
+"many formats available for computers today. It can also play back music. "
+"There is audio player software that is native to the computer’s operating "
+"system"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:73
+msgid "Button Text 1"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:76 
+#: app/includes/elementor/widgets/events-list.php:91
+msgid "Button Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:77
+msgid "Buy Now"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:81
+msgid "Button Link 1"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:88
+msgid "Button Text 2"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:92
+msgid "Read More"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:96
+msgid "Button Link 2"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:110
+msgid "Title Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:128
+msgid "Title Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:140
+msgid "Title Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:152
+msgid "Content Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:159
+msgid "Content Margin"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:170
+msgid "Content Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:182
+msgid "Content Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:193
+msgid "Button 1 Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:200
+msgid "Button 1 Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:211
+msgid "Button 1 Hover Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:222 
+#: app/includes/elementor/widgets/events-list.php:367
+msgid "Background Color A"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:233 
+#: app/includes/elementor/widgets/events-list.php:378
+msgid "Background Color B"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:244
+msgid "Background Hover A Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:255 
+#: app/includes/elementor/widgets/events-list.php:400
+msgid "Background Hover B Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:267
+msgid "Button 1 Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:275 
+#: app/includes/elementor/widgets/events-list.php:420
+msgid "Border"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:285 
+#: app/includes/elementor/widgets/events-list.php:430
+msgid "Border Hover"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:312
+msgid "Button 1 Padding"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:323 
+#: app/includes/elementor/widgets/events-list.php:468
+msgid "Button Margin"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:338
+msgid "Button 2 Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:345
+msgid "Button 2 Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:356
+msgid "Button 2 Hover Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:412
+msgid "Button 2 Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/events-list.php:457
+msgid "Button 2 Padding"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:13
+msgid "Restaurant Schedule"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:35
+msgid "Header Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:39
+msgid "SCHEDULE"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:49 
+#: app/includes/elementor/widgets/restaurant-schedule.php:71
+msgid "Friday - Saturday"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:56
+msgid "Time Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:58 
+#: app/includes/elementor/widgets/restaurant-schedule.php:76
+msgid "@ 6pm and 9:30pm"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:66
+msgid "Schedule Menu Items"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:72
+msgid "@ 9am and 9:30pm"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:75
+msgid "Tuesday - Thursday"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:98
+msgid "Header Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:110 
+#: app/includes/elementor/widgets/restaurant-schedule.php:154
+msgid "Header Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:132
+msgid "Title Text Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:142
+msgid "Time Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-schedule.php:163
+msgid "Border-1 Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:13
+msgid "Count Down"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:35
+msgid "CountDown Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:39
+msgid "Style 1"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:40
+msgid "Style 2"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:49
+msgid "CountDown Intro"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:52
+msgid "Enter intro text"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:53
+msgid "Ends In"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:61
+msgid "Choose Date Time"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:64
+msgid "Enter Date Time"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:104
+msgid "CountDown Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:151
+msgid "CountDown Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:161
+msgid "Digit Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:204
+msgid "Digit and Text Spacing"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:226
+msgid "Countdown Text Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:265
+msgid "Between Spacing"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:290
+msgid "Intro Text Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:300
+msgid "Intro Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/countdown.php:313 
+#: app/includes/elementor/widgets/countdown.php:323
+msgid "Intro Text Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:13 
+#: app/includes/elementor/widgets/breaking-news.php:39
+msgid "Breaking News"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:35
+msgid "Heading Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:38
+msgid "Enter your title"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:46
+msgid "Number of Posts"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:49
+msgid "5"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:56
+msgid "News Category"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:67 
+#: app/includes/elementor/widgets/products-category-list.php:62
+msgid "Order"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:71 
+#: app/includes/elementor/widgets/products-category-list.php:66
+msgid "Descending"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:72 
+#: app/includes/elementor/widgets/products-category-list.php:67
+msgid "Ascending"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:96
+msgid "Height"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:118
+msgid "Animation Speed"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:158
+msgid "Heading Section"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:179 
+#: app/includes/elementor/widgets/breaking-news.php:242
+msgid "Backgound Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:193
+msgid "Heading Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:208
+msgid "Headline"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:230
+msgid "Link Hover Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/breaking-news.php:263
+msgid "Title Gap"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:13
+msgid "Shop Banner"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:46 
+#: app/includes/elementor/widgets/shop-banner.php:50
+msgid "Seasonal Sales"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:57
+msgid "Sales Offers"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:60
+msgid "Enter your offer"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:61
+msgid "Up To Breads"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:68
+msgid "Highlight Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:71
+msgid "Enter your Highlight text"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:72
+msgid "50% Off"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:79
+msgid "Shop Button Name"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:82
+msgid "Enter your button name"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:83
+msgid "Shop Now"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:90
+msgid "Shop Button URL"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:93
+msgid "Enter your url"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:94
+msgid "#"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:102
+msgid "Vertical Alignment"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:106
+msgid "Top"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:114
+msgid "Bottom"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:163
+msgid "Banner Image"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:184
+msgid "Image overlay color"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:198
+msgid "Banner Section"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:207
+msgid "Seasonal Sales Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:218
+msgid "Sales Text Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:248
+msgid "Banner Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:258
+msgid "Sales Title Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:270
+msgid "Sales Title Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:280
+msgid "Highlight Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:292
+msgid "Highlight Text Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:321
+msgid "Banner Padding"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:338
+msgid "Button"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:346
+msgid "Shop Now Button Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:360
+msgid "Shop Now Button Hover Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/shop-banner.php:373
+msgid "Button Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:13
+msgid "Restaurant Menu"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:35 
+#: app/includes/elementor/widgets/products-category-list.php:35
+msgid "Coulmn Number"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:39 
+#: app/includes/elementor/widgets/products-category-list.php:39
+msgid "Column 1"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:40 
+#: app/includes/elementor/widgets/products-category-list.php:40
+msgid "Column 2"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:41 
+#: app/includes/elementor/widgets/products-category-list.php:41
+msgid "Column 3"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:42 
+#: app/includes/elementor/widgets/products-category-list.php:42
+msgid "Column 4"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:43 
+#: app/includes/elementor/widgets/products-category-list.php:43
+msgid "Column 6"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:54 
+#: app/includes/elementor/widgets/restaurant-menu.php:85 
+#: app/includes/elementor/widgets/restaurant-menu.php:90
+msgid "Grilled Angus Hamburger"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:61
+msgid "Menu Details"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:63 
+#: app/includes/elementor/widgets/restaurant-menu.php:86 
+#: app/includes/elementor/widgets/restaurant-menu.php:91
+msgid "Mushroom / Veggie / White Sources"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:80
+msgid "Dishes Menu Items"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:92
+msgid "5.00"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:172
+msgid "Menu Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:181
+msgid "Dishes Menu Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:193
+msgid "Dishes Menu Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:202 
+#: app/includes/elementor/widgets/restaurant-menu.php:308
+msgid "Menu Item Spacing"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:231
+msgid "Menu Details Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:243
+msgid "Menu Details Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:252
+msgid "Menu Details Spacing"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:280
+msgid "Menu Price Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/restaurant-menu.php:292
+msgid "Price Text Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/online-delivery-banner.php:12
+msgid "Online Delivery Banner"
+msgstr ""
+
+#: app/includes/elementor/widgets/online-delivery-banner.php:39
+msgid "WHATSAPP ORDERING SERVICE PLACE YOUR ORDERS AT"
+msgstr ""
+
+#: app/includes/elementor/widgets/online-delivery-banner.php:48
+msgid "Hotline Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/online-delivery-banner.php:51
+msgid "Enter hotline"
+msgstr ""
+
+#: app/includes/elementor/widgets/online-delivery-banner.php:52
+msgid "392 96 32"
+msgstr ""
+
+#: app/includes/elementor/widgets/online-delivery-banner.php:108
+msgid "Hotline Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/online-delivery-banner.php:120
+msgid "Timeline Title Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-title.php:12
+msgid "BAFE Title"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-title.php:35
+msgid "First Title Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-title.php:39 
+#: app/includes/elementor/widgets/features.php:52
+msgid "Explore Featured"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-title.php:46
+msgid "Second Title Text"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-title.php:50
+msgid "Cources"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-title.php:108
+msgid "First Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/wpew-title.php:119
+msgid "Second Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:13
+msgid "Products Category List"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:28
+msgid "Product Category List"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:44
+msgid "Column 7"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:52
+msgid "Category Limit"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:78
+msgid "Categories Text Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:87
+msgid "Category Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:99
+msgid "Category Text Hover Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:111
+msgid "Category Text Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:145
+msgid "Products Count Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:154
+msgid "Count Products Text Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:166
+msgid "Typography"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:178
+msgid "Category Image Style"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:199
+msgid "Border Hover Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:224
+msgid "Image Size"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:300
+msgid "Products"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:316
+msgid "You need to install or activate woocommer plugin"
+msgstr ""
+
+#: app/includes/elementor/widgets/products-category-list.php:317
+msgid "Install Woocommer"
+msgstr ""
+
+#: app/includes/elementor/widgets/features.php:13
+msgid "BAFE Features"
+msgstr ""
+
+#: app/includes/elementor/widgets/features.php:35
+msgid "Feature Icon"
+msgstr ""
+
+#: app/includes/elementor/widgets/features.php:76
+msgid "Icon"
+msgstr ""
+
+#: app/includes/elementor/widgets/features.php:83
+msgid "Icon Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/features.php:93
+msgid "Icon BG Color"
+msgstr ""
+
+#: app/includes/elementor/widgets/features.php:185
+msgid "Sub Title Padding"
+msgstr ""
+
+#: app/settings/view/pages/get-pro.php:2
+msgid "Get pro plugin from ..."
+msgstr ""
+
+#. Name of the plugin
+msgid "Best Addons for Elementor"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Expression of some beautiful, creative, awesome add-ons suitable for use in "
+"Element. Which will help in the development of WordPress and Element user."
+msgstr ""
+
+#. Author of the plugin
+msgid "Rejuan Ahamed"
+msgstr ""

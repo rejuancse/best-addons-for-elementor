@@ -4,7 +4,7 @@ Tags: widgets, addons, elementor, elementor addons, elementor widget, elements
 Requires at least: 4.7
 Tested up to: 6.0.0
 Requires PHP: 5.4.0
-Stable tag:  1.0.3
+Stable tag:  1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,9 @@ A. Found a bug? Please let us know by posting on the support section of this plu
 
 
 == Changelog ==
+
+= 1.0.4 [27/08/2022] =
+* Variables and options escape issue fixed
 
 = 1.0.3 [21/08/2022] =
 * Variables and options escape issue fixed

@@ -299,7 +299,12 @@ class BAFE_Widget_BAFE_Call_Contact_Form extends Widget_Base {
 					<div class="close-btn">×</div>
 						<div class="custom-model-wrap">
 							<div class="pop-up-content-wrap">
-								<?php echo '[contact-form-7 id="'.__($contact_button, 'bafe').'" title="Contact Form"]'; ?>
+								<?php
+									printf(
+										'[contact-form-7 id="%1$s" title="'.__('Contact Form', 'bafe').'"]',
+										$contact_button
+									);
+								?>
 							</div>
 						</div>  
 					</div>  
